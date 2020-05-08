@@ -10,3 +10,6 @@ USI (Urban Survival Initiative) are the sponsors of this training and it's presi
 The initial classes began May 2nd, 2020 using Zoom.  You must request to be registered via messenger in order to recieve your Zoom Class ID and Password.
 
 Doing an exercise with checking in files.
+
+
+Cloning files for readme.
