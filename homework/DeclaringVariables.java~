@@ -40,22 +40,12 @@ public class DeclaringVariables {
    System.out.printf("In Chicago there are %d people in the population for every %d homes.\n",population, howManyHomes);
    return;
  }
-  
-  /*
-   * This method checks to see if the Street Lights are on.
-   * param inStreetLightsOn - value of truefalse
-   * return void
-   */
-  public void isStreetLightsOn(boolean inStreetLightsOn) { 
+  public void isStreetLightsOn(boolean inStreetLightsOn) {
   
     // If <ture> Then <false> then Else
     if( inStreetLightsOn == true) {
       System.out.printf("%b Streetlights are on.\n", inStreetLightsOn);
     } else {
-      System.out.printf("%b Streetlights are off.\n", inStreetLightsOn);
-    }
-    
-    if(inStreetLightsOn == false) {
       System.out.printf("%b Streetlights are off.\n", inStreetLightsOn);
     }
     return;
@@ -70,8 +60,9 @@ public class DeclaringVariables {
     } else if (change < 0) {
       System.out.printf("You still owe: %2.2f\n", change);
     } else {
-      System.out.printf("Thank you for purchase. No change: %2.2f, Go home!\n", change);
+      System.out.printf("No change: %2.2f\n", change);
     }
     return;
   }
+  
 }

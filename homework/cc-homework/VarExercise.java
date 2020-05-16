@@ -16,6 +16,11 @@ public class VarExercise {
       int howManyHomes = 20000;
       long population = 34000;
       dv.neighbors(howManyHomes, population);
+      boolean lightsOn = true;
+      dv.isStreetLightsOn(lightsOn);
+      lightsOn = false;
+      dv.isStreetLightsOn(lightsOn);
+      dv.isThereChange(5.45f, 5.45f);
   }   
 }
     
