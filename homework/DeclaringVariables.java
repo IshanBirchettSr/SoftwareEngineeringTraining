@@ -74,4 +74,12 @@ public class DeclaringVariables {
     }
     return;
   }
+  public void setFullName(String inFullName) {
+    
+    fullName = inFullName;
+    
+  }
+  public String getFullName() {
+    return fullName;
+  }
 }

@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
-
+/**
+ * An exercise in learning how to input data.
+ */
 public class Echo {
   public static void main(String[] args) {
     String line;
