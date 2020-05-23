@@ -1,3 +1,5 @@
+  import java.util.Scanner;
+  
 public class VarExercise {
   public static void main(String[] args) {
     byte aTown = 'C';
@@ -10,12 +12,25 @@ public class VarExercise {
     byte myTown = dv.getTown();
     System.out.printf("This is my town: %c\n", myTown);
     
+    String line;
+    Scanner in = new Scanner(System.in);
+    System.out.print("What town are you from?: "); 
+    line = in.nextLine();
+    System.out.println("This is the town i am from " + line);
+     
       short ballParks = 1000;
       float costOfSmartWater = 3.75f;
       dv.setOuttings(ballParks, costOfSmartWater);
-      int howManyHomes = 20000;
-      long population = 34000;
-      dv.neighbors(howManyHomes, population);
+      
+     System.out.print("At your local ball park, what is the price of smart water?: ");
+     line = in.nextLine(); 
+     System.out.println("Smart Water costs " + line);
+      
+    //int howManyHomes = 20000;
+     long population = 34000;
+     dv.setNeighbors( population);
+     System.out.print("How many people live in your town?: " + dv.getNeighbors());
+     line = in.nextLine(); 
   }   
 }
     
