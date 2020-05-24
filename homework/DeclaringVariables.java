@@ -1,3 +1,5 @@
+import java.lang.Thread;
+
 public class DeclaringVariables {
   /*
    * Primative Java Types
@@ -81,5 +83,22 @@ public class DeclaringVariables {
   }
   public String getFullName() {
     return fullName;
+  }
+  
+  /**
+   * This section will examine while & for loops.
+   */
+    
+  public void testTheLoop(int inValue) {
+    // While (something is true) do something.
+    int i = inValue;
+    
+    while ( i < 5 ) {
+      System.out.printf("The value of i is %d\n", i);
+      i++;
+    } 
+  }
+  public void familyMembers() {
+    
   }
 }

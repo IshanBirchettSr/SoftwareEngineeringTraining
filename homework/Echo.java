@@ -8,6 +8,10 @@ public class Echo {
     String line;
     Scanner in = new Scanner(System.in);
     int numberOfCars =0;
+    
+    /*
+     * How many cars do you have?
+     */
     System.out.println("How many cars do you own?");
     try {
       numberOfCars = in.nextInt();
@@ -17,6 +21,10 @@ public class Echo {
       System.out.print("Wrong answer:\n");
     }
     System.out.printf("You have %d cars.\n", numberOfCars);
+    
+    /*
+     * Type something.
+     */
     System.out.print("Type something: ");
     line = in.nextLine();
     System.out.println("You said: " + line);
