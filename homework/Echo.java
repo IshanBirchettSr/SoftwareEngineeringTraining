@@ -9,6 +9,12 @@ public class Echo {
     Scanner in = new Scanner(System.in);
     int numberOfCars =0;
     
+    // WhileLooping class instantiation
+    
+    WhileLooping wL = new WhileLooping();
+    
+    wL.getEmployeeId();
+    
     /*
      * How many cars do you have?
      */

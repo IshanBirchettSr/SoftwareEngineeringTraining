@@ -1,14 +1,17 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+/**
+ * 
 public class VarExercise {
+  
   public static void main(String[] args) {
     byte aTown = 'C';
     /*
      * Create a DeclaringVariable instances
      * 
     */
-    Scanner in = new Scanner(System.in);
+    //Scanner in = new Scanner(System.in);
     DeclaringVariables dv = new DeclaringVariables();
     
 
