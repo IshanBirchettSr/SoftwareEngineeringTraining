@@ -1,0 +1,8 @@
+public class Hello {
+  public static void main(String[] argus) {
+    // generate some simple output, practice HelloWorld code, compile and run
+    System.out.println("Hello, World!");
+    
+  }
+  
+}
