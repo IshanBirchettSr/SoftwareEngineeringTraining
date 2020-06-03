@@ -22,9 +22,9 @@ public class VarExercise {
       long population = 34000;
       dv.neighbors(howManyHomes, population);
       boolean lightsOn = true;
-      dv.isStreetLightsOn(lightsOn);
+      dv.isBallParkLightsOn(lightsOn);
       lightsOn = false;
-      dv.isStreetLightsOn(lightsOn);
+      dv.isBallParkLightsOn(lightsOn);
       dv.isThereChange(5.45f, 5.45f);
       
       System.out.print("Please enter your full name: ");
