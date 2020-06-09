@@ -10,7 +10,7 @@ public class PostCovidFun {
   private int howManyPlacesWillYouVisit = 5;
   private short beaches = 1;
   private boolean iWillTravel = true;
-  private byte whatTownWillYouVisit = 'C';
+  private byte town = 'C';
   private String whoWillJoinYou = "Ishan Birchett, Sr.";
   
   
