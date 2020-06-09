@@ -1,20 +1,16 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-/**
- * 
 public class VarExercise {
-  
   public static void main(String[] args) {
     byte aTown = 'C';
     /*
      * Create a DeclaringVariable instances
      * 
     */
-    //Scanner in = new Scanner(System.in);
+    // Declare variables
+    Scanner in = new Scanner(System.in);
     DeclaringVariables dv = new DeclaringVariables();
-    
-
     dv.setTown(aTown);
     byte myTown = dv.getTown();
     System.out.printf("This is my town: %c\n", myTown);
@@ -26,9 +22,9 @@ public class VarExercise {
       long population = 34000;
       dv.neighbors(howManyHomes, population);
       boolean lightsOn = true;
-      dv.isStreetLightsOn(lightsOn);
+      dv.isBallParkLightsOn(lightsOn);
       lightsOn = false;
-      dv.isStreetLightsOn(lightsOn);
+      dv.isBallParkLightsOn(lightsOn);
       dv.isThereChange(5.45f, 5.45f);
       
       System.out.print("Please enter your full name: ");
@@ -60,11 +56,7 @@ public class VarExercise {
           } catch (InputMismatchException e) {
             System.out.println("Please enter a value between 1 - 150");
           }
-          
-          System.out.print("Please enter a loop value");
-          int t = in.nextInt();
-          dv.testTheLoop(t);
-  }
+      
+  }   
 }
-
     
