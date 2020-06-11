@@ -10,7 +10,7 @@ public class Greeting {
 	public void sayGreeting() {
 		Scanner in = new Scanner(System.in);
 		System.out.printf("Welcome to %s\n", StoreConstants.STORE_NAME);
-		System.out.printf("Do you have a %s Membership Card?", StoreConstants.STORE_NAME);
+		System.out.printf("Do you have a %s Membership Card? ", StoreConstants.STORE_NAME);
 		boolean member = YesNoInput.stringToBoolean(in.next());
 		if (member == true) {
 			System.out.printf("Great! Today's discount is %d%%, Happy Shopping!!\n",
