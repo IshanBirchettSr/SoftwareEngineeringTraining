@@ -6,17 +6,14 @@
  * is for training individuals to be software engineers.
  * 
  */
-package util;
+package healthandbeauty;
+
+import util.Department;
 
 /**
  * @author ibirc
  *
  */
-public class Department {
-	private String name = null;
-	int numberOfIlses = 0;
-	int numberOfSections = 0;
-	int numberOfShelves = 0;
-	boolean samples = true;
+public class HealthAndBeautyDept extends Department {
 
 }

@@ -6,17 +6,19 @@
  * is for training individuals to be software engineers.
  * 
  */
-package util;
+package examples;
 
 /**
  * @author ibirc
  *
  */
-public class Department {
-	private String name = null;
-	int numberOfIlses = 0;
-	int numberOfSections = 0;
-	int numberOfShelves = 0;
-	boolean samples = true;
+public class Truck extends Vehicle {
+
+	/**
+	 * 
+	 */
+	public Truck() {
+		// TODO Auto-generated constructor stub
+	}
 
 }

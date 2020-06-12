@@ -6,11 +6,19 @@
  * is for training individuals to be software engineers.
  * 
  */
+package examples;
 
 /**
  * @author ibirc
  *
  */
-public class seafood {
+public class Car extends Vehicle {
+
+	/**
+	 * 
+	 */
+	public Car() {
+		System.out.println("These are the number of headlights:" + super.getHeadLights());
+	}
 
 }
