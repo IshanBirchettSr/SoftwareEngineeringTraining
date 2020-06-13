@@ -6,18 +6,15 @@
  * is for training individuals to be software engineers.
  * 
  */
-package util;
+package petcare;
+
+import util.Department;
+
 
 /**
- * @author ibirc
+ * @author chich
  *
  */
-public class Department {
-	private String name = null;
-	int numberOfIlses = 0;
-	int numberOfSections = 0;
-	int numberOfShelves = 0;
-	boolean samples = true;
-    int numberOfDisplays = 0;
-    
+public class PetCareDept extends Department {
+
 }

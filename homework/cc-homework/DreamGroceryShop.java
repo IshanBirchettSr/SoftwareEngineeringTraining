@@ -1,26 +1,26 @@
 public class DreamGroceryShop {
   
   
-  public int stock = 100;
-  public float price = 100.00f;
+
+  private int howManyInStock = 100;
+  private float pricePerUnit = 1.1f;
   
   
-  
-  public void setStock(int inValue) {
-    int setStock = inValue;
+  public void setHowManyInStock(int inValue) {
+    howManyInStock = inValue;
   
   }
-  public int getStock () {
-    return stock; 
+  public int getHowManyInStock() {
+    return howManyInStock; 
   }
   
-  public void setPrice(float inValue) {
-   float setPrice = inValue; 
+  public void setPricePerUnit(float inValue) {
+    pricePerUnit = inValue; 
     
   }
   
-  public float getPrice () {
-   return price; 
+  public float getPricePerUnit() {
+   return pricePerUnit; 
   }  
  
 }
