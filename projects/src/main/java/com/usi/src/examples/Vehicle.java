@@ -52,7 +52,7 @@ public class Vehicle {
 	/**
 	 * @return the headLights
 	 */
-	public int getHeadLights() {
+	protected int getHeadLights() {
 		return headLights;
 	}
 
