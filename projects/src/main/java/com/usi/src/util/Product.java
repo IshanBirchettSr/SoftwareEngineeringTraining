@@ -12,6 +12,8 @@ package util;
  * @author ibirc
  *
  */
-public class Product {
+public abstract class Product {
+
+	public abstract boolean loadProducts();
 
 }

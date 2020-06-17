@@ -7,7 +7,9 @@ public class SuperStore {
 	boolean status = false;
 
 	public boolean openStore() {
-		DataCsvLoad unLoadTrucks = new DataCsvLoad(StoreConstants.VEGETABLE_TRUCK);
+		DataCsvLoad unLoadTrucks = new DataCsvLoad();
+
+		unLoadTrucks.loadData(StoreConstants.VEGETABLE_TRUCK);
 
 		boolean status = false;
 		Greeting greeting = new Greeting();

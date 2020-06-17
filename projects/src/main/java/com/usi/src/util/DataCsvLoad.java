@@ -29,12 +29,13 @@ public class DataCsvLoad extends DataLoad {
 	/**
 	 * 
 	 */
-	public DataCsvLoad(String filename) {
-		loadData(filename);
+	public DataCsvLoad() {
 	}
 
-	private void loadData(String fileName) {
+	public void loadData(String fileName) {
 		Path pathToFile = Paths.get(fileName);
+		System.out.println(pathToFile.toAbsolutePath().toString());
+
 		try {
 			BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII);
 
@@ -44,6 +45,7 @@ public class DataCsvLoad extends DataLoad {
 				records.add(line);
 				line = br.readLine();
 			}
+			System.out.println("Vegetable List" + records.toString());
 
 		} catch (NoSuchFileException e) {
 			e.printStackTrace();
