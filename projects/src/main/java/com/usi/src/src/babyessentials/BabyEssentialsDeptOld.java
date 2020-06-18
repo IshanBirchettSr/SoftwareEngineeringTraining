@@ -15,6 +15,6 @@ import util.Department;
  * @author chich
  *
  */
-public class BabyEssentialsDept extends Department {
+public class BabyEssentialsDeptOld extends Department {
 
 }
