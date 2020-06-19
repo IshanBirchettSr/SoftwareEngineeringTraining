@@ -1,3 +1,8 @@
+/* Header for Baby Essentials Department| BabyEssentials.txt
+/* Name | Department | UnitOfMeasure | Barcode | Quantity | Size |
+
+
+
 Diapers
 Baby wipes
 Baby food
