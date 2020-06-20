@@ -1,3 +1,0 @@
-Monday Tuesday Wednesday Thursday Friday Saturday Sunday
-Monday1 Tuesday1 Wednesday1 Thursday1 Friday1 Saturday1 Sunday1
-Monday2 Tuesday2 Wednesday2 Thursday2 Friday2 Saturday2 Sunday2
