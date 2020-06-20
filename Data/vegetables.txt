@@ -1,3 +1,7 @@
+/* Header for Produce Department | Vegetables.txt
+/* Name | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight | Price | Color | Ingredient | Instock | Description
+/* exam 
+/* Essentia | Bottled Water | 32 oz | UUID | 24 | N/A | Essentia
 Aburana
 Acorn Squash
 Ahipa

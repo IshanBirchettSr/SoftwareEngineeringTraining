@@ -8,4 +8,8 @@ public class StoreConstants {
 	// Membership Daily Discount
 	public static final int TODAYS_MEMBER_DISCOUNT = 5;
 	public static final String VEGETABLE_TRUCK = APP_HOME + "/src/resources/vegetables.txt";
+
+	public enum DeptCodes {
+		MEAT, BABYESSENTUALS;
+	}
 }

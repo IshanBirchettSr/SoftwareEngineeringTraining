@@ -13,11 +13,95 @@ package util;
  *
  */
 public class Department {
-	private String name = null;
+	private String deptName = null;
 	int numberOfIlses = 0;
 	int numberOfSections = 0;
 	int numberOfShelves = 0;
 	boolean samples = true;
-    int numberOfDisplays = 0;
-    
+	int numberOfDisplays = 0;
+
+	/**
+	 * @return the deptName
+	 */
+	public String getDeptName() {
+		return deptName;
+	}
+
+	/**
+	 * @param deptName the deptName to set
+	 */
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+
+	/**
+	 * @return the numberOfIlses
+	 */
+	public int getNumberOfIlses() {
+		return numberOfIlses;
+	}
+
+	/**
+	 * @param numberOfIlses the numberOfIlses to set
+	 */
+	public void setNumberOfIlses(int numberOfIlses) {
+		this.numberOfIlses = numberOfIlses;
+	}
+
+	/**
+	 * @return the numberOfSections
+	 */
+	public int getNumberOfSections() {
+		return numberOfSections;
+	}
+
+	/**
+	 * @param numberOfSections the numberOfSections to set
+	 */
+	public void setNumberOfSections(int numberOfSections) {
+		this.numberOfSections = numberOfSections;
+	}
+
+	/**
+	 * @return the numberOfShelves
+	 */
+	public int getNumberOfShelves() {
+		return numberOfShelves;
+	}
+
+	/**
+	 * @param numberOfShelves the numberOfShelves to set
+	 */
+	public void setNumberOfShelves(int numberOfShelves) {
+		this.numberOfShelves = numberOfShelves;
+	}
+
+	/**
+	 * @return the samples
+	 */
+	public boolean isSamples() {
+		return samples;
+	}
+
+	/**
+	 * @param samples the samples to set
+	 */
+	public void setSamples(boolean samples) {
+		this.samples = samples;
+	}
+
+	/**
+	 * @return the numberOfDisplays
+	 */
+	public int getNumberOfDisplays() {
+		return numberOfDisplays;
+	}
+
+	/**
+	 * @param numberOfDisplays the numberOfDisplays to set
+	 */
+	public void setNumberOfDisplays(int numberOfDisplays) {
+		this.numberOfDisplays = numberOfDisplays;
+	}
+
 }
