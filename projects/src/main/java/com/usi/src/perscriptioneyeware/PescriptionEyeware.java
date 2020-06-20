@@ -1,7 +1,7 @@
 /**
  * 
  */
-package PerscriptionEyeware;
+package perscriptioneyeware;
 import util.Department;
 /**
  * @author malac

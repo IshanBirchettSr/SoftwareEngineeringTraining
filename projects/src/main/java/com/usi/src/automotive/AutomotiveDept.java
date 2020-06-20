@@ -1,4 +1,4 @@
-package Automotive;
+package automotive;
 
 import util.Department;
 

@@ -1,5 +1,5 @@
 /* Product Template for all Departments
 /* Header
-/* Name | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight | Price | Color | Ingredient | NumUnitsInstock | Description
+/* Baseline | ProductName | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight | Price | Color | Ingredient | NumUnitsInstock | Description
 /* exam 
-/* Essentia | Bottled Water | oz | UUID | 24 | 32 | Essentia | 24X32 | $1.55 | 100 | "Great tasting water for you and the family. "
+/* Essential |  | oz | UUID | 24 | 32 | Essentia | 24X32 | $1.55 | 100 | "Great tasting water for you and the family. "
