@@ -4,3 +4,7 @@
 /Product.class
 /StoreConstants.class
 /YesNoInput.class
+/NonPerishableProduct.class
+/PerishableProduct.class
+/StoreConstants$DeptCodes.class
+/StoreConstants$DeptNames.class
