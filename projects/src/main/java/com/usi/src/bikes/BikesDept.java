@@ -1,4 +1,7 @@
-package deli;
+/**
+ * 
+ */
+package bikes;
 
 import util.Department;
 
@@ -6,12 +9,12 @@ import util.Department;
  * @author Allma M. Johnson
  *
  */
-public class DeliDept extends Department {
+public class BikesDept extends Department {
 
 	/**
 	 * 
 	 */
-	public DeliDept() {
+	public BikesDept() {
 		// TODO Auto-generated constructor stub	
 	}
 	

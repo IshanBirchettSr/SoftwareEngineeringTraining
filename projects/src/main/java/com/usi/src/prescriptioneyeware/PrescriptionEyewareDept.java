@@ -1,13 +1,14 @@
-/**
- * 
- */
+
+
 package prescriptioneyeware;
+
 import util.Department;
 /**
  * @author malac
  *
  */
-public class PrescriptionEyewareDept{
+
+public class PrescriptionEyewareDept extends Department { 
 
 	/**
 	 * @param args
