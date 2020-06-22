@@ -1,4 +1,7 @@
-package automotive;
+/**
+ * 
+ */
+package plantbase;
 
 import util.Department;
 
@@ -6,13 +9,12 @@ import util.Department;
  * @author Allma M. Johnson
  *
  */
-public class AutomotiveDept extends Department {
+public class PlantBaseDept extends Department {
 
 	/**
 	 * 
 	 */
-	public AutomotiveDept() {
+	public PlantBaseDept() {
 		// TODO Auto-generated constructor stub
 	}
-	
 }

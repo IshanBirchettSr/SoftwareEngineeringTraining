@@ -1,4 +1,7 @@
-package deli;
+/**
+ * 
+ */
+package haircare;
 
 import util.Department;
 
@@ -6,13 +9,13 @@ import util.Department;
  * @author Allma M. Johnson
  *
  */
-public class DeliDept extends Department {
+
+public class HairCare extends Department {
 
 	/**
 	 * 
 	 */
-	public DeliDept() {
+	public HairCare() {
 		// TODO Auto-generated constructor stub	
 	}
-	
 }
