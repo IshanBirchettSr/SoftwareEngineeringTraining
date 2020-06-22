@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package prescriptioneyeware;
 
 import util.Department;
