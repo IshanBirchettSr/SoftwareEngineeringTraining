@@ -1,4 +1,4 @@
-/* Header for Baby Essentials Department| BabyEssentials.txt
+/*BabyEssentials.txt
 ProductName | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight | Price | Color | Ingredient | NumUnitsInstock | Description
 /*Baby Essentials/ Diapers
 /*Diapers | Baby Essentials | lbs | UUID | 192 | Size 2 | Luvs | 5lbs | $18.99 | Original | Cotton | 150 |fits 12-18lb baby
