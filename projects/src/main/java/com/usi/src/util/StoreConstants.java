@@ -19,7 +19,7 @@ public class StoreConstants {
 		/*
 		 * @param string
 		 */
-		deptNames(String string) {
+		DeptNames(String string) {
 			// TODO Auto-generated constructor stub	
 			
 		/**
@@ -53,7 +53,7 @@ public class StoreConstants {
 			// TODO Auto-generated constructor stub
 			
 			/**
-			 * "barcode(String string) {" is for a linear brocode.
+			 * "barcode(String string) {" is for a linear barcode.
 			 */
 		}
     }
@@ -106,4 +106,6 @@ public class StoreConstants {
 	    }
 	}	
 
+	}
+	
 }
