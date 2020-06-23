@@ -27,7 +27,6 @@ public class StoreConstants {
 	    // TODO Auto-generated constructor stub
 
 	}
-    }
 
     /**
      * @author Allma M. Johnson
@@ -62,7 +61,7 @@ public class StoreConstants {
 	     * "barcode(String string) {" is for a linear brocode.
 	     */
 	}
-    }
+}
 
     public static enum numberInStock {
 	AVAILABLE_STOCK("availablestock"), QUANTITY_OF_STOCK("quantityofstock"), CURRENTLY_IN_STOCK("currentlyinstock"),
@@ -113,6 +112,7 @@ public class StoreConstants {
 	    // TODO Auto-generated constructor stub
 
 	}
+}
 
 	public static enum weight {
 	    KILOGRAMS("kg"), TONS("kg"), GRAMS("g"), MACROGRAM("mg"), MICROGRAM("ug"), NANOGRAM("ng"), PICOGRAM("pg"),
@@ -122,6 +122,4 @@ public class StoreConstants {
 		// TODO Auto-generated constructor stub
 	    }
 	}
-
-    }
 }
