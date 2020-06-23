@@ -8,3 +8,11 @@
 /PerishableProduct.class
 /StoreConstants$DeptCodes.class
 /StoreConstants$DeptNames.class
+/StoreConstants$barcode.class
+/StoreConstants$color.class
+/StoreConstants$numberInStock.class
+/StoreConstants$price.class
+/StoreConstants$quantity.class
+/StoreConstants$size.class
+/StoreConstants$unitOfMeasure$weight.class
+/StoreConstants$unitOfMeasure.class
