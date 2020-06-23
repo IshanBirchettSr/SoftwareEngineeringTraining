@@ -1,1 +1,6 @@
-*Automotive
+/*Automotive.txt
+ProductName | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight | Price | Color | Ingredient | NumUnitsInstock | Description
+/*Automotive/Tires
+/*Tires | Automotive | lbs | UUID | 1 | 275/60R20 | Good Year Tires| 94lbs | $173.88 | BLACK | 100 | All season tires
+/*Tires | Automotive | lbs | UUID | 1 | 265/75R16 | Firestone | 40.30lbs | $121.37 | BLACK | 80 | Summer/ Highway terrain
+/*Tires | Automotive | lbs | UUID | 1 | 245/70R16 | Michelin | 35.19lbs | $176.34 | BLACK | 90 | All season tires
