@@ -1,8 +1,18 @@
 /*BabyEssentials.txt
-ProductName | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight | Price | Color | Ingredient | NumUnitsInstock | Description
+ProductName | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight |Type of Pricing | Price | Color/Pattern | Ingredient | NumUnitsInstock | Description
 /*Baby Essentials/ Diapers
-/*Diapers | Baby Essentials | lbs | UUID | 192 | Size 2 | Luvs | 5lbs | $18.99 | Original | Cotton | 150 |fits 12-18lb baby
-/*Diapers | Baby Essentials | lbs | UUID | 80  | Size 6 | Huggies | 3lbs | $17.99 | Mickey Mouse | Cotton | 100 | fits 25-30lb baby
+Diapers | Baby Essentials | lbs | UUID | Regular| Size 2 | Luvs | 1.2 | $7.99 | Original | Cotton | 150 |fits 12-18lb baby
+Diapers | Baby Essentials | lbs | UUID | Value | Size 2 | Luvs | 5 | $18.99 | Original | Cotton | 150 |fits 12-18lb baby
+
+
+
+
+
+
+
+
+
+Diapers | Baby Essentials | lbs | UUID | Large | Size 6 | Huggies | 3lbs | $17.99 | Mickey Mouse | Cotton | 100 | fits 25-30lb baby
 
 
 
