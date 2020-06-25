@@ -1,6 +1,5 @@
 /*BabyEssentials.txt
 ProductName | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight |Type of Pricing | Price | Color/Pattern | Ingredient | NumUnitsInstock | Description
-/*Baby Essentials/ Diapers
 Diapers | Baby Essentials | lbs | UUID | Large | Size 6 | Huggies | 3 | $17.99 | White | Cotton | 100 | fits 25-30lb baby
 Diapers | Baby Essentials | lbs | UUID | Regular| Size 2 | Luvs | 1.2 | $7.99 | White | Cotton | 150 |fits 12-18lb baby
 Diapers | Baby Essentials | lbs | UUID | Value | Size 2 | Luvs | 5 | $18.99 | White | Cotton | 150 |fits 12-18lb baby
@@ -14,6 +13,17 @@ Baby Food | Baby Essentials | oz | UUID | 2 | Stage 1 | Gerber | 2 | 3.99 | oran
 Baby Food | Baby Essentials | oz | UUID | 4 | Stage 2 | Gerber | 4 | 4.99 | beige | apple | 150 |babies 1st foods
 Baby Food | Baby Essentials | oz | UUID | 2 | Stage 3 | Beech Nut | 2 | 2.99 | beige | banana | 150 |toddlers first
 Baby Food | Baby Essentials | oz | UUID | 2 | Stage 3 | Beech Nut | 6 | 3.99 | blue | blueberry | 150 |toddlers first
+
+
+
+
+
+
+
+
+
+
+
 
 
 
