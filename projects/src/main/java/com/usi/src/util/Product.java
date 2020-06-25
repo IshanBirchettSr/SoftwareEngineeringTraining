@@ -8,7 +8,7 @@
  */
 package util;
 
-import util.StoreConstants.deptNames;
+import util.StoreConstants.DeptNames;
 
 /**
  * @author ibirc
@@ -21,7 +21,7 @@ public abstract class Product {
 	 * @return
 	 */
 	private String productName;
-	private deptNames deptEnum;
+	private DeptNames deptEnum;
 	
 
 	public abstract boolean loadProducts();

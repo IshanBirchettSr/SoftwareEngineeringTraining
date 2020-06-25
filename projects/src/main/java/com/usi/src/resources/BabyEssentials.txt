@@ -1,9 +1,19 @@
 /*BabyEssentials.txt
-ProductName | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight | Price | Color | Ingredient | NumUnitsInstock | Description
+ProductName | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight |Type of Pricing | Price | Color/Pattern | Ingredient | NumUnitsInstock | Description
 /*Baby Essentials/ Diapers
-/*Diapers | Baby Essentials | lbs | UUID | 192 | Size 2 | Luvs | 5lbs | $18.99 | Original | Cotton | 150 |fits 12-18lb baby
-/*Diapers | Baby Essentials | lbs | UUID | 80  | Size 6 | Huggies | 3lbs | $17.99 | Mickey Mouse | Cotton | 100 | fits 25-30lb baby
-
+Diapers | Baby Essentials | lbs | UUID | Large | Size 6 | Huggies | 3 | $17.99 | White | Cotton | 100 | fits 25-30lb baby
+Diapers | Baby Essentials | lbs | UUID | Regular| Size 2 | Luvs | 1.2 | $7.99 | White | Cotton | 150 |fits 12-18lb baby
+Diapers | Baby Essentials | lbs | UUID | Value | Size 2 | Luvs | 5 | $18.99 | White | Cotton | 150 |fits 12-18lb baby
+Formula | Baby Essentials | oz | UUID | Value | N/A | Enfamil | 27.4 | $37.99 | White | powder | 300 |sensitive tummy
+Formula | Baby Essentials | oz | UUID | Regular | N/A | Gerber | 12 | $18.99 | White | powder | 150 | regluar
+Formula | Baby Essentials | oz | UUID | Regular| N/A | Similac | 8 | $7.99 | White | powder | 150 | premie extra calorie
+Baby Wipes | Baby Essentials | oz | UUID | 192 | Value| Pampers | 10 | $6.99 | White | Cotton | 150 | Gentle
+Baby Wipes | Baby Essentials | oz | UUID | 40 | Regular | Huggies | 3 | $7.99 | White | Cotton | 150 |Thick
+Baby Wipes | Baby Essentials | oz | UUID | 856 | Combo pack | Huggies | 15.96 | $10.99 | White | Cotton | 150 |sensitive
+Baby Food | Baby Essentials | oz | UUID | 2 | Stage 1 | Gerber | 2 | 3.99 | orange | peach | 150 |babies 1st foods
+Baby Food | Baby Essentials | oz | UUID | 4 | Stage 2 | Gerber | 4 | 4.99 | beige | apple | 150 |babies 1st foods
+Baby Food | Baby Essentials | oz | UUID | 2 | Stage 3 | Beech Nut | 2 | 2.99 | beige | banana | 150 |toddlers first
+Baby Food | Baby Essentials | oz | UUID | 2 | Stage 3 | Beech Nut | 6 | 3.99 | blue | blueberry | 150 |toddlers first
 
 
 
