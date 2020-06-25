@@ -24,38 +24,46 @@ import java.util.List;
  */
 public class DataCsvLoad extends DataLoad {
 
-	private List<String> records = new ArrayList<>();
+    private List<String> records = new ArrayList<>();
 
-	/**
-	 * 
-	 */
-	public DataCsvLoad() {
-	}
+    /**
+     * 
+     */
+    public DataCsvLoad() {
+    }
 
-	public void loadData(String fileName) {
-		Path pathToFile = Paths.get(fileName);
-		System.out.println(pathToFile.toAbsolutePath().toString());
+    public void loadData(String fileName) {
+	Path pathToFile = Paths.get(fileName);
+	System.out.println(pathToFile.toAbsolutePath().toString());
 
-		try {
-			BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII);
+	try {
+	    BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII);
 
-			String line = br.readLine();
+	    String line;
+	    String[] fields;
 
-			while (line != null) {
-				records.add(line);
-				line = br.readLine();
-			}
-			System.out.println("Vegetable List" + records.toString());
-
-		} catch (NoSuchFileException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+	    while ((line = br.readLine()) != null) {
+		byte[] firstChar = line.getBytes();
+		if (firstChar[0] == '/') {
+		    continue;
 		}
-	}
+		records.add(line);
+		System.out.println(line);
+		fields = line.split(",");
+		System.out.println("Size of fields: " + fields.length);
 
-	public List<String> getRecords() {
-		return records;
+	    }
+	    System.out.println("Automotive List" + records.toString());
+
+	} catch (NoSuchFileException e) {
+	    e.printStackTrace();
+	} catch (IOException e) {
+	    e.printStackTrace();
 	}
+    }
+
+    public List<String> getRecords() {
+	return records;
+    }
 
 }

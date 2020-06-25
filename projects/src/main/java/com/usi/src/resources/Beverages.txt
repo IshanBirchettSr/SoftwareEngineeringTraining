@@ -1,14 +1,15 @@
-*Beverages
-ProductName | Department | UnitOfMeasure | Barcode | Quantity | Size | Brand | Weight |Type of Pricing | Price | Color/Pattern | Ingredient | NumUnitsInstock | Description
-Water | Beverages | L | UUID | 1 | N/A | Essentia | 3 | 4.99 | N/A | Water | 100 | Alkaline Water
-Water | Beverages | GAL | UUID | 1 | N/A | Poland Spring | 1 | 1.99 | N/A | Water | 150 | Spring Water
-Water | Beverages | OZ | UUID | 24 | 12oz * 24 ct | Poland Spring | 288oz | 6.99 | N/A | Water | 150 |case of Spring Water
-Water | Beverages | OZ | UUID | 6 | N/A | Aquafina | 72 | 4.99 | N/A | Water | 150 |Sport pack
-Water | Beverages | GAL | UUID | 1 | N/A | Poland Spring | 1 | 1.79 | N/A | Water | 150 |Distilled
-Water | Beverages | FL OZ | UUID | 20 | N/A | FIJI | 16.9 | 7.99 | N/A | Water | 150 | Spring Water
-Water | Beverages | FL OZ | UUID | 12 | N/A | SmartWater | 16.9 | 11.99 | N/A | Water | 150 | Vapor Distilled/ Electrolyte 
-Soda | Beverages | L | UUID | 1 | N/A | Coca Cola | 2 | 2.79 | N/A |? | 150 | Sprite 
-Soda | Beverages | L | UUID | 1 | N/A | Coca Cola | 2 | 1.79 | N/A | Water | 150 | Ginger Ale
-Soda | Beverages | L | UUID | 1 | N/A | Coca Cola | 3 | 1.79 | N/A | Water | 150 | Diet Coke 
-Soda | Beverages | OZ | UUID | 12 | N/A | Pepsi Co | 12 | 4.79 | N/A | Water | 150 | Sunkist
-Soda | Beverages | OZ | UUID | 12 | N/A | Pepsi | 12 | 4.79 | N/A | Water | 150 |Cherry Pepsi
+/*Beverages
+
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight ,Type of Pricing , Price , Color/Pattern , Ingredient , NumUnitsInstock , Description
+Water , Beverages , L , UUID , 1 , N/A , Essentia , 3 , 4.99 , N/A , Water , 100 , Alkaline Water
+Water , Beverages , GAL , UUID , 1 , N/A , Poland Spring , 1 , 1.99 , N/A , Water , 150 , Spring Water
+Water , Beverages , OZ , UUID , 24 , 12oz * 24 ct , Poland Spring , 288oz , 6.99 , N/A , Water , 150 ,case of Spring Water
+Water , Beverages , OZ , UUID , 6 , N/A , Aquafina , 72 , 4.99 , N/A , Water , 150 ,Sport pack
+Water , Beverages , GAL , UUID , 1 , N/A , Poland Spring , 1 , 1.79 , N/A , Water , 150 ,Distilled
+Water , Beverages , FL OZ , UUID , 20 , N/A , FIJI , 16.9 , 7.99 , N/A , Water , 150 , Spring Water
+Water , Beverages , FL OZ , UUID , 12 , N/A , SmartWater , 16.9 , 11.99 , N/A , Water , 150 , Vapor Distilled/ Electrolyte 
+Soda , Beverages , L , UUID , 1 , N/A , Coca Cola , 2 , 2.79 , N/A ,? , 150 , Sprite 
+Soda , Beverages , L , UUID , 1 , N/A , Coca Cola , 2 , 1.79 , N/A , Water , 150 , Ginger Ale
+Soda , Beverages , L , UUID , 1 , N/A , Coca Cola , 3 , 1.79 , N/A , Water , 150 , Diet Coke 
+Soda , Beverages , OZ , UUID , 12 , N/A , Pepsi Co , 12 , 4.79 , N/A , Water , 150 , Sunkist
+Soda , Beverages , OZ , UUID , 12 , N/A , Pepsi , 12 , 4.79 , N/A , Water , 150 ,Cherry Pepsi

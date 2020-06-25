@@ -1,31 +1,39 @@
 package customerservice;
 
-import util.DataCsvLoad;
-import util.StoreConstants;
+import automotive.AutomotiveDept;
 
 public class SuperStore {
-	boolean status = false;
+    boolean status = false;
 
-	public boolean openStore() {
-		DataCsvLoad unLoadTrucks = new DataCsvLoad();
+    public boolean openStore() {
+	Greeting greeting = new Greeting();
+	greeting.sayGreeting();
+	this.setStatus(true);
+	return status;
 
-		unLoadTrucks.loadData(StoreConstants.VEGETABLE_TRUCK);
+    }
 
-		boolean status = false;
-		Greeting greeting = new Greeting();
-		greeting.sayGreeting();
-		return status;
+    private boolean setStatus(boolean storeOpen) {
+	return status = storeOpen;
+    }
 
-	}
+    /*
+     * Here each department will be instantiated
+     */
+    private void openDepartments() {
+	AutomotiveDept ad = new AutomotiveDept();
+    }
 
-	private boolean setStatus(boolean storeOpen) {
-		return status = storeOpen;
-	}
+    public static void main(String[] args) {
 
-	public static void main(String[] args) {
-		SuperStore store = new SuperStore();
+	// Turn the lights on
+	SuperStore store = new SuperStore();
 
-		store.openStore();
-	}
+	// Open Each Department
+	store.openDepartments();
+
+	// Open Store
+	System.out.printf("Is the store ready for business? %b\n", store.openStore());
+    }
 
 }
