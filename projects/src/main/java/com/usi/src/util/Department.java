@@ -8,100 +8,117 @@
  */
 package util;
 
+import java.util.List;
+
 /**
  * @author ibirc
  *
  */
 public class Department {
-	private String deptName = null;
-	int numberOfIlses = 0;
-	int numberOfSections = 0;
-	int numberOfShelves = 0;
-	boolean samples = true;
-	int numberOfDisplays = 0;
+    private String deptName = null;
+    int numberOfIlses = 0;
+    int numberOfSections = 0;
+    int numberOfShelves = 0;
+    boolean samples = true;
+    int numberOfDisplays = 0;
+    List<String> autoRecords = null;
 
-	/**
-	 * @return the deptName
-	 */
-	public String getDeptName() {
-		return deptName;
-	}
+    /**
+     * @return the autoRecords
+     */
+    protected List<String> getAutoRecords() {
+	return autoRecords;
+    }
 
-	/**
-	 * @param deptName the deptName to set
-	 */
-	public void setDeptName(String deptName) {
-		this.deptName = deptName;
-	}
+    /**
+     * @param autoRecords the autoRecords to set
+     */
+    protected void setAutoRecords(List<String> autoRecords) {
+	this.autoRecords = autoRecords;
+    }
 
-	/**
-	 * @return the numberOfIlses
-	 */
-	public int getNumberOfIlses() {
-		return numberOfIlses;
-	}
+    /**
+     * @return the deptName
+     */
+    public String getDeptName() {
+	return deptName;
+    }
 
-	/**
-	 * @param numberOfIlses the numberOfIlses to set
-	 */
-	public void setNumberOfIlses(int numberOfIlses) {
-		this.numberOfIlses = numberOfIlses;
-	}
+    /**
+     * @param deptName the deptName to set
+     */
+    public void setDeptName(String deptName) {
+	this.deptName = deptName;
+    }
 
-	/**
-	 * @return the numberOfSections
-	 */
-	public int getNumberOfSections() {
-		return numberOfSections;
-	}
+    /**
+     * @return the numberOfIlses
+     */
+    public int getNumberOfIlses() {
+	return numberOfIlses;
+    }
 
-	/**
-	 * @param numberOfSections the numberOfSections to set
-	 */
-	public void setNumberOfSections(int numberOfSections) {
-		this.numberOfSections = numberOfSections;
-	}
+    /**
+     * @param numberOfIlses the numberOfIlses to set
+     */
+    public void setNumberOfIlses(int numberOfIlses) {
+	this.numberOfIlses = numberOfIlses;
+    }
 
-	/**
-	 * @return the numberOfShelves
-	 */
-	public int getNumberOfShelves() {
-		return numberOfShelves;
-	}
+    /**
+     * @return the numberOfSections
+     */
+    public int getNumberOfSections() {
+	return numberOfSections;
+    }
 
-	/**
-	 * @param numberOfShelves the numberOfShelves to set
-	 */
-	public void setNumberOfShelves(int numberOfShelves) {
-		this.numberOfShelves = numberOfShelves;
-	}
+    /**
+     * @param numberOfSections the numberOfSections to set
+     */
+    public void setNumberOfSections(int numberOfSections) {
+	this.numberOfSections = numberOfSections;
+    }
 
-	/**
-	 * @return the samples
-	 */
-	public boolean isSamples() {
-		return samples;
-	}
+    /**
+     * @return the numberOfShelves
+     */
+    public int getNumberOfShelves() {
+	return numberOfShelves;
+    }
 
-	/**
-	 * @param samples the samples to set
-	 */
-	public void setSamples(boolean samples) {
-		this.samples = samples;
-	}
+    /**
+     * @param numberOfShelves the numberOfShelves to set
+     */
+    public void setNumberOfShelves(int numberOfShelves) {
+	this.numberOfShelves = numberOfShelves;
+    }
 
-	/**
-	 * @return the numberOfDisplays
-	 */
-	public int getNumberOfDisplays() {
-		return numberOfDisplays;
-	}
+    /**
+     * @return the samples
+     */
+    public boolean isSamples() {
+	return samples;
+    }
 
-	/**
-	 * @param numberOfDisplays the numberOfDisplays to set
-	 */
-	public void setNumberOfDisplays(int numberOfDisplays) {
-		this.numberOfDisplays = numberOfDisplays;
-	}
+    /**
+     * @param samples the samples to set
+     */
+    public void setSamples(boolean samples) {
+	this.samples = samples;
+    }
+
+    /**
+     * @return the numberOfDisplays
+     */
+    public int getNumberOfDisplays() {
+	return numberOfDisplays;
+    }
+
+    /**
+     * @param numberOfDisplays the numberOfDisplays to set
+     */
+    public void setNumberOfDisplays(int numberOfDisplays) {
+	this.numberOfDisplays = numberOfDisplays;
+    }
 
 }
