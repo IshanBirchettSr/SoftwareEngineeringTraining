@@ -13,12 +13,12 @@ public class StoreConstants {
 	AUTOMOTIVE("automotive"), BABY_ESSENTIALS("babyessentials"), BAKERY("bakery"), BEDDING("bedding"),
 	BEVERAGES("beverages"), BIKES("bikes"), BOOKS("books"), CANNED_GOODS("cannedgoods"),
 	CLEANING_SUPPLIES("cleaningsupplies"), CLOTHES("clothes"), CUSTOMER_SERVICE("customerservice"), DAIRY("dairy"),
-	DELI("deli"), ELECTRONICS("electronics"), EXAMPLES("examples"), FRAGRANCE("fragrance"),
-	FROZEN_FOODS("frozenfoods"), GARDEN("garden"), HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"),
-	HOUSEWARES("housewares"), LINEN("linen"), LUGGAGE("luggage"), MEAT("meat"), PANTRY("pantry"),
-	PETCARE("petcare"), PHARMACY("pharmacy"), PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"),
-	RESOURCES("resources"), SEAFOOD("seafood"), SHOPPING_CART("shoppingcart"), STATIONARY("stationary"),
-	TOILETRIES("toiletries"), TOYS("toys"), TUPPERWARE("tupperware"), UTIL("util");
+	DELI("deli"), ELECTRONICS("electronics"), FRAGRANCE("fragrance"), FROZEN_FOODS("frozenfoods"), GARDEN("garden"),
+	HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"), HOUSEWARES("housewares"), LINEN("linen"),
+	LUGGAGE("luggage"), MEAT("meat"), PANTRY("pantry"), PETCARE("petcare"), PHARMACY("pharmacy"),
+	PLANTBASE("plantbase"), PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"), SEAFOOD("seafood"),
+	SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"), TOYS("toys"),
+	TUPPERWARE("tupperware");
 
 	/*
 	 * @param string
