@@ -2,6 +2,7 @@
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
 /*Automotive/Tires
 
+
 Tires , Automotive , lbs , UUID , 1 , 275/60R20 , Good Year Tires, 94 , 173.88 , BLACK , 100 , All season tires
 Tires , Automotive , lbs , UUID , 1 , 265/75R16 , Firestone , 40.30 , 121.37 , BLACK , 80 , Summer/ Highway terrain
 Tires , Automotive , lbs , UUID , 1 , 245/70R16 , Michelin , 35.19 , 176.34 , BLACK , 90 , All season tires
@@ -13,5 +14,4 @@ Transmission Fluid , Automotive , QT , UUID , 1 , N/A , Mobil , 1 , 7.88 , N/A ,
 Transmission Fluid , Automotive , QT , UUID , 1 , N/A , Castrol , 1 , 6.94 , N/A , 90 , Automatic 
 Brake Fluids , Automotive , OZ , UUID , 1 , N/A , Prestone , 1 , 20.98 , N/A , 50, Synthetic oil
 Brake Fluids , Automotive , GAL , UUID , 1 , N/A , Castrol , 1.25 , 18.76 , N/A , 25 , Synthetic oil  
-Brake Fluids , Automotive , OZ , UUID , 1 , N/A , Mobil , 5 , 22.81 , N/A , 25 , Synthetic oil for European cars             
-
+Brake Fluids , Automotive , OZ , UUID , 1 , N/A , Mobil , 5 , 22.81 , N/A , 25 , Synthetic oil for European cars
