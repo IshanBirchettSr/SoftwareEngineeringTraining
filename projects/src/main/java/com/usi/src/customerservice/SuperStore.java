@@ -22,6 +22,8 @@ public class SuperStore {
      */
     private void openDepartments() {
 	AutomotiveDept ad = new AutomotiveDept();
+	// Add yours here.
+
     }
 
     public static void main(String[] args) {

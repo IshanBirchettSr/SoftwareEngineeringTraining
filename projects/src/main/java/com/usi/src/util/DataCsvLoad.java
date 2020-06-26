@@ -43,7 +43,11 @@ public class DataCsvLoad extends DataLoad {
 	    String[] fields;
 
 	    while ((line = br.readLine()) != null) {
+		if (line.length() == 0) {
+		    continue;
+		}
 		byte[] firstChar = line.getBytes();
+
 		if (firstChar[0] == '/') {
 		    continue;
 		}

@@ -1,0 +1,11 @@
+Roxanne - Hair Care
+Allma - Linen
+Charlene - Electronics
+
+Steps
+1. Create txt file (Truck)
+2. Create Constant for  file ie, DEPARTMENT_TRUCK in StoreConstant.java
+3. Instaintiate Your Department class in openDepartments in SuperStore.java
+4. Make sure you develop your constructor like Automotive did.
+
+Help: Use Automotive.txt, AutomotiveDept.java, and StoreConstants.java as your guide.
