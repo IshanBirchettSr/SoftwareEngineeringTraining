@@ -1,4 +1,5 @@
-*Toys
+
+/* Header for Toys Department | Toys.txt
 /* Toys.txt
 /* ProductName , Department , UnitOfMeasure , Barcode , Quanity , Size , Brand , Weight , Price , Color , Ingredents , 
    NumUnitsInstock , Description
@@ -10,4 +11,3 @@ Superman , Toys , 1 , UUID , 1 , 14 in , Marvel , 14 oz , 7.99 , Multi , 4 , Mar
 Black Panther , Toys , 1 , UUID , 1 , 16 in , Marvel , 14 oz , 10.99 , Black , 4 , Marvel Superman Action Figure
 Captin America , Toys , 1 , UUID , 1 , 14 in , Marvel , 14 oz , 9.99 , Black , 4 , Marvel Superman Action Figure
 Avengers End Game Collection Set , Toys , 1 , UUID , 1 , 16 in , Marvel , 42 oz , 89.99 , Black , 4 , 11 Piece Marvel Avengers End Game Collection Action Figure Set
-The Thing , 1 , UUID , 1 , 18 in , Marvel , 18 oz , 17.99 , Brown , 4 , Marvel The Thing Action Figure
