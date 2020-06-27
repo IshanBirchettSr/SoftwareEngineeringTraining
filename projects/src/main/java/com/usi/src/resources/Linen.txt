@@ -1,1 +1,12 @@
-*Linen
+/* Linen.txt
+/* ProductName , Department , UnitOfMeasure , Barcode , Quanity , Size , Brand , Weight , Price , Color , Ingredents , 
+   NumUnitsInstock , Description
+/* Linen/Pillow Cases  
+Pillow Cases , Linen , 1 , UUID , 1 , Queen , Gustave ,  29.13in , 8.99 , White , 5 , Cotton Twin Pack Pillow Cases
+Pillow Cases , Linen , 1 , UUID , 1 , Queen , Gustave , 29.13in , 8.99 , Black , 4 , Cotton Twin Pack Pillow Cases
+Pillow Cases , Linen , 1 , UUID , 1 , Queen , Gustave , 29.13in , 8.99 , Gray , 9 , Cotton Twin Pack Pillow Cases
+Pillow Cases , Linen , 1 , UUID , 1 , Queen , Gustave , 29.13in , 8.99 , Coffee , 4 , Cotton Twin Pack Pillow Cases
+Pillow Cases , Linen , 1 , UUID , 1 , King , Gustave , 35.43in , 11.99 , Black , 8 , Cotton Twin Pack Pillow Cases
+Pillow Cases , Linen , 1 , UUID , 1 , King , Gustave , 35.43in , 11.99 , Coffee , 2 , Cotton Twin Pack Pillow Cases
+Pillow Cases , Linen , 1 , UUID , 1 , King , Gustave , 35.43in , 11.99 , Navy , 3 , Cotton Twin Pack Pillow Cases
+Pillow Cases , Linen , 1 , UUID , 1 , King , Gustave , 35.43in , 11.99 , Pink , 7 , Cotton Twin Pack Pillow Cases

@@ -1,6 +1,7 @@
 package customerservice;
 
 import automotive.AutomotiveDept;
+import linen.LinenDept;
 
 public class SuperStore {
     boolean status = false;
@@ -21,10 +22,11 @@ public class SuperStore {
      * Here each department will be instantiated
      */
     private void openDepartments() {
-	AutomotiveDept ad = new AutomotiveDept();
+	AutomotiveDept ad = new AutomotiveDept();	
+	LinenDept ld = new LinenDept();
+	
 	// Add yours here.
-
-    }
+    }   
 
     public static void main(String[] args) {
 
