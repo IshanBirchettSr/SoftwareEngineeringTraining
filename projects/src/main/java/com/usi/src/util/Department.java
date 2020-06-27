@@ -16,35 +16,32 @@ import java.util.List;
  */
 public class Department {
     private String deptName = null;
-    int numberOfIlses = 0;
-    int numberOfSections = 0;
-    int numberOfShelves = 0;
-    boolean samples = true;
-    int numberOfDisplays = 0;
-    List<String> autoRecords = null;
-	private List<String> electronicRecords;
+    private int numberOfIlses = 0;
+    private int numberOfSections = 0;
+    private int numberOfShelves = 0;
+    private boolean samples = true;
+    private int numberOfDisplays = 0;
+    private List<String> loadedRecords = null;
+
 
     /**
      * @return the autoRecords
      */
     protected List<String> getAutoRecords() {
-	return autoRecords;
+	return loadedRecords;
     }
 
     /**
-     * @param autoRecords the autoRecords to set
+     * @param inLoadedRecords the autoRecords to set
      */
-    protected void setAutoRecords(List<String> autoRecords) {
-	this.autoRecords = autoRecords;
+    protected void setLoadedRecords(List<String> inLoadedRecords) {
+	this.loadedRecords = inLoadedRecords;
     }
 
-    protected void setElectronicRecords(List<String> electronicRecords) {
-    	this.electronicRecords = electronicRecords;
-    	{
+    
     		// TODO Auto-generated method stub
     		
-    	}
-        }
+    	
     /**
      * @return the deptName
      */
