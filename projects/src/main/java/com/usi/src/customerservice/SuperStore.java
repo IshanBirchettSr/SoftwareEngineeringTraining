@@ -1,6 +1,7 @@
 package customerservice;
 
 import automotive.AutomotiveDept;
+import electronics.ElectronicsDept;
 
 public class SuperStore {
     boolean status = false;
@@ -22,6 +23,7 @@ public class SuperStore {
      */
     private void openDepartments() {
 	AutomotiveDept ad = new AutomotiveDept();
+	ElectronicsDept ed = new ElectronicsDept();
 	// Add yours here.
 
     }
