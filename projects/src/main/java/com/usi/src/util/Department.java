@@ -22,6 +22,7 @@ public class Department {
     boolean samples = true;
     int numberOfDisplays = 0;
     List<String> autoRecords = null;
+	private List<String> electronicRecords;
 
     /**
      * @return the autoRecords
@@ -37,6 +38,13 @@ public class Department {
 	this.autoRecords = autoRecords;
     }
 
+    protected void setElectronicRecords(List<String> electronicRecords) {
+    	this.electronicRecords = electronicRecords;
+    	{
+    		// TODO Auto-generated method stub
+    		
+    	}
+        }
     /**
      * @return the deptName
      */
