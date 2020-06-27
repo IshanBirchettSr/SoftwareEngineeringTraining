@@ -1,1 +1,13 @@
-*Toys
+/* Header for Toys Department | Toys.txt
+/* Name , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , NumOfUnitsInStock , Description
+/* Toys/Action Figures  
+Superman Figure , Toys , 1 , UUID , 12 , 14 in,  Marvel ,  14 oz , 10.99 , Multi , 5 , Single Plastic Non Collector
+Bat Man Figure , Toys , 1 , UUID , 14 , 14 in , Marvel , 12 oz , 12.99 , Black , 4 , Single Plastic Non Collector
+Captin America Figure , Toys , 1 , UUID , 1 , 12 in , Marvel , 13 oz , 14.99 , Multi , 9 , Single Plastic Non Collector
+Bat Girl Figure , Toys , 1 , UUID , 1 , 12 in , Marvel , 14 oz , 12.99 , Black , 4 , Single Plastic Non Collector
+Fantastic Four Thing Figure , Toys , 1 , UUID , 1 , 16 in  , Marvel , 20 oz , 17.99 , Brown , 8 , Single Plastic Non Collector
+Storm Figure , Toys , 1 , UUID , 1 , 12 in , Marvel , 14 oz , 11.99 , Black , 2 , Single Plastic Non Collector
+X-Man Figure , Toys , 1 , UUID , 1 , 10 in , Marvel , 14 oz , 11.99 , Black , 3 , Single Plastic Non Collector
+Black Panther Figure , Toys , 1 , UUID , 1 , 12 oz , Marvel , 14 oz , 11.99 , Black , 7 , Single Plastic Non Collector
+Black Panther Figure Collection Series , Toys , 2 , UUID , 12 oz , Marvel , 32 oz , 32.99 , Multi , 4 , Multi Plastic Collection Series
+X-Men Figure Collection Series , Toys , 2 , UUID , 14 , Marvel , 34 oz , 32.99 , Multi , 6 , Multi Plactic Collection Series
