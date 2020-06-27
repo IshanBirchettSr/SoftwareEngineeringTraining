@@ -22,7 +22,7 @@ public class AutomotiveDept extends Department {
 
 	unLoadTrucks.loadData(StoreConstants.AUTOMOTIVE_TRUCK);
 	List<String> autoRecords = unLoadTrucks.getRecords();
-	this.setAutoRecords(autoRecords);
+	this.setLoadedRecords(autoRecords);
 	System.out.printf("%s Department open with %d products\n", deptName, autoRecords.size());
     }
 
