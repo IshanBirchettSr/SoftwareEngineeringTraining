@@ -1,1 +1,3 @@
-*Prescription Eyeware
+/*Prescriptioneyeware.txt
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , DescriptionRa
+RayBan, Prescriptioneyeware, 1, barcode# , 1 , mens , RayBan, 2oz , 200.00 , black , na, 20, prescriptionsunglasses
