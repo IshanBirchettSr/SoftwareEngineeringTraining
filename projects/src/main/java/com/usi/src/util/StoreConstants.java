@@ -9,9 +9,10 @@ public class StoreConstants {
     public static final int TODAYS_MEMBER_DISCOUNT = 5;
     public static final String VEGETABLE_TRUCK = APP_HOME + "/src/resources/vegetables.txt";
     public static final String AUTOMOTIVE_TRUCK = APP_HOME + "/src/resources/Automotive.txt";
-    public static final String LINEN_TRUCK = APP_HOME + "src/resources/Linen.txt"; 
+    public static final String LINEN_TRUCK = APP_HOME + "src/resources/Linen.txt";
     public static final String ELECTRONICS_TRUCK = APP_HOME + "/src/resources/Electronics.txt";
-  
+    public static final String HAIR_CARE_TRUCK = APP_HOME + "/src/resources/Haircare.txt";
+
     public static enum deptNames {
 	AUTOMOTIVE("automotive"), BABY_ESSENTIALS("babyessentials"), BAKERY("bakery"), BEDDING("bedding"),
 	BEVERAGES("beverages"), BIKES("bikes"), BOOKS("books"), CANNED_GOODS("cannedgoods"),
