@@ -2,6 +2,7 @@ package customerservice;
 
 import automotive.AutomotiveDept;
 import electronics.ElectronicsDept;
+import garden.GardenDept;
 import linen.LinenDept;
 import toys.ToysDept;
 
@@ -28,6 +29,7 @@ public class SuperStore {
 	ElectronicsDept ed = new ElectronicsDept();
 	LinenDept ln = new LinenDept();
 	ToysDept td = new ToysDept();
+	GardenDept gd = new GardenDept();
 	// Add yours here.
 
     }
