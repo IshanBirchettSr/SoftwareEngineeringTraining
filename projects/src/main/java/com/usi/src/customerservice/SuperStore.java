@@ -2,7 +2,9 @@ package customerservice;
 
 import automotive.AutomotiveDept;
 import electronics.ElectronicsDept;
+import haircare.HairCareDept;
 import linen.LinenDept;
+import prescriptioneyeware.PrescriptionEyewareDept;
 
 public class SuperStore {
     boolean status = false;
@@ -26,8 +28,8 @@ public class SuperStore {
 	AutomotiveDept ad = new AutomotiveDept();
 	ElectronicsDept ed = new ElectronicsDept();
 	LinenDept ln = new LinenDept();
-	// Add yours here.
-
+	HairCareDept hd = new HairCareDept();
+    PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
     }
 
     public static void main(String[] args) {

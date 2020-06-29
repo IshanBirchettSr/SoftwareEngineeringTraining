@@ -1,20 +1,13 @@
-/**
- * 
- */
-package haircare;
+package prescriptioneyeware;
 
 import util.Product;
-
-/**
- * @author Allma M. Johnson, and Roxanne L. Earnest
- *
- */
-public class HaircareProd extends Product {
 
 	/**
 	 * 
 	 */
-	public HaircareProd() {
+public class PrescriptionEyewareProd extends Product{
+	
+	public void PrescriptioneyewareProd() {
 		// TODO Auto-generated constructor stub
 	}
 
