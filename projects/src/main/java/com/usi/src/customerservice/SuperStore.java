@@ -3,6 +3,7 @@ package customerservice;
 import automotive.AutomotiveDept;
 import electronics.ElectronicsDept;
 import linen.LinenDept;
+import toys.ToysDept;
 
 public class SuperStore {
     boolean status = false;
@@ -26,6 +27,7 @@ public class SuperStore {
 	AutomotiveDept ad = new AutomotiveDept();
 	ElectronicsDept ed = new ElectronicsDept();
 	LinenDept ln = new LinenDept();
+	ToysDept td = new ToysDept();
 	// Add yours here.
 
     }
