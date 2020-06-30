@@ -30,7 +30,7 @@ public class SuperStore {
 	    ElectronicsDept ed = new ElectronicsDept();
 	    LinenDept ln = new LinenDept();
 	    HairCareDept hd = new HairCareDept();
-      PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
+        PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
 	    ToysDept td = new ToysDept();
     }
 
