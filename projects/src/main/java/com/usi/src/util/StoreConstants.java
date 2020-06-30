@@ -14,6 +14,7 @@ public class StoreConstants {
     public static final String HAIR_CARE_TRUCK = APP_HOME + "/src/resources/Haircare.txt";
     public static final String PRESCRIPTION_EYEWARE_TRUCK = APP_HOME + "/src/resources/Prescriptioneyeware.txt";
     public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
+    public static final String GARDEN_TRUCK = APP_HOME + "/src/resources/Garden.txt";
 
     public static enum deptNames {
 	AUTOMOTIVE("automotive"), BABY_ESSENTIALS("babyessentials"), BAKERY("bakery"), BEDDING("bedding"),
