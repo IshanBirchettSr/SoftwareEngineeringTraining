@@ -15,7 +15,6 @@ import util.StoreConstants;
  */
 public class LinenDept extends Department {
     String deptName = StoreConstants.LINEN_TRUCK;
-    List<String> autoRecords = null;
 
     /**
      * 

@@ -9,10 +9,11 @@ public class StoreConstants {
     public static final int TODAYS_MEMBER_DISCOUNT = 5;
     public static final String VEGETABLE_TRUCK = APP_HOME + "/src/resources/vegetables.txt";
     public static final String AUTOMOTIVE_TRUCK = APP_HOME + "/src/resources/Automotive.txt";
-    public static final String LINEN_TRUCK = APP_HOME + "src/resources/Linen.txt";
+    public static final String LINEN_TRUCK = APP_HOME + "/src/resources/Linen.txt";
     public static final String ELECTRONICS_TRUCK = APP_HOME + "/src/resources/Electronics.txt";
     public static final String HAIR_CARE_TRUCK = APP_HOME + "/src/resources/Haircare.txt";
     public static final String PRESCRIPTION_EYEWARE_TRUCK = APP_HOME + "/src/resources/Prescriptioneyeware.txt";
+    public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
 
     public static enum deptNames {
 	AUTOMOTIVE("automotive"), BABY_ESSENTIALS("babyessentials"), BAKERY("bakery"), BEDDING("bedding"),
@@ -34,13 +35,13 @@ public class StoreConstants {
 	}
 
 	/**
-	 * @author Allma M. Johnson
+	 * @author amj
 	 *
 	 */
 
 	public static enum color {
 	    RED("red"), ORANGE("orange"), YELLOW("yellow"), GREEN("green"), BLUE("blue"), INDIGO("indigo"),
-	    VIOLET("violet");
+	    VIOLET("violet"), MULTI_COLOR("multi-color");
 
 	    color(String string) {
 		// TODO Auto-generated constructor stub
@@ -102,8 +103,8 @@ public class StoreConstants {
 	}
 
 	public static enum size {
-	    DOUBLE_EXTRA_SMALL("XXsmall"), EXTRA_SMALL("extrasmall"), SMALL("small"), MEDIUM("m"), LARGE("large"),
-	    EXTRA_LARGE("xl"), DOS_LARGE("xxl"), TRES_LARGE("xxxl"), CUATRO_LARGE("xxxxl"), CINCO_lARGE("xxxxxxl");
+	    DOUBLE_EXTRA_SMALL("xxsmall"), EXTRA_SMALL("extrasmall"), SMALL("small"), MEDIUM("m"), LARGE("large"),
+	    EXTRA_LARGE("xl"), DOS_LARGE("xxl"), TRES_LARGE("xxxl"), CUATRO_LARGE("xxxxl"), CINCO_lARGE("xxxxxl");
 
 	    size(String string) {
 		// TODO Auto-generated constructor stub

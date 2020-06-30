@@ -1,13 +1,12 @@
-
-/* Header for Toys Department | Toys.txt
-/* Toys.txt
-/* ProductName , Department , UnitOfMeasure , Barcode , Quanity , Size , Brand , Weight , Price , Color , Ingredents , 
+/* Toys
+Toys.txt
+/* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
    NumUnitsInstock , Description
-/* Toys/Action Figures and Collections  
-X-Men Collection Set , Toys , 1 , UUID , 1 , 12 in , Marvel ,  12 oz , 48.99 , Multi , 5 , Eight Piece Marvel X-Men Collection Action FigureSet
-Storm , Toys , 1 , UUID , 1 , 14 in , Marvel , 14 oz , 12.99 , Black , 4 , Marvel Storm Action Figure
-Captin Marvel , Toys , 1 , UUID , 1 , 16 in , Marvel , 14 oz , 12.99 , Black , 4 , Marvel Superman Action Figure
-Superman , Toys , 1 , UUID , 1 , 14 in , Marvel , 14 oz , 7.99 , Multi , 4 , Marvel Superman Action Figure
-Black Panther , Toys , 1 , UUID , 1 , 16 in , Marvel , 14 oz , 10.99 , Black , 4 , Marvel Superman Action Figure
-Captin America , Toys , 1 , UUID , 1 , 14 in , Marvel , 14 oz , 9.99 , Black , 4 , Marvel Superman Action Figure
-Avengers End Game Collection Set , Toys , 1 , UUID , 1 , 16 in , Marvel , 42 oz , 89.99 , Black , 4 , 11 Piece Marvel Avengers End Game Collection Action Figure Set
+/* Toys/Action Figures and Collection Sets  
+X-Men Action Figure Collection Set, Toys, n/a, UUID, 1, n/a, Mattel, oz, 48.99, n/a, n/a, 5, Eight Piece X-Men Collection Action Figure Set
+Storm Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 12.99, White, n/a, 4, Storm Action Figure
+Captain Marvel Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 12.99, Blue, n/a, 4, Captain Marvel Action Figure
+Superman Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 7.99, Blue, n/a, 4,  Superman Action Figure
+Black Panther Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 10.99, Black, n/a, 4, Black Panther Action Figure
+Captain America Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 9.99, Blue, n/a, 4, Captain America Action Figure
+Avengers End Game Action Figure Collection Set, Toys, n/a, UUID, 1, n/a, Mattel, oz, 89.99, n/a, n/a, 4, 11 Piece Avengers End Game Collection Action Figure Set

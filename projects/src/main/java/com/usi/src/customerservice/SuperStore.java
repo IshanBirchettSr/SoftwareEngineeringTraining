@@ -5,6 +5,7 @@ import electronics.ElectronicsDept;
 import haircare.HairCareDept;
 import linen.LinenDept;
 import prescriptioneyeware.PrescriptionEyewareDept;
+import toys.ToysDept;
 
 public class SuperStore {
     boolean status = false;
@@ -25,14 +26,15 @@ public class SuperStore {
      * Here each department will be instantiated
      */
     private void openDepartments() {
-	AutomotiveDept ad = new AutomotiveDept();
-	ElectronicsDept ed = new ElectronicsDept();
-	LinenDept ln = new LinenDept();
-	HairCareDept hd = new HairCareDept();
-    PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
+	    AutomotiveDept ad = new AutomotiveDept();
+	    ElectronicsDept ed = new ElectronicsDept();
+	    LinenDept ln = new LinenDept();
+	    HairCareDept hd = new HairCareDept();
+      PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
+	    ToysDept td = new ToysDept();
     }
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
 	// Turn the lights on
 	SuperStore store = new SuperStore();
