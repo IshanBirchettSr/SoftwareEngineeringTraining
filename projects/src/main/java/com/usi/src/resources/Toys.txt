@@ -1,7 +1,7 @@
 /* Toys
-Toys.txt
+/* Toys.txt
 /* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
-   NumUnitsInstock , Description
+/* NumUnitsInstock , Description
 /* Toys/Action Figures and Collection Sets  
 X-Men Action Figure Collection Set, Toys, n/a, UUID, 1, n/a, Mattel, oz, 48.99, n/a, n/a, 5, Eight Piece X-Men Collection Action Figure Set
 Storm Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 12.99, White, n/a, 4, Storm Action Figure

@@ -34,7 +34,7 @@ public class DataCsvLoad extends DataLoad {
 
     public void loadData(String fileName) {
 	Path pathToFile = Paths.get(fileName);
-	System.out.println(pathToFile.toAbsolutePath().toString());
+	// System.out.println(pathToFile.toAbsolutePath().toString());
 
 	try {
 	    BufferedReader br = Files.newBufferedReader(pathToFile, StandardCharsets.US_ASCII);
@@ -57,7 +57,7 @@ public class DataCsvLoad extends DataLoad {
 		System.out.println("Size of fields: " + fields.length);
 
 	    }
-	    System.out.println("Automotive List" + records.toString());
+	    // System.out.println("Automotive List" + records.toString());
 
 	} catch (NoSuchFileException e) {
 	    e.printStackTrace();

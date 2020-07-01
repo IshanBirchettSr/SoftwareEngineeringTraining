@@ -1,4 +1,4 @@
-*Linen
+/*Linen
 /* Linen.txt
 /* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
    NumUnitsInstock, Description

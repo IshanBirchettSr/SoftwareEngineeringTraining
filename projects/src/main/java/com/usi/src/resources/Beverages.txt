@@ -1,5 +1,4 @@
 /*Beverages
-
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight ,Type of Pricing , Price , Color/Pattern , Ingredient , NumUnitsInstock , Description
 Water , Beverages , L , UUID , 1 , N/A , Essentia , 3 , 4.99 , N/A , Water , 100 , Alkaline Water
 Water , Beverages , GAL , UUID , 1 , N/A , Poland Spring , 1 , 1.99 , N/A , Water , 150 , Spring Water

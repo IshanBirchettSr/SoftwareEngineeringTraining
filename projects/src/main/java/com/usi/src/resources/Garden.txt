@@ -1,4 +1,4 @@
-*Garden
+/*Garden
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
 Garden Planters , Garden , lbs , UUID , 1 , 15 GAL , Willstar , 20 , 10.25 , Black , Plastic , 32 , holds 15 gallons of soil Raised Plant Bed Garden Flower Planter Vegetable Box
 Garden Planters , Garden , lbs , UUID , 1 , 50 GAL , Willstar , 30 , 14.25 , Black , Plastic , 20 , holds 50 gallons of soil Raised Plant Bed Garden Flower Planter Vegetable Box

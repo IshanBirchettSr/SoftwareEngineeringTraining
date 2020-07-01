@@ -1,4 +1,4 @@
-*/Electronics
+/*Electronics
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
 Ipad , Electronics , lbs , UUID , 1 , 10.2 inch screen , Apple , 1.06 , 279.00 , Gray , Metal , 500 , 32 GB Memory/0 GB Ram/7th Genereation
 Ipad Air , Electronics , oz , UUID , 1 , 10.5 inch screen , Apple , 28.16 , 469.00 , Gold , Metal , 350 , 64 GB Memory/0 GB Ram 

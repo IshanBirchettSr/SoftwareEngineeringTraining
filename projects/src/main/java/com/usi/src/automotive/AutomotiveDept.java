@@ -19,7 +19,6 @@ public class AutomotiveDept extends Department {
      */
     public AutomotiveDept() {
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-
 	unLoadTrucks.loadData(StoreConstants.AUTOMOTIVE_TRUCK);
 	List<String> autoRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(autoRecords);

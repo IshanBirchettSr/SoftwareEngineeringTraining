@@ -23,11 +23,10 @@ public class Department {
     private int numberOfDisplays = 0;
     private List<String> loadedRecords = null;
 
-
     /**
      * @return the autoRecords
      */
-    protected List<String> getAutoRecords() {
+    protected List<String> getLoadedRecords() {
 	return loadedRecords;
     }
 
@@ -38,10 +37,8 @@ public class Department {
 	this.loadedRecords = inLoadedRecords;
     }
 
-    
-    		// TODO Auto-generated method stub
-    		
-    	
+    // TODO Auto-generated method stub
+
     /**
      * @return the deptName
      */
