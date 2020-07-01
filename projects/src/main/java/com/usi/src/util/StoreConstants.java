@@ -1,12 +1,26 @@
 package util;
 
 public class StoreConstants {
+    /**
+     * @author ibirc
+     *
+     */
+
+    // Software Development Company Name
+    public static final String SDCN = "usi";
     // Store Name
     public static final String STORE_NAME = "Shoppers Super Store";
     public static final String APP_HOME = "C:/usi-git/SoftwareEngineeringTraining/projects/src/main/java/com/usi";
 
     // Membership Daily Discount
     public static final int TODAYS_MEMBER_DISCOUNT = 5;
+
+    // USI Product Key Unique Identifier Formatter
+    // The following format string consist of the following parameters:
+    // SDNC + Department Enum + Band Name + Product Name + Weight + Color Enum
+    public static final String PROD_KEY_FORMATTER = SDCN + "::%s:%s:%s:%s";
+
+    // Truck Constants for importing department records
     public static final String VEGETABLE_TRUCK = APP_HOME + "/src/resources/vegetables.txt";
     public static final String AUTOMOTIVE_TRUCK = APP_HOME + "/src/resources/Automotive.txt";
     public static final String LINEN_TRUCK = APP_HOME + "/src/resources/Linen.txt";
@@ -34,101 +48,100 @@ public class StoreConstants {
 	    // TODO Auto-generated constructor stub
 
 	}
+    }
+
+    /**
+     * @author amj
+     *
+     */
+
+    public static enum color {
+	RED("red"), ORANGE("orange"), YELLOW("yellow"), GREEN("green"), BLUE("blue"), INDIGO("indigo"),
+	VIOLET("violet"), MULTI_COLOR("multi-color");
+
+	color(String string) {
+	    // TODO Auto-generated constructor stub
+	}
+    }
+
+    public static enum barcode {
+	CODE_139("code139"), CODE_128_A("code128a"), CODE128_B("code128b"), GS1_128("gs1-128"), UPCA("upca"),
+	UPCE("upce"), EAN13("ean13"), EAN8("ean8");
 
 	/**
-	 * @author amj
-	 *
+	 * Unable to add a QR code, they are not accepted in Eclipse.
 	 */
 
-	public static enum color {
-	    RED("red"), ORANGE("orange"), YELLOW("yellow"), GREEN("green"), BLUE("blue"), INDIGO("indigo"),
-	    VIOLET("violet"), MULTI_COLOR("multi-color");
-
-	    color(String string) {
-		// TODO Auto-generated constructor stub
-	    }
+	barcode() {
+	    // TODO Auto-generated constructor stub
 	}
 
-	public static enum barcode {
-	    CODE_139("code139"), CODE_128_A("code128a"), CODE128_B("code128b"), GS1_128("gs1-128"), UPCA("upca"),
-	    UPCE("upce"), EAN13("ean13"), EAN8("ean8");
+	barcode(String string) {
+	    // TODO Auto-generated constructor stub
 
 	    /**
-	     * Unable to add a QR code, they are not accepted in Eclipse.
+	     * "barcode(String string) {" is for a linear brocode.
 	     */
-
-	    barcode() {
-		// TODO Auto-generated constructor stub
-	    }
-
-	    barcode(String string) {
-		// TODO Auto-generated constructor stub
-
-		/**
-		 * "barcode(String string) {" is for a linear brocode.
-		 */
-	    }
 	}
+    }
 
-	public static enum numberInStock {
-	    AVAILABLE_STOCK("availablestock"), QUANTITY_OF_STOCK("quantityofstock"),
-	    CURRENTLY_IN_STOCK("currentlyinstock"), LIMITED_STOCK("limitedstock"),
-	    ON_DISPLAY_TO_ORDER("ondisplaytoorder"), OUT_OF_STOCK("outofstock"),
-	    REAL_TIME_INVENTORY("realtimeinventory"), ORDERED("ordered"), EXPECTED_IN_STOCK_DATE("expectedinstockdate"),
-	    QUANTITIES_OF_10_OR_LESS("quantitiesof10orless");
+    public static enum numberInStock {
+	AVAILABLE_STOCK("availablestock"), QUANTITY_OF_STOCK("quantityofstock"), CURRENTLY_IN_STOCK("currentlyinstock"),
+	LIMITED_STOCK("limitedstock"), ON_DISPLAY_TO_ORDER("ondisplaytoorder"), OUT_OF_STOCK("outofstock"),
+	REAL_TIME_INVENTORY("realtimeinventory"), ORDERED("ordered"), EXPECTED_IN_STOCK_DATE("expectedinstockdate"),
+	QUANTITIES_OF_10_OR_LESS("quantitiesof10orless");
 
-	    numberInStock(String string) {
-		// TODO Auto-generated constructor stub
-	    }
+	numberInStock(String string) {
+	    // TODO Auto-generated constructor stub
 	}
+    }
 
-	public static enum price {
-	    BUNDLE_BULK("bundlebulk"), SLIDING_PRICE("slidingprice"), FLAT_PRICING("flatpricing"),
-	    PRICE_POINTS("pricepoints"), DISCOUNTED_PRICE("discountedprice"), METERED_PRICE("meteredprice"),
-	    LINE_PRICING("linepricing"), PSYCHOLOGICAL_PRICING("psychologicalpricing"),
-	    CUSTOMARY_PRICE("customaryprice"), VARIABLE_PRICE("variableprice"), RECURRING_PRICE("recurringprice"),
-	    MULTIDEMENTIONAL_PRICE("multidementionalprice"), CONTENGNACY_PRICE("contengnacyprice"),
-	    NEGOTIATED_PRICE("negotiatedprice");
+    public static enum price {
+	BUNDLE_BULK("bundlebulk"), SLIDING_PRICE("slidingprice"), FLAT_PRICING("flatpricing"),
+	PRICE_POINTS("pricepoints"), DISCOUNTED_PRICE("discountedprice"), METERED_PRICE("meteredprice"),
+	LINE_PRICING("linepricing"), PSYCHOLOGICAL_PRICING("psychologicalpricing"), CUSTOMARY_PRICE("customaryprice"),
+	VARIABLE_PRICE("variableprice"), RECURRING_PRICE("recurringprice"),
+	MULTIDEMENTIONAL_PRICE("multidementionalprice"), CONTENGNACY_PRICE("contengnacyprice"),
+	NEGOTIATED_PRICE("negotiatedprice");
 
-	    price(String string) {
-		// TODO Auto-generated constructor stub
-	    }
+	price(String string) {
+	    // TODO Auto-generated constructor stub
 	}
+    }
 
-	public static enum quantity {
-	    ONE_TO_ONE_HUNDRED_THOUSAND("1-100,000");
+    public static enum quantity {
+	ONE_TO_ONE_HUNDRED_THOUSAND("1-100,000");
 
-	    quantity(String string) {
-		// TODO Auto-generated constructor stub
-	    }
+	quantity(String string) {
+	    // TODO Auto-generated constructor stub
 	}
+    }
 
-	public static enum size {
-	    DOUBLE_EXTRA_SMALL("xxsmall"), EXTRA_SMALL("extrasmall"), SMALL("small"), MEDIUM("m"), LARGE("large"),
-	    EXTRA_LARGE("xl"), DOS_LARGE("xxl"), TRES_LARGE("xxxl"), CUATRO_LARGE("xxxxl"), CINCO_lARGE("xxxxxl");
+    public static enum size {
+	DOUBLE_EXTRA_SMALL("xxsmall"), EXTRA_SMALL("extrasmall"), SMALL("small"), MEDIUM("m"), LARGE("large"),
+	EXTRA_LARGE("xl"), DOS_LARGE("xxl"), TRES_LARGE("xxxl"), CUATRO_LARGE("xxxxl"), CINCO_lARGE("xxxxxl");
 
-	    size(String string) {
-		// TODO Auto-generated constructor stub
-	    }
+	size(String string) {
+	    // TODO Auto-generated constructor stub
 	}
+    }
 
-	public static enum unitOfMeasure {
-	    POUNDS("lbs"), GRAMS("grams"), KILOGRAMS("kg"), MILIGRAMS("mg"), OUNCES("oz"), GALLONS("gal"),
-	    FLUID_OUNCES("floz"), CUP("c"), PINTS("pts"), QUARTS("qts"), MILILITER("mil"), LITER("ltr"), TONS("tn");
+    public static enum unitOfMeasure {
+	POUNDS("lbs"), GRAMS("grams"), KILOGRAMS("kg"), MILIGRAMS("mg"), OUNCES("oz"), GALLONS("gal"),
+	FLUID_OUNCES("floz"), CUP("c"), PINTS("pts"), QUARTS("qts"), MILILITER("mil"), LITER("ltr"), TONS("tn");
 
-	    unitOfMeasure(String string) {
-		// TODO Auto-generated constructor stub
+	unitOfMeasure(String string) {
+	    // TODO Auto-generated constructor stub
 
-	    }
 	}
+    }
 
-	public static enum weight {
-	    KILOGRAMS("kg"), TONS("kg"), GRAMS("g"), MACROGRAM("mg"), MICROGRAM("ug"), NANOGRAM("ng"), PICOGRAM("pg"),
-	    UK_TON("ukton");
+    public static enum weight {
+	KILOGRAMS("kg"), TONS("kg"), GRAMS("g"), MACROGRAM("mg"), MICROGRAM("ug"), NANOGRAM("ng"), PICOGRAM("pg"),
+	UK_TON("ukton");
 
-	    weight(String string) {
-		// TODO Auto-generated constructor stub
-	    }
+	weight(String string) {
+	    // TODO Auto-generated constructor stub
 	}
     }
 }

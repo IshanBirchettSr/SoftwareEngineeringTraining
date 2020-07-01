@@ -12,7 +12,7 @@ public class PrescriptionEyewareProd extends Product{
 	}
 
 	@Override
-	public boolean loadProducts() {
+	public boolean loadProductRecord(String record) {
 		// TODO Auto-generated method stub
 		return false;
 	}

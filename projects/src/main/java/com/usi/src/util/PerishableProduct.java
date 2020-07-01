@@ -16,19 +16,19 @@ import java.util.Date;
  */
 public class PerishableProduct extends Product {
 
-	/**
-	 * Data Members
-	 */
-	private Date experationDate;
+    /**
+     * Data Members
+     */
+    private Date experationDate;
 
-	public PerishableProduct() {
-		// TODO Auto-generated constructor stub
-	}
+    public PerishableProduct() {
+	// TODO Auto-generated constructor stub
+    }
 
-	@Override
-	public boolean loadProducts() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean loadProductRecord(String record) {
+	// TODO Auto-generated method stub
+	return false;
+    }
 
 }
