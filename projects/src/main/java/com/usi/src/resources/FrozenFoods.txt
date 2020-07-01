@@ -1,1 +1,8 @@
-/*Frozen foods
+/*frozenfoods
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+Birdseye, frozenfoods, oz, UUID, 1, n/a, Birdseye, 10.8oz, 2.39, n/a, broccoli, 20, Steamfresh Broccoli
+Eggo, frozenfood, ct, UUID, 10, n/a, Kelloggs, n/a, 2.79, n/a, waffle, 20, Frozen Waffles
+Breaded Chicken tenders, frozenfood, lb, UUID, 1, n/a, Perdue, 1.81lb, 6.99, n/a, chicken, 15, breaded chicken cutlets
+Ellios, frozenfood, oz., UUID, 2, n/a, Ellios, 18.3oz, 3.29, n/a, pizza, 25, frozen pizza
+Veggiebugers. frozenfood, oz, UUID, 1, n/a, Morning Star, 10oz, 3.39, n/a, veggie, grilled veggie burgers
+/*frozenfoods/ 
