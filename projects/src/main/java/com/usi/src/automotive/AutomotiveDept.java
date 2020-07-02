@@ -1,5 +1,6 @@
 package automotive;
 
+import java.util.HashMap;
 import java.util.List;
 
 import util.DataCsvLoad;
@@ -12,7 +13,8 @@ import util.StoreConstants;
  */
 public class AutomotiveDept extends Department {
     String deptName = StoreConstants.deptNames.AUTOMOTIVE.name();
-    List<String> autoRecords = null;
+    // HashMap<K, V> to hold AutomotiveProd objects.
+    HashMap<String, AutomotiveProd> autoProducts;
 
     /**
      * 
@@ -22,7 +24,14 @@ public class AutomotiveDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.AUTOMOTIVE_TRUCK);
 	List<String> autoRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(autoRecords);
-	System.out.printf("%s Department open with %d products\n", deptName, autoRecords.size());
+	System.out.printf("%s Department open with %d records\n", deptName, autoRecords.size());
+	autoProducts = new HashMap<String, AutomotiveProd>();
+    }
+
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
     }
 
 }

@@ -8,10 +8,26 @@
  */
 package pharmacy;
 
+import util.Department;
+
 /**
  * @author ibirc
  *
  */
-public class PharmacyDept {
+public class PharmacyDept extends Department {
+
+    /**
+     * 
+     */
+    public PharmacyDept() {
+	super();
+	// TODO Auto-generated constructor stub
+    }
+
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
 
 }

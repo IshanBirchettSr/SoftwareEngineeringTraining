@@ -16,4 +16,10 @@ import util.Department;
  */
 public class MeatDept extends Department {
 
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
 }

@@ -3,9 +3,6 @@
  */
 package bikes;
 
-import java.awt.List;
-
-import util.DataCsvLoad;
 import util.Department;
 
 /**
@@ -14,11 +11,17 @@ import util.Department;
  */
 public class BikesDept extends Department {
 
-	/**
-	 * 
-	 */
-	public BikesDept() {
-		// TODO Auto-generated constructor stub	
-	}
-	
+    /**
+     * 
+     */
+    public BikesDept() {
+	// TODO Auto-generated constructor stub
+    }
+
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
 }

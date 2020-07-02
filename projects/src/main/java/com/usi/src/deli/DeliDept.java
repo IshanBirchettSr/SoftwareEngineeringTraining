@@ -1,8 +1,5 @@
 package deli;
 
-import java.awt.List;
-
-import util.DataCsvLoad;
 import util.Department;
 
 /**
@@ -11,11 +8,17 @@ import util.Department;
  */
 public class DeliDept extends Department {
 
-	/**
-	 * 
-	 */
-	public DeliDept() {
-		// TODO Auto-generated constructor stub	
-	}
-	
+    /**
+     * 
+     */
+    public DeliDept() {
+	// TODO Auto-generated constructor stub
+    }
+
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
 }

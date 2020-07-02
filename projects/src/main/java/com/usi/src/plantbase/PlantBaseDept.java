@@ -11,10 +11,16 @@ import util.Department;
  */
 public class PlantBaseDept extends Department {
 
-	/**
-	 * 
-	 */
-	public PlantBaseDept() {
-		// TODO Auto-generated constructor stub
-	}
+    /**
+     * 
+     */
+    public PlantBaseDept() {
+	// TODO Auto-generated constructor stub
+    }
+
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
 }

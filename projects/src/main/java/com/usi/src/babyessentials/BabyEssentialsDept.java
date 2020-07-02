@@ -10,11 +10,16 @@ package babyessentials;
 
 import util.Department;
 
-
 /**
  * @author chich
  *
  */
 public class BabyEssentialsDept extends Department {
+
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
 
 }

@@ -33,4 +33,10 @@ public class GardenDept extends Department {
 	this.setLoadedRecords(gardenRecords);
 	System.out.printf("%s Department open with %d products\n", deptName, gardenRecords.size());
     }
+
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
 }

@@ -5,55 +5,60 @@ package housewares;
 
 import util.Department;
 
-
 /**
  * @author Allma M. Johnson
  *
  */
 public class Kitchen extends Department {
-	
-	private int numberOfCoffeeMakers = 3;
-	private int numberOfHandMixers = 2;
-	private int numberOfSpatulas = 4;
-	private boolean hasSkillets = true;
 
-	/**
-	 * 
-	 */
-	public Kitchen() {
-		
-	}
+    private int numberOfCoffeeMakers = 3;
+    private int numberOfHandMixers = 2;
+    private int numberOfSpatulas = 4;
+    private boolean hasSkillets = true;
 
-	public int getNumberOfCoffeeMakers() {
-		return numberOfCoffeeMakers;
-	}
+    /**
+     * 
+     */
+    public Kitchen() {
 
-	public void setNumberOfCoffeeMakers(int numberOfCoffeeMakers) {
-		this.numberOfCoffeeMakers = numberOfCoffeeMakers;
-	}
+    }
 
-	public int getNumberOfHandMixers() {
-		return numberOfHandMixers;
-	}
+    public int getNumberOfCoffeeMakers() {
+	return numberOfCoffeeMakers;
+    }
 
-	public void setNumberOfHandMixers(int numberOfHandMixers) {
-		this.numberOfHandMixers = numberOfHandMixers;
-	}
+    public void setNumberOfCoffeeMakers(int numberOfCoffeeMakers) {
+	this.numberOfCoffeeMakers = numberOfCoffeeMakers;
+    }
 
-	public int getNumberOfSpatulas() {
-		return numberOfSpatulas;
-	}
+    public int getNumberOfHandMixers() {
+	return numberOfHandMixers;
+    }
 
-	public void setNumberOfSpatulas(int numberOfSpatulas) {
-		this.numberOfSpatulas = numberOfSpatulas;
-	}
+    public void setNumberOfHandMixers(int numberOfHandMixers) {
+	this.numberOfHandMixers = numberOfHandMixers;
+    }
 
-	public boolean isHasSkillets() {
-		return hasSkillets;
-	}
+    public int getNumberOfSpatulas() {
+	return numberOfSpatulas;
+    }
 
-	public void setHasSkillets(boolean hasSkillets) {
-		this.hasSkillets = hasSkillets;
-	}
+    public void setNumberOfSpatulas(int numberOfSpatulas) {
+	this.numberOfSpatulas = numberOfSpatulas;
+    }
+
+    public boolean isHasSkillets() {
+	return hasSkillets;
+    }
+
+    public void setHasSkillets(boolean hasSkillets) {
+	this.hasSkillets = hasSkillets;
+    }
+
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
 
 }

@@ -19,31 +19,33 @@ import util.StoreConstants;
  *
  */
 public class ElectronicsDept extends Department {
-	String deptName = StoreConstants.deptNames.ELECTRONICS.name();
-	/**
-	 * 
-	 */
-	public ElectronicsDept() {
-		// TODO Auto-generated constructor stub
-		DataCsvLoad unLoadTrucks = new DataCsvLoad();
+    String deptName = StoreConstants.deptNames.ELECTRONICS.name();
 
-		unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
-		List<String> electronicRecords = unLoadTrucks.getRecords();
-		this.setLoadedRecords(electronicRecords);
-		System.out.printf("%s Department open with %d products\n", deptName, electronicRecords.size());
-	}
-	
-		// TODO Auto-generated method stub
-		
-	}
-	
-		// TODO Auto-generated method stub
-		
-	
+    /**
+     * 
+     */
+    public ElectronicsDept() {
+	// TODO Auto-generated constructor stub
+	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 
-	/**
-	 * @param args
-	 */
-	
+	unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
+	List<String> electronicRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(electronicRecords);
+	System.out.printf("%s Department open with %d products\n", deptName, electronicRecords.size());
+    }
 
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
 
+    // TODO Auto-generated method stub
+
+}
+
+// TODO Auto-generated method stub
+
+/**
+ * @param args
+ */

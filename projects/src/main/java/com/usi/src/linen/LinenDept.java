@@ -28,4 +28,10 @@ public class LinenDept extends Department {
 	System.out.printf("%s Department open with %d products\n", deptName, loadedRecords.size());
     }
 
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
+
 }

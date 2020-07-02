@@ -30,4 +30,10 @@ public class HairCareDept extends Department {
 												      // Auto-generated
 	// constructor stub
     }
+
+    @Override
+    protected int loadProduct() {
+	// TODO Auto-generated method stub
+	return 0;
+    }
 }

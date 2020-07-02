@@ -9,7 +9,7 @@ import util.Department;
  * @author Allma M. Johnson
  *
  */
-public class Sheets extends Department {
+public class BeddingDept extends Department {
 	
 	private int numberOfFittedSheets = 5;
 	private int numberOfFlatSheets = 4;
@@ -96,8 +96,14 @@ public class Sheets extends Department {
 	/**
 	 * 
 	 */
-	public Sheets() {
+	public BeddingDept() {
 		
+	}
+
+	@Override
+	protected int loadProduct() {
+	    // TODO Auto-generated method stub
+	    return 0;
 	}
 
 }

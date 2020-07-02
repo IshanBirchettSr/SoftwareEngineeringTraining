@@ -14,7 +14,7 @@ import java.util.List;
  * @author ibirc
  *
  */
-public class Department {
+public abstract class Department {
     private String deptName = null;
     private int numberOfIlses = 0;
     private int numberOfSections = 0;
@@ -122,5 +122,7 @@ public class Department {
     public void setNumberOfDisplays(int numberOfDisplays) {
 	this.numberOfDisplays = numberOfDisplays;
     }
+
+    protected abstract int loadProduct();
 
 }
