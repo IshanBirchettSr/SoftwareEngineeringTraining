@@ -7,7 +7,7 @@ import util.StoreConstants;
 
 public class FrozenFoodsDept extends Department {
 	String deptName = StoreConstants.deptNames.FROZEN_FOODS.name();
-    List<String> autoRecords = null;
+    
     
     /**
      * @return 
