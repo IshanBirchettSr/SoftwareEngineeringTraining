@@ -15,7 +15,9 @@ package util;
 public class ProdKeyGen {
     static String key = null;
 
+    // Example of Polymorphism - "is-a" relationships on Product.
     public static String genKey(Product inProd) {
+	key = null;
 	if (inProd != null) {
 	    key = String.format(StoreConstants.PROD_KEY_FORMATTER, inProd.getDeptNameEnum(), inProd.getBandName(),
 		    inProd.getProductName(), inProd.getWeightEnum(), inProd.getColorEnum());

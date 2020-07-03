@@ -19,9 +19,9 @@ public class FurnitureDept extends Department {
     }
 
     @Override
-    protected int loadProduct() {
+    protected void loadProducts() {
 	// TODO Auto-generated method stub
-	return 0;
+
     }
 
 }

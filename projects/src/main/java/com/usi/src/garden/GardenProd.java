@@ -10,7 +10,7 @@ import util.Product;
 public class GardenProd extends Product {
 
     @Override
-    public boolean loadProductRecord(String record) {
+    public boolean recordToProduct(String record) {
 	// TODO Auto-generated method stub
 	return false;
     }

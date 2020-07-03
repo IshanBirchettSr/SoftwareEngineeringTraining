@@ -10,100 +10,99 @@ import util.Department;
  *
  */
 public class BeddingDept extends Department {
-	
-	private int numberOfFittedSheets = 5;
-	private int numberOfFlatSheets = 4;
-	private int numberOfPillowCases = 6;
-	private int numberOfTwinFittedSheets = 3;
-	private int numberOfTwinFlatSheets = 4;
-	private int numberOfFullFittedSheets = 3;
-	private int numberOfKingFlatSheets = 6;
-	private boolean hasAllSheetSizes = false;
-	private boolean hasSheetsInStock = true;
-			
-	public int getNumberOfFittedSheets() {
-		return numberOfFittedSheets;
-	}
 
-	public void setNumberOfFittedSheets(int numberOfFittedSheets) {
-		this.numberOfFittedSheets = numberOfFittedSheets;
-	}
+    private int numberOfFittedSheets = 5;
+    private int numberOfFlatSheets = 4;
+    private int numberOfPillowCases = 6;
+    private int numberOfTwinFittedSheets = 3;
+    private int numberOfTwinFlatSheets = 4;
+    private int numberOfFullFittedSheets = 3;
+    private int numberOfKingFlatSheets = 6;
+    private boolean hasAllSheetSizes = false;
+    private boolean hasSheetsInStock = true;
 
-	public int getNumberOfFlatSheets() {
-		return numberOfFlatSheets;
-	}
+    public int getNumberOfFittedSheets() {
+	return numberOfFittedSheets;
+    }
 
-	public void setNumberOfFlatSheets(int numberOfFlatSheets) {
-		this.numberOfFlatSheets = numberOfFlatSheets;
-	}
+    public void setNumberOfFittedSheets(int numberOfFittedSheets) {
+	this.numberOfFittedSheets = numberOfFittedSheets;
+    }
 
-	public int getNumberOfPillowCases() {
-		return numberOfPillowCases;
-	}
+    public int getNumberOfFlatSheets() {
+	return numberOfFlatSheets;
+    }
 
-	public void setNumberOfPillowCases(int numberOfPillowCases) {
-		this.numberOfPillowCases = numberOfPillowCases;
-	}
+    public void setNumberOfFlatSheets(int numberOfFlatSheets) {
+	this.numberOfFlatSheets = numberOfFlatSheets;
+    }
 
-	public int getNumberOfTwinFittedSheets() {
-		return numberOfTwinFittedSheets;
-	}
+    public int getNumberOfPillowCases() {
+	return numberOfPillowCases;
+    }
 
-	public void setNumberOfTwinFittedSheets(int numberOfTwinFittedSheets) {
-		this.numberOfTwinFittedSheets = numberOfTwinFittedSheets;
-	}
+    public void setNumberOfPillowCases(int numberOfPillowCases) {
+	this.numberOfPillowCases = numberOfPillowCases;
+    }
 
-	public int getNumberOfTwinFlatSheets() {
-		return numberOfTwinFlatSheets;
-	}
+    public int getNumberOfTwinFittedSheets() {
+	return numberOfTwinFittedSheets;
+    }
 
-	public void setNumberOfTwinFlatSheets(int numberOfTwinFlatSheets) {
-		this.numberOfTwinFlatSheets = numberOfTwinFlatSheets;
-	}
+    public void setNumberOfTwinFittedSheets(int numberOfTwinFittedSheets) {
+	this.numberOfTwinFittedSheets = numberOfTwinFittedSheets;
+    }
 
-	public int getNumberOfFullFittedSheets() {
-		return numberOfFullFittedSheets;
-	}
+    public int getNumberOfTwinFlatSheets() {
+	return numberOfTwinFlatSheets;
+    }
 
-	public void setNumberOfFullFittedSheets(int numberOfFullFittedSheets) {
-		this.numberOfFullFittedSheets = numberOfFullFittedSheets;
-	}
+    public void setNumberOfTwinFlatSheets(int numberOfTwinFlatSheets) {
+	this.numberOfTwinFlatSheets = numberOfTwinFlatSheets;
+    }
 
-	public int getNumberOfKingFlatSheets() {
-		return numberOfKingFlatSheets;
-	}
+    public int getNumberOfFullFittedSheets() {
+	return numberOfFullFittedSheets;
+    }
 
-	public void setNumberOfKingFlatSheets(int numberOfKingFlatSheets) {
-		this.numberOfKingFlatSheets = numberOfKingFlatSheets;
-	}
+    public void setNumberOfFullFittedSheets(int numberOfFullFittedSheets) {
+	this.numberOfFullFittedSheets = numberOfFullFittedSheets;
+    }
 
-	public boolean isHasAllSheetSizes() {
-		return hasAllSheetSizes;
-	}
+    public int getNumberOfKingFlatSheets() {
+	return numberOfKingFlatSheets;
+    }
 
-	public void setHasAllSheetSizes(boolean hasAllSheetSizes) {
-		this.hasAllSheetSizes = hasAllSheetSizes;
-	}
+    public void setNumberOfKingFlatSheets(int numberOfKingFlatSheets) {
+	this.numberOfKingFlatSheets = numberOfKingFlatSheets;
+    }
 
-	public boolean isHasSheetsInStock() {
-		return hasSheetsInStock;
-	}
+    public boolean isHasAllSheetSizes() {
+	return hasAllSheetSizes;
+    }
 
-	public void setHasSheetsInStock(boolean hasSheetsInStock) {
-		this.hasSheetsInStock = hasSheetsInStock;
-	}
+    public void setHasAllSheetSizes(boolean hasAllSheetSizes) {
+	this.hasAllSheetSizes = hasAllSheetSizes;
+    }
 
-	/**
-	 * 
-	 */
-	public BeddingDept() {
-		
-	}
+    public boolean isHasSheetsInStock() {
+	return hasSheetsInStock;
+    }
 
-	@Override
-	protected int loadProduct() {
-	    // TODO Auto-generated method stub
-	    return 0;
-	}
+    public void setHasSheetsInStock(boolean hasSheetsInStock) {
+	this.hasSheetsInStock = hasSheetsInStock;
+    }
+
+    /**
+     * 
+     */
+    public BeddingDept() {
+
+    }
+
+    @Override
+    protected void loadProducts() {
+	// TODO Auto-generated method stub
+    }
 
 }

@@ -29,7 +29,7 @@ public abstract class Product {
     private unitOfMeasure unitOfMeasureEnum;
     private String barCode;
     private int quantity;
-    private util.StoreConstants.size sizeEnum;
+    private String size;
     private String bandName;
     private weight weightEnum;
     private double price;
@@ -38,7 +38,7 @@ public abstract class Product {
     private int numUnitsInstock;
     private String description;
 
-    public abstract boolean loadProductRecord(String record);
+    public abstract boolean recordToProduct(String record);
 
     /**
      * Default Constructor
@@ -121,15 +121,15 @@ public abstract class Product {
     /**
      * @return the sizeEnum
      */
-    protected util.StoreConstants.size getSizeEnum() {
-	return sizeEnum;
+    protected String getSize() {
+	return this.size;
     }
 
     /**
      * @param sizeEnum the sizeEnum to set
      */
-    protected void setSizeEnum(util.StoreConstants.size sizeEnum) {
-	this.sizeEnum = sizeEnum;
+    protected void setSize(String size) {
+	this.size = size;
     }
 
     /**
@@ -142,7 +142,7 @@ public abstract class Product {
     /**
      * @param bandName the bandName to set
      */
-    protected void setBandName(String bandName) {
+    protected void setBrandName(String bandName) {
 	this.bandName = bandName;
     }
 

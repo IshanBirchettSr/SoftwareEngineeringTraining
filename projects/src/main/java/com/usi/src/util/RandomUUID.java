@@ -6,7 +6,7 @@ public class RandomUUID {
 
     private static UUID uuid = UUID.randomUUID();
 
-    public String getUuidString(String[] args) {
+    public static String getUuidString() {
 	// Creating a random UUID (Universally unique identifier).
 	// UUID uuid = UUID.randomUUID();
 	String randomUUIDString = uuid.toString();

@@ -123,6 +123,6 @@ public abstract class Department {
 	this.numberOfDisplays = numberOfDisplays;
     }
 
-    protected abstract int loadProduct();
+    protected abstract void loadProducts();
 
 }
