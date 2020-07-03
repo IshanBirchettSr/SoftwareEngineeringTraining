@@ -42,12 +42,18 @@ public class StoreConstants {
 	SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"), TOYS("toys"),
 	TUPPERWARE("tupperware");
 
+	private String dName;
+
 	/*
 	 * @param string
 	 */
-	deptNames(String string) {
-	    // TODO Auto-generated constructor stub
+	deptNames(String inDept) {
+	    this.dName = inDept;
 
+	}
+
+	public String getDept() {
+	    return dName;
 	}
     }
 
@@ -58,7 +64,7 @@ public class StoreConstants {
 
     public static enum color {
 	RED("red"), ORANGE("orange"), YELLOW("yellow"), GREEN("green"), BLUE("blue"), INDIGO("indigo"),
-	VIOLET("violet"), MULTI_COLOR("multi-color");
+	VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), NA("na");
 
 	color(String string) {
 	    // TODO Auto-generated constructor stub

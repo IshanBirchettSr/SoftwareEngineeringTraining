@@ -52,9 +52,9 @@ public class DataCsvLoad extends DataLoad {
 		    continue;
 		}
 		records.add(line);
-		System.out.println(line);
+		// System.out.println(line);
 		fields = line.split(",");
-		System.out.println("Size of fields: " + fields.length);
+		// System.out.println("Size of fields: " + fields.length);
 
 	    }
 	    // System.out.println("Automotive List" + records.toString());

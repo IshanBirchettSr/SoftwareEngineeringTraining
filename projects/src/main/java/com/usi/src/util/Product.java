@@ -10,7 +10,6 @@ package util;
 
 import util.StoreConstants.deptNames;
 import util.StoreConstants.unitOfMeasure;
-import util.StoreConstants.weight;
 
 /**
  * @author ibirc
@@ -31,7 +30,7 @@ public abstract class Product {
     private int quantity;
     private String size;
     private String bandName;
-    private weight weightEnum;
+    private String weight;
     private double price;
     private util.StoreConstants.color colorEnum;
     private String ingredient;
@@ -149,15 +148,15 @@ public abstract class Product {
     /**
      * @return the weightEnum
      */
-    protected weight getWeightEnum() {
-	return weightEnum;
+    protected String getWeight() {
+	return weight;
     }
 
     /**
      * @param weightEnum the weightEnum to set
      */
-    protected void setWeightEnum(weight weightEnum) {
-	this.weightEnum = weightEnum;
+    protected void setWeight(String weight) {
+	this.weight = weight;
     }
 
     /**

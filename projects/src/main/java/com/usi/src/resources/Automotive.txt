@@ -1,17 +1,15 @@
 /*Automotive.txt
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
 /*Automotive/Tires
-
-
-Tires , automotive , POUNDS , UUID , 1 , 275/60R20 , Good Year Tires, 94 , 173.88 , BLACK , 100 , All season tires
-Tires , Automotive , POUNDS, UUID , 1 , 265/75R16 , Firestone , 40.30 , 121.37 , BLACK , 80 , Summer/ Highway terrain
-Tires , Automotive , POUNDS, UUID , 1 , 245/70R16 , Michelin , 35.19 , 176.34 , BLACK , 90 , All season tires
-Motor Oil , Automotive , GALLON , UUID , 1 , N/A , Shell Rotella , 1 , 20.98 , N/A , 50, Synthetic oil
-Motor Oil , Automotive , GALLON , UUID , 1 , N/A , Motorcraft , 1.25 , 18.76 , N/A , 25 , Synthetic oil  
-Motor Oil , Automotive , QUARTS , UUID , 1 , N/A , Mobil , 5 , 22.81 , N/A , 25 , Synthetic oil for European cars             
-Transmission Fluid , Automotive , GALLON , UUID , 1 , N/A ,Valvoline , 1 , 17.97 , N/A , 100 , Multi Vehicle 
-Transmission Fluid , Automotive ,  QUARTS, UUID , 1 , N/A , Mobil , 1 , 7.88 , N/A , 80 , Advanced full Synthetic 
-Transmission Fluid , Automotive , QUARTS, UUID , 1 , N/A , Castrol , 1 , 6.94 , N/A , 90 , Automatic 
-Brake Fluids , Automotive , OUNCES, UUID , 1 , N/A , Prestone , 1 , 20.98 , N/A , 50, Synthetic oil
-Brake Fluids , Automotive , GALLON, UUID , 1 , N/A , Castrol , 1.25 , 18.76 , N/A , 25 , Synthetic oil  
-Brake Fluids , Automotive , OUNCES, UUID , 1 , N/A , Mobil , 5 , 22.81 , N/A , 25 , Synthetic oil for European cars
+Tires , automotivetest , POUNDS , UUID , 1 , 275/60R20 , Good Year Tires, 94 , 173.88 , BLACK , NA, 100 , All season tires
+Tires , Automotive , POUNDS, UUID , 1 , 265/75R16 , Firestone , 40.30 , 121.37 , BLACK , NA,80 , Summer/ Highway terrain
+Tires , Automotive , POUNDS, UUID , 1 , 245/70R16 , Michelin , 35.19 , 176.34 , BLACK , NA,90 , All season tires
+Motor Oil , Automotive , GALLONS , UUID , 1 , NA , Shell Rotella , 1 , 20.98 , NA , NA,50, Synthetic oil
+Motor Oil , Automotive , GALLONS , UUID , 1 , NA , Motorcraft , 1.25 , 18.76 , NA , NA,25 , Synthetic oil  
+Motor Oil , Automotive , QUARTS , UUID , 1 , NA , Mobil , 5 , 22.81 , NA , NA,25 , Synthetic oil for European cars             
+Transmission Fluid , Automotive , GALLONS , UUID , 1 , NA ,Valvoline , 1 , 17.97 , NA , NA,100 , Multi Vehicle 
+Transmission Fluid , Automotive ,  QUARTS, UUID , 1 , NA , Mobil , 1 , 7.88 , NA , NA,80 , Advanced full Synthetic 
+Transmission Fluid , Automotive , QUARTS, UUID , 1 , NA , Castrol , 1 , 6.94 , NA , NA,90 , Automatic 
+Brake Fluids , Automotive , OUNCES, UUID , 1 , NA , Prestone , 1 , 20.98 , NA , NA,50, Synthetic oil
+Brake Fluids , Automotive , GALLONS, UUID , 1 , NA , Castrol , 1.25 , 18.76 , NA , NA,25 , Synthetic oil  
+Brake Fluids , Automotive , OUNCES, UUID , 1    , NA , Mobil , 5 , 22.81 , NA , NA, 25 , Synthetic oil for European cars
