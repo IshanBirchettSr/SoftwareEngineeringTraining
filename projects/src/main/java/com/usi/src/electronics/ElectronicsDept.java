@@ -8,10 +8,11 @@
  */
 package electronics;
 
+import java.util.HashMap;
 import java.util.List;
-
 import util.DataCsvLoad;
 import util.Department;
+import util.ProdKeyGen;
 import util.StoreConstants;
 
 /**
@@ -19,32 +20,44 @@ import util.StoreConstants;
  *
  */
 public class ElectronicsDept extends Department {
-    String deptName = StoreConstants.deptNames.ELECTRONICS.name();
-
-    /**
-     * 
-     */
-    public ElectronicsDept() {
-	// TODO Auto-generated constructor stub
-	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-
-	unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
-	List<String> electronicRecords = unLoadTrucks.getRecords();
-	this.setLoadedRecords(electronicRecords);
-	System.out.printf("%s Department open with %d products\n", deptName, electronicRecords.size());
-    }
-
-    @Override
-    protected void loadProducts() {
-	// TODO Auto-generated method stub
-    }
-
-    // TODO Auto-generated method stub
-
-}
-
-// TODO Auto-generated method stub
+	String deptName = StoreConstants.deptNames.ELECTRONICS.name();
+List<String> electronicsRecords = null;
+// HashMap<K, V> to hold ElectronicsProd objects.
+HashMap<String, ElectronicsProd> electronicsProducts;
 
 /**
- * @param args
+ * Constructor
  */
+public ElectronicsDept() {
+// Record Load
+DataCsvLoad unLoadTrucks = new DataCsvLoad();
+unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
+electronicsRecords = unLoadTrucks.getRecords();
+this.setLoadedRecords(electronicsRecords);
+// System.out.printf("%s Department open with %d records\n", deptName,
+// autoRecords.size());
+
+// Automotive Product Load
+electronicsProducts = new HashMap<String, ElectronicsProd>();
+loadProducts();
+}
+
+@Override
+protected void loadProducts() {
+// Load products
+for (String record : electronicsRecords) {
+    ElectronicsProd ep = new ElectronicsProd();
+    boolean recordToProductSuccessful = ep.recordToProduct(record);
+
+    // If it fails to convert any field, don't add that object to autoProducts
+    if (recordToProductSuccessful == true) {
+	String prodKey = ProdKeyGen.genKey(ep);
+	electronicsProducts.put(prodKey, ep);
+    }
+}
+System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+	electronicsRecords.size(), electronicsProducts.size());
+
+}
+}
+
