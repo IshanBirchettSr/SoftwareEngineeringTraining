@@ -16,4 +16,17 @@ import util.Department;
  */
 public class CustomerServiceDept extends Department {
 
+    /**
+     * 
+     */
+    public CustomerServiceDept() {
+	super();
+	// TODO Auto-generated constructor stub
+    }
+
+    @Override
+    protected void loadProducts() {
+	// TODO Auto-generated method stub
+    }
+
 }

@@ -8,11 +8,16 @@ import util.Department;
  */
 public class DeliDept extends Department {
 
-	/**
-	 * 
-	 */
-	public DeliDept() {
-		// TODO Auto-generated constructor stub	
-	}
-	
+    /**
+     * 
+     */
+    public DeliDept() {
+	// TODO Auto-generated constructor stub
+    }
+
+    @Override
+    protected void loadProducts() {
+	// TODO Auto-generated method stub
+    }
+
 }

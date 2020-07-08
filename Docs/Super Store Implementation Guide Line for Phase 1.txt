@@ -1,6 +1,6 @@
-Roxanne - Hair Care
-Allma - Linen
-Charlene - Electronics
+Roxanne - Hair Care, Prescription Eyeware
+Allma - Linen, Toys
+Charlene - Electronics, Garden
 
 Steps
 1. Create txt file (Truck)
@@ -9,3 +9,6 @@ Steps
 4. Make sure you develop your constructor like Automotive did.
 
 Help: Use Automotive.txt, AutomotiveDept.java, and StoreConstants.java as your guide.
+
+Discussion
+1. Job locations around the country.

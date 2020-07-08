@@ -1,6 +1,12 @@
 package customerservice;
 
 import automotive.AutomotiveDept;
+import electronics.ElectronicsDept;
+import garden.GardenDept;
+import haircare.HairCareDept;
+import linen.LinenDept;
+import prescriptioneyeware.PrescriptionEyewareDept;
+import toys.ToysDept;
 
 public class SuperStore {
     boolean status = false;
@@ -22,8 +28,12 @@ public class SuperStore {
      */
     private void openDepartments() {
 	AutomotiveDept ad = new AutomotiveDept();
-	// Add yours here.
-
+	ElectronicsDept ed = new ElectronicsDept();
+	GardenDept gd = new GardenDept();
+	HairCareDept hd = new HairCareDept();
+	LinenDept ln = new LinenDept();
+	PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
+	ToysDept td = new ToysDept();
     }
 
     public static void main(String[] args) {

@@ -11,10 +11,15 @@ import util.Department;
  */
 public class HousewaresDept extends Department {
 
-	/**
-	 * 
-	 */
-	public HousewaresDept() {
-		
-	}
+    /**
+     * 
+     */
+    public HousewaresDept() {
+
+    }
+
+    @Override
+    protected void loadProducts() {
+	// TODO Auto-generated method stub
+    }
 }

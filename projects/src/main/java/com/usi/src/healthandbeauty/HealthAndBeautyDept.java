@@ -16,4 +16,9 @@ import util.Department;
  */
 public class HealthAndBeautyDept extends Department {
 
+    @Override
+    protected void loadProducts() {
+	// TODO Auto-generated method stub
+    }
+
 }

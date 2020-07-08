@@ -22,7 +22,7 @@ public class NonPerishableProduct extends Product {
 	}
 
 	@Override
-	public boolean loadProducts() {
+	public boolean recordToProduct(String record) {
 		// TODO Auto-generated method stub
 		return false;
 	}

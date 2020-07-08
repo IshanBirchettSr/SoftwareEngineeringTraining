@@ -8,10 +8,25 @@
  */
 package produce;
 
+import util.Department;
+
 /**
  * @author ibirc
  *
  */
-public class ProduceDept {
+public class ProduceDept extends Department {
+
+    /**
+     * 
+     */
+    public ProduceDept() {
+	super();
+	// TODO Auto-generated constructor stub
+    }
+
+    @Override
+    protected void loadProducts() {
+	// TODO Auto-generated method stub
+    }
 
 }

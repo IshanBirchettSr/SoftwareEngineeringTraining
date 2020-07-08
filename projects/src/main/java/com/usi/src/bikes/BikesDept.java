@@ -11,11 +11,16 @@ import util.Department;
  */
 public class BikesDept extends Department {
 
-	/**
-	 * 
-	 */
-	public BikesDept() {
-		// TODO Auto-generated constructor stub	
-	}
-	
+    /**
+     * 
+     */
+    public BikesDept() {
+	// TODO Auto-generated constructor stub
+    }
+
+    @Override
+    protected void loadProducts() {
+	// TODO Auto-generated method stub
+    }
+
 }
