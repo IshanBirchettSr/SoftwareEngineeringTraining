@@ -17,8 +17,8 @@ public class StoreConstants {
 
     // USI Product Key Unique Identifier Formatter
     // The following format string consist of the following parameters:
-    // SDNC + Department Enum + Band Name + Product Name + Weight + Color Enum
-    public static final String PROD_KEY_FORMATTER = SDCN + "::%s:%s:%s:%s";
+    // SDCN + Department Enum + Band Name + Product Name + Weight + Color Enum
+    public static final String PROD_KEY_FORMATTER = SDCN + "::%s:%s:%s:%s:%s:%s";
 
     // Truck Constants for importing department records
     public static final String VEGETABLE_TRUCK = APP_HOME + "/src/resources/vegetables.txt";
@@ -45,7 +45,7 @@ public class StoreConstants {
 	private String dName;
 
 	/*
-	 * @param string
+	 * @param string inDept
 	 */
 	deptNames(String inDept) {
 	    this.dName = inDept;

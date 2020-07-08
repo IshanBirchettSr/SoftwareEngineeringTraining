@@ -29,7 +29,7 @@ public abstract class Product {
     private String barCode;
     private int quantity;
     private String size;
-    private String bandName;
+    private String brandName;
     private String weight;
     private double price;
     private util.StoreConstants.color colorEnum;
@@ -134,15 +134,15 @@ public abstract class Product {
     /**
      * @return the bandName
      */
-    protected String getBandName() {
-	return bandName;
+    protected String getBrandName() {
+	return brandName;
     }
 
     /**
      * @param bandName the bandName to set
      */
-    protected void setBrandName(String bandName) {
-	this.bandName = bandName;
+    protected void setBrandName(String brandName) {
+	this.brandName = brandName;
     }
 
     /**
