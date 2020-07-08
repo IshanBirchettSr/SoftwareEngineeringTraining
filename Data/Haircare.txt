@@ -1,0 +1,10 @@
+/*Haircare.txt
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+Magic Grip Hairpins, haircare, 12pk, barcode#, 1, Goodhair, 3.99 , black, 24
+Rattail Comb, haircare, 1, barcode#, 1, Toolstructure, 2.99, black, 50
+ProEdge Star Styling Shears, haircare, 1, barcode#, 1, 5 1/2", Oster, 4 oz, 59.99, black, 24. 
+Silver Metals Cordless clippers, haircare, 1, barcode #, 1, BaBylissPRO, 1lb, 208.99, silver, 25
+Pantene ProV, haircare, 1 , barcode#, 1, 32oz, Pantene, 60, shampoo
+
+
+/*Haircare
