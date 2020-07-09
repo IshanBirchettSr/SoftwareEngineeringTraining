@@ -3,8 +3,11 @@
  */
 package haircare;
 import java.util.HashMap;
+import java.util.List;
+
 import util.DataCsvLoad;
 import util.Department;
+import util.ProdKeyGen;
 import util.StoreConstants;
 
 
@@ -20,7 +23,7 @@ public class HairCareDept extends Department {
 	String deptName = StoreConstants.deptNames.HAIR_CARE.name();
     List<String>  haircareRecords = null;
     // HashMap<K, V> to hold HairCareProd objects.
-    HashMap<String, HaircareProd> HaircareProduct;
+    HashMap<String, HaircareProd> haircareProd;
 
     /**
      * Constructor
@@ -33,25 +36,25 @@ public class HairCareDept extends Department {
 	System.out.printf("%s Department open with %d products\n", deptName, haircareRecords.size());
 	
 	//HairCare Product Load
-	HaircareProduct = new Hashma<String, HaircareProd>();
+	haircareProd = new HashMap<String, HaircareProd>();
 	loadProducts();
     }
 
     @Override
     protected void loadProducts() {
 	// Load Products= 
-    for (String record : autoRecords) {
-    	HaircareProduct HP = HaircareProduct{};
-    	boolean recordToProductSuccessful = HP.recordToProduct(record);
+    for (String record : haircareRecords) {
+    	HaircareProd hp = new HaircareProd();
+    	boolean recordToProductSuccessful = hp.recordToProduct(record);
     	
     	// If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
-		String prodKey = ProdKeyGen.genKey(ap);
-		HaircareProducts.put(prodKey, ap); 
+		String prodKey = ProdKeyGen.genKey(hp);
+		haircareProd.put(prodKey, hp); 
 		}
     }
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		HaircareRecords.size(), Products.size());
+		haircareRecords.size(), haircareProd.size());
 
 	}
 }
