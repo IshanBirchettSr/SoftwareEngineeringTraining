@@ -64,9 +64,10 @@ public class StoreConstants {
 
     public static enum color {
 	RED("red"), ORANGE("orange"), YELLOW("yellow"), GREEN("green"), BLUE("blue"), INDIGO("indigo"),
-	VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), WHITE("white"), PINK("pink"), BEIGE("beige"), BROWN("brown"), TEAL("teal"), GOLD("gold"), SILVER("silver"), PEWTER("pewter"),
-	ECRU("ecru"), COFFEE("coffee"), MAGENTA("magenta"), GRAY("gray"), SALMON("salmon"), PURPLE("purple"), TAN("tan"), BRONZE("bronze"), NA("na");
- 
+	VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), WHITE("white"), PINK("pink"), BEIGE("beige"),
+	BROWN("brown"), TEAL("teal"), GOLD("gold"), SILVER("silver"), PEWTER("pewter"), ECRU("ecru"), COFFEE("coffee"),
+	MAGENTA("magenta"), GRAY("gray"), SALMON("salmon"), PURPLE("purple"), TAN("tan"), BRONZE("bronze"), NA("na");
+
 	color(String string) {
 	    // TODO Auto-generated constructor stub
 	}

@@ -22,4 +22,10 @@ public class BabyEssentialsProd extends Product {
 	return false;
     }
 
+    @Override
+    public boolean recordToProduct(String record) {
+	// TODO Auto-generated method stub
+	return false;
+    }
+
 }

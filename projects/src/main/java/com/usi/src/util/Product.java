@@ -229,4 +229,12 @@ public abstract class Product {
 	this.description = description;
     }
 
+    /**
+     * @return
+     */
+    public boolean loadProducts() {
+	// TODO Auto-generated method stub
+	return false;
+    }
+
 }
