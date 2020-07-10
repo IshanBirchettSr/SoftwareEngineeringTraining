@@ -1,1 +1,9 @@
 /*Books
+/* Books.txt
+/* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
+   NumUnitsInstock, Description
+/* Books/Bibles  
+Slimline Bible NLT, Books, na, UUID, na, na, Life Way,  na, 17.99, Black, na, 10, Leather, Large Print
+Holman Study Bible KJV, Books, na, UUID, na, na, Holman,  na, 21.99, Brown, na, 12, Leather, Regular Print
+Note Taking Bible NIV, Books, na, UUID, na, na, Life Way,  na, 64.99, Black/Tan, na, 7, Leather, Large Print
+CSB Super Giant Print, Books, na, UUID, na, na, Holman, na, 24.99, Black/Brown, 8, Leather, Giant Large Print

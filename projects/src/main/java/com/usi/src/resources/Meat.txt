@@ -1,1 +1,13 @@
 /*Meat
+/*Meat.txt
+/* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
+   NumUnitsInstock, Description
+/* Meat/Steaks  
+NY Steak, Meat, na, UUID, na, 10 oz, Primere Meat Company, 14.95, na, na, 7, Beef, fresh steak, grilling, broiling
+Outside Skirt Steak Choice, Meat, na, UUID, na, 8 oz, Primere Meat Company, 12.50, na, na, 5, Beef, choice beef, grilling
+Top Sirloin Steak, Meat, na, UUID, na, 12 oz, Primere Meat Company, 12.95, na, na, 7, Beef, fresh steak, grilling, broiling
+NY Steak, Meat, na, UUID, na, 10 oz, Primere Meat Company, 14.95, na, na, 7, Beef, fresh steak, grilling, broiling
+Ribye Boneless Seak Choice, Meat, na, UUID, na, 16 oz, Primere Meat Company, 18.95, na, na, 4, Beef, fresh steak, grilling, broiling
+Olive Wagyu, Meat, na, UUID, na, 10 oz, Primere Meat Company, 33.95, na, na, 7, Beef, fresh steak, grilling, broiling
+Australian Wagyu Tomahawk Blue Label, Meat, na, UUID, na, 14 oz, Primere Meat Company, 58.95, na, na, 6, Beef, fresh steak, grilling, broiling
+Olive Wagyu NY Strip, Meat, na, UUID, na, 12 oz, Primere Meat Company, 135.95, na, na, 3, Beef, fresh steak, grilling, broiling

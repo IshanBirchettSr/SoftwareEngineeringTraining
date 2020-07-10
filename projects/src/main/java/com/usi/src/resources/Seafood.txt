@@ -1,1 +1,13 @@
 /*Seafood
+/*Seafood.txt
+/* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
+   NumUnitsInstock, Description
+/* Seafood/Salmon  
+Sockeye Salmon, Seafood, na, UUID, na, 10 oz, United Seafood Company, 12.95, na, na, 7, Seafood, fresh steak cut, grilling, broiling
+Atlantic Salmon, Seafood, na, UUID, na, 8 oz, United Seafood Company, 10.95, na, na, 4, Seafood, fresh steak cut, grilling, broiling
+Chinook Salmon, Seafood, na, UUID, na, 12 oz, United Seafood Company, 14.95, na, na, 5, Seafood, fresh, grilling, broiling
+Pink Salmon, Seafood, na, UUID, na, 14 oz, United Seafood Company, 16.95, na, na, 7, Seafood, fresh steak cut, grilling, broiling
+Coho Salmon, Seafood, na, UUID, na, 8 oz, United Seafood Company, 11.95, na, na, 6, Seafood, fresh pan cut, grilling, broiling
+Chum Salmon, Seafood, na, UUID, na, 20 oz, United Seafood Company, 20.95, na, na, 2, Seafood, fresh cut, grilling, broiling
+Black Sea Salmon, Seafood, na, UUID, na, 8 oz, United Seafood Company, 14.95, na, na, 3, Seafood, fresh steak cut, grilling, broiling
+Barramundi Salmon, Seafood, na, UUID, na, 10 oz, United Seafood Company, 32.95, na, na, 4, Seafood, fresh steak cut, grilling, broiling
