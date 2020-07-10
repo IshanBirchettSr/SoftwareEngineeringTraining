@@ -8,17 +8,27 @@
  */
 package customerservice;
 
+import java.awt.Dimension;
+
 /**
  * @author ibirc
  *
  */
 public class Shelve {
+    Dimension[] slots;
 
-    /**
+    /*
+     * Constructor
      * 
+     * @param int numberSlots
+     * 
+     * @param int width
+     * 
+     * @param int height
      */
-    public Shelve() {
-	// TODO Auto-generated constructor stub
+    public Shelve(int numberSlots, int width, int height) {
+	for (int i = 0; i < numberSlots; i++) {
+	    slots[i] = new Dimension(width, height);
+	}
     }
-
 }
