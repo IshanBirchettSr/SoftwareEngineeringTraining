@@ -47,14 +47,14 @@ public class BabyEssentialsDept extends Department {
 	protected void loadProducts() {
 		// Load products
 		for (String record : babyEssentialsRecords) {
-			BabyEssentialsProd ap = new BabyEssentialsProd();
-			boolean recordToProductSuccessful = ap.recordToProduct(record);
+			BabyEssentialsProd bp = new BabyEssentialsProd();
+			boolean recordToProductSuccessful = bp.recordToProduct(record);
 
 			// If it fails to convert any field, don't add that object to
 			// babyEssentialsProducts
 			if (recordToProductSuccessful == true) {
-				String prodKey = ProdKeyGen.genKey(ap);
-				BabyEssentialsProducts.put(prodKey, ap);
+				String prodKey = ProdKeyGen.genKey(bp);
+				BabyEssentialsProducts.put(prodKey, bp);
 			}
 		}
 		System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
