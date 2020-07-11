@@ -1,1 +1,10 @@
-*Produce
+
+/*Produce
+ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description/*
+Avacado, Produce, ea, UUID, 3, NA, NA, NA, $2.00, green, avacado 50, avacado
+Clementines, Produce, lb, UUID, 1, NA, HALO, 3, $6,99, orange, clementine, 43, Halo clementines
+Potato, Produce, lb, UUID, 1, NA, Market 37, 5, $3.99, brown, potato, 54, russet potatos
+Carrots, Produce, lb, UUID, 1, sm, Green Giant, 16, orange, carrot, 34, baby cut carrots
+Spinach, Produce, oz, UUID, 1, NA, Fresh Express, 5, green, spinach, 31, baby spinach
+Watermelon, Produce, lb, UUID, 1, NA, Melon Up, 1, NA, watermelon 50, watermelon
+
