@@ -2,6 +2,11 @@ package petcare;
 
 import util.Department;
 
+/**
+ * @author chich
+ *
+ */
+
 public class PetcareDept extends Department {
 
 	@Override

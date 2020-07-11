@@ -10,6 +10,7 @@ package electronics;
 
 import java.util.HashMap;
 import java.util.List;
+
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -21,43 +22,42 @@ import util.StoreConstants;
  */
 public class ElectronicsDept extends Department {
 	String deptName = StoreConstants.deptNames.ELECTRONICS.name();
-List<String> electronicsRecords = null;
+	List<String> electronicsRecords = null;
 // HashMap<K, V> to hold ElectronicsProd objects.
-HashMap<String, ElectronicsProd> electronicsProducts;
+	HashMap<String, ElectronicsProd> electronicsProducts;
 
-/**
- * Constructor
- */
-public ElectronicsDept() {
+	/**
+	 * Constructor
+	 */
+	public ElectronicsDept() {
 // Record Load
-DataCsvLoad unLoadTrucks = new DataCsvLoad();
-unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
-electronicsRecords = unLoadTrucks.getRecords();
-this.setLoadedRecords(electronicsRecords);
+		DataCsvLoad unLoadTrucks = new DataCsvLoad();
+		unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
+		electronicsRecords = unLoadTrucks.getRecords();
+		this.setLoadedRecords(electronicsRecords);
 // System.out.printf("%s Department open with %d records\n", deptName,
 // autoRecords.size());
 
 // Automotive Product Load
-electronicsProducts = new HashMap<String, ElectronicsProd>();
-loadProducts();
-}
+		electronicsProducts = new HashMap<String, ElectronicsProd>();
+		loadProducts();
+	}
 
-@Override
-protected void loadProducts() {
+	@Override
+	protected void loadProducts() {
 // Load products
-for (String record : electronicsRecords) {
-    ElectronicsProd ep = new ElectronicsProd();
-    boolean recordToProductSuccessful = ep.recordToProduct(record);
+		for (String record : electronicsRecords) {
+			ElectronicsProd ep = new ElectronicsProd();
+			boolean recordToProductSuccessful = ep.recordToProduct(record);
 
-    // If it fails to convert any field, don't add that object to autoProducts
-    if (recordToProductSuccessful == true) {
-	String prodKey = ProdKeyGen.genKey(ep);
-	electronicsProducts.put(prodKey, ep);
-    }
-}
-System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-	electronicsRecords.size(), electronicsProducts.size());
+			// If it fails to convert any field, don't add that object to autoProducts
+			if (recordToProductSuccessful == true) {
+				String prodKey = ProdKeyGen.genKey(ep);
+				electronicsProducts.put(prodKey, ep);
+			}
+		}
+		System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+				electronicsRecords.size(), electronicsProducts.size());
 
+	}
 }
-}
-
