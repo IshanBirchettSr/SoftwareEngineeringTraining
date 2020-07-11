@@ -1,1 +1,11 @@
 /*Pharmacy
+/*Pharmacy.txt
+/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
+  NumUnitsInstock, Description
+/*Pharmacy/Tylenol
+Tylenol Muscle Relief, Pharmacy, na, UUID, 62, na, Tylenol, na, 14.99, white, acetaminophen, 28, muscle relief
+Tylenol Back Pain, Pharmacy, na, UUID, 58, na, Tylenol, na, 16.99, yellow, acetaminophen, 32, back pain
+Tylenol Headache, Pharmacy, na, UUID, 42, na, Tylenol, na, 18.99, white, acetaminophen, 24, headache
+Tylenol Migrane, Pharmacy, na, UUID, 48, na, Tylenol, na, 18.99, red, acetaminophen, 26, migraine 
+Tylenol Extra Strength, Pharmacy, na, UUID, na, Tylenol, na, 16.99, yellow, acetaminophen, 42, extra strength
+Tylenol Regular Strength, Pharmacy, na, UUID, Tylenol, 21.99, white, acetaminophen, 84, regular strength 

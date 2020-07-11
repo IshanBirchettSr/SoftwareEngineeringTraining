@@ -30,6 +30,7 @@ public class StoreConstants {
     public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
     public static final String GARDEN_TRUCK = APP_HOME + "/src/resources/Garden.txt";
     public static final String FROZEN_FOODS_TRUCK = APP_HOME + "/src/resources/FrozenFoods.txt";
+    public static final String BAKERY_TRUCK = APP_HOME + "/src/resources/Bakery.txt";
 
     public static enum deptNames {
 	AUTOMOTIVE("automotive"), BABY_ESSENTIALS("babyessentials"), BAKERY("bakery"), BEDDING("bedding"),
@@ -64,9 +65,10 @@ public class StoreConstants {
 
     public static enum color {
 	RED("red"), ORANGE("orange"), YELLOW("yellow"), GREEN("green"), BLUE("blue"), INDIGO("indigo"),
-	VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), WHITE("white"), PINK("pink"), BEIGE("beige"),
-	BROWN("brown"), TEAL("teal"), GOLD("gold"), SILVER("silver"), PEWTER("pewter"), ECRU("ecru"), COFFEE("coffee"),
-	MAGENTA("magenta"), GRAY("gray"), SALMON("salmon"), PURPLE("purple"), TAN("tan"), BRONZE("bronze"), NA("na");
+	VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), Mocha("mocha"), NAVY("navy"), PINK("pink"),
+	WHITE("white"), BEIGE("beige"), BROWN("brown"), TEAL("teal"), GOLD("gold"), SILVER("silver"), PEWTER("pewter"),
+	ECRU("ecru"), COFFEE("coffee"), MAGENTA("magenta"), GRAY("gray"), SALMON("salmon"), PURPLE("purple"),
+	TAN("tan"), BRONZE("bronze"), NA("na");
 
 	color(String string) {
 	    // TODO Auto-generated constructor stub
