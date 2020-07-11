@@ -35,13 +35,13 @@ public class CannedGoodsDept extends Department {
 	protected void loadProducts() {
 		// Load products
 		for (String record : cannedGoodsRecords) {
-			CannedGoodsProd ap = new CannedGoodsProd();
-			boolean recordToProductSuccessful = ap.recordToProduct(record);
+			CannedGoodsProd cp = new CannedGoodsProd();
+			boolean recordToProductSuccessful = cp.recordToProduct(record);
 
 			// If it fails to convert any field, don't add that object to autoProducts
 			if (recordToProductSuccessful == true) {
-				String prodKey = ProdKeyGen.genKey(ap);
-				cannedGoodsProducts.put(prodKey, ap);
+				String prodKey = ProdKeyGen.genKey(cp);
+				cannedGoodsProducts.put(prodKey, cp);
 			}
 		}
 		System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
