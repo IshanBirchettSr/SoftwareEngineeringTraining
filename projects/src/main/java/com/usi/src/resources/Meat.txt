@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-/*Meat
-=======
 /*Meat
 /*Meat.txt
 /*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
@@ -13,4 +10,3 @@ Filet Mignon, Meat, na, UUID, na, 12 oz, Maple Block Meat Company, na, 18.95, na
 Lam Chop Steak, Meat, na, UUID, na, 8 oz, Maple Block Meat Company, na, 12.95, na, na, 6, hand cut, grilling, broiling
 T-Bone Stak, Meat, na, UUID, na, 14 oz, Maple Block Meat Company, na, 18.95, na, na, 3, grilling, broiling
 Prim Rib, Meat, na, UUID, na, 10 oz, Maple Block Meat Company, na, 20.95, na, na, 8, hand cut, grilling, broiling
->>>>>>> Stashed changes
