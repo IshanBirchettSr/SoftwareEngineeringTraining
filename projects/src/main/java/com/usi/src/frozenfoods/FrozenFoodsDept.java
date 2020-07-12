@@ -1,13 +1,16 @@
+
 package frozenfoods;
-
+import java.util.HashMap;
 import java.util.List;
-
 import util.DataCsvLoad;
 import util.Department;
 import util.StoreConstants;
 
 public class FrozenFoodsDept extends Department {
-    String deptName = StoreConstants.deptNames.FROZEN_FOODS.name();
+	String deptName = StoreConstants.deptNames.FROZEN_FOODS.name();
+	List<String> electronicsRecords = null;
+// HashMap<K, V> to hold ElectronicsProd objects.
+	HashMap<String, FrozenFoodsProd> FrozenFoodsProducts;
 
     /**
      * @return
