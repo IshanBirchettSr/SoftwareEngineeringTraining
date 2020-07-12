@@ -31,17 +31,25 @@ public class StoreConstants {
     public static final String GARDEN_TRUCK = APP_HOME + "/src/resources/Garden.txt";
     public static final String FROZEN_FOODS_TRUCK = APP_HOME + "/src/resources/FrozenFoods.txt";
     public static final String BAKERY_TRUCK = APP_HOME + "/src/resources/Bakery.txt";
+    public static final String CLEANING_SUPPLIES_TRUCK = APP_HOME + "/src/resources/CleaningSupplies";
+    public static final String CLOTHES_TRUCK = APP_HOME + "/src/resources/Clothes";
+    public static final String FURNITURE_TRUCK = APP_HOME + "/src/resources/Furniture";
+    public static final String MEAT_TRUCK = APP_HOME + "/src/resources/Meat";
+    public static final String PHARMACY_TRUCK = APP_HOME + "/src/resources/Pharmacy";
+    public static final String PLANT_BASE_TRUCK = APP_HOME + "/src/resources/PlantBase";
+    public static final String SEAFOOD_TRUCK = APP_HOME + "/src/resources/Seafood";
+    public static final String STATIONARY_TRUCK = APP_HOME + "/src/resources/Stationary";
 
     public static enum deptNames {
 	AUTOMOTIVE("automotive"), BABY_ESSENTIALS("babyessentials"), BAKERY("bakery"), BEDDING("bedding"),
 	BEVERAGES("beverages"), BIKES("bikes"), BOOKS("books"), CANNED_GOODS("cannedgoods"),
 	CLEANING_SUPPLIES("cleaningsupplies"), CLOTHES("clothes"), CUSTOMER_SERVICE("customerservice"), DAIRY("dairy"),
-	DELI("deli"), ELECTRONICS("electronics"), FRAGRANCE("fragrance"), FROZEN_FOODS("frozenfoods"), GARDEN("garden"),
-	HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"), HOUSEWARES("housewares"), LINEN("linen"),
-	LUGGAGE("luggage"), MEAT("meat"), PANTRY("pantry"), PETCARE("petcare"), PHARMACY("pharmacy"),
-	PLANTBASE("plantbase"), PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"), SEAFOOD("seafood"),
-	SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"), TOYS("toys"),
-	TUPPERWARE("tupperware");
+	DELI("deli"), ELECTRONICS("electronics"), FRAGRANCE("fragrance"), FROZEN_FOODS("frozenfoods"),
+	FURNITURE("furniture"), GARDEN("garden"), HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"),
+	HOUSEWARES("housewares"), LINEN("linen"), LUGGAGE("luggage"), MEAT("meat"), PANTRY("pantry"),
+	PETCARE("petcare"), PHARMACY("pharmacy"), PLANTBASE("plantbase"), PRESCRIPTION_EYEWARE("perscriptioneyeware"),
+	PRODUCE("produce"), SEAFOOD("seafood"), SHOPPING_CART("shoppingcart"), STATIONARY("stationary"),
+	TOILETRIES("toiletries"), TOYS("toys"), TUPPERWARE("tupperware");
 
 	private String dName;
 

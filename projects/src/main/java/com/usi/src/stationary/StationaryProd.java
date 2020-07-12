@@ -1,7 +1,12 @@
 /**
+ * Property of Urban Survival Initiative
+ * Copyright (c) Notice 2020 - All rights reserved
+ * 
+ * This software is owned in whole by the Urban Survival Initiative.  It's intent purpose
+ * is for training individuals to be software engineers.
  * 
  */
-package plantbase;
+package stationary;
 
 import util.Product;
 import util.StoreConstants;
@@ -11,12 +16,12 @@ import util.StoreConstants.deptNames;
  * @author Allma M. Johnson
  *
  */
-public class PlantBaseProd extends Product {
+public class StationaryProd extends Product {
 
     /**
      * 
      */
-    public PlantBaseProd() {
+    public StationaryProd() {
 	// TODO Auto-generated constructor stub
     }
 

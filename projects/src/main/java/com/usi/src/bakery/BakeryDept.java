@@ -23,28 +23,33 @@ import util.StoreConstants;
 public class BakeryDept extends Department {
     String deptName = StoreConstants.deptNames.BAKERY.name();
     List<String> bakeryRecords = null;
+    // HashMap<K, V> to hold BakeryProd objects.
     HashMap<String, BakeryProd> bakeryProducts;
 
     /**
      * Constructor
      */
     public BakeryDept() {
-
+	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.BAKERY_TRUCK);
 	bakeryRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(bakeryRecords);
+	// System.out.printf("%s Department open with %d records\n", deptName,
+	// bakeryRecords.size());
 
+	// Bakery Product Load
 	bakeryProducts = new HashMap<String, BakeryProd>();
 	loadProducts();
     }
 
-    @Override
-    protected void loadProducts() {
+    protected void loadProducts(BakeryProd bp) {
+	// Load products
 	for (String record : bakeryRecords) {
 	    BakeryProd bp = new BakeryProd();
 	    boolean recordToProductSuccessful = bp.recordToProduct(record);
 
+	    // If it fails to convert any field, don't add that object to bakeryProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bp);
 		bakeryProducts.put(prodKey, bp);
@@ -53,7 +58,11 @@ public class BakeryDept extends Department {
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		bakeryRecords.size(), bakeryProducts.size());
 
-	// TODO Auto-generated method stub
     }
 
+    @Override
+    protected void loadProducts() {
+	// TODO Auto-generated method stub
+
+    }
 }
