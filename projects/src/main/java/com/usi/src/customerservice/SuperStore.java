@@ -1,11 +1,19 @@
 package customerservice;
 
 import automotive.AutomotiveDept;
+import bakery.BakeryDept;
+import cleaningsupplies.CleaningSuppliesDept;
+import clothes.ClothesDept;
 import electronics.ElectronicsDept;
+import furniture.FurnitureDept;
 import garden.GardenDept;
 import haircare.HairCareDept;
 import linen.LinenDept;
+import meat.MeatDept;
+import pharmacy.PharmacyDept;
+import plantbase.PlantBaseDept;
 import prescriptioneyeware.PrescriptionEyewareDept;
+import seafood.SeafoodDept;
 import toys.ToysDept;
 
 public class SuperStore {
@@ -34,6 +42,14 @@ public class SuperStore {
 	LinenDept ln = new LinenDept();
 	PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
 	ToysDept td = new ToysDept();
+	CleaningSuppliesDept csd = new CleaningSuppliesDept();
+	BakeryDept bd = new BakeryDept();
+	FurnitureDept fd = new FurnitureDept();
+	ClothesDept cd = new ClothesDept();
+	MeatDept md = new MeatDept();
+	PlantBaseDept pbd = new PlantBaseDept();
+	PharmacyDept pd = new PharmacyDept();
+	SeafoodDept sd = new SeafoodDept();
     }
 
     public static void main(String[] args) {

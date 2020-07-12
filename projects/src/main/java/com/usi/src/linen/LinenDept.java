@@ -39,12 +39,12 @@ public class LinenDept extends Department {
     @Override
     protected void loadProducts() {
 	for (String record : linenRecords) {
-	    LinenProd ap = new LinenProd();
-	    boolean recordToProductSuccessful = ap.recordToProduct(record);
+	    LinenProd lp = new LinenProd();
+	    boolean recordToProductSuccessful = lp.recordToProduct(record);
 
 	    if (recordToProductSuccessful == true) {
-		String prodKey = ProdKeyGen.genKey(ap);
-		linenProducts.put(prodKey, ap);
+		String prodKey = ProdKeyGen.genKey(lp);
+		linenProducts.put(prodKey, lp);
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

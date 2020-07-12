@@ -1,1 +1,16 @@
+<<<<<<< Updated upstream
 /*Meat
+=======
+/*Meat
+/*Meat.txt
+/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
+  NumUnitsInstock, Description
+/*Meat/Steak
+Ribye Steak, Meat, na, UUID, na, 10 oz, Maple Block Meat Company, na, 14.95, na, na, 7, grilling, broiling
+Bone-in Ribye Steak, Meat, na, UUID, na, 14 oz, Maple Block Meat Company, na, 18.95, na, na, 6, grilling, broiling
+Porterhouse Steak, Meat, na, UUID, na, 18 oz, Maple Block Meat Company, na, 21.95, na, na, 5, grilling, broiling
+Filet Mignon, Meat, na, UUID, na, 12 oz, Maple Block Meat Company, na, 18.95, na, na, 7, center cut, grilling, broiling
+Lam Chop Steak, Meat, na, UUID, na, 8 oz, Maple Block Meat Company, na, 12.95, na, na, 6, hand cut, grilling, broiling
+T-Bone Stak, Meat, na, UUID, na, 14 oz, Maple Block Meat Company, na, 18.95, na, na, 3, grilling, broiling
+Prim Rib, Meat, na, UUID, na, 10 oz, Maple Block Meat Company, na, 20.95, na, na, 8, hand cut, grilling, broiling
+>>>>>>> Stashed changes
