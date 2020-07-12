@@ -2,12 +2,12 @@ package clothes;
 
 import util.Department;
 
-public class ClothingDept extends Department {
+public class ClothesDept extends Department {
 
     /**
      * 
      */
-    public ClothingDept() {
+    public ClothesDept() {
 	super();
 	// TODO Auto-generated constructor stub
     }

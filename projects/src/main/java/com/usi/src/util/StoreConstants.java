@@ -1,10 +1,49 @@
 package util;
 
 public class StoreConstants {
-	/**
-	 * @author ibirc
-	 *
-	 */
+    /**
+     * @author ibirc
+     *
+     */
+
+    // Software Development Company Name
+    public static final String SDCN = "usi";
+    // Store Name
+    public static final String STORE_NAME = "Shoppers Super Store";
+    public static final String APP_HOME = "C:/usi-git/SoftwareEngineeringTraining/projects/src/main/java/com/usi";
+
+    // Membership Daily Discount
+    public static final int TODAYS_MEMBER_DISCOUNT = 5;
+
+    // USI Product Key Unique Identifier Formatter
+    // The following format string consist of the following parameters:
+    // SDCN + Department Enum + Band Name + Product Name + Weight + Color Enum
+    public static final String PROD_KEY_FORMATTER = SDCN + "::%s:%s:%s:%s:%s:%s";
+
+    // Truck Constants for importing department records
+    public static final String VEGETABLE_TRUCK = APP_HOME + "/src/resources/vegetables.txt";
+    public static final String AUTOMOTIVE_TRUCK = APP_HOME + "/src/resources/Automotive.txt";
+    public static final String LINEN_TRUCK = APP_HOME + "/src/resources/Linen.txt";
+    public static final String ELECTRONICS_TRUCK = APP_HOME + "/src/resources/Electronics.txt";
+    public static final String HAIR_CARE_TRUCK = APP_HOME + "/src/resources/Haircare.txt";
+    public static final String PRESCRIPTION_EYEWARE_TRUCK = APP_HOME + "/src/resources/Prescriptioneyeware.txt";
+    public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
+    public static final String GARDEN_TRUCK = APP_HOME + "/src/resources/Garden.txt";
+    public static final String FROZEN_FOODS_TRUCK = APP_HOME + "/src/resources/FrozenFoods.txt";
+    public static final String BAKERY_TRUCK = APP_HOME + "/src/resources/Bakery.txt";
+
+    public static enum deptNames {
+	AUTOMOTIVE("automotive"), BABY_ESSENTIALS("babyessentials"), BAKERY("bakery"), BEDDING("bedding"),
+	BEVERAGES("beverages"), BIKES("bikes"), BOOKS("books"), CANNED_GOODS("cannedgoods"),
+	CLEANING_SUPPLIES("cleaningsupplies"), CLOTHES("clothes"), CUSTOMER_SERVICE("customerservice"), DAIRY("dairy"),
+	DELI("deli"), ELECTRONICS("electronics"), FRAGRANCE("fragrance"), FROZEN_FOODS("frozenfoods"), GARDEN("garden"),
+	HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"), HOUSEWARES("housewares"), LINEN("linen"),
+	LUGGAGE("luggage"), MEAT("meat"), PANTRY("pantry"), PETCARE("petcare"), PHARMACY("pharmacy"),
+	PLANTBASE("plantbase"), PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"), SEAFOOD("seafood"),
+	SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"), TOYS("toys"),
+	TUPPERWARE("tupperware");
+
+	private String dName;
 
 	// Software Development Company Name
 	public static final String SDCN = "usi";
@@ -64,11 +103,12 @@ public class StoreConstants {
 	 *
 	 */
 
-	public static enum color {
-		RED("red"), ORANGE("orange"), YELLOW("yellow"), GREEN("green"), BLUE("blue"), INDIGO("indigo"),
-		VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), WHITE("white"), PINK("pink"), BEIGE("beige"),
-		BROWN("brown"), TEAL("teal"), GOLD("gold"), SILVER("silver"), PEWTER("pewter"), ECRU("ecru"), COFFEE("coffee"),
-		MAGENTA("magenta"), GRAY("gray"), SALMON("salmon"), PURPLE("purple"), TAN("tan"), BRONZE("bronze"), NA("na");
+    public static enum color {
+	RED("red"), ORANGE("orange"), YELLOW("yellow"), GREEN("green"), BLUE("blue"), INDIGO("indigo"),
+	VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), Mocha("mocha"), NAVY("navy"), PINK("pink"),
+	WHITE("white"), BEIGE("beige"), BROWN("brown"), TEAL("teal"), GOLD("gold"), SILVER("silver"), PEWTER("pewter"),
+	ECRU("ecru"), COFFEE("coffee"), MAGENTA("magenta"), GRAY("gray"), SALMON("salmon"), PURPLE("purple"),
+	TAN("tan"), BRONZE("bronze"), NA("na");
 
 		color(String string) {
 			// TODO Auto-generated constructor stub
