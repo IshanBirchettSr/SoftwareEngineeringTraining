@@ -27,7 +27,7 @@ public class DeliDept extends Department {
     	// System.out.printf("%s Department open with %d records\n", deptName,
     	// autoRecords.size());
 
-    	// Automotive Product Load
+    	// Deli Product Load
     	deliProducts = new HashMap<String, DeliProd>();
     	loadProducts();
         }
