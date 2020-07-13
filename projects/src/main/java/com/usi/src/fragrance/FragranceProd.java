@@ -13,8 +13,8 @@ import util.StoreConstants.deptNames;
 public class FragranceProd extends Product {
 
 	@Override
-		// TODO Auto-generated method stub
-		public boolean recordToProduct(String record) {try {
+	public boolean recordToProduct(String record) {
+		try {
 	 	    System.out.println(record);
 	 	    String[] fields = record.split(",");
 	 	    this.setProductName(fields[0].toString());
@@ -40,10 +40,7 @@ public class FragranceProd extends Product {
 	 	    e.printStackTrace();
 	 	    return false;
 	 	 }
-	     }
+		 }	
 }
-		
-		return false;
-	}
 
-}
+
