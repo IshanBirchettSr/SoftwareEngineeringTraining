@@ -1,17 +1,22 @@
 /**
+ * Property of Urban Survival Initiative
+ * Copyright (c) Notice 2020 - All rights reserved
+ * 
+ * This software is owned in whole by the Urban Survival Initiative.  It's intent purpose
+ * is for training individuals to be software engineers.
  * 
  */
-package pantry;
+package books;
 
 import util.Product;
 import util.StoreConstants;
 import util.StoreConstants.deptNames;
 
 /**
- * @author chich
+ * @author Allma M. Johnson and chich
  *
  */
-public class PantryProd extends Product {
+public class BookProd extends Product {
 
 	@Override
 	public boolean recordToProduct(String record) {

@@ -3,9 +3,11 @@
  */
 package haircare;
 
+
 import java.util.HashMap;
 import java.util.List;
 
+import haircare.HaircareProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -16,45 +18,43 @@ import util.StoreConstants;
  *
  */
 public class HairCareDept extends Department {
-    public enum Hair_CareProduct {
+	    String deptName = StoreConstants.deptNames.HAIR_CARE.name();
+	    List<String> haircareRecords = null;
+	    // HashMap<K, V> to hold haircareProd objects.
+	    HashMap<String, HaircareProd> haircareProducts;
 
-    }
+	    /**
+	     * Constructor
+	     */
+	    public HairCareDept() {
+		// Record Load
+		DataCsvLoad unLoadTrucks = new DataCsvLoad();
+		unLoadTrucks.loadData(StoreConstants.HAIR_CARE_TRUCK);
+		haircareRecords = unLoadTrucks.getRecords();
+		this.setLoadedRecords(haircareRecords);
+		// System.out.printf("%s Department open with %d records\n", deptName,
+		// haircareRecords.size());
 
-    String deptName = StoreConstants.deptNames.HAIR_CARE.name();
-    List<String> haircareRecords = null;
-    // HashMap<K, V> to hold HairCareProd objects.
-    HashMap<String, HaircareProd> haircareProd;
+		// haircare Product Load
+		haircareProducts = new HashMap<String, HaircareProd>();
+		loadProducts();
+	    }
 
-    /**
-     * Constructor
-     */
-    public HairCareDept() {
-	// Record Load
-	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.HAIR_CARE_TRUCK);
-	this.setLoadedRecords(haircareRecords);
-	System.out.printf("%s Department open with %d products\n", deptName, haircareRecords.size());
+	    @Override
+	    protected void loadProducts() {
+		// Load products
+		for (String record : haircareRecords) {
+		    HaircareProd pp = new HaircareProd();
+		    boolean recordToProductSuccessful = pp.recordToProduct(record);
 
-	// HairCare Product Load
-	haircareProd = new HashMap<String, HaircareProd>();
-	loadProducts();
-    }
+		    // If it fails to convert any field, don't add that object to haircareProducts
+		    if (recordToProductSuccessful == true) {
+			String prodKey = ProdKeyGen.genKey(pp);
+			haircareProducts.put(prodKey, pp);
+		    }
+		}
+		System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+			haircareRecords.size(), haircareProducts.size());
 
-    @Override
-    protected void loadProducts() {
-	// Load Products=
-	for (String record : haircareRecords) {
-	    HaircareProd hp = new HaircareProd();
-	    boolean recordToProductSuccessful = hp.recordToProduct(record);
-
-	    // If it fails to convert any field, don't add that object to autoProducts
-	    if (recordToProductSuccessful == true) {
-		String prodKey = ProdKeyGen.genKey(hp);
-		haircareProd.put(prodKey, hp);
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		haircareRecords.size(), haircareProd.size());
-
-    }
-}
