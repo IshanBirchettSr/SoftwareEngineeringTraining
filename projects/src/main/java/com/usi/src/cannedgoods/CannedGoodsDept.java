@@ -8,6 +8,11 @@ import util.Department;
 import util.ProdKeyGen;
 import util.StoreConstants;
 
+/**
+ * @author chich
+ *
+ */
+
 public class CannedGoodsDept extends Department {
 	String deptName = StoreConstants.deptNames.CANNED_GOODS.name();
 	List<String> cannedGoodsRecords = null;

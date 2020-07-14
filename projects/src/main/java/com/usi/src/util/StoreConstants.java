@@ -38,6 +38,11 @@ public class StoreConstants {
     public static final String FRAGRANCE_TRUCK = APP_HOME + "/src/resources/Fragrance.txt";
     public static final String LUGGAGE_TRUCK = APP_HOME + "/src/resources/Luggage.txt";
     public static final String PRODUCE_TRUCK = APP_HOME + "/src/resources/Produce.txt";
+    public static final String PETCARE_TRUCK = APP_HOME + "/src/resources/Petcare.txt";
+    public static final String PANTRY_TRUCK = APP_HOME + "/src/resources/Pantry.txt";
+    public static final String BOOK_TRUCK = APP_HOME + "/src/resources/Books.txt";
+    public static final String BEVERAGES_TRUCK = APP_HOME + "/src/resources/Beverages.txt";
+    
     private String dName;
 
     public static enum deptNames {

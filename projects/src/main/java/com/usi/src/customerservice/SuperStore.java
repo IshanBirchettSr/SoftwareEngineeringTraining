@@ -1,7 +1,11 @@
 package customerservice;
 
 import automotive.AutomotiveDept;
+import babyessentials.BabyEssentialsDept;
 import bakery.BakeryDept;
+import beverages.BeveragesDept;
+import books.BookDept;
+import cannedgoods.CannedGoodsDept;
 import cleaningsupplies.CleaningSuppliesDept;
 import clothes.ClothesDept;
 import electronics.ElectronicsDept;
@@ -10,11 +14,14 @@ import garden.GardenDept;
 import haircare.HairCareDept;
 import linen.LinenDept;
 import meat.MeatDept;
+import pantry.PantryDept;
+import petcare.PetcareDept;
 import pharmacy.PharmacyDept;
 import plantbase.PlantBaseDept;
 import prescriptioneyeware.PrescriptionEyewareDept;
 import seafood.SeafoodDept;
 import toys.ToysDept;
+import tupperware.TupperwareDept;
 
 public class SuperStore {
     boolean status = false;
@@ -50,6 +57,13 @@ public class SuperStore {
 	PlantBaseDept pbd = new PlantBaseDept();
 	PharmacyDept pd = new PharmacyDept();
 	SeafoodDept sd = new SeafoodDept();
+	BabyEssentialsDept bed = new BabyEssentialsDept();
+	BookDept bod = new BookDept();
+	CannedGoodsDept cgd = new CannedGoodsDept();
+	PetcareDept pcd = new PetcareDept();
+	PantryDept ptd = new PantryDept();
+	TupperwareDept twd = new TupperwareDept();
+	BeveragesDept bevd = new BeveragesDept();
     }
 
     public static void main(String[] args) {

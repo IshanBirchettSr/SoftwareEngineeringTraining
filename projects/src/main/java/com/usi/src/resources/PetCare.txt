@@ -1,1 +1,12 @@
 *Pet Care
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+Cat food , Petcare , POUNDS , UUID , 1 , regular , Purina , 2 , $3.99 , na , fish , 100 , fish, chicken and veal flavor catfood
+Cat food cans , Petcare , POUNDS , UUID , 20 , variety , Friskies , 3 , $17.99 , na , seafood , 150 , seafood variety individual cans
+Dog food , Petcare , POUNDS , UUID , 1 , large , Pedigree , 5 , $18.99 , na , beef , 150 , for senior dogs
+Dog food , Petcare , POUNDS , UUID , 1 , NA , Purina , 7 , $27.99 , na , meat , 300 ,chicken and cheese flavor
+Cat tree , Petcare , POUNDS , UUID , 1 , 51 inch , Smilemart , 12 , $56.99 , BROWN , tweed , 150 , Cat tree for enrichment
+Dog leash , Petcare , OUNCES , UUID , 1 , NA , Hartz , 1 , $7.99 , pink , nylon , 150 , dog leash for walking dog
+Cat litter , Petcare , POUNDS , UUID , 1 , Value, Arm and Hammer , 7 , $6.99 , White , Cotton , 150 , Gentle
+Cat litter , Petcare , POUNDS , UUID , 1 , Value , Freshstep , 12 , $7.99 , White , Cotton , 150 , Thick
+Bird seeds , Petcare , POUNDS , UUID , 1 , large , Hartz , 10 , $10.99 , na , seeds , 150 , Bird seeds for parakeets
+fish food , Petcare , OUNCES , UUID , 1 , small , Tetra , 2 , 3.99 , na , shrimp , 150 , fish food for goldfish
