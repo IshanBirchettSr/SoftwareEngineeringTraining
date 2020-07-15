@@ -34,7 +34,7 @@ public class StoreConstants {
     public static final String BABY_ESSENTIALS_TRUCK = APP_HOME + "/src/resources/BabyEssentials.txt";
     public static final String CANNED_GOODS_TRUCKS = APP_HOME + "/src/resources/CannedGoods.txt";
     public static final String DELI_TRUCK = APP_HOME + "/src/resources/Deli.txt";
-    public static final String DAIRY_TRUCK = APP_HOME + "/src/resources/Dairy.txt";  
+    public static final String DAIRY_TRUCK = APP_HOME + "/src/resources/Dairy.txt";
     public static final String FRAGRANCE_TRUCK = APP_HOME + "/src/resources/Fragrance.txt";
     public static final String LUGGAGE_TRUCK = APP_HOME + "/src/resources/Luggage.txt";
     public static final String PRODUCE_TRUCK = APP_HOME + "/src/resources/Produce.txt";
@@ -42,7 +42,8 @@ public class StoreConstants {
     public static final String PANTRY_TRUCK = APP_HOME + "/src/resources/Pantry.txt";
     public static final String BOOK_TRUCK = APP_HOME + "/src/resources/Books.txt";
     public static final String BEVERAGES_TRUCK = APP_HOME + "/src/resources/Beverages.txt";
-    
+    public static final String STATIONARY_TRUCK = APP_HOME + "/src/resources/Stationary.txt";
+
     private String dName;
 
     public static enum deptNames {
