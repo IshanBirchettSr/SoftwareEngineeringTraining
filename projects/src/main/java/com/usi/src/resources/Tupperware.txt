@@ -1,8 +1,8 @@
 *Tupperware
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-Vented lids food storage , Tupperware , na , UUID , 10 , 24 piece set , Rubbermaid , na , 10.00 , red , plastic , 200 , vented lids for food storage
-Vented lids easy find , Tupperware , na , UUID , 10 , 24 piece set , Rubbermaid , na , 17.00 , clear , plastic , 200 , Large vented lid containers for food storage
-Locked lid , Tupperware , na , UUID , 3 , 6 piece set , Chefbuddy , na , 10.45 , clear , plastic , 100 , lockable lid containers for food storage 
-Food Storage , Tupperware , na , UUID , 27 , 54 piece set , Rubbermaid , na , 13.00 , clear , plastic , 120 , food storage
-Microwave Splatter , Tupperware , na , UUID , 8 , 16 piece set , Honey can do , na , 10.00 , clear , plastic , 200 , vented lids for food storage
-Twist in lock , Tupperware , na , UUID , 5 , 10 piece set , Ziploc , na , 10.00 , clear , plastic , 45 , Leak resistant lock microwaveable container
+Vented lids food storage , Tupperware , GRAMS , UUID , 10 , 24 piece set , Rubbermaid , 7 , 10.00 , red , plastic , 200 , vented lids for food storage
+Vented lids easy find , Tupperware , GRAMS , UUID , 10 , 24 piece set , Rubbermaid , 7 , 17.00 , clear , plastic , 200 , Large vented lid containers for food storage
+Locked lid , Tupperware , GRAMS , UUID , 3 , 6 piece set , Chefbuddy , 5 , 10.45 , clear , plastic , 100 , lockable lid containers for food storage 
+Food Storage , Tupperware , GRAMS , UUID , 27 , 54 piece set , Rubbermaid , 7 , 13.00 , clear , plastic , 120 , food storage
+Microwave Splatter , Tupperware , GRAMS , UUID , 8 , 16 piece set , Honey can do , 8 , 10.00 , clear , plastic , 200 , vented lids for food storage
+Twist in lock , Tupperware , GRAMS , UUID , 5 , 10 piece set , Ziploc , 4 , 10.00 , clear , plastic , 45 , Leak resistant lock microwaveable container
