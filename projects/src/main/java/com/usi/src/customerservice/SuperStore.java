@@ -59,7 +59,7 @@ public class SuperStore {
 	PharmacyDept pd = new PharmacyDept();
 	SeafoodDept sd = new SeafoodDept();
 	BabyEssentialsDept bed = new BabyEssentialsDept();
-	BookDept bod = new BookDept();
+ 	BookDept bod = new BookDept();
 	CannedGoodsDept cgd = new CannedGoodsDept();
 	PetcareDept pcd = new PetcareDept();
 	PantryDept ptd = new PantryDept();
