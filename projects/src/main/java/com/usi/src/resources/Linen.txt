@@ -2,12 +2,12 @@
 /* Linen.txt
 /* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
    NumUnitsInstock, Description
-/* Linen/Pillow Cases  
-Pillow Cases, Linen, n/a, UUID, n/a, Queen, Gustave,  n/a, 8.99 , WHITE, n/a, 5, Cotton Twin Pack Pillow Cases
-Pillow Cases, Linen, n/a, UUID, n/a, Queen, Gustave, n/a, 8.99, BLACK, n/a, 4, Cotton Twin Pack Pillow Cases
-Pillow Cases, Linen, n/a, UUID, n/a, Queen, Gustave, n/a, 8.99, GRAY, n/a, 9, Cotton Twin Pack Pillow Cases
-Pillow Cases, Linen, n/a, UUID, n/a, Queen, Gustave, n/a, 8.99, COFFEE, n/a, 4, Cotton Twin Pack Pillow Cases
-Pillow Cases, Linen, n/a, UUID, n/a, King, Gustave, n/a, 11.99, BLACK, n/a, 8, Cotton Twin Pack Pillow Cases
-Pillow Cases, Linen, n/a, UUID, n/a, King, Gustave, n/a, 11.99, COFFEE, n/a, 2, Cotton Twin Pack Pillow Cases
-Pillow Cases, Linen, n/a, UUID, n/a, King, Gustave, n/a, 11.99, NAVY, n/a, 3, Cotton Twin Pack Pillow Cases
-Pillow Cases, Linen, n/a, UUID, n/a, King, Gustave, n/a, 11.99, PINK, n/a, 7, Cotton Twin Pack Pillow Cases
+/* Linen/Pillow Cases 
+Pillow Cases, Linen, na, UUID, na, Queen, Gustave,  na, 8.99 , White, na, 5, Cotton Twin Pack Pillow Cases
+Pillow Cases, Linen, na, UUID, na, Queen, Gustave, na, 8.99, Black, na, 4, Cotton Twin Pack Pillow Cases
+Pillow Cases, Linen, na, UUID, na, Queen, Gustave, na, 8.99, Gray, na, 9, Cotton Twin Pack Pillow Cases
+Pillow Cases, Linen, na, UUID, na, Queen, Gustave, na, 8.99, Coffee, na, 4, Cotton Twin Pack Pillow Cases
+Pillow Cases, Linen, na, UUID, na, King, Gustave, na, 11.99, Black, na, 8, Cotton Twin Pack Pillow Cases
+Pillow Cases, Linen, na, UUID, na, King, Gustave, na, 11.99, Coffee, na, 2, Cotton Twin Pack Pillow Cases
+Pillow Cases, Linen, na, UUID, na, King, Gustave, na, 11.99, Navy, na, 3, Cotton Twin Pack Pillow Cases
+Pillow Cases, Linen, na, UUID, na, King, Gustave, na, 11.99, Pink, na, 7, Cotton Twin Pack Pillow Case

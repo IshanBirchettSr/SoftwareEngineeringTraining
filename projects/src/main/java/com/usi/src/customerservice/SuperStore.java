@@ -11,7 +11,6 @@ import clothes.ClothesDept;
 import electronics.ElectronicsDept;
 import furniture.FurnitureDept;
 import garden.GardenDept;
-import haircare.HairCareDept;
 import linen.LinenDept;
 import meat.MeatDept;
 import pantry.PantryDept;
@@ -46,7 +45,7 @@ public class SuperStore {
 	AutomotiveDept ad = new AutomotiveDept();
 	ElectronicsDept ed = new ElectronicsDept();
 	GardenDept gd = new GardenDept();
-	HairCareDept hd = new HairCareDept();
+	// HairCareDept hd = new HairCareDept();
 	LinenDept ln = new LinenDept();
 	PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
 	ToysDept td = new ToysDept();
