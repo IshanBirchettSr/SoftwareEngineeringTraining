@@ -14,7 +14,7 @@ import util.Department;
  * @author chich
  *
  */
-public class ToiletryDept extends Department {
+public class ToiletriesDept extends Department {
 
     @Override
     protected void loadProducts() {
