@@ -4,9 +4,9 @@
 /* NumUnitsInstock , Description
 /* Toys/Action Figures and Collection Sets  
 X-Men Action Figure Collection Set, Toys, n/a, UUID, 1, n/a, Mattel, oz, 48.99, n/a, n/a, 5, Eight Piece X-Men Collection Action Figure Set
-Storm Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 12.99, White, n/a, 4, Storm Action Figure
+Storm Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 12.99, WHITE, n/a, 4, Storm Action Figure
 Captain Marvel Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 12.99, Blue, n/a, 4, Captain Marvel Action Figure
-Superman Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 7.99, Blue, n/a, 4,  Superman Action Figure
-Black Panther Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 10.99, Black, n/a, 4, Black Panther Action Figure
-Captain America Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 9.99, Blue, n/a, 4, Captain America Action Figure
+Superman Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 7.99, BLUE, n/a, 4,  Superman Action Figure
+Black Panther Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 10.99, BLACK, n/a, 4, Black Panther Action Figure
+Captain America Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 9.99, BLUE, n/a, 4, Captain America Action Figure
 Avengers End Game Action Figure Collection Set, Toys, n/a, UUID, 1, n/a, Mattel, oz, 89.99, n/a, n/a, 4, 11 Piece Avengers End Game Collection Action Figure Set

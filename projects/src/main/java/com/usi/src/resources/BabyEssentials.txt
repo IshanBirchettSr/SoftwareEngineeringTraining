@@ -1,15 +1,15 @@
 /*BabyEssentials.txt
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-Diapers , Baby Essentials , POUNDS , UUID , 128, Size 6 , Huggies , 3 , $17.99 , WHITE , Cotton , 100 , fits 25-30lb baby
-Diapers , Baby Essentials , POUNDS , UUID , 20 , Size 2 , Luvs , 1.2 , $7.99 , WHITE , Cotton , 150 ,fits 12-18lb baby
-Diapers , Baby Essentials , POUNDS , UUID , 80 , Size 2 , Luvs , 5 , $18.99 , WHITE , Cotton , 150 ,fits 12-18lb baby
-Formula , Baby Essentials , OUNCES , UUID , 1 , NA , Enfamil , 27.4 , $37.99 , WHITE , powder , 300 ,sensitive tummy
-Formula , Baby Essentials , OUNCES , UUID , 1 , NA , Gerber , 12 , $18.99 , WHITE , powder , 150 , regluar
-Formula , Baby Essentials , OUNCES , UUID , 1 , NA , Similac , 8 , $7.99 , WHITE , powder , 150 , premie extra calorie
-Baby Wipes , Baby Essentials , OUNCES , UUID , 192 , Value, Pampers , 10 , $6.99 , WHITE , Cotton , 150 , Gentle
-Baby Wipes , Baby Essentials , OUNCES , UUID , 40 , Regular , Huggies , 3 , $7.99 , WHITE , Cotton , 150 , Thick
-Baby Wipes , Baby Essentials , OUNCES , UUID , 856 , Combo pack , Huggies , 15.96 , $10.99 , WHITE , Cotton , 150 ,sensitive
-Baby Food , Baby Essentials , OUNCES , UUID , 2 , Stage 1 , Gerber , 2 , 3.99 , ORANGE , peach , 150 ,babies 1st foods
-Baby Food , Baby Essentials , OUNCES , UUID , 4 , Stage 2 , Gerber , 4 , 4.99 , BEIGE , apple , 150 ,babies 1st foods
-Baby Food , Baby Essentials , OUNCES , UUID , 2 , Stage 3 , Beech Nut , 2 , 2.99 , BEIGE , banana , 150 , toddlers first
-Baby Food , Baby Essentials , OUNCES , UUID , 2 , Stage 3 , Beech Nut , 6 , 3.99 , BLUE , blueberry , 150 , toddlers first
+Diapers , Baby_Essentials , POUNDS , UUID , 128, Size 6 , Huggies , 3 , 17.99 , WHITE , Cotton , 100 , fits 25-30lb baby
+Diapers , Baby_Essentials , POUNDS , UUID , 20 , Size 2 , Luvs , 1.2 , 7.99 , WHITE , Cotton , 150 ,fits 12-18lb baby
+Diapers , Baby_Essentials , POUNDS , UUID , 80 , Size 2 , Luvs , 5 , 18.99 , WHITE , Cotton , 150 ,fits 12-18lb baby
+Formula , Baby_Essentials , OUNCES , UUID , 1 , NA , Enfamil , 27.4 , 37.99 , WHITE , powder , 300 ,sensitive tummy
+Formula , Baby_Essentials , OUNCES , UUID , 1 , NA , Gerber , 12 , 18.99 , WHITE , powder , 150 , regluar
+Formula , Baby_Essentials , OUNCES , UUID , 1 , NA , Similac , 8 , 7.99 , WHITE , powder , 150 , premie extra calorie
+Baby Wipes , Baby_Essentials , OUNCES , UUID , 192 , Value, Pampers , 10 , 6.99 , WHITE , Cotton , 150 , Gentle
+Baby Wipes , Baby_Essentials , OUNCES , UUID , 40 , Regular , Huggies , 3 , 7.99 , WHITE , Cotton , 150 , Thick
+Baby Wipes , Baby_Essentials , OUNCES , UUID , 856 , Combo pack , Huggies , 15.96 , 10.99 , WHITE , Cotton , 150 ,sensitive
+Baby Food , Baby_Essentials , OUNCES , UUID , 2 , Stage 1 , Gerber , 2 , 3.99 , ORANGE , peach , 150 ,babies 1st foods
+Baby Food , Baby_Essentials , OUNCES , UUID , 4 , Stage 2 , Gerber , 4 , 4.99 , BEIGE , apple , 150 ,babies 1st foods
+Baby Food , Baby_Essentials , OUNCES , UUID , 2 , Stage 3 , Beech Nut , 2 , 2.99 , BEIGE , banana , 150 , toddlers first
+Baby Food , Baby_Essentials , OUNCES , UUID , 2 , Stage 3 , Beech Nut , 6 , 3.99 , BLUE , blueberry , 150 , toddlers first
