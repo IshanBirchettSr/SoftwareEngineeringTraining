@@ -1,0 +1,6 @@
+/*Produce
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+Cuccumber, Produce, ea, UUID, 1, NA, NA, NA, 1.69, green, cuccumber, 20, English cuccumber
+Spinach, Produce, oz, UUID, 1, NA, Fresh Express, 11, 2.99, green, spinach, 10, Fresh Spinach
+Banana, Produce, ea, UUID, 1, NA, Dole, 2, .49, yellow, banana, 25, banana
+Orange, Produce, lb, UUID,1, NA, Navel, 5, 6.49, orange, orange, 12, Navel Orange

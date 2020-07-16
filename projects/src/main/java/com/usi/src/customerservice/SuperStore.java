@@ -20,6 +20,7 @@ import pharmacy.PharmacyDept;
 import plantbase.PlantBaseDept;
 import prescriptioneyeware.PrescriptionEyewareDept;
 import seafood.SeafoodDept;
+import stationary.StationaryDept;
 import toys.ToysDept;
 import tupperware.TupperwareDept;
 
@@ -64,6 +65,8 @@ public class SuperStore {
 	PantryDept ptd = new PantryDept();
 	TupperwareDept twd = new TupperwareDept();
 	BeveragesDept bevd = new BeveragesDept();
+	StationaryDept syd = new StationaryDept();
+
     }
 
     public static void main(String[] args) {
