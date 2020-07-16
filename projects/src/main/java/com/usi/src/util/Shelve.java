@@ -6,7 +6,7 @@
  * is for training individuals to be software engineers.
  * 
  */
-package customerservice;
+package util;
 
 import java.awt.Dimension;
 
