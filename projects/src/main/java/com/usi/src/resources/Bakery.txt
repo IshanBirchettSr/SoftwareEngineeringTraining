@@ -3,10 +3,10 @@
 /*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
   NumUnitsInstock, Description
 /*Bakery/Bread
-Sprouted Rye Bread, Bakery, na, UUID, na, loaf, Lodge Bread Company, na, 2.95, na, rye seasonings, 14, hand seeded tossed 
-Pumperknickle Bread, Bakery, na, UUID, na, loaf, Lodge Bread Company, na, 3.95, na, pumperknickle, 16, hand sculpted round
-Marble Rye Bread, Bakery, na, UUID, na, loaf, Lodge Bread Company, na, 4.95, marble, na, 15, hand ancient sculpted
-Parmesean Wheat Bread, Bakery, na, UUID, loaf, 12 oz, Lodge Bread Company, na, 6.95, na, parmesean, 17, hand ancient hand made
-Stone Ground Wheat Bread, Bakery, na, UUID, na, loaf, Lodge Bread Company, na, 4.95, na, wheat, 16, hand sculpted swirl
-Honey Pumperknickle Bread, Bakery, na, UUID, na, loaf, Lodge Bread Company, na, 6.95, na, honey pumperknickle, 13, hand country tossed
-Butter Lovers Sourdough Bread, Bakery, na, UUID, na, loaf, Lodge Bread Company, na, 2.95, na, butter sourdough, 18, hand traditional
+Sprouted Rye Bread, Bakery, na, UUID, na, LOAF, Lodge Bread Company, na, 2.95, na, RYE SEASONINGS, 14, hand seeded tossed 
+Pumpernickel Bread, Bakery, na, UUID, na, LOAF, Lodge Bread Company, na, 3.95, na, PUMPERNICKEL, 16, hand sculpted round
+Marble Rye Bread, Bakery, na, UUID, na, LOAF, Lodge Bread Company, na, 4.95, MARBLE, na, 15, hand ancient sculpted
+Parmsean Wheat Bread, Bakery, na, UUID, na, LOAF, Lodge Bread Company, na, 6.95, na, PARMSEAN, 17, hand ancient hand made
+Stone Ground Wheat Bread, Bakery, na, UUID, na, LOAF, Lodge Bread Company, na, 4.95, na, WHEAT, 16, hand sculpted swirl
+Honey Pumpernickel Bread, Bakery, na, UUID, na, LOAF, Lodge Bread Company, na, 6.95, na, HONEY PUMPERNICKEL, 13, hand country tossed
+Butter Lovers Sourdough Bread, Bakery, na, UUID, na, LOAF, Lodge Bread Company, na, 2.95, na, BUTTER SOURDOUGH, 18, hand traditional
