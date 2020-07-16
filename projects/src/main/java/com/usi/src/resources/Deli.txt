@@ -1,8 +1,8 @@
 /*Deli
 ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description/*
-Cheese, Deli, lbs, UUID, 1, NA, PICS, 1, $6.49, white, cheese, 16, American Cheese
+Cheese, Deli, lbs, UUID, 1, NA, PICS, 1, $6.49, WHITE, cheese, 16, American Cheese
 Pepperoni, Deli, oz, UUID, 3, NA, Margherita, 5, $3.99, NA, pepperoni, 23, sliced pepperoni
-Feta, Deli, oz, UUID, 1, NA, Athenos, 6, $4.99, white, cheese, 6, Crumbled Feta Cheese
+Feta, Deli, oz, UUID, 1, NA, Athenos, 6, $4.99, WHITE, cheese, 6, Crumbled Feta Cheese
 Hummas, Deli, oz, UUID, 2, NA, Sabra, 17, $5.99, NA, chic peas, 32, classic hummas
-Turkey Breast, Deli, lb, UUID, 1, NA Dietz and Watson, 1, $10.99, turkey, 5, Lite turkey breast
-Potato salad, Deli, lb, UUID, 2, NA, Market 16, $3.99, NA, potato, 5, potato salad
+Turkey Breast, Deli, lb, UUID, 1, NA Dietz and Watson, 1, $10.99, na, turkey, 5, Lite turkey breast
+Potato salad, Deli, lb, UUID, 2, NA, Market 16, $3.99, na, potato, 5, potato salad

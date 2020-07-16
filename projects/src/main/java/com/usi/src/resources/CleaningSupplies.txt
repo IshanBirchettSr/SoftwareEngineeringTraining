@@ -3,12 +3,12 @@
 /*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
   NumUnitsInstock, Description
 /*Cleaning Supplies/Laundry Detergent
-Arming Hamor Lavendar Pods, Cleaning, na, UUID, na, na, Arming Hammer, na, 14.99, na, Lavendar, 62, lavendar sent pods 
-Gain Mountain Fresh Liquid, Cleaning, na, UUID, na, 74 oz, Gain, na, 16.99, na, na, 48, mountain fresh liquid
-Tide Spring Breeze Ultra Pods, Cleaning, na, UUID, na, na, Tide, 14.99, na, na, 59, spring breeze pods
-All Summer Breeze Sent Free Liquid, Cleaning, na, UUID, na, 64 oz, All, 12.99, na, na, 48, summer breeze liquid
-True Earth Natural Lavendar Liquid, Cleaning, na, UUID, na, 32 oz, True Earth, 14.99, na, na, 44, natural lavender liquid
-Presto Free and Clear Liquid, Cleaning, na, UUID, na, 64 oz, Presto, 12.99, na, na, 32, free and clear liquid
-Purex Fresh Clean Powder with Bleach, Cleaning, na, UUID, na, Purex, 14.99, na, na, 48, fresh clean with bleach powder
-All Baby Sent Free Liquid, Cleaning, na, UUID, na, 64 oz, na, All Baby, 12.99, na, na, 48, sent free baby liquid
-Dreft Sent Free Liquid, Cleaning, na, UUID, na, 48 oz, na, Dreft, 14.99, na, na, 42, sent free baby liquid
+Arming Hamor Lavendar Pods, Cleaning, na, UUID, na, OUNCE, Arming Hammer, na, 14.99, na, Lavendar, 62, lavendar sent pods 
+Gain Mountain Fresh Liquid, Cleaning, na, UUID, na, OUNCE, Gain, na, 16.99, na, na, 48, mountain fresh liquid
+Tide Spring Breeze Ultra Pods, Cleaning, na, UUID, na, OUNCE, Tide, 14.99, na, na, 59, spring breeze pods
+All Summer Breeze Sent Free Liquid, Cleaning, na, UUID, na, OUNCE, All, 12.99, na, na, 48, summer breeze liquid
+True Earth Natural Lavendar Liquid, Cleaning, na, UUID, na, OUNCE, True Earth, 14.99, na, na, 44, natural lavender liquid
+Presto Free and Clear Liquid, Cleaning, na, UUID, na, OUNCE, Presto, 12.99, na, na, 32, free and clear liquid
+Purex Fresh Clean Powder with Bleach, Cleaning, na, UUID, na, OUNCE, Purex, 14.99, na, na, 48, fresh clean with bleach powder
+All Baby Sent Free Liquid, Cleaning, na, UUID, na, OUNCE, na, All Baby, 12.99, na, na, 48, sent free baby liquid
+Dreft Sent Free Liquid, Cleaning, na, UUID, na, OUNCE, na, Dreft, 14.99, na, na, 42, sent free baby liquid
