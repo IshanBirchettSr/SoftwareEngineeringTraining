@@ -9,6 +9,7 @@ import cannedgoods.CannedGoodsDept;
 import cleaningsupplies.CleaningSuppliesDept;
 import clothes.ClothesDept;
 import electronics.ElectronicsDept;
+import fragrance.FragranceDept;
 import furniture.FurnitureDept;
 import garden.GardenDept;
 import linen.LinenDept;
@@ -18,6 +19,7 @@ import petcare.PetcareDept;
 import pharmacy.PharmacyDept;
 import plantbase.PlantBaseDept;
 import prescriptioneyeware.PrescriptionEyewareDept;
+import produce.ProduceDept;
 import seafood.SeafoodDept;
 import stationary.StationaryDept;
 import toys.ToysDept;
@@ -44,6 +46,7 @@ public class SuperStore {
     private void openDepartments() {
 	AutomotiveDept ad = new AutomotiveDept();
 	ElectronicsDept ed = new ElectronicsDept();
+	FragranceDept fdd = new FragranceDept();
 	GardenDept gd = new GardenDept();
 	// HairCareDept hd = new HairCareDept();
 	LinenDept ln = new LinenDept();
@@ -55,6 +58,7 @@ public class SuperStore {
 	ClothesDept cd = new ClothesDept();
 	MeatDept md = new MeatDept();
 	PlantBaseDept pbd = new PlantBaseDept();
+	ProduceDept pdd = new ProduceDept();
 	PharmacyDept pd = new PharmacyDept();
 	SeafoodDept sd = new SeafoodDept();
 	BabyEssentialsDept bed = new BabyEssentialsDept();
