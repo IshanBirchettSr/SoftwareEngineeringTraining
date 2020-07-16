@@ -153,7 +153,8 @@ public class StoreConstants {
 
     public static enum unitOfMeasure {
 	POUNDS("lbs"), GRAMS("grams"), KILOGRAMS("kg"), MILIGRAMS("mg"), OUNCES("oz"), GALLONS("gal"),
-	FLUID_OUNCES("floz"), CUP("c"), PINTS("pts"), QUARTS("qts"), MILILITER("mil"), LITER("ltr"), TONS("tn");
+	FLUID_OUNCES("floz"), CUP("c"), PINTS("pts"), QUARTS("qts"), MILILITER("mil"), LITER("ltr"), TONS("tn"),
+	NA("na");
 
 	unitOfMeasure(String string) {
 	    // TODO Auto-generated constructor stub

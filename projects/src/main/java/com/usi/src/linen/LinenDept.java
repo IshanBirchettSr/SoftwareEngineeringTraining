@@ -28,9 +28,9 @@ public class LinenDept extends Department {
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 
 	unLoadTrucks.loadData(StoreConstants.LINEN_TRUCK);
-	List<String> loadedRecords = unLoadTrucks.getRecords();
-	this.setLoadedRecords(loadedRecords);
-	System.out.printf("%s Department open with %d products\n", deptName, loadedRecords.size());
+	linenRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(linenRecords);
+	System.out.printf("%s Department open with %d products\n", deptName, linenRecords.size());
 
 	linenProducts = new HashMap<String, LinenProd>();
 	loadProducts();
