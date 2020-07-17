@@ -1,8 +1,8 @@
 /*Fragrance
-*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-Princess, Fragrance, oz, UUID, 1, NA, Vera Wang, 3.4, $24.39, pink, perfume, 18, Vera Wang Princess Fragrance
-Happy, Fragrance, oz, UUID, 1, NA, Clinique, 3.4, $39.38, NA, perfume, 23, Clinique Happy Fragrance
-Lovely, Fragrance, oz, UUID, 1, NA, Sara Jessica Parker, 3.4, $14.95, NA, perfume, 13, Lovely Fragrance by Sara Jessica Parker
-Nautica Voyage, Fragrance, ml, UUID, 1, NA, Nautica, 100, $14.85, NA, perfume, 21, Nautica Voyage by Nautica
-Obsession, Fragrance, oz, UUID, 1, NA, Calvin Klein, 1.7, $92.00, NA, perfume, 12, Obsession by Calvin Klein
-Classic Black, Fragrance, oz, UUID, 1, NA, Jaguar, 3.40, $15.72, NA, perfume, 16, Classic Black by Jaguar
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+Princess, Fragrance, OUNCES, UUID, 1, NA, Vera Wang, 3.4, 24.39, PINK, perfume, 18, Vera Wang Princess Fragrance
+Happy, Fragrance, OUNCES, UUID, 1, NA, Clinique, 3.4, 39.38, NA, perfume, 23, Clinique Happy Fragrance
+Lovely, Fragrance, OUNCES, UUID, 1, NA, Sara Jessica Parker, 3.4, 14.95, NA, perfume, 13, Lovely Fragrance by Sara Jessica Parker
+Nautica Voyage, Fragrance, MILILITER, UUID, 1, NA, Nautica, 100, 14.85, NA, perfume, 21, Nautica Voyage by Nautica
+Obsession, Fragrance, OUNCES, UUID, 1, NA, Calvin Klein, 1.7, 92.00, NA, perfume, 12, Obsession by Calvin Klein
+Classic Black, Fragrance, OUNCES, UUID, 1, NA, Jaguar, 3.40, 15.72, NA, perfume, 16, Classic Black by Jaguar

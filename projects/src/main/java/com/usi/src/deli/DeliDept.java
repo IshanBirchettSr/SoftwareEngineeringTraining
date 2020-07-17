@@ -2,8 +2,10 @@ package deli;
 
 import java.util.HashMap;
 import java.util.List;
+
 import util.DataCsvLoad;
 import util.Department;
+import util.ProdKeyGen;
 import util.StoreConstants;
 
 /**
@@ -11,30 +13,44 @@ import util.StoreConstants;
  *
  */
 public class DeliDept extends Department {
-	String deptName = StoreConstants.deptNames.DELI.name();
+    String deptName = StoreConstants.deptNames.DELI.name();
     List<String> deliRecords = null;
     // HashMap<K, V> to hold DeliProd objects.
     HashMap<String, DeliProd> deliProducts;
+
     /**
      * Constructor
      */
     public DeliDept() {
-    	// Record Load
-    	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-    	unLoadTrucks.loadData(StoreConstants.DELI_TRUCK);
-    	deliRecords = unLoadTrucks.getRecords();
-    	this.setLoadedRecords(deliRecords);
-    	// System.out.printf("%s Department open with %d records\n", deptName,
-    	// autoRecords.size());
+	// Record Load
+	DataCsvLoad unLoadTrucks = new DataCsvLoad();
+	unLoadTrucks.loadData(StoreConstants.DELI_TRUCK);
+	deliRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(deliRecords);
+	// System.out.printf("%s Department open with %d records\n", deptName,
+	// autoRecords.size());
 
-    	// Deli Product Load
-    	deliProducts = new HashMap<String, DeliProd>();
-    	loadProducts();
-        }
+	// Deli Product Load
+	deliProducts = new HashMap<String, DeliProd>();
+	loadProducts();
+    }
 
     @Override
     protected void loadProducts() {
 	// TODO Auto-generated method stub
-    }
+	// Load products
+	for (String record : deliRecords) {
+	    DeliProd dep = new DeliProd();
+	    boolean recordToProductSuccessful = dep.recordToProduct(record);
 
+	    // If it fails to convert any field, don't add that object to autoProducts
+	    if (recordToProductSuccessful == true) {
+		String prodKey = ProdKeyGen.genKey(dep);
+		deliProducts.put(prodKey, dep);
+	    }
+	}
+	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		deliRecords.size(), deliProducts.size());
+
+    }
 }
