@@ -13,6 +13,7 @@ import fragrance.FragranceDept;
 import frozenfoods.FrozenFoodsDept;
 import furniture.FurnitureDept;
 import garden.GardenDept;
+import haircare.HairCareDept;
 import linen.LinenDept;
 import meat.MeatDept;
 import pantry.PantryDept;
@@ -51,7 +52,7 @@ public class SuperStore {
 	FragranceDept fdd = new FragranceDept();
 	FrozenFoodsDept ffd = new FrozenFoodsDept();
 	GardenDept gd = new GardenDept();
-	// HairCareDept hd = new HairCareDept();
+	HairCareDept hd = new HairCareDept();
 	LinenDept ln = new LinenDept();
 	PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
 	ToysDept td = new ToysDept();
@@ -65,7 +66,7 @@ public class SuperStore {
 	PharmacyDept pd = new PharmacyDept();
 	SeafoodDept sd = new SeafoodDept();
 	BabyEssentialsDept bed = new BabyEssentialsDept();
- 	BookDept bod = new BookDept();
+	BookDept bod = new BookDept();
 	CannedGoodsDept cgd = new CannedGoodsDept();
 	PetcareDept pcd = new PetcareDept();
 	PantryDept ptd = new PantryDept();
