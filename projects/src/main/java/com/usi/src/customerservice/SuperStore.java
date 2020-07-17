@@ -8,6 +8,7 @@ import books.BookDept;
 import cannedgoods.CannedGoodsDept;
 import cleaningsupplies.CleaningSuppliesDept;
 import clothes.ClothesDept;
+import deli.DeliDept;
 import electronics.ElectronicsDept;
 import fragrance.FragranceDept;
 import frozenfoods.FrozenFoodsDept;
@@ -47,7 +48,7 @@ public class SuperStore {
      */
     private void openDepartments() {
 	AutomotiveDept ad = new AutomotiveDept();
-	// DeliDept dep = new DeliDept();
+	DeliDept dep = new DeliDept();
 	ElectronicsDept ed = new ElectronicsDept();
 	FragranceDept fdd = new FragranceDept();
 	FrozenFoodsDept ffd = new FrozenFoodsDept();
