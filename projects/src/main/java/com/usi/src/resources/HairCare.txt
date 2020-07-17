@@ -1,7 +1,7 @@
 /*hair_care.txt
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-Magic Grip Hairpins , hair_care , GRAMS , UUID , 1 ,  12pk, Goodhair, metal, 3.99 , black, 24, grip hairpins
-Rattail Comb, hair_care, GRAMS, UUID, 1, 12pk, Toolstructure, 3, 2.99, black,  plastic,50 , teasing comb
-ProEdge Star Styling Shears, hair_care, OUNCES, UUID, 1, 5 1/2", Oster, 4 OUNCES, 59.99, black, metal, 24, haircutting shears
-Silver Metals Cordless clippers, hair_care, OUNCES, UUID, 1, BaBylissPRO, 8, 208.99, silver, metal, 25, mens hair clippers
-Pantene ProV, hair_care, OUNCES , UUID, 1, OUNCES, Pantene, 32, white, NA ,25, hair shampoo for women
+Magic Grip Hairpins , hair_care , GRAMS , UUID , 1 ,  12pk, Goodhair, 3, 3.99 , BLACK, NA, 24, grip hairpins
+Rattail Comb, hair_care, GRAMS, UUID, 1, 12pk, Toolstructure, 3, 2.99, BLACK,  plastic, 50 , teasing comb
+ProEdge Star Styling Shears, hair_care, OUNCES, UUID, 1, 5.5 , Oster, 4, 59.99, BLACK, metal, 24, haircutting shears
+Silver Metals Cordless clippers, hair_care, OUNCES, UUID, 1, 6, BaBylissPRO, 8, 208.99, SILVER, metal, 25, mens hair clippers
+Pantene ProV, hair_care, OUNCES , UUID, 1, 3.4, Pantene, 32, 16.99, WHITE, NA , 25, hair shampoo for women
