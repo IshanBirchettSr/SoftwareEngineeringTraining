@@ -1,12 +1,11 @@
 /* Toys
 /* Toys.txt
-/* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
-/* NumUnitsInstock , Description
+/* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock , Description
 /* Toys/Action Figures and Collection Sets  
-X-Men Action Figure Collection Set, Toys, n/a, UUID, 1, n/a, Mattel, oz, 48.99, n/a, n/a, 5, Eight Piece X-Men Collection Action Figure Set
-Storm Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 12.99, WHITE, n/a, 4, Storm Action Figure
-Captain Marvel Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 12.99, Blue, n/a, 4, Captain Marvel Action Figure
-Superman Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 7.99, BLUE, n/a, 4,  Superman Action Figure
-Black Panther Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 10.99, BLACK, n/a, 4, Black Panther Action Figure
-Captain America Action Figure, Toys, n/a, UUID, 1, n/a, Mattel, oz, 9.99, BLUE, n/a, 4, Captain America Action Figure
-Avengers End Game Action Figure Collection Set, Toys, n/a, UUID, 1, n/a, Mattel, oz, 89.99, n/a, n/a, 4, 11 Piece Avengers End Game Collection Action Figure Set
+X-Men Action Figure Collection Set, Toys, 4, UUID, 1, NA, Mattel, oz, 48.99, NA, NA, 5, Eight Piece X-Men Collection Action Figure Set
+Storm Action Figure, Toys, 4, UUID, 1, NA, Mattel, oz, 12.99, WHITE, NA, 4, Storm Action Figure
+Captain Marvel Action Figure, Toys, 8, UUID, 1, NA, Mattel, oz, 12.99, Blue, NA, 4, Captain Marvel Action Figure
+Superman Action Figure, Toys, 2, UUID, 1, NA, Mattel, oz, 7.99, BLUE, NA, 4,  Superman Action Figure
+Black Panther Action Figure, Toys, 10, UUID, 1, NA, Mattel, oz, 10.99, BLACK, NA, 4, Black Panther Action Figure
+Captain America Action Figure, Toys, 5, UUID, 1, NA, Mattel, oz, 9.99, BLUE, NA, 4, Captain America Action Figure
+Avengers End Game Action Figure Collection Set, Toys, 3, UUID, 1, NA, Mattel, oz, 89.99, NA, NA, 4, 11 Piece Avengers End Game Collection Action Figure Set

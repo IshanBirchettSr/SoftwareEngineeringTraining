@@ -79,10 +79,10 @@ public class StoreConstants {
 
     public static enum color {
 	RED("red"), ORANGE("orange"), YELLOW("yellow"), GREEN("green"), BLUE("blue"), INDIGO("indigo"),
-	VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), Mocha("mocha"), NAVY("navy"), PINK("pink"),
+	VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), MOCHA("mocha"), NAVY("navy"), PINK("pink"),
 	WHITE("white"), BEIGE("beige"), BROWN("brown"), TEAL("teal"), GOLD("gold"), SILVER("silver"), PEWTER("pewter"),
-	ECRU("ecru"), COFFEE("coffee"), MAGENTA("magenta"), GRAY("gray"), SALMON("salmon"), PURPLE("purple"),
-	TAN("tan"), BRONZE("bronze"), NA("na");
+	ECRU("ecru"), COFFEE("coffee"), MAGENTA("magenta"), MARBLE("marble"), GRAY("gray"), SALMON("salmon"),
+	PURPLE("purple"), TAN("tan"), BRONZE("bronze"), NA("na");
 
 	color(String string) {
 	    // TODO Auto-generated constructor stub
@@ -145,7 +145,7 @@ public class StoreConstants {
     public static enum size {
 	DOUBLE_EXTRA_SMALL("xxsmall"), EXTRA_SMALL("extrasmall"), SMALL("small"), MEDIUM("m"), LARGE("large"),
 	EXTRA_LARGE("xl"), DOS_LARGE("xxl"), TRES_LARGE("xxxl"), CUATRO_LARGE("xxxxl"), CINCO_lARGE("xxxxxl"),
-	LOAF("loaf");
+	LOAF("loaf"), NA("na");
 
 	size(String string) {
 	    // TODO Auto-generated constructor stub
@@ -165,7 +165,7 @@ public class StoreConstants {
 
     public static enum weight {
 	KILOGRAMS("kg"), TONS("kg"), GRAMS("g"), MACROGRAM("mg"), MICROGRAM("ug"), NANOGRAM("ng"), PICOGRAM("pg"),
-	UK_TON("ukton");
+	UK_TON("ukton"), NA("na");
 
 	weight(String string) {
 	    // TODO Auto-generated constructor stub
