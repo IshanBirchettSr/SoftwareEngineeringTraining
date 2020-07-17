@@ -10,6 +10,7 @@ import cleaningsupplies.CleaningSuppliesDept;
 import clothes.ClothesDept;
 import electronics.ElectronicsDept;
 import fragrance.FragranceDept;
+import frozenfoods.FrozenFoodsDept;
 import furniture.FurnitureDept;
 import garden.GardenDept;
 import linen.LinenDept;
@@ -45,8 +46,10 @@ public class SuperStore {
      */
     private void openDepartments() {
 	AutomotiveDept ad = new AutomotiveDept();
+	// DeliDept dep = new DeliDept();
 	ElectronicsDept ed = new ElectronicsDept();
 	FragranceDept fdd = new FragranceDept();
+	FrozenFoodsDept ffd = new FrozenFoodsDept();
 	GardenDept gd = new GardenDept();
 	// HairCareDept hd = new HairCareDept();
 	LinenDept ln = new LinenDept();

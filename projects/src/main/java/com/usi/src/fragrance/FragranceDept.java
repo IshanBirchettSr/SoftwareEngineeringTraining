@@ -22,7 +22,7 @@ public class FragranceDept extends Department {
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.FRAGRANCE_TRUCK);
-	List<String> fragranceRecords = unLoadTrucks.getRecords();
+	fragranceRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(fragranceRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
