@@ -1,4 +1,4 @@
-package util;
+package customerservice;
 
 import automotive.AutomotiveDept;
 import babyessentials.BabyEssentialsDept;
@@ -8,7 +8,6 @@ import books.BookDept;
 import cannedgoods.CannedGoodsDept;
 import cleaningsupplies.CleaningSuppliesDept;
 import clothes.ClothesDept;
-import customerservice.Greeting;
 import electronics.ElectronicsDept;
 import fragrance.FragranceDept;
 import frozenfoods.FrozenFoodsDept;
