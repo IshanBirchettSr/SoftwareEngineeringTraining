@@ -22,7 +22,8 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,8 +53,9 @@ public class StorePrinter implements Printable, ActionListener {
 	g.setFont(newFont);
 	String storeName = StoreConstants.STORE_NAME;
 	g.drawString(storeName, 50, 30);
-	SimpleDateFormat formatDate = new SimpleDateFormat("hh:mm a");
-	String todaysDate = formatDate.toString();
+
+	Date curDate = new Date();
+	String todaysDate = DateFormat.getDateTimeInstance().format(curDate);
 	String datePurchased = String.format("Date: %s", todaysDate);
 	newFont = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
 	g.setFont(newFont);
