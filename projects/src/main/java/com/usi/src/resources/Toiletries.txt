@@ -1,1 +1,9 @@
-*Toiletries
+/*Toiletries
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+Toilet paper , Toiletries , POUNDS , UUID , 24 , VALUE , CHARMIN, 2 , 24.00 , WHITE , paper , 200 , 3 PLY EXTRA SOFT
+Toilet paper, Toiletries , OUNCES , UUID , 1 , SINGLES , SUPER STORE , 2 , 1.00 , WHITE , paper , 200 , MADE FROM RECYCLED FIBERS
+Toilet paper , Toiletries , OUNCES , UUID , 10 , REGULAR , COTTONELLE , 13 , 10.45 , WHITE , paper , 100 , 2 PLY 
+Toothpaste , Toiletries , OUNCES , UUID , 2 , VALUE , PEPSODENT , 1 , 5.00 , NA , MINT , 120 , FOR SENSITIVE TEETH
+Toothpaste , Toiletries , OUNCES , UUID , 1 , SINGLES , COLGATE , 1 , 2.70 , NA , MINT , 200 , WHITENING TOOTHPASTE
+Mouthwash , Toiletries , LITER , UUID , 2 , VALUE , LISTERINE , 2 , 10.00 , GREEN , ALCOHOL , 45 , SPEARMINT BRAETH REFRESHING MOUTH RINSE
+Mouthwash , Toiletries , LITER , UUID , 1 , SINGLES , LISTERINE , 2 , 7.00 , BROWN , ALCOHOL , 45 , ORIGINAL FLAVOR MOUTH RINSE KILLS BACTERIA
