@@ -3,6 +3,7 @@ package customerservice;
 import automotive.AutomotiveDept;
 import babyessentials.BabyEssentialsDept;
 import bakery.BakeryDept;
+import bedding.BeddingDept;
 import beverages.BeveragesDept;
 import books.BookDept;
 import cannedgoods.CannedGoodsDept;
@@ -25,6 +26,7 @@ import prescriptioneyeware.PrescriptionEyewareDept;
 import produce.ProduceDept;
 import seafood.SeafoodDept;
 import stationary.StationaryDept;
+import toiletries.ToiletryDept;
 import toys.ToysDept;
 import tupperware.TupperwareDept;
 
@@ -48,6 +50,7 @@ public class SuperStore {
      */
     private void openDepartments() {
 	AutomotiveDept ad = new AutomotiveDept();
+	BeddingDept bedd =new BeddingDept();
 	DeliDept dep = new DeliDept();
 	ElectronicsDept ed = new ElectronicsDept();
 	FragranceDept fdd = new FragranceDept();
@@ -74,6 +77,7 @@ public class SuperStore {
 	TupperwareDept twd = new TupperwareDept();
 	BeveragesDept bevd = new BeveragesDept();
 	StationaryDept syd = new StationaryDept();
+	ToiletryDept tyd = new ToiletryDept();
 
     }
 

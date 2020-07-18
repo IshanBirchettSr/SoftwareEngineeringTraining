@@ -1,5 +1,5 @@
 /*Luggage
-*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
 luggage, Luggage, lbs, UUID, 1, NA, American Tourist, 7lbs, $38.39, Teal, polyester, 10, carryon luggage
 luggage, Luggage, ct, UUID, 1, MED, Samsonite, 2, $109.99, blue, polyester, 13, two piece swivel luggage
 luggage, Luggage, lbs, UUID, 1, SM, Travelers Club, 1, $27.99, gold, plastic, 10, Hardside spinner carryon luggage
