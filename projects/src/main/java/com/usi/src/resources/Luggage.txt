@@ -1,7 +1,7 @@
 /*Luggage
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-luggage, Luggage, lbs, UUID, 1, NA, American Tourist, 7lbs, $38.39, Teal, polyester, 10, carryon luggage
-luggage, Luggage, ct, UUID, 1, MED, Samsonite, 2, $109.99, blue, polyester, 13, two piece swivel luggage
-luggage, Luggage, lbs, UUID, 1, SM, Travelers Club, 1, $27.99, gold, plastic, 10, Hardside spinner carryon luggage
-luggage, Luggage, lbs, UUID, 1, NA, LLBean, 7.93, 1, NA, $399.95, black, polycarbonate, 5, Thule Revolve Global carryon
-childrens luggage, Luggage, lbs, UUID, 1, NA, Sandinrayli, 4.88, $43.99, pink, plastic, 12, 2 piece Girls Kids luggage
+luggage, Luggage, POUNDS, UUID, 1, NA, American Tourist, 7lbs, 38.39, TEAL, polyester, 10, carryon luggage
+luggage, Luggage, COUNT, UUID, 1, MED, Samsonite, 2, 109.99, BLUE, polyester, 13, two piece swivel luggage
+luggage, Luggage, POUNDS, UUID, 1, SM, Travelers Club, 1, 27.99, GOLD, plastic, 10, Hardside spinner carryon luggage
+luggage, Luggage, POUNDS, UUID, 1, NA, LLBean, 7.93, 1, NA, 399.95, BLACK, polycarbonate, 5, Thule Revolve Global carryon
+childrens luggage, POUNDS, UUID, 1, NA, Sandinrayli, 4.88, 43.99, PINK, plastic, 12, 2 piece Girls Kids luggage
