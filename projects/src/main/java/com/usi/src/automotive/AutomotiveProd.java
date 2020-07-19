@@ -8,10 +8,9 @@ import util.StoreConstants;
 import util.StoreConstants.deptNames;
 
 /**
- * @author Allma M. Johnson and ibirc
+ * @author Allma M. Johnson
  *
  */
-
 public class AutomotiveProd extends Product {
 
     /**

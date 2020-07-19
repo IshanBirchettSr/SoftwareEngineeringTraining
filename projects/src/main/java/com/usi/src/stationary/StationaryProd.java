@@ -28,12 +28,12 @@ public class StationaryProd extends Product {
     /*
      * ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand
      * , Weight , Price , Color , Ingredient , NumUnitsInstock , Description,
-     * Stationary/Copy Paper private String productName; private deptNames
-     * deptNameEnum; private unitOfMeasure unitOfMeasureEnum; private String
-     * barCode; private int quantity; private util.StoreConstants.size sizeEnum;
-     * private String bandName; private weight weightEnum; private double price;
-     * private util.StoreConstants.color colorEnum; private String ingredient;
-     * private int numUnitsInstock; private String description;
+     * Automotive/Tires private String productName; private deptNames deptNameEnum;
+     * private unitOfMeasure unitOfMeasureEnum; private String barCode; private int
+     * quantity; private util.StoreConstants.size sizeEnum; private String bandName;
+     * private weight weightEnum; private double price; private
+     * util.StoreConstants.color colorEnum; private String ingredient; private int
+     * numUnitsInstock; private String description;
      */
 
     @Override

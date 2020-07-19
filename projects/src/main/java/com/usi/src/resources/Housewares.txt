@@ -1,7 +1,1 @@
 /*Housewares
-/*Housewares.txt
-/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock, Description
-/*Housewares/FloorLamps
-Floor Lamp, Housewares, NA, UUID, 4, NA, Floor Lamp Plus, NA, 148.99, WHITE, NA, 62, white floor lamp
-Day Floor Lamp, Housewares, NA, UUID, 6, NA, Floor Lamp Plus, NA, 248.99, BLACK, NA, 52, black floor lamp
-Day Modern Floor Lamp, Housewares, NA, UUID, 7, NA, Floor Lamp Plus, NA, 147.99, RED, NA, 36, red floor lamp

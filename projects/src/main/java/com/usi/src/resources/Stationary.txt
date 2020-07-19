@@ -1,7 +1,1 @@
 /*Stationary
-/*Stationary.txt
-/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock, Description
-/*Stationary/Copy Paper
-Legal Sized Copy Paper, Stationary, NA, UUID, 42, NA, Office Depot, NA, 3.49, WHITE, NA, 102, legal sized copy paper
-Standard Sized Copy Paper, Stationary, NA, UUID, 24, NA, Office Depot, NA, 2.49, WHITE, NA, 78, standard copy paper
-Resume Copy Paper, Stationary, NA, UUID, 62, NA, Office Depot, NA, 3.49, WHITE, NA, 98, resume copy paper

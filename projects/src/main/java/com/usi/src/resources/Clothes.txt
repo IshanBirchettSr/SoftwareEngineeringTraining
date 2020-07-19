@@ -1,11 +1,12 @@
 /*Clothes
 /*Clothes.txt
-/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock, Description
+/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
+  NumUnitsInstock, Description
 /*Clothes/Graphic Tees
-X-Man Kids Tee, Clothes, NA, UUID, 12, S, Marvel, NA, 9.99, BLUE, NA, 14, Kids X-Man Tee
-X-Man Mens Tee, Clothes, NA, UUID, 24, 	XL, Marvel, NA, 14.99, WHITE, NA, 22, Mens X-Man Tee
-Unisex Adult USI Software Engineering Tee, Clothes, NA, UUID, 52, XL, Fruit Of The Loom, NA, 10.99, WHITE, NA, 14, Unisex USI Tee
-Wonder Woman Unisex Adult Tee, Clothes, NA, UUID, 16, L, Marvel, NA, 12.99, WHITE, NA, 12, Uni sex Wonder Woman Tee
-Black Panther Unisex Adult Tee,	Clothes, NA, UUID, 72, M, Marvel, NA, 14.99, BLACK, NA, 10, Uni sex BLACK Panther Tee
-Black Panther Womens Tee, Clothes, NA, UUID, 28, L, Marvel, NA, 12.99, GRAY, NA, 12, Black Panther Womens Tee
-Black Panther Kids Tee,	Clothes, NA, UUID, 63, M, Marvel, NA, 13.99, GRAY, NA, 8, BLACK Panther Kids Tee
+X-Man Kids Tee, Clothes, na, UUID, na, S, Marvel, na, 9.99, Blue, Cotton, 14, Kids X-Man Tee
+X-Man Mens Tee, Clothes, na, UUID, na, XL, Marvel, na, 14.99, White, Cotton, 22, Mens X-Man Tee
+Unisex Adult USI Software Engineering Tee, Clothes, na, UUID, na, XL, Fruit Of The Loom, na, 10.99, Black, Au Cotton, 14, Unisex USI Tee
+Wonder Woman Unisex Adult Tee, Clothes, na, UUID, na, L, Marvel, na, 12.99, na, White, Cotton, 12, Unisex Wonder Woman Tee
+Black Panther Unisex Adult Tee, Clothes, na, UUID, na, M, Marvel, na, 14.99, na, Black, Cotton, 10, Unisex Black Panther Tee
+Black Panther Womens Tee, Clothes, na, UUID, na, L, Marvel, na 12.99, na, Grey, Cotton, 12, Black Panther Womens Tee
+Black Panther Kids Tee, Clothes, na, UUID, na, M, Marvel, na, 13.99, Black, Cotton, 8, Black Panther Kids Tee

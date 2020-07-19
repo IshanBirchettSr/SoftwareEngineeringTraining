@@ -15,13 +15,13 @@ public class DeliProd extends Product {
 
     /*
      * ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand
-     * , Weight , Price , Color , Ingredient , NumUnitsInstock , Description /*Deli
-     * private String productName; private deptNames deptNameEnum; private
-     * unitOfMeasure unitOfMeasureEnum; private String barCode; private int
-     * quantity; private util.StoreConstants.size sizeEnum; private String bandName;
-     * private weight weightEnum; private double price; private
-     * util.StoreConstants.color colorEnum; private String ingredient; private int
-     * numUnitsInstock; private String description;
+     * , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+     * /*Automotive/Tires private String productName; private deptNames
+     * deptNameEnum; private unitOfMeasure unitOfMeasureEnum; private String
+     * barCode; private int quantity; private util.StoreConstants.size sizeEnum;
+     * private String bandName; private weight weightEnum; private double price;
+     * private util.StoreConstants.color colorEnum; private String ingredient;
+     * private int numUnitsInstock; private String description;
      */
     @Override
     public boolean recordToProduct(String record) {

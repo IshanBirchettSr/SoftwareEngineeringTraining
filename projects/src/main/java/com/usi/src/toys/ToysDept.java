@@ -1,57 +1,35 @@
 package toys;
 
-import java.util.HashMap;
 import java.util.List;
 
 import util.DataCsvLoad;
 import util.Department;
-import util.ProdKeyGen;
 import util.StoreConstants;
 
 /**
- * @author Allma M. Johnson
+ * @author amj
  *
  */
 public class ToysDept extends Department {
     String deptName = StoreConstants.deptNames.TOYS.name();
-    List<String> toysRecords = null;
-    // HashMap<K, V> to hold ToysProd objects.
-    HashMap<String, ToysProd> toysProducts;
 
     /**
-     * Constructor
+     * 
      */
-
     public ToysDept() {
-	// Record Load
+	// TODO Auto-generated constructor stub
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.TOYS_TRUCK);
-	toysRecords = unLoadTrucks.getRecords();
-	this.setLoadedRecords(toysRecords);
-	// System.out.printf("%s Department open with %d records\n", deptName,
-	// toysRecords.size());
 
-	// Toys Product Load
-	toysProducts = new HashMap<String, ToysProd>();
-	loadProducts();
+	unLoadTrucks.loadData(StoreConstants.TOYS_TRUCK);
+	List<String> loadedRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(loadedRecords);
+	System.out.printf("%s Department open with %d products\n", deptName, loadedRecords.size());
     }
 
     @Override
     protected void loadProducts() {
-	// Load products
-	for (String record : toysRecords) {
-	    ToysProd tp = new ToysProd();
-	    boolean recordToProductSuccessful = tp.recordToProduct(record);
-
-	    // If it fails to convert any field, don't add that object to toysProducts
-	    if (recordToProductSuccessful == true) {
-		String prodKey = ProdKeyGen.genKey(tp);
-		toysProducts.put(prodKey, tp);
-	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		toysRecords.size(), toysProducts.size());
-
+	// TODO Auto-generated method stub
     }
 
+    // TODO Auto-generated method stub
 }
