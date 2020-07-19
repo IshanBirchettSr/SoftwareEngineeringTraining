@@ -45,7 +45,7 @@ public class StoreConstants {
     public static final String STATIONARY_TRUCK = APP_HOME + "/src/resources/Stationary.txt";
     public static final String TOILETRIES_TRUCK = APP_HOME + "/src/resources/Toiletries.txt";
     public static final String BEDDING_TRUCK = APP_HOME + "/src/resources/Bedding.txt";
-	
+    public static final String SHOE_TRUCK = APP_HOME + "/src/resources/Shoe.txt";
 
     private String dName;
 
@@ -57,8 +57,8 @@ public class StoreConstants {
 	HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"), HOUSEWARES("housewares"), LEOPARD("leopard"),
 	LINEN("linen"), LUGGAGE("luggage"), MEAT("meat"), PANTRY("pantry"), PETCARE("petcare"), PHARMACY("pharmacy"),
 	PLANTBASE("plantbase"), PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"), SEAFOOD("seafood"),
-	SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"), TORTOISE("tortoise"),
-	TOYS("toys"), TUPPERWARE("tupperware");
+	SHOE("shoe"), SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"),
+	TORTOISE("tortoise"), TOYS("toys"), TUPPERWARE("tupperware");
 
 	private String dName;
 
@@ -157,8 +157,8 @@ public class StoreConstants {
 
     public static enum unitOfMeasure {
 	POUNDS("lbs"), GRAMS("grams"), KILOGRAMS("kg"), MILIGRAMS("mg"), OUNCES("oz"), GALLONS("gal"),
-	FLUID_OUNCES("floz"), CUP("c"), PINTS("pts"), QUARTS("qts"), MILILITER("mil"), LITER("ltr"), TONS("tn"),
-	NA("na");
+	FLUID_OUNCES("floz"), CUP("c"), COUNT("ct"), PINTS("pts"), QUARTS("qts"), MILILITER("mil"), LITER("ltr"),
+	TONS("tn"), NA("na");
 
 	unitOfMeasure(String string) {
 	    // TODO Auto-generated constructor stub

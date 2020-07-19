@@ -25,6 +25,7 @@ import plantbase.PlantBaseDept;
 import prescriptioneyeware.PrescriptionEyewareDept;
 import produce.ProduceDept;
 import seafood.SeafoodDept;
+import shoe.ShoeDept;
 import stationary.StationaryDept;
 import toiletries.ToiletryDept;
 import toys.ToysDept;
@@ -50,7 +51,7 @@ public class SuperStore {
      */
     private void openDepartments() {
 	AutomotiveDept ad = new AutomotiveDept();
-	BeddingDept bedd =new BeddingDept();
+	BeddingDept bedd = new BeddingDept();
 	DeliDept dep = new DeliDept();
 	ElectronicsDept ed = new ElectronicsDept();
 	FragranceDept fdd = new FragranceDept();
@@ -74,6 +75,7 @@ public class SuperStore {
 	CannedGoodsDept cgd = new CannedGoodsDept();
 	PetcareDept pcd = new PetcareDept();
 	PantryDept ptd = new PantryDept();
+	ShoeDept shd = new ShoeDept();
 	TupperwareDept twd = new TupperwareDept();
 	BeveragesDept bevd = new BeveragesDept();
 	StationaryDept syd = new StationaryDept();
