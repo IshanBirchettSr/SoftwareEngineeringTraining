@@ -44,8 +44,13 @@ public class StoreConstants {
     public static final String BEVERAGES_TRUCK = APP_HOME + "/src/resources/Beverages.txt";
     public static final String STATIONARY_TRUCK = APP_HOME + "/src/resources/Stationary.txt";
     public static final String TOILETRIES_TRUCK = APP_HOME + "/src/resources/Toiletries.txt";
+<<<<<<< Updated upstream
     public static final String BEDDING_TRUCK = APP_HOME + "/src/resources/Bedding.txt";
 	
+=======
+    public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
+    public static final String TUPPERWARE_TRUCK = APP_HOME + "/src/resources/Tupperware.txt";
+>>>>>>> Stashed changes
 
     private String dName;
 
@@ -85,7 +90,7 @@ public class StoreConstants {
 	VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), MOCHA("mocha"), NAVY("navy"), PINK("pink"),
 	WHITE("white"), BEIGE("beige"), BROWN("brown"), TEAL("teal"), GOLD("gold"), SILVER("silver"), PEWTER("pewter"),
 	ECRU("ecru"), COFFEE("coffee"), MAGENTA("magenta"), MARBLE("marble"), GRAY("gray"), SALMON("salmon"),
-	PURPLE("purple"), TAN("tan"), BRONZE("bronze"), NA("na"), CREME("creme");
+	PURPLE("purple"), TAN("tan"), BRONZE("bronze"), NA("na"), CREME("creme"), CLEAR("clear");
 
 	color(String string) {
 	    // TODO Auto-generated constructor stub
