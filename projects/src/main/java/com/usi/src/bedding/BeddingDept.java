@@ -3,106 +3,56 @@
  */
 package bedding;
 
+import java.util.HashMap;
+import java.util.List;
+import util.DataCsvLoad;
 import util.Department;
+import util.ProdKeyGen;
+import util.StoreConstants;
 
 /**
- * @author Allma M. Johnson
+ * @author Allma M. Johnson and Chich
  *
  */
 public class BeddingDept extends Department {
 
-    private int numberOfFittedSheets = 5;
-    private int numberOfFlatSheets = 4;
-    private int numberOfPillowCases = 6;
-    private int numberOfTwinFittedSheets = 3;
-    private int numberOfTwinFlatSheets = 4;
-    private int numberOfFullFittedSheets = 3;
-    private int numberOfKingFlatSheets = 6;
-    private boolean hasAllSheetSizes = false;
-    private boolean hasSheetsInStock = true;
+	String deptName = StoreConstants.deptNames.BEDDING.name();
+	List<String> beddingRecords = null;
+// HashMap<K, V> to hold ElectronicsProd objects.
+	HashMap<String, BeddingProd> BeddingProducts;
 
-    public int getNumberOfFittedSheets() {
-	return numberOfFittedSheets;
-    }
+	/**
+	 * Constructor
+	 */
+	public BeddingDept() {
+// Record Load
+		DataCsvLoad unLoadTrucks = new DataCsvLoad();
+		unLoadTrucks.loadData(StoreConstants.BEDDING_TRUCK);
+		beddingRecords = unLoadTrucks.getRecords();
+		this.setLoadedRecords(beddingRecords);
+// System.out.printf("%s Department open with %d records\n", deptName,
+// autoRecords.size());
 
-    public void setNumberOfFittedSheets(int numberOfFittedSheets) {
-	this.numberOfFittedSheets = numberOfFittedSheets;
-    }
+// Automotive Product Load
+		BeddingProducts = new HashMap<String, BeddingProd>();
+		loadProducts();
+	}
 
-    public int getNumberOfFlatSheets() {
-	return numberOfFlatSheets;
-    }
+	@Override
+	protected void loadProducts() {
+// Load products
+		for (String record : beddingRecords) {
+			BeddingProd bp = new BeddingProd();
+			boolean recordToProductSuccessful = bp.recordToProduct(record);
 
-    public void setNumberOfFlatSheets(int numberOfFlatSheets) {
-	this.numberOfFlatSheets = numberOfFlatSheets;
-    }
+			// If it fails to convert any field, don't add that object to autoProducts
+			if (recordToProductSuccessful == true) {
+				String prodKey = ProdKeyGen.genKey(bp);
+				BeddingProducts.put(prodKey, bp);
+			}
+		}
+		System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+				beddingRecords.size(), BeddingProducts.size());
 
-    public int getNumberOfPillowCases() {
-	return numberOfPillowCases;
-    }
-
-    public void setNumberOfPillowCases(int numberOfPillowCases) {
-	this.numberOfPillowCases = numberOfPillowCases;
-    }
-
-    public int getNumberOfTwinFittedSheets() {
-	return numberOfTwinFittedSheets;
-    }
-
-    public void setNumberOfTwinFittedSheets(int numberOfTwinFittedSheets) {
-	this.numberOfTwinFittedSheets = numberOfTwinFittedSheets;
-    }
-
-    public int getNumberOfTwinFlatSheets() {
-	return numberOfTwinFlatSheets;
-    }
-
-    public void setNumberOfTwinFlatSheets(int numberOfTwinFlatSheets) {
-	this.numberOfTwinFlatSheets = numberOfTwinFlatSheets;
-    }
-
-    public int getNumberOfFullFittedSheets() {
-	return numberOfFullFittedSheets;
-    }
-
-    public void setNumberOfFullFittedSheets(int numberOfFullFittedSheets) {
-	this.numberOfFullFittedSheets = numberOfFullFittedSheets;
-    }
-
-    public int getNumberOfKingFlatSheets() {
-	return numberOfKingFlatSheets;
-    }
-
-    public void setNumberOfKingFlatSheets(int numberOfKingFlatSheets) {
-	this.numberOfKingFlatSheets = numberOfKingFlatSheets;
-    }
-
-    public boolean isHasAllSheetSizes() {
-	return hasAllSheetSizes;
-    }
-
-    public void setHasAllSheetSizes(boolean hasAllSheetSizes) {
-	this.hasAllSheetSizes = hasAllSheetSizes;
-    }
-
-    public boolean isHasSheetsInStock() {
-	return hasSheetsInStock;
-    }
-
-    public void setHasSheetsInStock(boolean hasSheetsInStock) {
-	this.hasSheetsInStock = hasSheetsInStock;
-    }
-
-    /**
-     * 
-     */
-    public BeddingDept() {
-
-    }
-
-    @Override
-    protected void loadProducts() {
-	// TODO Auto-generated method stub
-    }
-
+	}
 }

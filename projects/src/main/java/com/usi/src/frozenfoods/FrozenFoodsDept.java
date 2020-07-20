@@ -9,6 +9,11 @@ import util.Department;
 import util.ProdKeyGen;
 import util.StoreConstants;
 
+/**
+ * @author and Allma M. Johnson
+ *
+ */
+
 public class FrozenFoodsDept extends Department {
     String deptName = StoreConstants.deptNames.FROZEN_FOODS.name();
     List<String> frozenFoodsRecords = null;
@@ -19,7 +24,8 @@ public class FrozenFoodsDept extends Department {
      * @return
      * 
      */
-    public void FrozenFoodsDept() {
+
+    public FrozenFoodsDept() {
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.FROZEN_FOODS_TRUCK);
 	List<String> frozenFoodsRecords = unLoadTrucks.getRecords();
@@ -36,7 +42,8 @@ public class FrozenFoodsDept extends Department {
 	    FrozenFoodsProd ffp = new FrozenFoodsProd();
 	    boolean recordToProductSuccessful = ffp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
+	    // If it fails to convert any field, don't add that object to
+	    // frozenFoodsProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(ffp);
 		frozenFoodsProducts.put(prodKey, ffp);
