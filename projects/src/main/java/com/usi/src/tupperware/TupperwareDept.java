@@ -9,7 +9,7 @@ import util.ProdKeyGen;
 import util.StoreConstants;
 
 /**
- * @author chich and Allma M. Johnson
+ * @author chich
  *
  */
 

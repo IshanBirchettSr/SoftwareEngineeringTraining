@@ -1,7 +1,5 @@
 /* Tupperware
-/* Tupperware.txt
 /* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock , Description
-/* Tupperware/Storage 
 Vented lids food storage , Tupperware , NA , UUID , 10 , NA , Rubbermaid , NA, 10.00 , RED , NA , 200 , vented lids for food storage
 Vented lids easy find , Tupperware , NA , UUID , 10 , NA , Rubbermaid , NA , 17.00 , CLEAR , NA , 200 , Large vented lid containers for food storage
 Locked lid , Tupperware , NA , UUID , 3 , NA , Chefbuddy , NA , 10.45 , CLEAR , NA , 100 , lockable lid containers for food storage 
