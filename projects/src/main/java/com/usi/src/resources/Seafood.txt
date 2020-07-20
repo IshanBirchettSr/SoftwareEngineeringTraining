@@ -1,1 +1,8 @@
 /*Seafood
+/*Seafood.txt
+/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock, Description
+/*Seafood/Salmon
+Sockeye Salmon, Seafood, NA, UUID, 12, NA, Salmon Plus, NA, 16.99, NA, NA, 12, Sockeye Salmon
+Alaskan Salmon, Seafood, NA, UUID, 15, NA, Salmon Plus, NA, 24.99, NA, NA, 17, Salmon
+Farm Raised Salmon, Seafood, NA, UUID, 13, NA, Salmon Plus, NA, 21.99, NA, NA, 14, Farm Raised Salmon
+Alaskan King Salmon, Seafood, NA, UUID, 12, NA, Salmon Plus, NA, 15.99, NA, NA, 13, King Salmon

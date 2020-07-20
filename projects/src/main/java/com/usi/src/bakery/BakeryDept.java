@@ -17,7 +17,7 @@ import util.ProdKeyGen;
 import util.StoreConstants;
 
 /**
- * @author ibirc
+ * @author ibirc and Allma M. Johnson
  *
  */
 public class BakeryDept extends Department {
