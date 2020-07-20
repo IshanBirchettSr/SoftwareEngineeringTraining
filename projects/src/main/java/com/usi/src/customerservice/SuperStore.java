@@ -29,10 +29,12 @@ import toys.ToysDept;
 import tupperware.TupperwareDept;
 
 public class SuperStore {
+    // Data member section
     boolean status = false;
+    Greeting greeting = null;
 
     public boolean openStore() {
-	Greeting greeting = new Greeting();
+	greeting = new Greeting();
 	greeting.sayGreeting();
 	this.setStatus(true);
 	return status;
