@@ -8,7 +8,7 @@ import util.StoreConstants;
 import util.StoreConstants.deptNames;
 
 /**
- * @author chich and Allma M. Johnson
+ * @author chich
  *
  */
 public class TupperwareProd extends Product {
