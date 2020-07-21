@@ -54,11 +54,11 @@ public class StoreConstants {
     public static final String PRESCRIPTION_EYEWARE_TRUCK = APP_HOME + "/src/resources/Prescriptioneyeware.txt";
     public static final String PRODUCE_TRUCK = APP_HOME + "/src/resources/Produce.txt";
     public static final String SEAFOOD_TRUCK = APP_HOME + "/src/resources/Seafood.txt";
+    public static final String SHOE_TRUCK = APP_HOME + "/src/resources/Shoe.txt";
     public static final String STATIONARY_TRUCK = APP_HOME + "/src/resources/Stationary.txt";
     public static final String TOILETRIES_TRUCK = APP_HOME + "/src/resources/Toiletries.txt";
     public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
     public static final String TUPPERWARE_TRUCK = APP_HOME + "/src/resources/Tupperware.txt";
-
     /*
      * Please keep deptNames in alphabetical order
      */
@@ -66,13 +66,12 @@ public class StoreConstants {
 	AUTOMOTIVE("automotive"), BABY_ESSENTIALS("babyessentials"), BAKERY("bakery"), BEDDING("bedding"),
 	BEVERAGES("beverages"), BIKES("bikes"), BOOKS("books"), CANNED_GOODS("cannedgoods"),
 	CLEANING_SUPPLIES("cleaningsupplies"), CLOTHES("clothes"), CUSTOMER_SERVICE("customerservice"), DAIRY("dairy"),
-	DELI("deli"), ELECTRONICS("electronics"), FRAGRANCE("fragrance"), FROZEN_FOODS("frozenfoods"),
-	FURNITURE("furniture"), GARDEN("garden"), HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"),
-	HOUSEWARES("housewares"), LEOPARD("leopard"), LINEN("linen"), LUGGAGE("luggage"), MEAT("meat"),
-	PANTRY("pantry"), PETCARE("petcare"), PHARMACY("pharmacy"), PLANTBASE("plantbase"),
-	PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"), SEAFOOD("seafood"),
-	SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"), TORTOISE("tortoise"),
-	TOYS("toys"), TUPPERWARE("tupperware"), VEGETABLES("vegetables");
+	DELI("deli"), ELECTRONICS("electronics"), FRAGRANCE("fragrance"), FROZEN_FOODS("frozenfoods"), GARDEN("garden"),
+	HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"), HOUSEWARES("housewares"), LEOPARD("leopard"),
+	LINEN("linen"), LUGGAGE("luggage"), MEAT("meat"), PANTRY("pantry"), PETCARE("petcare"), PHARMACY("pharmacy"),
+	PLANTBASE("plantbase"), PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"), SEAFOOD("seafood"),
+	SHOE("shoe"), SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"),
+	TORTOISE("tortoise"), TOYS("toys"), TUPPERWARE("tupperware"),VEGETABLES("vegetables"); // Why is there a Vegetables department?
 
 	private String dName;
 
@@ -171,8 +170,8 @@ public class StoreConstants {
 
     public static enum unitOfMeasure {
 	POUNDS("lbs"), GRAMS("grams"), KILOGRAMS("kg"), MILIGRAMS("mg"), OUNCES("oz"), GALLONS("gal"),
-	FLUID_OUNCES("floz"), CUP("c"), PINTS("pts"), QUARTS("qts"), MILILITER("mil"), LITER("ltr"), TONS("tn"),
-	NA("na");
+	FLUID_OUNCES("floz"), CUP("c"), COUNT("ct"), PINTS("pts"), QUARTS("qts"), MILILITER("mil"), LITER("ltr"),
+	TONS("tn"), NA("na");
 
 	unitOfMeasure(String string) {
 	    // TODO Auto-generated constructor stub

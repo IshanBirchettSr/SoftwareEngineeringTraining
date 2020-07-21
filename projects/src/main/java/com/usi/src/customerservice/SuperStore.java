@@ -28,6 +28,7 @@ import plantbase.PlantBaseDept;
 import prescriptioneyeware.PrescriptionEyewareDept;
 import produce.ProduceDept;
 import seafood.SeafoodDept;
+import shoe.ShoeDept;
 import stationary.StationaryDept;
 import toiletries.ToiletryDept;
 import toys.ToysDept;
@@ -83,6 +84,7 @@ public class SuperStore {
 	PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
 	ProduceDept pdd = new ProduceDept();
 	SeafoodDept sd = new SeafoodDept();
+	ShoeDept shd = new ShoeDept();
 	StationaryDept syd = new StationaryDept();
 	ToiletryDept tyd = new ToiletryDept();
 	ToysDept td = new ToysDept();
