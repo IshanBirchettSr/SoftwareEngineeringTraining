@@ -1,5 +1,5 @@
 /* Dairy
-ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description/*
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description/*
 Almond Milk, Dairy, OUNCE, UUID, 1, NA, Almond Breeze, 64, 4.39, BEIGE, Almond Milk, 20, Almond Breeze Unsweetened Orginal Alomnd Milk
 Cheddar Cheese, Dairy, OUNCE, UUID, 1, NA, CABOT, 8, 4,39, WHITE, cheese, 25, Cabot Creamy Extra Sharp Chedder Cheese
 Sour Cream, Dairy, OUNCE, UUID, 1, NA, Daisy, 16, 3.29, WHITE, sour cream, 15, Daisy Sour Cream
