@@ -3,17 +3,22 @@ package customerservice;
 import automotive.AutomotiveDept;
 import babyessentials.BabyEssentialsDept;
 import bakery.BakeryDept;
+import bedding.BeddingDept;
 import beverages.BeveragesDept;
+import bikes.BikesDept;
 import books.BookDept;
 import cannedgoods.CannedGoodsDept;
 import cleaningsupplies.CleaningSuppliesDept;
 import clothes.ClothesDept;
+import deli.DeliDept;
 import electronics.ElectronicsDept;
 import fragrance.FragranceDept;
 import frozenfoods.FrozenFoodsDept;
 import furniture.FurnitureDept;
 import garden.GardenDept;
 import haircare.HairCareDept;
+import healthandbeauty.HealthAndBeautyDept;
+import housewares.HousewaresDept;
 import linen.LinenDept;
 import meat.MeatDept;
 import pantry.PantryDept;
@@ -25,14 +30,17 @@ import produce.ProduceDept;
 import seafood.SeafoodDept;
 import shoe.ShoeDept;
 import stationary.StationaryDept;
+import toiletries.ToiletryDept;
 import toys.ToysDept;
 import tupperware.TupperwareDept;
 
 public class SuperStore {
+    // Data member section
     boolean status = false;
+    Greeting greeting = null;
 
     public boolean openStore() {
-	Greeting greeting = new Greeting();
+	greeting = new Greeting();
 	greeting.sayGreeting();
 	this.setStatus(true);
 	return status;
@@ -44,37 +52,43 @@ public class SuperStore {
     }
 
     /*
-     * Here each department will be instantiated
+     * Please keep Open Department list in alphabetical order Here each department
+     * will be instantiated
      */
     private void openDepartments() {
 	AutomotiveDept ad = new AutomotiveDept();
-	// DeliDept dep = new DeliDept();
+	BabyEssentialsDept bed = new BabyEssentialsDept();
+	BakeryDept bd = new BakeryDept();
+	BeddingDept bedd = new BeddingDept();
+	BeveragesDept bevd = new BeveragesDept();
+	BikesDept bkd = new BikesDept();
+	BookDept bod = new BookDept();
+	CannedGoodsDept cgd = new CannedGoodsDept();
+	CleaningSuppliesDept csd = new CleaningSuppliesDept();
+	ClothesDept cd = new ClothesDept();
+	DeliDept dep = new DeliDept();
 	ElectronicsDept ed = new ElectronicsDept();
 	FragranceDept fdd = new FragranceDept();
 	FrozenFoodsDept ffd = new FrozenFoodsDept();
-	GardenDept gd = new GardenDept();
-	HairCareDept hd = new HairCareDept();
-	LinenDept ln = new LinenDept();
-	PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
-	ToysDept td = new ToysDept();
-	CleaningSuppliesDept csd = new CleaningSuppliesDept();
-	BakeryDept bd = new BakeryDept();
 	FurnitureDept fd = new FurnitureDept();
-	ClothesDept cd = new ClothesDept();
+	GardenDept gd = new GardenDept();
+	HairCareDept hcd = new HairCareDept();
+	HealthAndBeautyDept hba = new HealthAndBeautyDept();
+	HousewaresDept hwd = new HousewaresDept();
+	LinenDept ln = new LinenDept();
 	MeatDept md = new MeatDept();
-	PlantBaseDept pbd = new PlantBaseDept();
-	ProduceDept pdd = new ProduceDept();
-	PharmacyDept pd = new PharmacyDept();
-	SeafoodDept sd = new SeafoodDept();
-	BabyEssentialsDept bed = new BabyEssentialsDept();
-	BookDept bod = new BookDept();
-	CannedGoodsDept cgd = new CannedGoodsDept();
-	PetcareDept pcd = new PetcareDept();
 	PantryDept ptd = new PantryDept();
-	TupperwareDept twd = new TupperwareDept();
-	BeveragesDept bevd = new BeveragesDept();
-	StationaryDept syd = new StationaryDept();
+	PetcareDept pcd = new PetcareDept();
+	PlantBaseDept pbd = new PlantBaseDept();
+	PharmacyDept pd = new PharmacyDept();
+	PrescriptionEyewareDept pw = new PrescriptionEyewareDept();
+	ProduceDept pdd = new ProduceDept();
+	SeafoodDept sd = new SeafoodDept();
 	ShoeDept shd = new ShoeDept();
+	StationaryDept syd = new StationaryDept();
+	ToiletryDept tyd = new ToiletryDept();
+	ToysDept td = new ToysDept();
+	TupperwareDept twd = new TupperwareDept();
     }
 
     public static void main(String[] args) {

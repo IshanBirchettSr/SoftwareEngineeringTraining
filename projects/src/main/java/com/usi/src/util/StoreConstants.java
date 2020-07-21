@@ -20,43 +20,60 @@ public class StoreConstants {
     // SDCN + Department Enum + Band Name + Product Name + Weight + Color Enum
     public static final String PROD_KEY_FORMATTER = SDCN + "::%s:%s:%s:%s:%s:%s";
 
-    // Truck Constants for importing department records
-    public static final String VEGETABLE_TRUCK = APP_HOME + "/src/resources/vegetables.txt";
+    /*
+     * Truck Constants for importing department records Please keep Department
+     * Records in alphabetical order
+     */
+
     public static final String AUTOMOTIVE_TRUCK = APP_HOME + "/src/resources/Automotive.txt";
-    public static final String LINEN_TRUCK = APP_HOME + "/src/resources/Linen.txt";
-    public static final String ELECTRONICS_TRUCK = APP_HOME + "/src/resources/Electronics.txt";
-    public static final String HAIR_CARE_TRUCK = APP_HOME + "/src/resources/Haircare.txt";
-    public static final String PRESCRIPTION_EYEWARE_TRUCK = APP_HOME + "/src/resources/Prescriptioneyeware.txt";
-    public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
-    public static final String GARDEN_TRUCK = APP_HOME + "/src/resources/Garden.txt";
-    public static final String FROZEN_FOODS_TRUCK = APP_HOME + "/src/resources/FrozenFoods.txt";
-    public static final String BAKERY_TRUCK = APP_HOME + "/src/resources/Bakery.txt";
     public static final String BABY_ESSENTIALS_TRUCK = APP_HOME + "/src/resources/BabyEssentials.txt";
+    public static final String BAKERY_TRUCK = APP_HOME + "/src/resources/Bakery.txt";
+    public static final String BEDDING_TRUCK = APP_HOME + "/src/resources/Bedding.txt";
+    public static final String BEVERAGES_TRUCK = APP_HOME + "/src/resources/Beverages.txt";
+    public static final String BIKES_TRUCK = APP_HOME + "/src/resources/Bikes.txt";
+    public static final String BOOK_TRUCK = APP_HOME + "/src/resources/Books.txt";
     public static final String CANNED_GOODS_TRUCKS = APP_HOME + "/src/resources/CannedGoods.txt";
+    public static final String CLEANINGSUPPLIES_TRUCK = APP_HOME + "/src/resources/CleaningSupplies.txt";
+    public static final String CLOTHES_TRUCK = APP_HOME + "/src/resources/Clothes.txt";
     public static final String DELI_TRUCK = APP_HOME + "/src/resources/Deli.txt";
     public static final String DAIRY_TRUCK = APP_HOME + "/src/resources/Dairy.txt";
+    public static final String ELECTRONICS_TRUCK = APP_HOME + "/src/resources/Electronics.txt";
     public static final String FRAGRANCE_TRUCK = APP_HOME + "/src/resources/Fragrance.txt";
+    public static final String FROZEN_FOODS_TRUCK = APP_HOME + "/src/resources/FrozenFoods.txt";
+    public static final String FURNITURE_TRUCK = APP_HOME + "/src/resources/Furniture.txt";
+    public static final String GARDEN_TRUCK = APP_HOME + "/src/resources/Garden.txt";
+    public static final String HAIR_CARE_TRUCK = APP_HOME + "/src/resources/Haircare.txt";
+    public static final String HOUSEWARES_TRUCK = APP_HOME + "/src/resources/Housewares.txt";
+    public static final String LINEN_TRUCK = APP_HOME + "/src/resources/Linen.txt";
     public static final String LUGGAGE_TRUCK = APP_HOME + "/src/resources/Luggage.txt";
-    public static final String PRODUCE_TRUCK = APP_HOME + "/src/resources/Produce.txt";
-    public static final String PETCARE_TRUCK = APP_HOME + "/src/resources/Petcare.txt";
+    public static final String MEAT_TRUCK = APP_HOME + "/src/resources/Meat.txt";
     public static final String PANTRY_TRUCK = APP_HOME + "/src/resources/Pantry.txt";
-    public static final String BOOK_TRUCK = APP_HOME + "/src/resources/Books.txt";
-    public static final String BEVERAGES_TRUCK = APP_HOME + "/src/resources/Beverages.txt";
+    public static final String PETCARE_TRUCK = APP_HOME + "/src/resources/Petcare.txt";
+    public static final String PHARMACY_TRUCK = APP_HOME + "/src/resources/Pharmacy.txt";
+    public static final String PLANTBASE_TRUCK = APP_HOME + "/src/resources/PlantBase.txt";
+    public static final String PRESCRIPTION_EYEWARE_TRUCK = APP_HOME + "/src/resources/Prescriptioneyeware.txt";
+    public static final String PRODUCE_TRUCK = APP_HOME + "/src/resources/Produce.txt";
+    public static final String SEAFOOD_TRUCK = APP_HOME + "/src/resources/Seafood.txt";
+    public static final String SHOE_TRUCK = APP_HOME + "/src/resources/Shoe.txt";
     public static final String STATIONARY_TRUCK = APP_HOME + "/src/resources/Stationary.txt";
-    public static final String SHOE_TRUCK = APP_HOME + "/src/resources/SHOE.txt";
+    public static final String TOILETRIES_TRUCK = APP_HOME + "/src/resources/Toiletries.txt";
+    public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
+    public static final String TUPPERWARE_TRUCK = APP_HOME + "/src/resources/Tupperware.txt";
 
-    private String dName;
-
+    /*
+     * Please keep deptNames in alphabetical order
+     */
     public static enum deptNames {
 	AUTOMOTIVE("automotive"), BABY_ESSENTIALS("babyessentials"), BAKERY("bakery"), BEDDING("bedding"),
 	BEVERAGES("beverages"), BIKES("bikes"), BOOKS("books"), CANNED_GOODS("cannedgoods"),
 	CLEANING_SUPPLIES("cleaningsupplies"), CLOTHES("clothes"), CUSTOMER_SERVICE("customerservice"), DAIRY("dairy"),
-	DELI("deli"), ELECTRONICS("electronics"), FRAGRANCE("fragrance"), FROZEN_FOODS("frozenfoods"), GARDEN("garden"),
-	HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"), HOUSEWARES("housewares"), LEOPARD("leopard"),
-	LINEN("linen"), LUGGAGE("luggage"), MEAT("meat"), PANTRY("pantry"), PETCARE("petcare"), PHARMACY("pharmacy"),
-	PLANTBASE("plantbase"), PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"), SEAFOOD("seafood"),
+	DELI("deli"), ELECTRONICS("electronics"), FRAGRANCE("fragrance"), FROZEN_FOODS("frozenfoods"),
+	FURNITURE("furniture"), GARDEN("garden"), HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"),
+	HOUSEWARES("housewares"), LEOPARD("leopard"), LINEN("linen"), LUGGAGE("luggage"), MEAT("meat"),
+	PANTRY("pantry"), PETCARE("petcare"), PHARMACY("pharmacy"), PLANTBASE("plantbase"),
+	PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"), SEAFOOD("seafood"), SHOE("shoe"),
 	SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"), TORTOISE("tortoise"),
-	TOYS("toys"), TUPPERWARE("tupperware");
+	TOYS("toys"), TUPPERWARE("tupperware"), VEGETABLES("vegetables"); // Why is there a Vegetables department?
 
 	private String dName;
 
@@ -74,7 +91,7 @@ public class StoreConstants {
     }
 
     /**
-     * @author amj
+     * @author Allma M. Johnson
      *
      */
 
@@ -83,7 +100,7 @@ public class StoreConstants {
 	VIOLET("violet"), BLACK("black"), MULTI_COLOR("multi-color"), MOCHA("mocha"), NAVY("navy"), PINK("pink"),
 	WHITE("white"), BEIGE("beige"), BROWN("brown"), TEAL("teal"), GOLD("gold"), SILVER("silver"), PEWTER("pewter"),
 	ECRU("ecru"), COFFEE("coffee"), MAGENTA("magenta"), MARBLE("marble"), GRAY("gray"), SALMON("salmon"),
-	PURPLE("purple"), TAN("tan"), BRONZE("bronze"), NA("na");
+	PURPLE("purple"), TAN("tan"), BRONZE("bronze"), NA("na"), CREME("creme"), CLEAR("clear");
 
 	color(String string) {
 	    // TODO Auto-generated constructor stub
@@ -155,8 +172,8 @@ public class StoreConstants {
 
     public static enum unitOfMeasure {
 	POUNDS("lbs"), GRAMS("grams"), KILOGRAMS("kg"), MILIGRAMS("mg"), OUNCES("oz"), GALLONS("gal"),
-	FLUID_OUNCES("floz"), CUP("c"), PINTS("pts"), QUARTS("qts"), MILILITER("mil"), LITER("ltr"), TONS("tn"),
-	NA("na");
+	FLUID_OUNCES("floz"), CUP("c"), COUNT("ct"), PINTS("pts"), QUARTS("qts"), MILILITER("mil"), LITER("ltr"),
+	TONS("tn"), NA("na");
 
 	unitOfMeasure(String string) {
 	    // TODO Auto-generated constructor stub

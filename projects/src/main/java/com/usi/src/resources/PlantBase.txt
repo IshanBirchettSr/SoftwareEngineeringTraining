@@ -1,12 +1,11 @@
-/*Plant Base
-/*Plant Base.txt
-/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
-  NumUnitsInstock, Description
-/*Plant Base/Sausage
-Frankfurters Sausage, Plant Base, na, UUID, 6, na, Field Roast, na, 7.95, na, soy free, 14, ball park style 
-Bratwurst Sausage, Plant Base, na, UUID, 8, na, Field Roast, na, 8.95, na, soy free, 16, grilling style
-Italian Sausage, Plant Base, na, UUID, 8, na, Field Roast, na, 6.95, na, soy free, 15, grilling style
-Mexican Chipotle Sausage, Plant Base, na, UUID, 8, na, Field Roast, na, 6.95, na, soy free, 17, grilling style
-Smoked Apple Sage Sausage, Plant Base, na, UUID,  8, na, Field Roast, na, 5.95, na, soy free, 16, grilling style
-Apple Maple Breakfast Sausage Links, Plant Base, na, UUID, 8, na, Field Roast, na, 6.95, na, soy free, 13, grilling style
-Breakfast Sausage Patties, Plant Base, na, UUID, 6, na, Field Roast, na, 6.95, na, soy free, 18, country patti style
+/*Plantbase
+/*Plantbase.txt
+/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock, Description
+/*Plantbase/Sausage
+Frankfurters Sausage, Plantbase, NA, UUID, 6, NA, Field Roast, NA, 7.95, NA, soy free, 14, ball park style 
+Bratwurst Sausage, Plantbase, NA, UUID, 8, NA, Field Roast, NA, 8.95, NA, soy free, 16, grilling style
+Italian Sausage, Plantbase, NA, UUID, 8, NA, Field Roast, NA, 6.95, NA, soy free, 15, grilling style
+Mexican Chipotle Sausage, Plantbase, NA, UUID, 8, NA, Field Roast, NA, 6.95, NA, soy free, 17, grilling style
+Smoked Apple Sage Sausage, Plantbase, NA, UUID,  8, NA, Field Roast, NA, 5.95, NA, soy free, 16, grilling style
+Apple Maple Breakfast Sausage Links, Plantbase, NA, UUID, 8, NA, Field Roast, NA, 6.95, NA, soy free, 13, grilling style
+Breakfast Sausage Patties, Plantbase, NA, UUID, 6, NA, Field Roast, NA, 6.95, NA, soy free, 18, country patti style

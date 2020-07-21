@@ -1,0 +1,9 @@
+/*Bedding
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+Comforter , Bedding , OUNCES , UUID , 1 , TWIN , SOFT N FLUFF , 16 , 25.99 , CREME , cotton , 200 , BUTTERFLIES FLOWER PATTERN BLANKET
+Comforter, Bedding , OUNCES , UUID , 1 , QUEEN , LUSH , 13 , 39.99 , PURPLE , cotton , 200 , FLORAL DESIGN 
+Pillow , Bedding , OUNCES , UUID , 1 , REGULAR , LUSH , 13 , 10.45 , WHITE , paper , 100 , SOFT PILLOW 
+Pillow , Bedding , OUNCES , UUID , 2 , VALUE , PILLOWSOFT , 6 , 7.99 , WHITE , COTTON , 120 , FIRM PILLOW
+Mattress Topper , Bedding , OUNCES , UUID , 1 , REGULAR , SUPER STORE , 1 , 12.70 , WHITE , Memory foam , 200 , 2 inch Mattress foam topper
+Bed Skirt , Bedding , OUNCES , UUID , 2 , VALUE , SOFT N FLUFF , 2 , 10.00 , GREEN , Cotton polyester blend , 45 , DECORATIVE FLARE
+Mattress cover , Bedding , OUNCES, UUID , 1 , REGULAR , PILLOWSOFT , 2 , 7.00 , BLUE , PLASTIC , 45 , PROTECT MATTRESS FROM SPILLS
