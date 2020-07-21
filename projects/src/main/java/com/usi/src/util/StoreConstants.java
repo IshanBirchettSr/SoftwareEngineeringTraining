@@ -57,8 +57,8 @@ public class StoreConstants {
     public static final String STATIONARY_TRUCK = APP_HOME + "/src/resources/Stationary.txt";
     public static final String TOILETRIES_TRUCK = APP_HOME + "/src/resources/Toiletries.txt";
     public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
-    public static final String BEDDING_TRUCK = APP_HOME + "/src/resources/Bedding.txt";
     public static final String TUPPERWARE_TRUCK = APP_HOME + "/src/resources/Tupperware.txt";
+
     /*
      * Please keep deptNames in alphabetical order
      */
