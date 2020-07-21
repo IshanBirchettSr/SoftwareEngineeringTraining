@@ -1,12 +1,11 @@
 /*Furniture
 /*Furniture.txt
-/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, 
-  NumUnitsInstock, Description
-/*Furniture/Sofa
-Sofa Lounge Chair, Furniture, na, UUID, na, na, Lazy Boy, na, 149.99, Black, na, 14, sofa lounge chair
-Mcdade Leather 6 Seat Sectional Sofa, Furniture, na, UUID, na, na, Ethan Allen, na, 2,752.00, Mocha, na, 10, sectional sofa
-Kinsley 4 Seat Sofa, Furniture, na, UUID, na, na, Ashley Furniture, na, 359.00, Black, na, 8, 4 seat sofa
-Ektorp 3 Seat Sofa Bed, Furniture, na, UUID, na, na, IKEA, na, 275.00, White, na, 10, 3 seat sofa bed
-Ladlow 3 Seat Sofa, Furniture, na, UUID, na, na, Broyhill, na, 899.00, Brown, na, 7, 3 seat sofa
-Plush Sofa Love Seat, Furniture, na, UUID, na, na, Big Lots, na 349.00, Indigeo, na, 4, soaf love seat
-Sofa and Ottoman 4 Seat, Furniture, na, UUID, na, na, Macy's, na, 549.00, Black, na, 8, 4 seat sofa and ottoman
+/*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock, Description
+/*Furniture/Sofas
+Sofa Lounge Sofa, Furniture, NA, UUID, 90, NA, Lazy Boy, NA, 149.99, BLACK, NA, 14, sofa lounge chair
+Mcdade Leather Seat Sectional Sofa, Furniture, NA, UUID, 75, NA, Ethan Allen, NA, 2752.00, MOCHA, NA, 10, sectional sofa
+Kinsley Seat Sofa, Furniture, NA, UUID, 60, NA, Ashley Furniture, NA, 359.00, BLACK, NA, 8, seat sofa
+Ektorp Seat Sofa Bed, Furniture, NA, UUID, 45, NA, IKEA, NA, 275.00, WHITE, NA, 10, seat sofa bed
+Ladlow Seat Sofa, Furniture, NA, UUID, 62, NA, Broyhill, NA, 899.00, BROWN, NA, 7, seat sofa
+Plush Sofa Love Seat, Furniture, NA, UUID, 87, NA, Big Lots, NA, 349.00, INDIGO, NA, 4, soaf love seat
+Sofa and Ottoman Seat, Furniture, NA, UUID, 28, NA, Macy's, NA, 549.00, BLACK, NA, 8, sofa and ottoman seat

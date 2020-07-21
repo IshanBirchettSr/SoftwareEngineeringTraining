@@ -14,103 +14,106 @@ package examples;
  */
 public class Vehicle {
 
-	private boolean hasSteeringWheel = true;
-	private boolean hasBrakes = true;
-	private int headLights = 2;
-	private int numberOfWheels = 4;
-	private boolean parkBrake = true;
-	private int numberOfSeats = 5;
+    private boolean hasSteeringWheel = true;
+    private boolean hasBrakes = true;
+    private int headLights = 2;
+    private int numberOfWheels = 4;
+    private boolean parkBrake = true;
+    private int numberOfSeats = 5;
 
-	/**
-	 * @return the hasSteeringWheel
-	 */
-	public boolean isHasSteeringWheel() {
-		return hasSteeringWheel;
-	}
+    private Engine eg = null;
+    private Transmission tm = null;
 
-	/**
-	 * @param hasSteeringWheel the hasSteeringWheel to set
-	 */
-	public void setHasSteeringWheel(boolean hasSteeringWheel) {
-		this.hasSteeringWheel = hasSteeringWheel;
-	}
+    /**
+     * @return the hasSteeringWheel
+     */
+    public boolean isHasSteeringWheel() {
+	return hasSteeringWheel;
+    }
 
-	/**
-	 * @return the hasBrakes
-	 */
-	public boolean isHasBrakes() {
-		return hasBrakes;
-	}
+    /**
+     * @param hasSteeringWheel the hasSteeringWheel to set
+     */
+    public void setHasSteeringWheel(boolean hasSteeringWheel) {
+	this.hasSteeringWheel = hasSteeringWheel;
+    }
 
-	/**
-	 * @param hasBrakes the hasBrakes to set
-	 */
-	public void setHasBrakes(boolean hasBrakes) {
-		this.hasBrakes = hasBrakes;
-	}
+    /**
+     * @return the hasBrakes
+     */
+    public boolean isHasBrakes() {
+	return hasBrakes;
+    }
 
-	/**
-	 * @return the headLights
-	 */
-	protected int getHeadLights() {
-		return headLights;
-	}
+    /**
+     * @param hasBrakes the hasBrakes to set
+     */
+    public void setHasBrakes(boolean hasBrakes) {
+	this.hasBrakes = hasBrakes;
+    }
 
-	/**
-	 * @param headLights the headLights to set
-	 */
-	public void setHeadLights(int headLights) {
-		this.headLights = headLights;
-		this.getHeadLights();
-	}
+    /**
+     * @return the headLights
+     */
+    protected int getHeadLights() {
+	return headLights;
+    }
 
-	/**
-	 * @return the numberOfWheels
-	 */
-	public int getNumberOfWheels() {
-		return numberOfWheels;
-	}
+    /**
+     * @param headLights the headLights to set
+     */
+    public void setHeadLights(int headLights) {
+	this.headLights = headLights;
+	this.getHeadLights();
+    }
 
-	/**
-	 * @param numberOfWheels the numberOfWheels to set
-	 */
-	public void setNumberOfWheels(int numberOfWheels) {
-		this.numberOfWheels = numberOfWheels;
-	}
+    /**
+     * @return the numberOfWheels
+     */
+    public int getNumberOfWheels() {
+	return numberOfWheels;
+    }
 
-	/**
-	 * @return the parkBrake
-	 */
-	public boolean isParkBrake() {
-		return parkBrake;
-	}
+    /**
+     * @param numberOfWheels the numberOfWheels to set
+     */
+    public void setNumberOfWheels(int numberOfWheels) {
+	this.numberOfWheels = numberOfWheels;
+    }
 
-	/**
-	 * @param parkBrake the parkBrake to set
-	 */
-	public void setParkBrake(boolean parkBrake) {
-		this.parkBrake = parkBrake;
-	}
+    /**
+     * @return the parkBrake
+     */
+    public boolean isParkBrake() {
+	return parkBrake;
+    }
 
-	/**
-	 * @return the numberOfSeats
-	 */
-	public int getNumberOfSeats() {
-		return numberOfSeats;
-	}
+    /**
+     * @param parkBrake the parkBrake to set
+     */
+    public void setParkBrake(boolean parkBrake) {
+	this.parkBrake = parkBrake;
+    }
 
-	/**
-	 * @param numberOfSeats the numberOfSeats to set
-	 */
-	public void setNumberOfSeats(int numberOfSeats) {
-		this.numberOfSeats = numberOfSeats;
-	}
+    /**
+     * @return the numberOfSeats
+     */
+    public int getNumberOfSeats() {
+	return numberOfSeats;
+    }
 
-	/**
-	 * 
-	 */
-	public Vehicle() {
+    /**
+     * @param numberOfSeats the numberOfSeats to set
+     */
+    public void setNumberOfSeats(int numberOfSeats) {
+	this.numberOfSeats = numberOfSeats;
+    }
 
-	}
+    /**
+     * 
+     */
+    public Vehicle() {
+
+    }
 
 }

@@ -9,7 +9,7 @@ import util.ProdKeyGen;
 import util.StoreConstants;
 
 /**
- * @author Allma M. Johnson
+ * @author Allma M. Johnson and ibirc
  *
  */
 public class AutomotiveDept extends Department {

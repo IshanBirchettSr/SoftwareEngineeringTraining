@@ -8,25 +8,56 @@
  */
 package seafood;
 
+import java.util.HashMap;
+import java.util.List;
+
+import util.DataCsvLoad;
 import util.Department;
+import util.ProdKeyGen;
+import util.StoreConstants;
 
 /**
  * @author Allma M. Johnson
  *
  */
 public class SeafoodDept extends Department {
+    String deptName = StoreConstants.deptNames.SEAFOOD.name();
+    List<String> seafoodRecords = null;
+    // HashMap<K, V> to hold SeafoodProd objects.
+    HashMap<String, SeafoodProd> seafoodProducts;
 
     /**
-     * 
+     * Constructor
      */
     public SeafoodDept() {
-	// TODO Auto-generated constructor stub
+	// Record Load
+	DataCsvLoad unLoadTrucks = new DataCsvLoad();
+	unLoadTrucks.loadData(StoreConstants.SEAFOOD_TRUCK);
+	seafoodRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(seafoodRecords);
+	// System.out.printf("%s Department open with %d records\n", deptName,
+	// seafoodRecords.size());
+
+	// Seafood Product Load
+	seafoodProducts = new HashMap<String, SeafoodProd>();
+	loadProducts();
     }
 
     @Override
     protected void loadProducts() {
-	// TODO Auto-generated method stub
+	// Load products
+	for (String record : seafoodRecords) {
+	    SeafoodProd sfp = new SeafoodProd();
+	    boolean recordToProductSuccessful = sfp.recordToProduct(record);
+
+	    // If it fails to convert any field, don't add that object to autoProducts
+	    if (recordToProductSuccessful == true) {
+		String prodKey = ProdKeyGen.genKey(sfp);
+		seafoodProducts.put(prodKey, sfp);
+	    }
+	}
+	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		seafoodRecords.size(), seafoodProducts.size());
 
     }
-
 }
