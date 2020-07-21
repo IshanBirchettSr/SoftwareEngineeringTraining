@@ -43,6 +43,7 @@ public class StoreConstants {
     public static final String BOOK_TRUCK = APP_HOME + "/src/resources/Books.txt";
     public static final String BEVERAGES_TRUCK = APP_HOME + "/src/resources/Beverages.txt";
     public static final String STATIONARY_TRUCK = APP_HOME + "/src/resources/Stationary.txt";
+    public static final String SHOE_TRUCK = APP_HOME + "/src/resources/SHOE.txt";
 
     private String dName;
 
