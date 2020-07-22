@@ -1,18 +1,20 @@
 /**
  * 
  */
-package customerservice;
+package smartcart;
+
+
 
 import java.util.Scanner;
 
-import shoppingcart.ShoppingCart;
+import smartcart.ShoppingCart;
 import util.StorePrinter;
 
 /**
  * @author chich
  *
  */
-public class Reciept extends ShoppingCart {
+public class Receipt  {
 	
 	Scanner scan = new Scanner(System.in);
 	Scanner in = null;
