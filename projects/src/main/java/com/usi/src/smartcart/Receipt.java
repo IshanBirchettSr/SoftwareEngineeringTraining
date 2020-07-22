@@ -3,17 +3,22 @@
  */
 package smartcart;
 
+<<<<<<< Updated upstream
 
 
 import java.util.Scanner;
 
 import smartcart.ShoppingCart;
+=======
+import java.util.Scanner;
+>>>>>>> Stashed changes
 import util.StorePrinter;
 
 /**
  * @author chich
  *
  */
+<<<<<<< Updated upstream
 public class Receipt  {
 	
 	Scanner scan = new Scanner(System.in);
@@ -44,6 +49,34 @@ public class Receipt  {
              
 			}
 	
+=======
+public class Receipt extends StorePrinter {
+	 Scanner scan = null;
+	 
+	 
+	 
+	 public void printReceipt() {
+		 
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 public void emailReceipt() {
+		 
+	 }
+
+	/**
+	 * 
+	 */
+	public Receipt() {
+		// TODO Auto-generated constructor stub
+		scan = new Scanner(System.in);
+		
+	}
+>>>>>>> Stashed changes
 
 }
 
