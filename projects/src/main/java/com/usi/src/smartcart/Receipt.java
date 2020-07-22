@@ -2,6 +2,8 @@
  * 
  */
 package smartcart;
+
+import java.awt.event.ActionEvent;
 import java.util.Scanner;
 import util.StorePrinter;
 
@@ -12,10 +14,14 @@ import util.StorePrinter;
 
 public class Receipt extends StorePrinter {
 	 Scanner scan = null;
+	 static StorePrinter print = new StorePrinter();
 	 
 	 
 	 
-	 public void printReceipt() {
+	 public static void printReceipt(ActionEvent e) {
+		 print.actionPerformed(e);
+		 System.out.println("Here is your reciept. Thank you for shopping at the Super Store today!");
+		 
 		 
 	 }
 	 
@@ -24,8 +30,10 @@ public class Receipt extends StorePrinter {
 	 
 	 
 	 
-	 public void emailReceipt() {
+	 public static void emailReceipt() {
 		 
+		 
+		 System.out.print("Your reciept will be emailed to you. Thank you for shopping at the Super Store today!" );
 	 }
 
 	/**
@@ -34,6 +42,8 @@ public class Receipt extends StorePrinter {
 	public Receipt() {
 		// TODO Auto-generated constructor stub
 		scan = new Scanner(System.in);
+		
+		
 		
 	}
 
