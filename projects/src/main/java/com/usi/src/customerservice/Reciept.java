@@ -5,7 +5,7 @@ package customerservice;
 
 import java.util.Scanner;
 
-import shoppingcart.ShoppingCart;
+import smartcart.ShoppingCart;
 import util.StorePrinter;
 
 /**

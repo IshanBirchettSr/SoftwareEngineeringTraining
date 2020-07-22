@@ -6,7 +6,7 @@
  * is for training individuals to be software engineers.
  * 
  */
-package shoppingcart;
+package smartcart;
 
 /**
  * @author ibirc
