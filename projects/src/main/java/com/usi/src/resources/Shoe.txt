@@ -1,10 +1,10 @@
-/*shoes
-/*
-sandal, Shoes, OUNCE, UUID, 1, 7, Naturalizer, 5, 26.99, WHITE  leather, 20, Womens Bohemiaha sandal
-sandal, Shoes, OUNCE, UUID, 1, 10.5, NIKE, 15, 39.99, WHITE, leather, 13, Mens Off Court Slide Sandal
-sneakers, Shoes, OUNCE, UUID, 1, 12, ADIDAS, 4, 54.99,  BLACK, leather, 14, Kids Hoops 2 High Top Sneakers
-boots, Shoes, OUNCE, UUID, 1, 8, FERGALICIOUS, , 5, 19.99, BLACK, leather, 5, Women's Palmer boots
-sneakers, Shoes, OUNCE, UUID, 12, 6, VANS, 8, 34.99, BLACK, canvas, 20, Kids Ward Low 2V Sneakers Toddler
-sneakers, Shoes, OUNCE, UUID, 1, 4, CONVERSE, 5,  24.99, PINK, canvas, 32, Kids Chuck Taylor All Star 2V Sneaker Toddler
-Pump, Shoes, OUNCE, UUID, 1, 6.5, Lifestride, 7, 19.99, WHITE, leather, Women's Sevyn Medium Pump
-loafer, Shoes, OUNCE, UUID, 1, 10, Stacy Adams, 14, 84.99, BLUE, leather, 12, Men's Tazewell medium Tassel Loafer
+/*Shoe
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+sandal , Shoe , OUNCES , UUID , 1 , 7 , Naturalizer , 5, 26.99 , WHITE  leather , 20 , Womens Bohemiaha sandal
+sandal , Shoe , OUNCES , UUID , 1 , 10.5 , NIKE , 15, 39.99 , WHITE , leather , 13 , Mens Off Court Slide Sandal
+sneakers , Shoe , OUNCES , UUID , 1 , 12 , ADIDAS , 4, 54.99 , BLACK , leather , 14 , Kids Hoops 2 High Top Sneakers
+boots , Shoe , OUNCES , UUID, 1 , 8 , FERGALICIOUS , 5, 19.99 , BLACK , leather , 5 , Women's Palmer boots
+sneakers , Shoe , OUNCES , UUID , 1 , 6 , VANS , 8, 34.99, BLACK , canvas , 20, Kids Ward Low 2V Sneakers Toddler
+sneakers , Shoe , OUNCES , UUID , 1 , 4 , CONVERSE , 5,  24.99, PINK , canvas, 32, Kids Chuck Taylor All Star 2V Sneaker Toddler
+Pump , Shoe , OUNCES , UUID ,  1 , 6.5 , Lifestride , 7, 19.99, WHITE , leather , 4 , Women's Sevyn Medium Pump
+loafer, Shoe , OUNCES , UUID , 1 , 10 , Stacy Adams , 14, 84.99, BLUE , leather , 12 , Men's Tazewell medium Tassel Loafer
