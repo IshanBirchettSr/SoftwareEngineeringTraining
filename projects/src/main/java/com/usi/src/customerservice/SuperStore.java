@@ -10,6 +10,7 @@ import books.BookDept;
 import cannedgoods.CannedGoodsDept;
 import cleaningsupplies.CleaningSuppliesDept;
 import clothes.ClothesDept;
+import dairy.DairyDept;
 import deli.DeliDept;
 import electronics.ElectronicsDept;
 import fragrance.FragranceDept;
@@ -66,6 +67,7 @@ public class SuperStore {
 	CannedGoodsDept cgd = new CannedGoodsDept();
 	CleaningSuppliesDept csd = new CleaningSuppliesDept();
 	ClothesDept cd = new ClothesDept();
+	DairyDept dp = new DairyDept();
 	DeliDept dep = new DeliDept();
 	ElectronicsDept ed = new ElectronicsDept();
 	FragranceDept fdd = new FragranceDept();
