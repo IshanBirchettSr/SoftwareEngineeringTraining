@@ -1,0 +1,3 @@
+/*Membership card
+/*Membership  information highly confidential
+/*First name, Middle Initial, Last Name, email address, home address, mobile number, home phone, age range, date of membership, coupon user
