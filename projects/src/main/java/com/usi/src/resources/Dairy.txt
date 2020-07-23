@@ -1,7 +1,7 @@
-/* Dairy
+/*Dairy
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description/*
-Almond Milk, Dairy, OUNCE, UUID, 1, NA, Almond Breeze, 64, 4.39, BEIGE, Almond Milk, 20, Almond Breeze Unsweetened Orginal Alomnd Milk
-Cheddar Cheese, Dairy, OUNCE, UUID, 1, NA, CABOT, 8, 4,39, WHITE, cheese, 25, Cabot Creamy Extra Sharp Chedder Cheese
-Sour Cream, Dairy, OUNCE, UUID, 1, NA, Daisy, 16, 3.29, WHITE, sour cream, 15, Daisy Sour Cream
-Whipped Topping, Dairy, OUNCE, UUID, 1, NA, Redi Whip, 6.5, 2.79, WHITE, whipped topping, 12, Redi Whip Creamy Whipped Topping
-Pudding, Dairy, OUNCE, UUID, 1, NA, Snak Pak, 3.25, BROWN, pudding, 15, Snak Pak chocolate pudding
+Almond Milk , Dairy , OUNCES , UUID , 1, NA , Almond Breeze , 64 , 4.39 , BEIGE , Almond Milk , 20 , Almond Breeze Unsweetened Original Almpnd Milk
+Chedder Cheese , Dairy , OUNCES , UUID , 1 , NA , CABOT , 8 , 4,39 , WHITE , cheese , 25 , Cabot Creamy Extra Sharp Chedder Cheese
+Sour Cream , Dairy , OUNCES , UUID , 1 , NA , Daisy , 16, 3.29 , WHITE , sour cream , 15 , Daisy Sour Cream
+Whipped Topping , Dairy , OUNCES , UUID , 1 , NA , Redi Whip , 6.5 , 2.79 , WHITE , Whipped Topping , 12 , Redi Whip Creamy Whipped Topping
+Pudding , Dairy , OUNCES , UUID , 1 , NA , Snak Pak , 5, 3.25 , BROWN , pudding , 15 , Snak Pak chocolate pudding
