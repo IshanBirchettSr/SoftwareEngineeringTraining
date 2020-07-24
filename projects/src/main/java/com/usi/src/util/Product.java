@@ -50,7 +50,7 @@ public abstract class Product {
     /**
      * @return the productName
      */
-    protected String getProductName() {
+    public String getProductName() {
 	return productName;
     }
 
@@ -162,7 +162,7 @@ public abstract class Product {
     /**
      * @return the price
      */
-    protected double getPrice() {
+    public double getPrice() {
 	return price;
     }
 
