@@ -73,7 +73,8 @@ public class StoreConstants {
 	PANTRY("pantry"), PETCARE("petcare"), PHARMACY("pharmacy"), PLANTBASE("plantbase"),
 	PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"), SEAFOOD("seafood"), SHOE("shoe"),
 	SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"), TORTOISE("tortoise"),
-	TOYS("toys"), TUPPERWARE("tupperware"), VEGETABLES("vegetables"); // Why is there a Vegetables department?
+	TOYS("toys"), TUPPERWARE("tupperware"), VEGETABLES("vegetables"); // Why is there a Vegetables department? Why
+									  // is there a leopard and tortoise dept?
 
 	private String dName;
 
