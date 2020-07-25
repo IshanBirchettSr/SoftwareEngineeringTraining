@@ -87,7 +87,7 @@ public class StorePrinter implements Printable, ActionListener {
 	}
     }
 
-    public static void main(String args[]) {
+    public StorePrinter() {
 
 	UIManager.put("swing.boldMetal", Boolean.FALSE);
 	JFrame f = new JFrame("Super Store Printer");
