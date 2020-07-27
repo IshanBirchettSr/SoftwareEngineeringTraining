@@ -69,10 +69,12 @@ public class StoreConstants {
 	CLEANING_SUPPLIES("cleaningsupplies"), CLOTHES("clothes"), CUSTOMER_SERVICE("customerservice"), DAIRY("dairy"),
 	DELI("deli"), ELECTRONICS("electronics"), FRAGRANCE("fragrance"), FROZEN_FOODS("frozenfoods"),
 	FURNITURE("furniture"), GARDEN("garden"), HAIR_CARE("haircare"), HEALTH_AND_BEAUTY("healthandbeauty"),
-	HOUSEWARES("housewares"), LINEN("linen"), LUGGAGE("luggage"), MEAT("meat"), PANTRY("pantry"),
-	PETCARE("petcare"), PHARMACY("pharmacy"), PLANTBASE("plantbase"), PRESCRIPTION_EYEWARE("perscriptioneyeware"),
-	PRODUCE("produce"), SEAFOOD("seafood"), SHOE("shoe"), SHOPPING_CART("shoppingcart"), STATIONARY("stationary"),
-	TOILETRIES("toiletries"), TOYS("toys"), TUPPERWARE("tupperware");
+	HOUSEWARES("housewares"), LEOPARD("leopard"), LINEN("linen"), LUGGAGE("luggage"), MEAT("meat"),
+	PANTRY("pantry"), PETCARE("petcare"), PHARMACY("pharmacy"), PLANTBASE("plantbase"),
+	PRESCRIPTION_EYEWARE("perscriptioneyeware"), PRODUCE("produce"), SEAFOOD("seafood"), SHOE("shoe"),
+	SHOPPING_CART("shoppingcart"), STATIONARY("stationary"), TOILETRIES("toiletries"), TORTOISE("tortoise"),
+	TOYS("toys"), TUPPERWARE("tupperware"), VEGETABLES("vegetables"); // Why is there a Vegetables department? Why
+									  // is there a leopard and tortoise dept?
 
 	private String dName;
 
