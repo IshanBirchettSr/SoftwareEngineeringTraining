@@ -30,6 +30,7 @@ import prescriptioneyeware.PrescriptionEyewareDept;
 import produce.ProduceDept;
 import seafood.SeafoodDept;
 import shoe.ShoeDept;
+import smartcart.Receipt;
 import stationary.StationaryDept;
 import toiletries.ToiletryDept;
 import toys.ToysDept;
