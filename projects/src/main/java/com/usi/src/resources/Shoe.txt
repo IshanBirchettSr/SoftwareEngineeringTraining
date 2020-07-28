@@ -1,6 +1,6 @@
 /*Shoe
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-sandal , Shoe , OUNCES , UUID , 1 , 7 , Naturalizer , 5, 26.99 , WHITE  leather , 20 , Womens Bohemiaha sandal
+sandal , Shoe , OUNCES , UUID , 1 , 7 , Naturalizer , 5, 26.99 , WHITE , leather , 20 , Womens Bohemiaha sandal
 sandal , Shoe , OUNCES , UUID , 1 , 10.5 , NIKE , 15, 39.99 , WHITE , leather , 13 , Mens Off Court Slide Sandal
 sneakers , Shoe , OUNCES , UUID , 1 , 12 , ADIDAS , 4, 54.99 , BLACK , leather , 14 , Kids Hoops 2 High Top Sneakers
 boots , Shoe , OUNCES , UUID, 1 , 8 , FERGALICIOUS , 5, 19.99 , BLACK , leather , 5 , Women's Palmer boots

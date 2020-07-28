@@ -15,7 +15,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import java.util.Properties;
+import javax.net.ssl.SSLSession;
+import customerservice.MembershipSignUp;
 import util.Product;
 import util.StoreConstants;
 import util.StorePrinter;
@@ -50,6 +52,10 @@ public class Receipt extends StorePrinter {
     		newFont = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
     		g.setFont(newFont);
     		g.drawString(datePurchased, 50, 50);
+    		
+    		//Waiting for Customer class to be created to return Membership Id
+    		MembershipSignUp mem = new MembershipSignUp(null);
+    		String member = mem.membershipApplication();
 
     		double total = 0.00;
     		for (int i = 1; i < 10; i++) {
@@ -68,25 +74,42 @@ public class Receipt extends StorePrinter {
 	 
 	  
 	 public static void printReceipt(ActionEvent e)  {
-		
-		 
 		 System.out.printf("Here is your reciept. Thank you for shopping at the %s\n today!", StoreConstants.STORE_NAME);
-		 
 		 
 	 }
 	 
-	 
 	 public static void emailReceipt() {
+		//Prototype
+	     String key = "membershipId";
+		 String value = "member's email";
+		 Properties properties = new Properties();
+		 properties.put(key , value);
+		 properties.put("mail.smtp.auth", true);
+		 properties.put("mail.smtp.starttls.enable", true);
+		 properties.put("mail.smtp.host", "smtp.gmail.com");
+		 properties.put("mail.smtp.port","587");
+		 
+		 String MyAccountEmail = "superstore0502@gmail.com";
+		 String password = "superstore0502";
 		 
 		 
 		 System.out.printf("Your reciept will be emailed to you. Thank you for shopping at the %s\\n today!", StoreConstants.STORE_NAME);
+		 
+	 }
+	 
+	 public static void member() {
+	    System.out.printf("You saved $%.2f today!");
 	 }
 
+	 public static void nonMember() {
+		 System.out.printf("You could have saved $%.2f today!");
+	 }
 	/**
 	 * 
 	 */
 	public Receipt(List<Product> prodCheckout) {
 		super();
+		
 		
 		
 		
