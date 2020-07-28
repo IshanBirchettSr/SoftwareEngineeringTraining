@@ -40,11 +40,13 @@ public class SuperStore {
     // Data member section
     boolean status = false;
     Greeting greeting = null;
+   //Customer patron = null;
 
     public boolean openStore() {
 	greeting = new Greeting();
-	greeting.sayGreeting();
-	this.setStatus(true);
+	//patron = greeting.sayGreeting();
+	//patron.startShopping();
+	//this.setStatus(true);
 	return status;
 
     }
@@ -103,7 +105,7 @@ public class SuperStore {
 	store.openDepartments();
 
 	// Open Store
-	System.out.printf("Is the store ready for business? %b\n", store.openStore());
+    store.openStore();
     }
 
 }
