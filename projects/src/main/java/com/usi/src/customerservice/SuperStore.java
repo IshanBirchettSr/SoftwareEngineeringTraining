@@ -30,6 +30,7 @@ import prescriptioneyeware.PrescriptionEyewareDept;
 import produce.ProduceDept;
 import seafood.SeafoodDept;
 import shoe.ShoeDept;
+import smartcart.CheckOut;
 import smartcart.Receipt;
 import stationary.StationaryDept;
 import toiletries.ToiletryDept;
@@ -41,12 +42,20 @@ public class SuperStore {
     boolean status = false;
     Greeting greeting = null;
    //Customer patron = null;
-
+    CheckOut checkoutlane01 = null; 
+    CheckOut checkoutlane02 = null;
+    CheckOut checkoutlane03 = null;
+    CheckOut checkoutlane04 = null;
+    CheckOut checkoutlane05 = null;
+    
+    
     public boolean openStore() {
 	greeting = new Greeting();
 	//patron = greeting.sayGreeting();
 	//patron.startShopping();
-	//this.setStatus(true);
+	
+	
+	this.setStatus(true);
 	return status;
 
     }
@@ -94,6 +103,14 @@ public class SuperStore {
 	ToiletryDept tyd = new ToiletryDept();
 	ToysDept td = new ToysDept();
 	TupperwareDept twd = new TupperwareDept();
+    }
+    
+    public SuperStore() {
+    	checkoutlane01 = new CheckOut();
+    	checkoutlane02 = new CheckOut();
+    	checkoutlane03 = new CheckOut();
+    	checkoutlane04 = new CheckOut();
+    	checkoutlane05 = new CheckOut();
     }
 
     public static void main(String[] args) {

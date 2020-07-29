@@ -21,8 +21,8 @@ public class CheckOut extends Receipt {
     /**
      * @param prodCheckout
      */
-    public CheckOut(List<Product> prodCheckout) {
-	super(prodCheckout);
+    public CheckOut() {
+	
 	// TODO Auto-generated constructor stub
     }
 

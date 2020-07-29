@@ -107,7 +107,7 @@ public class Receipt extends StorePrinter {
 	/**
 	 * 
 	 */
-	public Receipt(List<Product> prodCheckout) {
+	public Receipt() {
 		super();
 		
 		
