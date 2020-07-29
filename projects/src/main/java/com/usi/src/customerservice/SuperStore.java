@@ -41,7 +41,7 @@ public class SuperStore {
     // Data member section
     boolean status = false;
     Greeting greeting = null;
-   //Customer patron = null;
+    Customer patron = null;
     StoreCheckOut checkoutLane01 = null; 
     StoreCheckOut checkoutLane02 = null;
     StoreCheckOut checkoutLane03 = null;
@@ -51,7 +51,7 @@ public class SuperStore {
     
     public boolean openStore() {
 	greeting = new Greeting();
-	//patron = greeting.sayGreeting();
+	patron = greeting.sayGreeting();
 	//patron.startShopping();
 	
 	
