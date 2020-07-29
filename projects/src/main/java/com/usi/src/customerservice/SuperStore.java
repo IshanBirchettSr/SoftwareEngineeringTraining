@@ -30,7 +30,7 @@ import prescriptioneyeware.PrescriptionEyewareDept;
 import produce.ProduceDept;
 import seafood.SeafoodDept;
 import shoe.ShoeDept;
-import smartcart.CheckOut;
+import smartcart.StoreCheckOut;
 import smartcart.Receipt;
 import stationary.StationaryDept;
 import toiletries.ToiletryDept;
@@ -42,11 +42,11 @@ public class SuperStore {
     boolean status = false;
     Greeting greeting = null;
    //Customer patron = null;
-    CheckOut checkoutlane01 = null; 
-    CheckOut checkoutlane02 = null;
-    CheckOut checkoutlane03 = null;
-    CheckOut checkoutlane04 = null;
-    CheckOut checkoutlane05 = null;
+    StoreCheckOut checkoutLane01 = null; 
+    StoreCheckOut checkoutLane02 = null;
+    StoreCheckOut checkoutLane03 = null;
+    StoreCheckOut checkoutLane04 = null;
+    StoreCheckOut checkoutLane05 = null;
     
     
     public boolean openStore() {
@@ -106,11 +106,11 @@ public class SuperStore {
     }
     
     public SuperStore() {
-    	checkoutlane01 = new CheckOut();
-    	checkoutlane02 = new CheckOut();
-    	checkoutlane03 = new CheckOut();
-    	checkoutlane04 = new CheckOut();
-    	checkoutlane05 = new CheckOut();
+    	checkoutLane01 = new StoreCheckOut();
+    	checkoutLane02 = new StoreCheckOut();
+    	checkoutLane03 = new StoreCheckOut();
+    	checkoutLane04 = new StoreCheckOut();
+    	checkoutLane05 = new StoreCheckOut();
     }
 
     public static void main(String[] args) {

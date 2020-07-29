@@ -16,12 +16,12 @@ import util.Product;
  * @author Allma M. Johnson
  *
  */
-public class CheckOut extends Receipt {
+public class StoreCheckOut extends Receipt {
 
     /**
      * @param prodCheckout
      */
-    public CheckOut() {
+    public StoreCheckOut() {
 	
 	// TODO Auto-generated constructor stub
     }
