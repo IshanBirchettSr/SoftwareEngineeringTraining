@@ -12,16 +12,13 @@ package customerservice;
  * @author malac
  *
  */
-public class Customer {
+public class customer {
 
     /**
      * 
      */
-    public Customer() {
+    public customer() {
 	// TODO Auto-generated constructor stub
     }
 
-    public void startShopping() {
-
-    }
 }
