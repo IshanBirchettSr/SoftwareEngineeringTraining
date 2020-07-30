@@ -31,17 +31,18 @@ import produce.ProduceDept;
 import seafood.SeafoodDept;
 import shoe.ShoeDept;
 import smartcart.StoreCheckOut;
-import smartcart.Receipt;
 import stationary.StationaryDept;
 import toiletries.ToiletryDept;
 import toys.ToysDept;
 import tupperware.TupperwareDept;
+import util.Product;
 
 public class SuperStore {
     // Data member section
     boolean status = false;
     Greeting greeting = null;
     Customer patron = null;
+    Product prod;
     StoreCheckOut checkoutLane01 = null; 
     StoreCheckOut checkoutLane02 = null;
     StoreCheckOut checkoutLane03 = null;
@@ -55,6 +56,7 @@ public class SuperStore {
 	//patron.startShopping();
 	
 	
+	
 	this.setStatus(true);
 	return status;
 
@@ -64,6 +66,14 @@ public class SuperStore {
 	return status = storeOpen;
     }
 
+    public boolean departmentClosed () {
+    	
+    	if(false)prod.loadProducts();
+    	System.out.print("This department is not open for business.");
+		this.departmentClosed();
+    	return status; 
+    	
+    }
     /*
      * Please keep Open Department list in alphabetical order Here each department
      * will be instantiated
@@ -121,8 +131,11 @@ public class SuperStore {
 	// Open Each Department
 	store.openDepartments();
 
+
 	// Open Store
     store.openStore();
+    
+    store.departmentClosed();
     }
 
 }

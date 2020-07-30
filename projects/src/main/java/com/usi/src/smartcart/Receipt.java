@@ -10,14 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.font.TextAttribute;
 import java.awt.print.PageFormat;
 import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import javax.net.ssl.SSLSession;
-import customerservice.MembershipSignUp;
+import customerservice.Customer;
 import util.Product;
 import util.StoreConstants;
 import util.StorePrinter;
@@ -30,7 +29,11 @@ import util.StorePrinter;
 
 public class Receipt extends StorePrinter {
 	 
-	
+	Customer cust = new Customer();
+	private String membershipId;
+	String member = membershipId;
+	Product prod;
+    
 	
      @Override
 	 public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
@@ -53,15 +56,13 @@ public class Receipt extends StorePrinter {
     		g.setFont(newFont);
     		g.drawString(datePurchased, 50, 50);
     		
-    		//Waiting for Customer class to be created to return Membership Id
-    		MembershipSignUp mem = new MembershipSignUp(null);
-    		String member = mem.membershipApplication();
-
+    		    		
     		double total = 0.00;
     		for (int i = 1; i < 10; i++) {
-    		    String prod = String.format("Product: %s, price: %.2f\n", "pr" + i, (i * (i * .25)));
+    			
+    		    String list = String.format("Product: %s, Quantity: %s, Price: %.2f\n", prod.getProductName(), prod.getQuantity(), prod.getPrice()  + i, (i * (i * .25)));
     		    total += (i * (i * .25));
-    		    g.drawString(prod, 50, ((50) + i * 20));
+    		    g.drawString(list, 50, ((50) + i * 20));
     		}
     		double totalAmount = total;
     		String tt = String.format("Your total today is $%.2f", totalAmount);
@@ -73,10 +74,19 @@ public class Receipt extends StorePrinter {
     	 
 	 
 	  
-	 public static void printReceipt(ActionEvent e)  {
+	 public void printReceipt(ActionEvent e)  {
 		 System.out.printf("Here is your reciept. Thank you for shopping at the %s\n today!", StoreConstants.STORE_NAME);
-		 
-	 }
+		 PrinterJob job = PrinterJob.getPrinterJob();
+			job.setPrintable(this);
+			boolean ok = job.printDialog();
+			if (ok) {
+			    try {
+				job.print();
+			    } catch (PrinterException ex) {
+				System.out.println("The job did not successfully print");
+			    }
+			}
+		    }
 	 
 	 public static void emailReceipt() {
 		//Prototype
@@ -108,6 +118,7 @@ public class Receipt extends StorePrinter {
 	 * 
 	 */
 	public Receipt() {
+		
 		super();
 		
 		
