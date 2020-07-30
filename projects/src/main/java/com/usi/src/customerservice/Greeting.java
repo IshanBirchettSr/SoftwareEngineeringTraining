@@ -53,6 +53,8 @@ public class Greeting {
 			StoreConstants.TODAYS_MEMBER_DISCOUNT);
       // We will need to still have to create and return a anonomus Customer object to represent customers who do not have memberships.
 	    }
-    	return cust;
+    	
 	}
+	return cust;
+}
 }

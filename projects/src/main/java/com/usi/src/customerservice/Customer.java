@@ -12,12 +12,12 @@ package customerservice;
  * @author malac
  *
  */
-public class customer {
+public class Customer {
 
     /**
      * 
      */
-    public customer() {
+    public Customer() {
 	// TODO Auto-generated constructor stub
     }
 
