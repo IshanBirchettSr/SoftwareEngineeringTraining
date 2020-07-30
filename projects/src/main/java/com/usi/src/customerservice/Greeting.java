@@ -56,8 +56,4 @@ public class Greeting {
 
 	return cust;
     }
-
-    public void startShopping() {
-
-    }
 }
