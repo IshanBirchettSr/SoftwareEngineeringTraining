@@ -21,7 +21,7 @@ public class Customer {
 	// TODO Auto-generated constructor stub
     }
 
-    public void StartShopping() {
+    public void startShopping() {
 
     }
 }
