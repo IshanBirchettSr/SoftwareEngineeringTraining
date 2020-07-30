@@ -77,7 +77,7 @@ public class StorePrinter implements Printable, ActionListener {
 	return PAGE_EXISTS;
     }
 
-    public void actionPerformed(Receipt e) {
+    public void actionPerformed1(ActionEvent e) {
 	PrinterJob job = PrinterJob.getPrinterJob();
 	job.setPrintable(this);
 	boolean ok = job.printDialog();
@@ -109,9 +109,6 @@ public class StorePrinter implements Printable, ActionListener {
 	f.setVisible(true);
     }
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+	
 		
 	}
-}
