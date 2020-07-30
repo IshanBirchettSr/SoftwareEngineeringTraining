@@ -25,7 +25,6 @@ public class MembershipSignUp {
     private String middleInitial;
     private String emailAddress;
     private String mailingAddress;
-
     /**
      
      */

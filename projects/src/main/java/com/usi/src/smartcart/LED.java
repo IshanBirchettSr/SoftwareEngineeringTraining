@@ -6,23 +6,22 @@
  * is for training individuals to be software engineers.
  * 
  */
-package customerservice;
+package smartcart;
+
+import util.StorePrinter;
 
 /**
- * @author malac
+ * @author Allma M. Johnson
  *
  */
-public class Customer {
+public class LED extends StorePrinter {
 
     /**
      * 
      */
-    public Customer() {
+
+    public LED() {
 	// TODO Auto-generated constructor stub
     }
 
-    public void startShopping() {
-
-    }
-    // Testing
 }

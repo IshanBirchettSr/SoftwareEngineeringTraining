@@ -106,7 +106,7 @@ public abstract class Product {
     /**
      * @return the quantity
      */
-    protected int getQuantity() {
+    public int getQuantity() {
 	return quantity;
     }
 

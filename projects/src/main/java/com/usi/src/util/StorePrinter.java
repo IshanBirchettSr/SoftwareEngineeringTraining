@@ -31,9 +31,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-public class StorePrinter implements Printable, ActionListener {
+import smartcart.Receipt;
 
-    public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
+public class StorePrinter implements Printable, ActionListener {
+  @Override
+  
+  public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
 
 	if (page > 0) { /* We have only one page, and 'page' is zero-based */
 	    return NO_SUCH_PAGE;
@@ -74,7 +77,7 @@ public class StorePrinter implements Printable, ActionListener {
 	return PAGE_EXISTS;
     }
 
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed1(ActionEvent e) {
 	PrinterJob job = PrinterJob.getPrinterJob();
 	job.setPrintable(this);
 	boolean ok = job.printDialog();
@@ -105,4 +108,13 @@ public class StorePrinter implements Printable, ActionListener {
 	// f.pack();
 	f.setVisible(true);
     }
-}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+		
+	}
