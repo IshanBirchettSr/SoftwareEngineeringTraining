@@ -7,7 +7,6 @@ import util.StoreConstants;
 import util.YesNoInput;
 
 public class Greeting {
-
     HashMap<Integer, MembershipSignUp> membershipCards = null;
 
     /**
@@ -23,8 +22,11 @@ public class Greeting {
 
     }
 
-    public customer sayGreeting() {
+
+    public Customer sayGreeting() {
 	Scanner in = new Scanner(System.in);
+	Customer cust = null;
+
 	System.out.printf("Welcome to %s\n", StoreConstants.STORE_NAME);
 	System.out.printf("Do you have a %s Membership Card? ", StoreConstants.STORE_NAME);
 	boolean member = YesNoInput.stringToBoolean(in.next());
@@ -49,9 +51,8 @@ public class Greeting {
 		System.out.printf(
 			"Ok, well you can signup at any time the future and instantly save %d%%.\nHappy Shopping\n",
 			StoreConstants.TODAYS_MEMBER_DISCOUNT);
-
+      // We will need to still have to create and return a anonomus Customer object to represent customers who do not have memberships.
 	    }
+    	return cust;
 	}
-    }
-
 }

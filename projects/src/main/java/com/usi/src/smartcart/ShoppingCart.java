@@ -14,7 +14,7 @@ import java.util.List;
 import util.Product;
 
 /**
- * @author ibirc
+ * @author ibirc and Allma M. Johnson
  *
  */
 public class ShoppingCart {

@@ -30,19 +30,33 @@ import prescriptioneyeware.PrescriptionEyewareDept;
 import produce.ProduceDept;
 import seafood.SeafoodDept;
 import shoe.ShoeDept;
+import smartcart.StoreCheckOut;
 import stationary.StationaryDept;
 import toiletries.ToiletryDept;
 import toys.ToysDept;
 import tupperware.TupperwareDept;
+import util.Product;
 
 public class SuperStore {
     // Data member section
     boolean status = false;
     Greeting greeting = null;
-
+    Customer patron = null;
+    Product prod;
+    StoreCheckOut checkoutLane01 = null; 
+    StoreCheckOut checkoutLane02 = null;
+    StoreCheckOut checkoutLane03 = null;
+    StoreCheckOut checkoutLane04 = null;
+    StoreCheckOut checkoutLane05 = null;
+    
+    
     public boolean openStore() {
 	greeting = new Greeting();
-	greeting.sayGreeting();
+	patron = greeting.sayGreeting();
+	//patron.startShopping();
+	
+	
+	
 	this.setStatus(true);
 	return status;
 
@@ -52,6 +66,14 @@ public class SuperStore {
 	return status = storeOpen;
     }
 
+    public boolean departmentClosed () {
+    	
+    	if(false)prod.loadProducts();
+    	System.out.print("This department is not open for business.");
+		this.departmentClosed();
+    	return status; 
+    	
+    }
     /*
      * Please keep Open Department list in alphabetical order Here each department
      * will be instantiated
@@ -92,6 +114,14 @@ public class SuperStore {
 	ToysDept td = new ToysDept();
 	TupperwareDept twd = new TupperwareDept();
     }
+    
+    public SuperStore() {
+    	checkoutLane01 = new StoreCheckOut();
+    	checkoutLane02 = new StoreCheckOut();
+    	checkoutLane03 = new StoreCheckOut();
+    	checkoutLane04 = new StoreCheckOut();
+    	checkoutLane05 = new StoreCheckOut();
+    }
 
     public static void main(String[] args) {
 
@@ -101,8 +131,11 @@ public class SuperStore {
 	// Open Each Department
 	store.openDepartments();
 
+
 	// Open Store
-	System.out.printf("Is the store ready for business? %b\n", store.openStore());
+    store.openStore();
+    
+    store.departmentClosed();
     }
 
 }

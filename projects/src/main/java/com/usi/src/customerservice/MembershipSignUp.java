@@ -22,7 +22,9 @@ public class MembershipSignUp {
     Scanner in = null;
     // put all data members declarations here
     int phoneNumber = 0;
-
+    private String middleInitial;
+    private String emailAddress;
+    private String mailingAddress;
     /**
      
      */
