@@ -45,7 +45,13 @@ public class AutomotiveDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(ap);
+		int howMany = ap.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    prodKey = ProdKeyGen.genKey(ap);
+		    autoProducts.put(prodKey, ap);
+		}
 		autoProducts.put(prodKey, ap);
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

@@ -8,6 +8,10 @@
  */
 package customerservice;
 
+import java.util.List;
+
+import util.Product;
+
 /**
  * @author malac
  *
@@ -25,4 +29,15 @@ public class Customer {
 
     }
     // Testing
+
+    /**
+     * @return
+     */
+    public List<Product> getListOfProds() {
+	// TODO Auto-generated method stub
+	// call getProductList in shoppingCart
+	// List<Product> pList = sc.getProductList();
+	// Remember to change null to the name of shopping chart
+	return null;
+    }
 }

@@ -43,20 +43,17 @@ public class SuperStore {
     Greeting greeting = null;
     Customer patron = null;
     Product prod;
-    StoreCheckOut checkoutLane01 = null; 
+    StoreCheckOut checkoutLane01 = null;
     StoreCheckOut checkoutLane02 = null;
     StoreCheckOut checkoutLane03 = null;
     StoreCheckOut checkoutLane04 = null;
     StoreCheckOut checkoutLane05 = null;
-    
-    
+
     public boolean openStore() {
 	greeting = new Greeting();
 	patron = greeting.sayGreeting();
-	//patron.startShopping();
-	
-	
-	
+	patron.startShopping();
+
 	this.setStatus(true);
 	return status;
 
@@ -66,14 +63,16 @@ public class SuperStore {
 	return status = storeOpen;
     }
 
-    public boolean departmentClosed () {
-    	
-    	if(false)prod.loadProducts();
-    	System.out.print("This department is not open for business.");
-		this.departmentClosed();
-    	return status; 
-    	
+    public boolean departmentClosed() {
+
+	if (false)
+	    prod.loadProducts();
+	System.out.print("This department is not open for business.");
+	this.departmentClosed();
+	return status;
+
     }
+
     /*
      * Please keep Open Department list in alphabetical order Here each department
      * will be instantiated
@@ -114,13 +113,13 @@ public class SuperStore {
 	ToysDept td = new ToysDept();
 	TupperwareDept twd = new TupperwareDept();
     }
-    
+
     public SuperStore() {
-    	checkoutLane01 = new StoreCheckOut();
-    	checkoutLane02 = new StoreCheckOut();
-    	checkoutLane03 = new StoreCheckOut();
-    	checkoutLane04 = new StoreCheckOut();
-    	checkoutLane05 = new StoreCheckOut();
+	checkoutLane01 = new StoreCheckOut();
+	checkoutLane02 = new StoreCheckOut();
+	checkoutLane03 = new StoreCheckOut();
+	checkoutLane04 = new StoreCheckOut();
+	checkoutLane05 = new StoreCheckOut();
     }
 
     public static void main(String[] args) {
@@ -131,11 +130,9 @@ public class SuperStore {
 	// Open Each Department
 	store.openDepartments();
 
-
 	// Open Store
-    store.openStore();
-    
-    store.departmentClosed();
+	store.openStore();
+
     }
 
 }
