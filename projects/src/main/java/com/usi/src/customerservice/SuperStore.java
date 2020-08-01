@@ -1,5 +1,8 @@
 package customerservice;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import automotive.AutomotiveDept;
 import babyessentials.BabyEssentialsDept;
 import bakery.BakeryDept;
@@ -35,6 +38,7 @@ import stationary.StationaryDept;
 import toiletries.ToiletryDept;
 import toys.ToysDept;
 import tupperware.TupperwareDept;
+import util.Department;
 import util.Product;
 
 public class SuperStore {
@@ -43,15 +47,18 @@ public class SuperStore {
     Greeting greeting = null;
     Customer patron = null;
     Product prod;
+    List<Department> dList = null;
+    AutomotiveDept ad = null;
     StoreCheckOut checkoutLane01 = null;
     StoreCheckOut checkoutLane02 = null;
     StoreCheckOut checkoutLane03 = null;
     StoreCheckOut checkoutLane04 = null;
     StoreCheckOut checkoutLane05 = null;
 
-    public boolean openStore() {
+    public boolean openStore(String[] args) {
 	greeting = new Greeting();
-	patron = greeting.sayGreeting();
+	patron = greeting.sayGreeting(args);
+	patron.setDepartment(dList);
 	patron.startShopping();
 
 	this.setStatus(true);
@@ -78,7 +85,8 @@ public class SuperStore {
      * will be instantiated
      */
     private void openDepartments() {
-	AutomotiveDept ad = new AutomotiveDept();
+	ad = new AutomotiveDept();
+	dList.add(ad);
 	BabyEssentialsDept bed = new BabyEssentialsDept();
 	BakeryDept bd = new BakeryDept();
 	BeddingDept bedd = new BeddingDept();
@@ -120,10 +128,12 @@ public class SuperStore {
 	checkoutLane03 = new StoreCheckOut();
 	checkoutLane04 = new StoreCheckOut();
 	checkoutLane05 = new StoreCheckOut();
+	dList = new ArrayList<Department>();
     }
 
     public static void main(String[] args) {
-
+	// Pass on args
+	String[] inArgs = args;
 	// Turn the lights on
 	SuperStore store = new SuperStore();
 
@@ -131,7 +141,7 @@ public class SuperStore {
 	store.openDepartments();
 
 	// Open Store
-	store.openStore();
+	store.openStore(inArgs);
 
     }
 

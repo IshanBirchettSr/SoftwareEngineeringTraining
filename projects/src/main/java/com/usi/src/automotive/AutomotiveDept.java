@@ -2,10 +2,12 @@ package automotive;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
+import util.Product;
 import util.StoreConstants;
 
 /**
@@ -57,5 +59,29 @@ public class AutomotiveDept extends Department {
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		autoRecords.size(), autoProducts.size());
 
+    }
+
+    @Override
+    public void listProducts() {
+	String aKey = null;
+	Set<String> aProducts = autoProducts.keySet();
+
+	int totalProducts = aProducts.size();
+	int i = 1;
+	for (String pKey : aProducts) {
+	    if (aKey != pKey) {
+		System.out.printf("%d: %s\n", i, pKey);
+	    }
+	    aKey = pKey;
+	    i++;
+	}
+
+    }
+
+    @Override
+    public List<Product> getProducts() {
+	List<Product> pList = null;
+	// TODO Auto-generated method stub
+	return pList;
     }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
+import util.Product;
 import util.StoreConstants;
 
 /**
@@ -52,6 +53,18 @@ public class FrozenFoodsDept extends Department {
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		frozenFoodsRecords.size(), frozenFoodsProducts.size());
 
+    }
+
+    @Override
+    public void listProducts() {
+	// TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public List<Product> getProducts() {
+	// TODO Auto-generated method stub
+	return null;
     }
 
 }

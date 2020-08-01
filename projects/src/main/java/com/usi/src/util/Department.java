@@ -125,4 +125,8 @@ public abstract class Department {
 
     protected abstract void loadProducts();
 
+    public abstract void listProducts();
+
+    public abstract List<Product> getProducts();
+
 }

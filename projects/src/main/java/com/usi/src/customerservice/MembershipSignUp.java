@@ -21,10 +21,11 @@ public class MembershipSignUp {
 
     Scanner in = null;
     // put all data members declarations here
-    int phoneNumber = 0;
+    String phoneNumber = null;
     private String middleInitial;
     private String emailAddress;
     private String mailingAddress;
+
     /**
      
      */
@@ -35,14 +36,14 @@ public class MembershipSignUp {
     /**
      * @return the phoneNumber
      */
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
 	return phoneNumber;
     }
 
     /**
      * @param mobilenumber the phoneNumber to set
      */
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
 	this.phoneNumber = phoneNumber;
     }
 
@@ -58,7 +59,7 @@ public class MembershipSignUp {
 	System.out.println("Please enter your mailing address: ");
 	String mailingaddress = in.next();
 	System.out.println("Please enter your phone number: ");
-	phoneNumber = in.nextInt();
+	phoneNumber = in.next();
 
 	String membershipId = String.format(
 

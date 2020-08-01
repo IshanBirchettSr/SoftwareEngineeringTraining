@@ -11,6 +11,7 @@ package customerservice;
 import java.util.List;
 
 import smartcart.ShoppingCart;
+import util.Department;
 import util.Product;
 
 /**
@@ -21,6 +22,8 @@ public class Customer {
     // data member section
     // type name, object name, =, initialize
     ShoppingCart cart = null;
+    List<Department> dList = null;
+    List<Product> pList = null;
 
     /**
      * @return
@@ -31,6 +34,12 @@ public class Customer {
     }
 
     public void startShopping() {
+	for (Department dp : dList) {
+	    dp.listProducts();
+	    // decide which products
+	    // add product to cart.
+
+	}
 
     }
     // Testing
@@ -41,11 +50,16 @@ public class Customer {
     public List<Product> getListOfProds() {
 	// TODO Auto-generated method stub
 	// call getProductList in shoppingCart
-	List<Product> pList = cart.getProductList();
+	List<Product> cpList = cart.getProductList();
 
 	// List<Product> pList = sc.getProductList();
 	// Remember to change null to the name of shopping chart
-	return pList;
+	return cpList;
+    }
+
+    public void setDepartment(List<Department> dps) {
+	dList = dps;
+
     }
 
 }

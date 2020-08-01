@@ -9,6 +9,7 @@ import java.util.List;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
+import util.Product;
 import util.StoreConstants;
 
 /**
@@ -51,6 +52,18 @@ public class LinenDept extends Department {
 		linenRecords.size(), linenProducts.size());
 
 	// TODO Auto-generated method stub
+    }
+
+    @Override
+    public void listProducts() {
+	// TODO Auto-generated method stub
+	
+    }
+
+    @Override
+    public List<Product> getProducts() {
+	// TODO Auto-generated method stub
+	return null;
     }
 
 }
