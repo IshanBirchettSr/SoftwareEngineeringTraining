@@ -10,6 +10,7 @@ package customerservice;
 
 import java.util.List;
 
+import smartcart.ShoppingCart;
 import util.Product;
 
 /**
@@ -17,12 +18,16 @@ import util.Product;
  *
  */
 public class Customer {
+    // data member section
+    // type name, object name, =, initialize
+    ShoppingCart cart = null;
 
     /**
+     * @return
      * 
      */
-    public Customer() {
-	// TODO Auto-generated constructor stub
+    public void Customer() {
+	cart = new ShoppingCart();
     }
 
     public void startShopping() {
@@ -36,8 +41,11 @@ public class Customer {
     public List<Product> getListOfProds() {
 	// TODO Auto-generated method stub
 	// call getProductList in shoppingCart
+	List<Product> pList = cart.getProductList();
+
 	// List<Product> pList = sc.getProductList();
 	// Remember to change null to the name of shopping chart
-	return null;
+	return pList;
     }
+
 }
