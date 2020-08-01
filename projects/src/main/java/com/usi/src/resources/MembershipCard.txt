@@ -1,4 +1,4 @@
 /*Membership card
 /*Membership  information highly confidential
-/*First name, Middle Initial, Last Name, email address, street,  city, state, zipcode, mobile number, home phone, age range, date of membership, coupon user
+/*First name, Middle Name, Last Name, email address, street, city, state, zipcode, mobile number, home phone, age range, date of membership, coupon user
 
