@@ -66,4 +66,5 @@ public class MeatProd extends Product {
 	    return false;
 	}
     }
+
 }

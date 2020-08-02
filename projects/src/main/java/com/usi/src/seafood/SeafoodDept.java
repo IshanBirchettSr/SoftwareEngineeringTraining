@@ -73,4 +73,10 @@ public class SeafoodDept extends Department {
 	// TODO Auto-generated method stub
 	return null;
     }
+
+    @Override
+    public List<Product> getProds(int index, int quantity) {
+	// TODO Auto-generated method stub
+	return null;
+    }
 }

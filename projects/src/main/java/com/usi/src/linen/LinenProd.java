@@ -50,5 +50,4 @@ public class LinenProd extends Product {
 	    return false;
 	}
     }
-
 }

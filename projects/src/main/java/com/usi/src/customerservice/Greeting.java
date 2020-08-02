@@ -2,7 +2,6 @@ package customerservice;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
@@ -55,7 +54,7 @@ public class Greeting extends Application {
     public Customer sayGreeting(String[] args) {
 
 	launch(args);
-	Scanner in = new Scanner(System.in);
+	// Scanner in = new Scanner(System.in);
 	Customer cust = new Customer();
 //
 //	System.out.printf("Welcome to %s\n", StoreConstants.STORE_NAME);

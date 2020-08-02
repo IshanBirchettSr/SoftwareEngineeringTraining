@@ -30,5 +30,4 @@ public class PerishableProduct extends Product {
 	// TODO Auto-generated method stub
 	return false;
     }
-
 }

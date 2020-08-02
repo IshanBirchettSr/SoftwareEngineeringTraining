@@ -92,7 +92,7 @@ public abstract class Product {
     /**
      * @return the barCode
      */
-    protected String getBarCode() {
+    public String getBarCode() {
 	return barCode;
     }
 

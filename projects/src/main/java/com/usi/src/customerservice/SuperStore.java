@@ -55,15 +55,15 @@ public class SuperStore {
     StoreCheckOut checkoutLane04 = null;
     StoreCheckOut checkoutLane05 = null;
 
-    public boolean openStore(String[] args) {
-	greeting = new Greeting();
-	patron = greeting.sayGreeting(args);
-	patron.setDepartment(dList);
-	patron.startShopping();
-
+    public void openStore(String[] args) {
 	this.setStatus(true);
-	return status;
-
+	do {
+	    greeting = new Greeting();
+	    patron = greeting.sayGreeting(args);
+	    patron.setDepartment(dList);
+	    patron.startShopping();
+	    checkoutLane01.checkoutCustomer(patron);
+	} while (true);
     }
 
     private boolean setStatus(boolean storeOpen) {

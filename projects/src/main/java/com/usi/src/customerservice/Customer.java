@@ -9,6 +9,7 @@
 package customerservice;
 
 import java.util.List;
+import java.util.Scanner;
 
 import smartcart.ShoppingCart;
 import util.Department;
@@ -30,17 +31,31 @@ public class Customer {
      * 
      */
     public void Customer() {
-	cart = new ShoppingCart();
+
     }
 
     public void startShopping() {
+	int pdNumber = -1;
+	int qNumber = -1;
+	Scanner in = new Scanner(System.in);
+	cart = new ShoppingCart();
 	for (Department dp : dList) {
+	    System.out.printf("Department: %s\n", dp.getDeptName());
 	    dp.listProducts();
-	    // decide which products
-	    // add product to cart.
-
+	    do {
+		System.out.printf("Please enter product #:");
+		pdNumber = in.nextInt();
+		if (pdNumber == 0) {
+		    break;
+		}
+		System.out.printf("Please enter quantity:");
+		qNumber = in.nextInt();
+		pList = dp.getProds(pdNumber, qNumber);
+		for (Product pd : pList) {
+		    cart.addProduct(pd);
+		}
+	    } while (pdNumber != 0);
 	}
-
     }
     // Testing
 

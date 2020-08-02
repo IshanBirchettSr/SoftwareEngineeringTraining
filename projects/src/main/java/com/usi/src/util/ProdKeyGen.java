@@ -19,8 +19,7 @@ public class ProdKeyGen {
     public static String genKey(Product inProd) {
 	key = null;
 	if (inProd != null) {
-	    key = String.format(StoreConstants.PROD_KEY_FORMATTER, inProd.getDeptNameEnum(), inProd.getBrandName(),
-		    inProd.getProductName(), inProd.getWeight(), inProd.getUnitOfMeasureEnum(), inProd.getColorEnum());
+	    key = String.format(StoreConstants.PROD_KEY_FORMATTER, inProd.getProductName(), inProd.getBarCode());
 	}
 	return key;
     }

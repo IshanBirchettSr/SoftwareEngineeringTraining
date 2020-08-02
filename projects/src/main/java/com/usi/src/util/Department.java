@@ -129,4 +129,6 @@ public abstract class Department {
 
     public abstract List<Product> getProducts();
 
+    public abstract List<Product> getProds(int index, int quantity);
+
 }

@@ -17,8 +17,8 @@ public class StoreConstants {
 
     // USI Product Key Unique Identifier Formatter
     // The following format string consist of the following parameters:
-    // SDCN + Department Enum + Band Name + Product Name + Weight + Color Enum
-    public static final String PROD_KEY_FORMATTER = SDCN + "::%s:%s:%s:%s:%s:%s";
+    // Product Name + Unique Bar Code
+    public static final String PROD_KEY_FORMATTER = "%s-%s";
 
     /*
      * Truck Constants for importing department records Please keep Department
