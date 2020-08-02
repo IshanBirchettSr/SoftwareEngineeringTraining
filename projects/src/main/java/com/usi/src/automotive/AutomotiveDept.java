@@ -66,14 +66,14 @@ public class AutomotiveDept extends Department {
     @Override
     public void listProducts() {
 	String aKey = null;
-	Set<String> aProducts = autoProducts.keySet();
+	Set<String> aProductKeys = autoProducts.keySet();
 
-	int totalProducts = aProducts.size();
+	int totalProducts = aProductKeys.size();
 	int i = 1;
-	for (String pKey : aProducts) {
+	for (String pKey : aProductKeys) {
 	    Product pd = autoProducts.get(pKey);
 	    if (aKey != pKey) {
-		System.out.printf("%d: %s\t%.2f\tBC: [[%s]]\n", i, pd.getProductName(), pd.getPrice(), pd.getBarCode());
+		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
 	    }
 	    aKey = pKey;
 	    keyMap.put(i, pKey);
