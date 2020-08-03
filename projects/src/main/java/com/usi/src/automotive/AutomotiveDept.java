@@ -26,6 +26,7 @@ public class AutomotiveDept extends Department {
      * Constructor
      */
     public AutomotiveDept() {
+	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.AUTOMOTIVE_TRUCK);

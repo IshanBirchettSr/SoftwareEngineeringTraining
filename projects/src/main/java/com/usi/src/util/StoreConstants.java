@@ -7,9 +7,9 @@ public class StoreConstants {
      */
 
     // Software Development Company Name
-    public static final String SDCN = "usi";
+    public static final String SDCN = "USI ";
     // Store Name
-    public static final String STORE_NAME = "Shoppers Super Store";
+    public static final String STORE_NAME = SDCN + "SUPERSTORE";
     public static final String APP_HOME = "C:/usi-git/SoftwareEngineeringTraining/projects/src/main/java/com/usi";
 
     // Membership Daily Discount
@@ -59,6 +59,12 @@ public class StoreConstants {
     public static final String TOILETRIES_TRUCK = APP_HOME + "/src/resources/Toiletries.txt";
     public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
     public static final String TUPPERWARE_TRUCK = APP_HOME + "/src/resources/Tupperware.txt";
+
+    /*
+     * Store Images
+     * 
+     */
+    public static final String STORE_ENTRANCE = "file:///" + APP_HOME + "/images/SuperStoreEntrance.png";
 
     /*
      * Please keep deptNames in alphabetical order

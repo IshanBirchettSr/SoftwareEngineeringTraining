@@ -13,7 +13,10 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -108,11 +111,23 @@ public class Greeting extends Application {
 	    System.out.println(fontName);
 	}
 
-	welcomeTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
+	welcomeTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
 
 	HBox gp = new HBox(20, welcomeTxt);
 	gp.setAlignment(Pos.CENTER);
-	gp.setPadding(new Insets(20.50));
+	// gp.setPadding(new Insets(10));
+
+	Image entranceImage = new Image(StoreConstants.STORE_ENTRANCE);
+	ImageView iv = new ImageView();
+	iv.setImage(entranceImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+
+	HBox storeView = new HBox(iv);
+	storeView.setAlignment(Pos.CENTER);
+	// storeView.setPadding(new Insets(20.50));
 
 	/* Now we perform our rendering */
 
@@ -146,10 +161,18 @@ public class Greeting extends Application {
 	HBox paneCharacter = new HBox(20, lblCharacter, yesIDo, noIDoNot);
 	paneCharacter.setPadding(new Insets(10));
 	// Add the Character and Actor panes to a VBox
-	primaryPane = new VBox(10, gp, paneCharacter);
+	primaryPane = new VBox(10, gp, storeView, paneCharacter);
+	primaryPane.setAlignment(Pos.CENTER);
 	// Create the bindings
 
-	Scene scene = new Scene(primaryPane, 800, 500);
+	ScrollPane sp = new ScrollPane();
+	sp.setContent(primaryPane);
+	sp.setPannable(true);
+	sp.setHvalue(0.0);
+	sp.setVvalue(1.9);
+
+	Scene scene = new Scene(sp, 600, 575);
+
 	primaryStage.setScene(scene);
 	String screenTitle = String.format("%s - %s", StoreConstants.STORE_NAME, "Greeting");
 	primaryStage.setTitle(screenTitle);
@@ -257,14 +280,15 @@ public class Greeting extends Application {
 	Label secondLabel = new Label("I'm a Label on new Window");
 
 	StackPane secondaryLayout = new StackPane();
-	secondaryLayout.getChildren().add(membershipTxt);
+	HBox memSignUp = new HBox();
+	memSignUp.getChildren().add(membershipTxt);
 
-	Scene secondScene = new Scene(secondaryLayout, 450, 600);
+	Scene signUpScene = new Scene(memSignUp, 450, 600);
 
 	// New window (Stage)
 	Stage newWindow = new Stage();
 	newWindow.setTitle("Shoppers Super Store - Membership Sign Up");
-	newWindow.setScene(secondScene);
+	newWindow.setScene(signUpScene);
 
 	// Specifies the modality for new window.
 	newWindow.initModality(Modality.WINDOW_MODAL);
