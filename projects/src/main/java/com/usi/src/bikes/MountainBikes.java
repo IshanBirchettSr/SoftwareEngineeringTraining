@@ -3,7 +3,10 @@
  */
 package bikes;
 
+import java.util.List;
+
 import util.Department;
+import util.Product;
 
 /**
  * @author Allma M. Johnson
@@ -67,6 +70,24 @@ public class MountainBikes extends Department {
     @Override
     protected void loadProducts() {
 	// TODO Auto-generated method stub
+    }
+
+    @Override
+    public void listProducts() {
+	// TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public List<Product> getProducts() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public List<Product> getProds(int index, int quantity) {
+	// TODO Auto-generated method stub
+	return null;
     }
 
 }

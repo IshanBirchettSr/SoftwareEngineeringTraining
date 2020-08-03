@@ -8,12 +8,16 @@
  */
 package bakery;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
+import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
+import util.Product;
 import util.StoreConstants;
 
 /**
@@ -23,6 +27,7 @@ import util.StoreConstants;
 public class BakeryDept extends Department {
     String deptName = StoreConstants.deptNames.BAKERY.name();
     List<String> bakeryRecords = null;
+    HashMap<Integer, String> keyMap = null;
     HashMap<String, BakeryProd> bakeryProducts;
 
     /**
@@ -56,4 +61,39 @@ public class BakeryDept extends Department {
 	// TODO Auto-generated method stub
     }
 
+    @Override
+    public void listProducts() {
+	String aKey = null;
+	Set<String> bakeryProductKeys = bakeryProducts.keySet();
+
+	int totalProducts = bakeryProductKeys.size();
+	int i = 1;
+	for (String pKey : bakeryProductKeys) {
+	    Product pd = bakeryProducts.get(pKey);
+	    if (aKey != pKey) {
+		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+	    }
+	    aKey = pKey;
+	    keyMap.put(i, pKey);
+	    i++;
+	}
+    }
+
+    public List<Product> getProds(int index, int qauntity) {
+	ArrayList<Product> pdList = new ArrayList<Product>();
+	String pKey = keyMap.get(index);
+	for (int i = 0; i < qauntity; i++) {
+	    BakeryProd pd = bakeryProducts.get(pKey);
+	    pdList.add(pd);
+	}
+
+	return pdList;
+    }
+
+    @Override
+    public List<Product> getProducts() {
+	List<Product> pList = null;
+
+	return pList;
+    }
 }

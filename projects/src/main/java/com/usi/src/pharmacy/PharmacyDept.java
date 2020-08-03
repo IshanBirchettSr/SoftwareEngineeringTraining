@@ -8,12 +8,16 @@
  */
 package pharmacy;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
+import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
+import util.Product;
 import util.StoreConstants;
 
 /**
@@ -24,6 +28,7 @@ public class PharmacyDept extends Department {
 
     String deptName = StoreConstants.deptNames.PHARMACY.name();
     List<String> pharmacyRecords = null;
+    HashMap<Integer, String>keyMap = null;
     // HashMap<K, V> to hold PharmacyProd objects.
     HashMap<String, PharmacyProd> pharmacyProducts;
 
@@ -59,5 +64,41 @@ public class PharmacyDept extends Department {
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		pharmacyRecords.size(), pharmacyProducts.size());
 
+    }
+
+    @Override
+    public void listProducts() {
+	String aKey = null;
+	Set<String> pharmacyProductKeys = pharmacyProducts.keySet();
+
+	int totalProducts = pharmacyProductKeys.size();
+	int i = 1;
+	for (String pKey : pharmacyProductKeys) {
+	    Product pd = pharmacyProducts.get(pKey);
+	    if (aKey != pKey) {
+		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+	    }
+	    aKey = pKey;
+	    keyMap.put(i, pKey);
+	    i++;
+	}
+    }
+
+    public List<Product> getProds(int index, int qauntity) {
+	ArrayList<Product> pdList = new ArrayList<Product>();
+	String pKey = keyMap.get(index);
+	for (int i = 0; i < qauntity; i++) {
+	    PharmacyProd pd = pharmacyProducts.get(pKey);
+	    pdList.add(pd);
+	}
+
+	return pdList;
+    }
+
+    @Override
+    public List<Product> getProducts() {
+	List<Product> pList = null;
+
+	return pList;
     }
 }

@@ -8,12 +8,16 @@
  */
 package electronics;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
+import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
+import util.Product;
 import util.StoreConstants;
 
 /**
@@ -21,43 +25,80 @@ import util.StoreConstants;
  *
  */
 public class ElectronicsDept extends Department {
-	String deptName = StoreConstants.deptNames.ELECTRONICS.name();
-	List<String> electronicsRecords = null;
+    String deptName = StoreConstants.deptNames.ELECTRONICS.name();
+    List<String> electronicsRecords = null;
+    HashMap<Integer, String>keyMap = null;
 // HashMap<K, V> to hold ElectronicsProd objects.
-	HashMap<String, ElectronicsProd> electronicsProducts;
+    HashMap<String, ElectronicsProd> electronicsProducts;
 
-	/**
-	 * Constructor
-	 */
-	public ElectronicsDept() {
+    /**
+     * Constructor
+     */
+    public ElectronicsDept() {
 // Record Load
-		DataCsvLoad unLoadTrucks = new DataCsvLoad();
-		unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
-		electronicsRecords = unLoadTrucks.getRecords();
-		this.setLoadedRecords(electronicsRecords);
+	DataCsvLoad unLoadTrucks = new DataCsvLoad();
+	unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
+	electronicsRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(electronicsRecords);
 // System.out.printf("%s Department open with %d records\n", deptName,
 // autoRecords.size());
 
 // Automotive Product Load
-		electronicsProducts = new HashMap<String, ElectronicsProd>();
-		loadProducts();
-	}
+	electronicsProducts = new HashMap<String, ElectronicsProd>();
+	loadProducts();
+    }
 
-	@Override
-	protected void loadProducts() {
+    @Override
+    protected void loadProducts() {
 // Load products
-		for (String record : electronicsRecords) {
-			ElectronicsProd ep = new ElectronicsProd();
-			boolean recordToProductSuccessful = ep.recordToProduct(record);
+	for (String record : electronicsRecords) {
+	    ElectronicsProd ep = new ElectronicsProd();
+	    boolean recordToProductSuccessful = ep.recordToProduct(record);
 
-			// If it fails to convert any field, don't add that object to autoProducts
-			if (recordToProductSuccessful == true) {
-				String prodKey = ProdKeyGen.genKey(ep);
-				electronicsProducts.put(prodKey, ep);
-			}
-		}
-		System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-				electronicsRecords.size(), electronicsProducts.size());
-
+	    // If it fails to convert any field, don't add that object to autoProducts
+	    if (recordToProductSuccessful == true) {
+		String prodKey = ProdKeyGen.genKey(ep);
+		electronicsProducts.put(prodKey, ep);
+	    }
 	}
+	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		electronicsRecords.size(), electronicsProducts.size());
+
+    }
+
+    @Override
+    public void listProducts() {
+	String aKey = null;
+	Set<String> electronicProductKeys = electronicsProducts.keySet();
+
+	int totalProducts = electronicProductKeys.size();
+	int i = 1;
+	for (String pKey : electronicProductKeys) {
+	    Product pd = electronicsProducts.get(pKey);
+	    if (aKey != pKey) {
+		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+	    }
+	    aKey = pKey;
+	    keyMap.put(i, pKey);
+	    i++;
+	}
+    }
+
+    public List<Product> getProds(int index, int qauntity) {
+	ArrayList<Product> pdList = new ArrayList<Product>();
+	String pKey = keyMap.get(index);
+	for (int i = 0; i < qauntity; i++) {
+	    ElectronicsProd pd = electronicsProducts.get(pKey);
+	    pdList.add(pd);
+	}
+
+	return pdList;
+    }
+
+    @Override
+    public List<Product> getProducts() {
+	List<Product> pList = null;
+
+	return pList;
+    }
 }

@@ -14,17 +14,16 @@ package util;
  */
 public class NonPerishableProduct extends Product {
 
-	/**
-	 * 
-	 */
-	public NonPerishableProduct() {
-		// TODO Auto-generated constructor stub
-	}
+    /**
+     * 
+     */
+    public NonPerishableProduct() {
+	// TODO Auto-generated constructor stub
+    }
 
-	@Override
-	public boolean recordToProduct(String record) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+    @Override
+    public boolean recordToProduct(String record) {
+	// TODO Auto-generated method stub
+	return false;
+    }
 }

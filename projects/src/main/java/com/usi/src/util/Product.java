@@ -92,7 +92,7 @@ public abstract class Product {
     /**
      * @return the barCode
      */
-    protected String getBarCode() {
+    public String getBarCode() {
 	return barCode;
     }
 
@@ -134,7 +134,7 @@ public abstract class Product {
     /**
      * @return the bandName
      */
-    protected String getBrandName() {
+    public String getBrandName() {
 	return brandName;
     }
 

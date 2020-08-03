@@ -6,28 +6,31 @@
  * is for training individuals to be software engineers.
  * 
  */
-package util;
+package examples;
 
-import java.util.Date;
+import util.StorePrinter;
 
 /**
  * @author ibirc
  *
  */
-public class PerishableProduct extends Product {
+public class TestPrinter extends StorePrinter {
 
     /**
-     * Data Members
+     * 
      */
-    private Date experationDate;
-
-    public PerishableProduct() {
+    public TestPrinter() {
+	super();
 	// TODO Auto-generated constructor stub
     }
 
-    @Override
-    public boolean recordToProduct(String record) {
-	// TODO Auto-generated method stub
-	return false;
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+	TestPrinter tp = new TestPrinter();
+	tp.PrintDialog();
+
     }
+
 }
