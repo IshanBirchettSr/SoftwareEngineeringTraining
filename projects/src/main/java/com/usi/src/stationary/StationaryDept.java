@@ -1,8 +1,11 @@
 package stationary;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
+import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -12,6 +15,7 @@ import util.StoreConstants;
 public class StationaryDept extends Department {
     String deptName = StoreConstants.deptNames.STATIONARY.name();
     List<String> autoRecords = null;
+    HashMap<Integer, String>keyMap = null;
     // HashMap<K, V> to hold StationaryProd objects.
     HashMap<String, StationaryProd> stationaryProducts;
     private List<String> stationaryRecords;
@@ -53,19 +57,37 @@ public class StationaryDept extends Department {
 
     @Override
     public void listProducts() {
-	// TODO Auto-generated method stub
-	
+	String aKey = null;
+	Set<String> stationaryProductKeys = stationaryProducts.keySet();
+
+	int totalProducts = stationaryProductKeys.size();
+	int i = 1;
+	for (String pKey : stationaryProductKeys) {
+	    Product pd = stationaryProducts.get(pKey);
+	    if (aKey != pKey) {
+		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+	    }
+	    aKey = pKey;
+	    keyMap.put(i, pKey);
+	    i++;
+	}
+    }
+
+    public List<Product> getProds(int index, int qauntity) {
+	ArrayList<Product> pdList = new ArrayList<Product>();
+	String pKey = keyMap.get(index);
+	for (int i = 0; i < qauntity; i++) {
+	    StationaryProd pd = stationaryProducts.get(pKey);
+	    pdList.add(pd);
+	}
+
+	return pdList;
     }
 
     @Override
     public List<Product> getProducts() {
-	// TODO Auto-generated method stub
-	return null;
-    }
+	List<Product> pList = null;
 
-    @Override
-    public List<Product> getProds(int index, int quantity) {
-	// TODO Auto-generated method stub
-	return null;
+	return pList;
     }
 }
