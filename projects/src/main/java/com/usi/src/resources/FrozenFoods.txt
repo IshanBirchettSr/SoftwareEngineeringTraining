@@ -1,10 +1,10 @@
 /*FrozenFoods
 *ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-Broccoli, FrozenFoods, OUNCE UUID, 1, NA, PICS, 10.8, 1.89, GREEN, broccoli, 32, broccoli florets
-Waffles, FrozenFoods, COUNT, UUID, 1, NA, Kellogg, 10, 2.79, NA, waffles, 30, frozen waffles
-Chicken tenders, FrozenFoods, POUNDS, UUID, 1, NA, Perdue, 1.81, 6.99, NA, chicken, 20, breaded chicken tenders
-Tater Tots, FrozenFoods, OUNCE, UUID, 1, NA, OreIda, 32, 3.99, NA, potato, 25, frozen potato
-Pizza, FrozenFood, OUNCE, UUID, 1, NA, Ellios, 18.3, 3.79, NA, pizza, 36, frozen pizza
-Berries, FrozenFood, OUNCE, UUID, 1, NA, Wymans, 15, 3.99, BLUE, berries, 15, frozen mixed berries
-Ice Cream, FrozenFood, PINT, UUID, 1 NA, Ben and Jerry, 1, 4.99, NA, ice cream, 20, ice cream
-Ice, FrozenFood, POUNDS, UUID, 1, NA, PICS, 7, 4.00,  NA, water, 40, ice
+Broccoli, Frozen_Foods, OUNCES, UUID, 1, NA, PICS, 10.8, 1.89, GREEN, broccoli, 32, broccoli florets
+Waffles, Frozen_Foods, OUNCES, UUID, 1, NA, Kellogg, 10, 2.79, NA, waffles, 30, frozen waffles
+Chicken tenders, Frozen_Foods, POUNDS, UUID, 1, NA, Perdue, 1.81, 6.99, NA, chicken, 20, breaded chicken tenders
+Tater Tots, Frozen_Foods, OUNCES, UUID, 1, NA, OreIda, 32, 3.99, NA, potato, 25, frozen potato
+Pizza, Frozen_Foods, OUNCES, UUID, 1, NA, Ellios, 18.3, 3.79, NA, pizza, 36, frozen pizza
+Berries, Frozen_Foods, OUNCES, UUID, 1, NA, Wymans, 15, 3.99, BLUE, berries, 15, frozen mixed berries
+Ice Cream, Frozen_Foods, PINTS, UUID, 1, NA, Ben and Jerry, 1, 4.99, NA, ice cream, 20, ice cream
+Ice, Frozen_Foods, POUNDS, UUID, 1, NA, PICS, 7, 4.00,  NA, water, 40, ice
