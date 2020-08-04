@@ -47,12 +47,16 @@ public class LuggageDept extends Department {
 	    // If it fails to convert any field, don't add that object to luggageProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(lp);
-		LuggageProducts.put(prodKey, lp);
+		int howMany = lp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    System.out.println(prodKey);
+		LuggageProducts.put(prodKey+1, lp);
 	    }
+		LuggageProducts.put(prodKey,lp);
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		luggageRecords.size(), LuggageProducts.size());
-
+	}
     }
 
     @Override

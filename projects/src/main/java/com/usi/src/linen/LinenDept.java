@@ -49,15 +49,19 @@ public class LinenDept extends Department {
 
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(lp);
-		linenProducts.put(prodKey, lp);
+		int howMany = lp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    System.out.println(prodKey);
+		linenProducts.put(prodKey+1, lp);
 	    }
+		linenProducts.put(prodKey, lp);
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		linenRecords.size(), linenProducts.size());
 
 	// TODO Auto-generated method stub
     }
-
+    }
     @Override
     public void listProducts() {
 	String aKey = null;
