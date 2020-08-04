@@ -49,10 +49,16 @@ public class PantryDept extends Department {
 	    PantryProd pp = new PantryProd();
 	    boolean recordToProductSuccessful = pp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to pantryProducts
+	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(pp);
-		pantryProducts.put(prodKey, pp);
+		int howMany = pp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    pantryProducts.put(prodKey + i, pp);
+		}
+		// autoProducts.put(prodKey, ap);
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

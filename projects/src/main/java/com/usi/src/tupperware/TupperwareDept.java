@@ -51,7 +51,13 @@ public class TupperwareDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(twp);
-		tupperwareProducts.put(prodKey, twp);
+		int howMany = twp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    tupperwareProducts.put(prodKey + i, twp);
+		}
+		// autoProducts.put(prodKey, ap);
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

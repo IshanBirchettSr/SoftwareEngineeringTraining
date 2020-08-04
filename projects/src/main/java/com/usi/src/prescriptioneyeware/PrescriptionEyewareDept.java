@@ -37,9 +37,16 @@ public class PrescriptionEyewareDept extends Department {
 	    PrescriptionEyewareProd ep = new PrescriptionEyewareProd();
 	    boolean recordToProductSuccessful = ep.recordToProduct(record);
 
+	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(ep);
-		prescriptioneyewareProducts.put(prodKey, ep);
+		int howMany = ep.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    prescriptioneyewareProducts.put(prodKey + i, ep);
+		}
+		// autoProducts.put(prodKey, ap);
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

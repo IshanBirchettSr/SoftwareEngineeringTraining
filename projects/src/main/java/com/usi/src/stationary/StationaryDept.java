@@ -44,10 +44,16 @@ public class StationaryDept extends Department {
 	    StationaryProd sp = new StationaryProd();
 	    boolean recordToProductSuccessful = sp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to stationaryProducts
+	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(sp);
-		stationaryProducts.put(prodKey, sp);
+		int howMany = sp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    stationaryProducts.put(prodKey + i, sp);
+		}
+		// autoProducts.put(prodKey, ap);
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
