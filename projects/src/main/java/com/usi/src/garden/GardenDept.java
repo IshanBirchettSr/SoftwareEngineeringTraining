@@ -61,7 +61,7 @@ public class GardenDept extends Department {
 		String prodKey = ProdKeyGen.genKey(gp);
 		int howMany = gp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		    System.out.println(prodKey);
+		  //  System.out.println(prodKey);
 		gardenProducts.put(prodKey + 1, gp);
 	    }
 		gardenProducts.put(prodKey,gp);

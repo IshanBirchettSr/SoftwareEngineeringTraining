@@ -60,7 +60,7 @@ public class MeatDept extends Department {
 		String prodKey = ProdKeyGen.genKey(mp);
 		int howMany = mp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		    System.out.println(prodKey);
+		  //  System.out.println(prodKey);
 		meatProducts.put(prodKey+1, mp);
 	    }
 		meatProducts.put(prodKey, mp);

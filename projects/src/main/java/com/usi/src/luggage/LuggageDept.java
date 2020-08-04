@@ -49,7 +49,7 @@ public class LuggageDept extends Department {
 		String prodKey = ProdKeyGen.genKey(lp);
 		int howMany = lp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		    System.out.println(prodKey);
+		    //System.out.println(prodKey);
 		LuggageProducts.put(prodKey+1, lp);
 	    }
 		LuggageProducts.put(prodKey,lp);

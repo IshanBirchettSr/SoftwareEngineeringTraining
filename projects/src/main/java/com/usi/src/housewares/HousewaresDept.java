@@ -56,7 +56,7 @@ public class HousewaresDept extends Department {
 		String prodKey = ProdKeyGen.genKey(hwp);
 		int howMany = hwp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		    System.out.println(prodKey);
+		  //  System.out.println(prodKey);
 		housewaresProducts.put(prodKey + 1, hwp);
 	    }
 		housewaresProducts.put(prodKey, hwp);

@@ -55,7 +55,7 @@ public class FurnitureDept extends Department {
 		String prodKey = ProdKeyGen.genKey(fp);
 		int howMany = fp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		    System.out.println(prodKey);
+		   //System.out.println(prodKey);
 		furnitureProducts.put(prodKey + 1, fp);
 	    }
 		furnitureProducts.put(prodKey,fp);
