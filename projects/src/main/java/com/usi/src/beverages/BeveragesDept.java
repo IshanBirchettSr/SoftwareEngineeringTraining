@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -36,6 +35,7 @@ public class BeveragesDept extends Department {
      * Constructor
      */
     public BeveragesDept() {
+	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.BEVERAGES_TRUCK);

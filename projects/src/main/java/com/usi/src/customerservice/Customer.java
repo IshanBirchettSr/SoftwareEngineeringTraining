@@ -72,9 +72,4 @@ public class Customer {
 	return cpList;
     }
 
-    public void setDepartment(List<Department> dps) {
-	dList = dps;
-
-    }
-
 }

@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -15,7 +14,7 @@ import util.StoreConstants;
 public class StationaryDept extends Department {
     String deptName = StoreConstants.deptNames.STATIONARY.name();
     List<String> autoRecords = null;
-    HashMap<Integer, String>keyMap = null;
+    HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold StationaryProd objects.
     HashMap<String, StationaryProd> stationaryProducts;
     private List<String> stationaryRecords;
@@ -24,6 +23,7 @@ public class StationaryDept extends Department {
      * Constructor
      */
     public StationaryDept() {
+	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.STATIONARY_TRUCK);

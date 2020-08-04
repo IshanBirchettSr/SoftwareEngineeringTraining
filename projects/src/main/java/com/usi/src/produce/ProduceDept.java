@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -27,7 +26,7 @@ import util.StoreConstants;
 public class ProduceDept extends Department {
     String deptName = StoreConstants.deptNames.PRODUCE.name();
     List<String> produceRecords = null;
-    HashMap<Integer, String>keyMap = null;
+    HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold ProduceProd objects.
     HashMap<String, ProduceProd> ProduceProducts;
 
@@ -35,6 +34,7 @@ public class ProduceDept extends Department {
      * Constructor
      */
     public ProduceDept() {
+	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.PRODUCE_TRUCK);

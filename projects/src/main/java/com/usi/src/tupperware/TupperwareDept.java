@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -20,7 +19,7 @@ import util.StoreConstants;
 public class TupperwareDept extends Department {
     String deptName = StoreConstants.deptNames.TUPPERWARE.name();
     List<String> tupperwareRecords = null;
-    HashMap<Integer, String>keyMap = null;
+    HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold TupperwareProd objects.
     HashMap<String, TupperwareProd> tupperwareProducts;
 
@@ -28,6 +27,7 @@ public class TupperwareDept extends Department {
      * Constructor
      */
     public TupperwareDept() {
+	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.TUPPERWARE_TRUCK);

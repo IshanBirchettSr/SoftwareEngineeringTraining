@@ -59,12 +59,13 @@ public class StoreConstants {
     public static final String TOILETRIES_TRUCK = APP_HOME + "/src/resources/Toiletries.txt";
     public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
     public static final String TUPPERWARE_TRUCK = APP_HOME + "/src/resources/Tupperware.txt";
-	public static final String HEALTH_AND_BEAUTY_TRUCK = APP_HOME + "/src/resources/HealthandBeauty.txt";
+    public static final String HEALTH_AND_BEAUTY_TRUCK = APP_HOME + "/src/resources/HealthandBeauty.txt";
     /*
      * Store Images
      * 
      */
     public static final String STORE_ENTRANCE = "file:///" + APP_HOME + "/images/SuperStoreEntrance.png";
+    public static final String STORE_MAP = "file:///" + APP_HOME + "/images/StoreMap.png";
 
     /*
      * Please keep deptNames in alphabetical order

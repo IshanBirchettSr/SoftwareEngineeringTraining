@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -28,7 +27,7 @@ public class PharmacyDept extends Department {
 
     String deptName = StoreConstants.deptNames.PHARMACY.name();
     List<String> pharmacyRecords = null;
-    HashMap<Integer, String>keyMap = null;
+    HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold PharmacyProd objects.
     HashMap<String, PharmacyProd> pharmacyProducts;
 
@@ -36,6 +35,7 @@ public class PharmacyDept extends Department {
      * Constructor
      */
     public PharmacyDept() {
+	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.PHARMACY_TRUCK);

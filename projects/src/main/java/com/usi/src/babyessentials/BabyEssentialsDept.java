@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -35,6 +34,7 @@ public class BabyEssentialsDept extends Department {
      * Constructor
      */
     public BabyEssentialsDept() {
+	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.BABY_ESSENTIALS_TRUCK);
@@ -89,7 +89,7 @@ public class BabyEssentialsDept extends Department {
 	ArrayList<Product> pdList = new ArrayList<Product>();
 	String pKey = keyMap.get(index);
 	for (int i = 0; i < quantity; i++) {
-	   BabyEssentialsProd  pd = BabyEssentialsProducts.get(pKey);
+	    BabyEssentialsProd pd = BabyEssentialsProducts.get(pKey);
 	    pdList.add(pd);
 	}
 

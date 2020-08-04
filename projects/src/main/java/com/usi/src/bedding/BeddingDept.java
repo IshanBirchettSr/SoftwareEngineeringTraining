@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -31,6 +30,7 @@ public class BeddingDept extends Department {
      * Constructor
      */
     public BeddingDept() {
+	super.setDeptName(deptName);
 // Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.BEDDING_TRUCK);

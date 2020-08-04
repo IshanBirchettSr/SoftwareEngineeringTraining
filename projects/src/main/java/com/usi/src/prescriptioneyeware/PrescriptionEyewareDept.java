@@ -1,10 +1,10 @@
 package prescriptioneyeware;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -14,13 +14,15 @@ import util.StoreConstants;
 public class PrescriptionEyewareDept extends Department {
     String deptName = StoreConstants.deptNames.PRESCRIPTION_EYEWARE.name();
     List<String> prescriptioneyewareRecords = null;
-    HashMap<Integer, String>keyMap = null;
+    HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold PrescriptioneyewareProd objects.
-    HashMap<String, PrescriptionEyewareProd> prescriptioneyewareProducts;   
+    HashMap<String, PrescriptionEyewareProd> prescriptioneyewareProducts;
+
     /**
      * Constructor
      */
     public PrescriptionEyewareDept() {
+	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.PRESCRIPTION_EYEWARE_TRUCK);
 	List<String> prescriptionEyewareRecords = unLoadTrucks.getRecords();
@@ -31,19 +33,19 @@ public class PrescriptionEyewareDept extends Department {
     @Override
     protected void loadProducts() {
 	// TODO Auto-generated method stub
-    	for (String record : prescriptioneyewareRecords) {
-    		PrescriptionEyewareProd ep = new PrescriptionEyewareProd();
-    	    boolean recordToProductSuccessful = ep.recordToProduct(record);
+	for (String record : prescriptioneyewareRecords) {
+	    PrescriptionEyewareProd ep = new PrescriptionEyewareProd();
+	    boolean recordToProductSuccessful = ep.recordToProduct(record);
 
-    	    if (recordToProductSuccessful == true) {
-    		String prodKey = ProdKeyGen.genKey(ep);
-    		prescriptioneyewareProducts.put(prodKey, ep);
-    	    }
-    	}
-    	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-    			prescriptioneyewareRecords.size(), prescriptioneyewareProducts.size());
+	    if (recordToProductSuccessful == true) {
+		String prodKey = ProdKeyGen.genKey(ep);
+		prescriptioneyewareProducts.put(prodKey, ep);
+	    }
+	}
+	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		prescriptioneyewareRecords.size(), prescriptioneyewareProducts.size());
 
-    	}
+    }
 
     @Override
     public void listProducts() {

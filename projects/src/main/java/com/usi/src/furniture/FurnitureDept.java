@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -22,7 +21,7 @@ import util.StoreConstants;
 public class FurnitureDept extends Department {
     String deptName = StoreConstants.deptNames.FURNITURE.name();
     List<String> furnitureRecords = null;
-    HashMap<Integer, String>keyMap =null;
+    HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold FurnitureProd objects.
     HashMap<String, FurnitureProd> furnitureProducts;
 
@@ -30,6 +29,7 @@ public class FurnitureDept extends Department {
      * Constructor
      */
     public FurnitureDept() {
+	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.FURNITURE_TRUCK);

@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import automotive.AutomotiveProd;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -22,7 +21,7 @@ import util.StoreConstants;
 public class ShoeDept extends Department {
     String deptName = StoreConstants.deptNames.SHOE.name();
     List<String> shoeRecords = null;
-    HashMap<Integer, String>keyMap = null;
+    HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold ShoeProd objects.
     HashMap<String, ShoeProd> shoeProducts;
 
@@ -30,7 +29,7 @@ public class ShoeDept extends Department {
      * 
      */
     public ShoeDept() {
-	// TODO Auto-generated constructor stub
+	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.SHOE_TRUCK);
 	shoeRecords = unLoadTrucks.getRecords();

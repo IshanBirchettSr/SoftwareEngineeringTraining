@@ -47,41 +47,49 @@ public class SuperStore {
     Greeting greeting = null;
     Customer patron = null;
     Product prod;
-    List<Department> dList = null;
+    static List<Department> dList = null;
+
+    /**
+     * @return the dList
+     */
+    protected static List<Department> getdList() {
+	return dList;
+    }
+
     AutomotiveDept ad = null;
     BabyEssentialsDept bed = null;
-	BakeryDept bd = null;
-	BeddingDept bedd = null;
-	BeveragesDept bevd = null;
-	BikesDept bkd = null;
-	BookDept bod = null;
-	CannedGoodsDept cgd = null;
-	CleaningSuppliesDept csd = null;
-	ClothesDept cd = null;
-	DairyDept dp = null;
-	DeliDept dep = null;
-	ElectronicsDept ed = null;
-	FragranceDept fdd = null;
-	FrozenFoodsDept ffd = null;
-	FurnitureDept fd = null;
-	GardenDept gd = null;
-	HairCareDept hcd = null;
-	HealthAndBeautyDept hba =null;
-	HousewaresDept hwd = null;
-	LinenDept ln = null;
-	MeatDept md = null;
-	PantryDept ptd = null;
-	PetcareDept pcd = null;
-	PlantBaseDept pbd = null;
-	PharmacyDept pd = null;
-	PrescriptionEyewareDept pw = null;
-	ProduceDept pdd = null;
-	SeafoodDept sd = null;
-	ShoeDept shd = null;
-	StationaryDept syd = null;
-	ToiletryDept tyd = null;
-	ToysDept td = null;
-	TupperwareDept twd = null;
+    BakeryDept bd = null;
+    BeddingDept bedd = null;
+    BeveragesDept bevd = null;
+    BikesDept bkd = null;
+    BookDept bod = null;
+    CannedGoodsDept cgd = null;
+    CleaningSuppliesDept csd = null;
+    ClothesDept cd = null;
+    DairyDept dp = null;
+    DeliDept dep = null;
+    ElectronicsDept ed = null;
+    FragranceDept fdd = null;
+    FrozenFoodsDept ffd = null;
+    FurnitureDept fd = null;
+    GardenDept gd = null;
+    HairCareDept hcd = null;
+    HealthAndBeautyDept hba = null;
+    HousewaresDept hwd = null;
+    LinenDept ln = null;
+    MeatDept md = null;
+    PantryDept ptd = null;
+    PetcareDept pcd = null;
+    PlantBaseDept pbd = null;
+    PharmacyDept pd = null;
+    PrescriptionEyewareDept pw = null;
+    ProduceDept pdd = null;
+    SeafoodDept sd = null;
+    ShoeDept shd = null;
+    StationaryDept syd = null;
+    ToiletryDept tyd = null;
+    ToysDept td = null;
+    TupperwareDept twd = null;
     StoreCheckOut checkoutLane01 = null;
     StoreCheckOut checkoutLane02 = null;
     StoreCheckOut checkoutLane03 = null;
@@ -92,8 +100,8 @@ public class SuperStore {
 	this.setStatus(true);
 	do {
 	    greeting = new Greeting();
+	    // greeting.setDepartment(dList);
 	    patron = greeting.sayGreeting(args);
-	    patron.setDepartment(dList);
 	    patron.startShopping();
 	    checkoutLane01.checkoutCustomer(patron);
 	} while (true);

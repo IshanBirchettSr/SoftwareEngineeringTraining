@@ -6,12 +6,14 @@ import java.util.List;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -19,6 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -27,6 +30,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import util.Department;
 import util.StoreConstants;
 
 public class Greeting extends Application {
@@ -39,6 +43,8 @@ public class Greeting extends Application {
     MembershipSignUp mCard = null;
     Customer patron = null;
     Stage parentStage = null;
+    // List<Department> dList = null;
+    Scene deptsScene = null;
 
     /**
      * 
@@ -141,6 +147,7 @@ public class Greeting extends Application {
 		isMember = true;
 		System.out.println("Customer is a member!");
 		getPhoneNumber();
+
 	    }
 	};
 	yesIDo.setOnAction(yesEvent);
@@ -171,6 +178,7 @@ public class Greeting extends Application {
 	sp.setHvalue(0.0);
 	sp.setVvalue(1.9);
 
+	displayDepts();
 	Scene scene = new Scene(sp, 600, 575);
 
 	primaryStage.setScene(scene);
@@ -203,13 +211,17 @@ public class Greeting extends Application {
 		    if (mCard == null) {
 			System.out.println("Membership Card Not found using: " + newValue);
 		    }
+		    parentStage.hide();
+		    parentStage.setScene(deptsScene);
+		    // parentStage.setTitle("Store Map");
+		    parentStage.setTitle("USI - Store Map");
+		    parentStage.show();
 		}
 	    }
 	});
 	HBox panePhoneNum = new HBox(20, phoneNumberLbl, phoneNumTxt);
 	panePhoneNum.setPadding(new Insets(10));
 	primaryPane.getChildren().add(panePhoneNum);
-	return;
     }
 
     private void membershipSignUp() {
@@ -301,6 +313,77 @@ public class Greeting extends Application {
 	newWindow.setY(parentStage.getY() + 20);
 
 	newWindow.show();
+    }
+
+    /**
+     * @param dList
+     */
+    public void displayDepts() {
+	List<Department> dList = SuperStore.getdList();
+
+	Image storeMapImage = new Image(StoreConstants.STORE_MAP);
+	ImageView iv = new ImageView();
+	iv.setImage(storeMapImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+
+	HBox storeMapView = new HBox(iv);
+	storeMapView.setAlignment(Pos.CENTER_LEFT);
+
+	System.out.printf("dList length %d\n", dList.size());
+	int dsize = dList.size();
+	String[] dStrs = new String[dsize];
+	int i = 0;
+	for (Department dp : dList) {
+	    dStrs[i] = dp.getDeptName();
+	    i++;
+	}
+
+	String hShop = String.format("Happy Shopping!");
+	Text happyShoppingTxt = new Text(hShop);
+	happyShoppingTxt.setText(hShop);
+//	happyShoppingTxt.setX(50.00);
+//	happyShoppingTxt.setY(80.00);
+	happyShoppingTxt.setFill(Color.BLUE);
+
+	happyShoppingTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
+
+	ComboBox<String> combo_box = new ComboBox(FXCollections.observableArrayList(dStrs));
+	Label selected = new Label("Please Observe MASK On COVID 19 - Social Distancing 6 X 6 ft.");
+
+	EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		selected.setText("Scrolling to " + combo_box.getValue() + " Department ...");
+	    }
+	};
+
+	combo_box.setOnAction(event);
+
+	TilePane tp = new TilePane(combo_box);
+	tp.setTileAlignment(Pos.CENTER);
+
+	String sDept = String.format("Choose Department: ");
+	Text shoppingTxt = new Text(sDept);
+	shoppingTxt.setText(sDept);
+	shoppingTxt.setX(50.00);
+	shoppingTxt.setY(80.00);
+	shoppingTxt.setFill(Color.BLUE);
+
+	shoppingTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
+
+	VBox gp0 = new VBox(20, happyShoppingTxt);
+	VBox gp1 = new VBox(20, storeMapView, selected);
+	HBox gp2 = new HBox(20, shoppingTxt, tp);
+	VBox gp = new VBox(20, gp0, gp1, gp2);
+	gp0.setAlignment(Pos.CENTER);
+	gp1.setAlignment(Pos.CENTER);
+	gp2.setAlignment(Pos.CENTER);
+	gp.setAlignment(Pos.CENTER);
+	gp2.setPadding(new Insets(10));
+
+	deptsScene = new Scene(gp, 600, 575);
     }
 
 }
