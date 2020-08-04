@@ -59,12 +59,16 @@ public class GardenDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(gp);
-		gardenProducts.put(prodKey, gp);
+		int howMany = gp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    System.out.println(prodKey);
+		gardenProducts.put(prodKey + 1, gp);
 	    }
+		gardenProducts.put(prodKey,gp);
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		gardenRecords.size(), gardenProducts.size());
-
+	}
     }
 
     @Override

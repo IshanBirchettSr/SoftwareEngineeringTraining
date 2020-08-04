@@ -48,6 +48,11 @@ public class FragranceDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(fdd);
+		int howMany = fdd.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    System.out.println(prodKey);
+		FragranceProducts.put(prodKey + 1, fdd);
+	    }
 		FragranceProducts.put(prodKey, fdd);
 	    }
 	}
