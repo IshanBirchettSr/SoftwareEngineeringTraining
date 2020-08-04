@@ -1,5 +1,5 @@
 /*FrozenFoods
-*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+/*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
 Broccoli, Frozen_Foods, OUNCES, UUID, 1, NA, PICS, 10.8, 1.89, GREEN, broccoli, 32, broccoli florets
 Waffles, Frozen_Foods, OUNCES, UUID, 1, NA, Kellogg, 10, 2.79, NA, waffles, 30, frozen waffles
 Chicken tenders, Frozen_Foods, POUNDS, UUID, 1, NA, Perdue, 1.81, 6.99, NA, chicken, 20, breaded chicken tenders

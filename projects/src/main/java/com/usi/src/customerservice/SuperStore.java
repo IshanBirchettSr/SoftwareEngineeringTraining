@@ -100,7 +100,6 @@ public class SuperStore {
 	this.setStatus(true);
 	do {
 	    greeting = new Greeting();
-	    // greeting.setDepartment(dList);
 	    patron = greeting.sayGreeting(args);
 	    patron.startShopping();
 	    checkoutLane01.checkoutCustomer(patron);

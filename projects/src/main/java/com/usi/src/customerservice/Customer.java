@@ -31,6 +31,7 @@ public class Customer {
      * 
      */
     public void Customer() {
+	dList = SuperStore.getdList();
 
     }
 
@@ -39,6 +40,7 @@ public class Customer {
 	int qNumber = -1;
 	Scanner in = new Scanner(System.in);
 	cart = new ShoppingCart();
+	dList = SuperStore.getdList();
 	for (Department dp : dList) {
 	    System.out.printf("Department: %s\n", dp.getDeptName());
 	    dp.listProducts();
