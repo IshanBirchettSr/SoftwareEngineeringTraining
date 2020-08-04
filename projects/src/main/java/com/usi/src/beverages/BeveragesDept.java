@@ -53,13 +53,16 @@ public class BeveragesDept extends Department {
     protected void loadProducts() {
 	// Load products
 	for (String record : beveragesRecords) {
-	    BeveragesProd ap = new BeveragesProd();
-	    boolean recordToProductSuccessful = ap.recordToProduct(record);
+	    BeveragesProd bp = new BeveragesProd();
+	    boolean recordToProductSuccessful = bp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to beveragesProducts
 	    if (recordToProductSuccessful == true) {
-		String prodKey = ProdKeyGen.genKey(ap);
-		beveragesProducts.put(prodKey, ap);
+		String prodKey = ProdKeyGen.genKey(bp);
+		int howMany = bp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    beveragesProducts.put(prodKey + i, bp);
+		}
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

@@ -47,11 +47,14 @@ public class ClothesDept extends Department {
 	for (String record : clothesRecords) {
 	    ClothesProd ccp = new ClothesProd();
 	    boolean recordToProductSuccessful = ccp.recordToProduct(record);
-
-	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(ccp);
-		clothesProducts.put(prodKey, ccp);
+		int howMany = ccp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    clothesProducts.put(prodKey + i, ccp);
+		}
+		// autoProducts.put(prodKey, ap);
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

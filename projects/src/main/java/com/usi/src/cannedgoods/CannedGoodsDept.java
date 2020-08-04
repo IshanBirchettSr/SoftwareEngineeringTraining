@@ -48,10 +48,15 @@ public class CannedGoodsDept extends Department {
 	    CannedGoodsProd cp = new CannedGoodsProd();
 	    boolean recordToProductSuccessful = cp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(cp);
-		cannedGoodsProducts.put(prodKey, cp);
+		int howMany = cp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    cannedGoodsProducts.put(prodKey + i, cp);
+		}
+		// autoProducts.put(prodKey, ap);
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

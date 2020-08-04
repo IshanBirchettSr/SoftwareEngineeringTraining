@@ -48,11 +48,15 @@ public class CleaningSuppliesDept extends Department {
 	    CleaningSuppliesProd csp = new CleaningSuppliesProd();
 	    boolean recordToProductSuccessful = csp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to
-	    // cleaningsuppliesProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(csp);
-		cleaningsuppliesProducts.put(prodKey, csp);
+		int howMany = csp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    cleaningsuppliesProducts.put(prodKey + i, csp);
+		}
+		// autoProducts.put(prodKey, ap);
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

@@ -55,16 +55,17 @@ public class BabyEssentialsDept extends Department {
 	    BabyEssentialsProd bp = new BabyEssentialsProd();
 	    boolean recordToProductSuccessful = bp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to
-	    // babyEssentialsProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bp);
-		BabyEssentialsProducts.put(prodKey, bp);
+		int howMany = bp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    BabyEssentialsProducts.put(prodKey + i, bp);
+		}
 	    }
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    babyEssentialsRecords.size(), BabyEssentialsProducts.size());
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		babyEssentialsRecords.size(), BabyEssentialsProducts.size());
-
     }
 
     @Override

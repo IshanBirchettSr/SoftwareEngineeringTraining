@@ -50,10 +50,13 @@ public class BikesDept extends Department {
 	    BikesProd bkp = new BikesProd();
 	    boolean recordToProductSuccessful = bkp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bkp);
-		bikesProducts.put(prodKey, bkp);
+		int howMany = bkp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    bikesProducts.put(prodKey + i, bkp);
+		}
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

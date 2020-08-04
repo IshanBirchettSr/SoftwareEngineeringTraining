@@ -50,11 +50,15 @@ public class BeddingDept extends Department {
 	for (String record : beddingRecords) {
 	    BeddingProd bp = new BeddingProd();
 	    boolean recordToProductSuccessful = bp.recordToProduct(record);
-
-	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bp);
-		BeddingProducts.put(prodKey, bp);
+		int howMany = bp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    BeddingProducts.put(prodKey + i, bp);
+		}
+		// autoProducts.put(prodKey, ap);
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

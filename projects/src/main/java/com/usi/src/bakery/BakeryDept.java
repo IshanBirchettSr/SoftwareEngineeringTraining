@@ -48,10 +48,15 @@ public class BakeryDept extends Department {
 	for (String record : bakeryRecords) {
 	    BakeryProd bp = new BakeryProd();
 	    boolean recordToProductSuccessful = bp.recordToProduct(record);
-
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bp);
-		bakeryProducts.put(prodKey, bp);
+		int howMany = bp.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    bakeryProducts.put(prodKey + i, bp);
+		}
+		// autoProducts.put(prodKey, ap);
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

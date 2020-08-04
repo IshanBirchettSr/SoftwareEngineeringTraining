@@ -47,11 +47,15 @@ public class DeliDept extends Department {
 	for (String record : deliRecords) {
 	    DeliProd dep = new DeliProd();
 	    boolean recordToProductSuccessful = dep.recordToProduct(record);
-
-	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(dep);
-		deliProducts.put(prodKey, dep);
+		int howMany = dep.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    deliProducts.put(prodKey + i, dep);
+		}
+		// autoProducts.put(prodKey, ap);
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
