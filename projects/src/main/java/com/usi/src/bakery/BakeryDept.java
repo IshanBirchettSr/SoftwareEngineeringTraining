@@ -38,7 +38,7 @@ public class BakeryDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.BAKERY_TRUCK);
 	bakeryRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(bakeryRecords);
-
+	keyMap = new HashMap<Integer, String>();
 	bakeryProducts = new HashMap<String, BakeryProd>();
 	loadProducts();
     }
