@@ -43,7 +43,7 @@ public class GardenDept extends Department {
 	this.setLoadedRecords(gardenRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 	// Automotive Product Load
 	gardenProducts = new HashMap<String, GardenProd>();
 	loadProducts();
@@ -61,10 +61,10 @@ public class GardenDept extends Department {
 		String prodKey = ProdKeyGen.genKey(gp);
 		int howMany = gp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		  //  System.out.println(prodKey);
+		 
 		gardenProducts.put(prodKey + 1, gp);
 	    }
-		gardenProducts.put(prodKey,gp);
+		
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		gardenRecords.size(), gardenProducts.size());

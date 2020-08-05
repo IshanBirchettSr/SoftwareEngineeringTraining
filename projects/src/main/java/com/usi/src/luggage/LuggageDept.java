@@ -30,7 +30,7 @@ public class LuggageDept extends Department {
 	this.setLoadedRecords(luggageRecords);
 // System.out.printf("%s Department open with %d records\n", deptName,
 // autoRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 // Automotive Product Load
 	LuggageProducts = new HashMap<String, LuggageProd>();
 	loadProducts();
@@ -49,10 +49,10 @@ public class LuggageDept extends Department {
 		String prodKey = ProdKeyGen.genKey(lp);
 		int howMany = lp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		    //System.out.println(prodKey);
+		 
 		LuggageProducts.put(prodKey+1, lp);
 	    }
-		LuggageProducts.put(prodKey,lp);
+		
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		luggageRecords.size(), LuggageProducts.size());

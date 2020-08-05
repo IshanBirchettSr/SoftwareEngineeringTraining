@@ -38,7 +38,7 @@ public class HousewaresDept extends Department {
 	this.setLoadedRecords(housewaresRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 	// Housewares Product Load
 	housewaresProducts = new HashMap<String, HousewaresProd>();
 	loadProducts();
@@ -56,10 +56,10 @@ public class HousewaresDept extends Department {
 		String prodKey = ProdKeyGen.genKey(hwp);
 		int howMany = hwp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		  //  System.out.println(prodKey);
+		 
 		housewaresProducts.put(prodKey + 1, hwp);
 	    }
-		housewaresProducts.put(prodKey, hwp);
+		
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		housewaresRecords.size(), housewaresProducts.size());

@@ -36,6 +36,7 @@ public class FrozenFoodsDept extends Department {
 	frozenFoodsRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(frozenFoodsRecords);
 	System.out.printf("%s Department open with %d products\n", deptName, frozenFoodsRecords.size());
+	keyMap = new HashMap<Integer, String>();
 	frozenFoodsProducts = new HashMap<String, FrozenFoodsProd>();
 	loadProducts();
     }
@@ -54,11 +55,11 @@ public class FrozenFoodsDept extends Department {
 		String prodKey = ProdKeyGen.genKey(ffp);
 		int howMany = ffp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		    System.out.println(prodKey);
+		   
 		    frozenFoodsProducts.put(prodKey + i, ffp);
-		    // frozenFoodsProducts.put(prodKey + 1, ffp);
+		   
 		}
-		frozenFoodsProducts.put(prodKey, ffp);
+		
 	    }
 	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		    frozenFoodsRecords.size(), frozenFoodsProducts.size());

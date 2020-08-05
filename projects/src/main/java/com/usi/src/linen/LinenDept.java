@@ -36,7 +36,7 @@ public class LinenDept extends Department {
 	linenRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(linenRecords);
 	System.out.printf("%s Department open with %d products\n", deptName, linenRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 	linenProducts = new HashMap<String, LinenProd>();
 	loadProducts();
     }
@@ -51,10 +51,10 @@ public class LinenDept extends Department {
 		String prodKey = ProdKeyGen.genKey(lp);
 		int howMany = lp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		  //  System.out.println(prodKey);
+		
 		linenProducts.put(prodKey+1, lp);
 	    }
-		linenProducts.put(prodKey, lp);
+		
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		linenRecords.size(), linenProducts.size());

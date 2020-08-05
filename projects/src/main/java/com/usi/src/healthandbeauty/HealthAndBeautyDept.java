@@ -42,7 +42,7 @@ public class HealthAndBeautyDept extends Department {
 	this.setLoadedRecords(healthAndBeautyRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 	// Housewares Product Load
 	healthAndBeautyProducts = new HashMap<String, HealthAndBeautyProd>();
 	loadProducts();
@@ -60,10 +60,10 @@ public class HealthAndBeautyDept extends Department {
 		String prodKey = ProdKeyGen.genKey(hwp);
 		int howMany = hwp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		    System.out.println(prodKey);
+		    
 		healthAndBeautyProducts.put(prodKey + 1, hwp);
 	    }
-		healthAndBeautyProducts.put(prodKey, hwp);
+		
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		healthAndBeautyRecords.size(), healthAndBeautyProducts.size());

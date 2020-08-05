@@ -31,7 +31,7 @@ public class FragranceDept extends Department {
 	this.setLoadedRecords(fragranceRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 	// Fragrance Product Load
 	FragranceProducts = new HashMap<String, FragranceProd>();
 	loadProducts();
@@ -50,10 +50,10 @@ public class FragranceDept extends Department {
 		String prodKey = ProdKeyGen.genKey(fdd);
 		int howMany = fdd.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		    System.out.println(prodKey);
+		   
 		FragranceProducts.put(prodKey + 1, fdd);
 	    }
-		FragranceProducts.put(prodKey, fdd);
+		
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
