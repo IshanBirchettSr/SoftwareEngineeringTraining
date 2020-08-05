@@ -51,12 +51,17 @@ public class ToysDept extends Department {
 	    // If it fails to convert any field, don't add that object to toysProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(tp);
-		toysProducts.put(prodKey, tp);
-	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		toysRecords.size(), toysProducts.size());
+		int howMany = tp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
 
+		    toysProducts.put(prodKey + 1, tp);
+		}
+	    }
+
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    toysRecords.size(), toysProducts.size());
+
+	}
     }
 
     @Override

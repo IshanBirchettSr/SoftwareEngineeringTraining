@@ -53,12 +53,16 @@ public class PlantBaseDept extends Department {
 	    // If it fails to convert any field, don't add that object to plantbaseProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(pp);
-		plantbaseProducts.put(prodKey, pp);
-	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		plantbaseRecords.size(), plantbaseProducts.size());
+		int howMany = pp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
 
+		    plantbaseProducts.put(prodKey + 1, pp);
+		}
+	    }
+
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    plantbaseRecords.size(), plantbaseProducts.size());
+	}
     }
 
     @Override

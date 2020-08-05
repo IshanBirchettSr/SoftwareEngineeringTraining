@@ -50,14 +50,20 @@ public class ShoeDept extends Department {
 	    ShoeProd shp = new ShoeProd();
 	    boolean recordToProductSuccessful = shp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
+	    // If it fails to convert any field, don't add that object to shoeProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(shp);
-		shoeProducts.put(prodKey, shp);
+		int howMany = shp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
+
+		    shoeProducts.put(prodKey + 1, shp);
+		}
 	    }
+
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    shoeRecords.size(), shoeProducts.size());
+
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		shoeRecords.size(), shoeProducts.size());
 
     }
 

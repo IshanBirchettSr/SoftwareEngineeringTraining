@@ -56,15 +56,20 @@ public class ToiletryDept extends Department {
 	    ToiletryProd tp = new ToiletryProd();
 	    boolean recordToProductSuccessful = tp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
+	    // If it fails to convert any field, don't add that object to toiletryProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(tp);
-		ToiletryProducts.put(prodKey, tp);
-	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		toletriesRecords.size(), ToiletryProducts.size());
+		int howMany = tp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
 
+		    ToiletryProducts.put(prodKey + 1, tp);
+		}
+	    }
+
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    toletriesRecords.size(), ToiletryProducts.size());
+
+	}
     }
 
     @Override
