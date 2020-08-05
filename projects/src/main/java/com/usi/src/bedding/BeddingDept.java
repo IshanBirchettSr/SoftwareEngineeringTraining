@@ -57,8 +57,6 @@ public class BeddingDept extends Department {
 		    // System.out.println(prodKey);
 		    BeddingProducts.put(prodKey + i, bp);
 		}
-		// autoProducts.put(prodKey, ap);
-
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

@@ -35,6 +35,7 @@ public class BikesDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.BIKES_TRUCK);
 	bikesRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(bikesRecords);
+	keyMap = new HashMap<Integer, String>();
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// bikes.size());
 

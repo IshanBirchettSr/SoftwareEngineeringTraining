@@ -33,6 +33,7 @@ public class CannedGoodsDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.CANNED_GOODS_TRUCKS);
 	cannedGoodsRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(cannedGoodsRecords);
+	keyMap = new HashMap<Integer, String>();
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
 
