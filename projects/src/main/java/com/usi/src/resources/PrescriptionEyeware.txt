@@ -5,3 +5,4 @@ Muse-Hopper, Prescription_eyeware, OUNCES, UUID. womens, Muse-Hopper, 5oz, 118.0
 Michael Korrs, Prescription_eyeware, OUNCES, UUID, womens, Michael Korrs, 3oz,260.00, LEOPARD, n/a 16, precriptionframes
 ProGear, Prescription_eyeware, OUNCES, UUID, kids, Pro Gear, 30z, 100.00, RED, n/a, 20, prescriptionframes
 Revel Slater, Prescription_eyeware, OUNCES, UUID, mens, Revel Slater, 100.00, BLACK, n/a, prescriptionsframes
+

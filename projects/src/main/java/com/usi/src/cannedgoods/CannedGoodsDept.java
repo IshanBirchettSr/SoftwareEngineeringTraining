@@ -56,48 +56,44 @@ public class CannedGoodsDept extends Department {
 		    // System.out.println(prodKey);
 		    cannedGoodsProducts.put(prodKey + i, cp);
 		}
-		// autoProducts.put(prodKey, ap);
+		System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+				cannedGoodsRecords.size(), cannedGoodsProducts.size());
 
-	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		cannedGoodsRecords.size(), cannedGoodsProducts.size());
-
-    }
-
-    @Override
-    public void listProducts() {
-	String aKey = null;
-	Set<String> cannedProductKeys = cannedGoodsProducts.keySet();
-
-	int totalProducts = cannedProductKeys.size();
-	int i = 1;
-	for (String pKey : cannedProductKeys) {
-	    Product pd = cannedGoodsProducts.get(pKey);
-	    if (aKey != pKey) {
-		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
-	    }
-	    aKey = pKey;
-	    keyMap.put(i, pKey);
-	    i++;
-	}
-    }
-
-    public List<Product> getProds(int index, int qauntity) {
-	ArrayList<Product> pdList = new ArrayList<Product>();
-	String pKey = keyMap.get(index);
-	for (int i = 0; i < qauntity; i++) {
-	    CannedGoodsProd pd = cannedGoodsProducts.get(pKey);
-	    pdList.add(pd);
 	}
 
-	return pdList;
-    }
+	@Override
+	public void listProducts() {
+		String aKey = null;
+		Set<String> cannedProductKeys = cannedGoodsProducts.keySet();
 
-    @Override
-    public List<Product> getProducts() {
-	List<Product> pList = null;
+		int totalProducts = cannedProductKeys.size();
+		int i = 1;
+		for (String pKey : cannedProductKeys) {
+			Product pd = cannedGoodsProducts.get(pKey);
+			if (aKey != pKey) {
+				System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+			}
+			aKey = pKey;
+			keyMap.put(i, pKey);
+			i++;
+		}
+	}
 
-	return pList;
-    }
+	public List<Product> getProds(int index, int qauntity) {
+		ArrayList<Product> pdList = new ArrayList<Product>();
+		String pKey = keyMap.get(index);
+		for (int i = 0; i < qauntity; i++) {
+			CannedGoodsProd pd = cannedGoodsProducts.get(pKey);
+			pdList.add(pd);
+		}
+
+		return pdList;
+	}
+
+	@Override
+	public List<Product> getProducts() {
+		List<Product> pList = null;
+
+		return pList;
+	}
 }
