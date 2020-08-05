@@ -55,7 +55,7 @@ public class ElectronicsDept extends Department {
 	    ElectronicsProd ep = new ElectronicsProd();
 	    boolean recordToProductSuccessful = ep.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
+	    // If it fails to convert any field, don't add that object to haircareProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(ep);
 		int howMany = ep.getNumUnitsInstock();
