@@ -42,8 +42,9 @@ public class PharmacyDept extends Department {
 	pharmacyRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(pharmacyRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
-	// pharmacyRecords.size());
-
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Automotive Product Load
 	pharmacyProducts = new HashMap<String, PharmacyProd>();
 	loadProducts();
     }
