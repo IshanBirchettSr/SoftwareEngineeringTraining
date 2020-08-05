@@ -53,17 +53,17 @@ public class HairCareDept extends Department {
 	    // If it fails to convert any field, don't add that object to haircareProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(hcp);
-		int howMany = hcp.getQuantity();
+		int howMany = hcp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		    
-		haircareProducts.put(prodKey + 1, hcp);
-	    }
-	
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		haircareRecords.size(), haircareProducts.size());
 
-    }
+		    haircareProducts.put(prodKey + 1, hcp);
+		}
+
+	    }
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    haircareRecords.size(), haircareProducts.size());
+
+	}
     }
 
     @Override

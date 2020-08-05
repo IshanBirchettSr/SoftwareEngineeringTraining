@@ -54,17 +54,17 @@ public class HousewaresDept extends Department {
 	    // If it fails to convert any field, don't add that object to housewaresProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(hwp);
-		int howMany = hwp.getQuantity();
+		int howMany = hwp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		 
-		housewaresProducts.put(prodKey + 1, hwp);
-	    }
-		
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		housewaresRecords.size(), housewaresProducts.size());
 
-    }
+		    housewaresProducts.put(prodKey + 1, hwp);
+		}
+
+	    }
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    housewaresRecords.size(), housewaresProducts.size());
+
+	}
     }
 
     @Override

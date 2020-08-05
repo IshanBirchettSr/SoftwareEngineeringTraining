@@ -58,17 +58,17 @@ public class MeatDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(mp);
-		int howMany = mp.getQuantity();
+		int howMany = mp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		
-		meatProducts.put(prodKey+1, mp);
-	    }
-		
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		meatRecords.size(), meatProducts.size());
 
-    }
+		    meatProducts.put(prodKey + 1, mp);
+		}
+
+	    }
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    meatRecords.size(), meatProducts.size());
+
+	}
     }
 
     @Override

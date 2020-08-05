@@ -42,6 +42,7 @@ public class BabyEssentialsDept extends Department {
 	this.setLoadedRecords(babyEssentialsRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
 
 	// Baby Essentials Product Load
 	BabyEssentialsProducts = new HashMap<String, BabyEssentialsProd>();
@@ -57,7 +58,7 @@ public class BabyEssentialsDept extends Department {
 
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bp);
-		int howMany = bp.getQuantity();
+		int howMany = bp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 		    // System.out.println(prodKey);
 		    BabyEssentialsProducts.put(prodKey + i, bp);

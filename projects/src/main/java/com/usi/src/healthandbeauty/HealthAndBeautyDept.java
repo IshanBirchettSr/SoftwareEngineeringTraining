@@ -58,15 +58,15 @@ public class HealthAndBeautyDept extends Department {
 	    // If it fails to convert any field, don't add that object to housewaresProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(hwp);
-		int howMany = hwp.getQuantity();
+		int howMany = hwp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		    
-		healthAndBeautyProducts.put(prodKey + 1, hwp);
+
+		    healthAndBeautyProducts.put(prodKey + 1, hwp);
+		}
+
 	    }
-		
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		healthAndBeautyRecords.size(), healthAndBeautyProducts.size());
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    healthAndBeautyRecords.size(), healthAndBeautyProducts.size());
 	}
     }
 

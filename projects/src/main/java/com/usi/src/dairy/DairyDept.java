@@ -49,7 +49,7 @@ public class DairyDept extends Department {
 	    boolean recordToProductSuccessful = dp.recordToProduct(record);
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(dp);
-		int howMany = dp.getQuantity();
+		int howMany = dp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 		    // System.out.println(prodKey);
 		    dairyProducts.put(prodKey + i, dp);

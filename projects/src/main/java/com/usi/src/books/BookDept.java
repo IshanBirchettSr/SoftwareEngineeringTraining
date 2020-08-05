@@ -34,6 +34,7 @@ public class BookDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.BOOK_TRUCK);
 	bookRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(bookRecords);
+	keyMap = new HashMap<Integer, String>();
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// bookRecords.size());
 
@@ -50,7 +51,7 @@ public class BookDept extends Department {
 	    boolean recordToProductSuccessful = bp.recordToProduct(record);
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bp);
-		int howMany = bp.getQuantity();
+		int howMany = bp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 		    // System.out.println(prodKey);
 		    bookProducts.put(prodKey + i, bp);

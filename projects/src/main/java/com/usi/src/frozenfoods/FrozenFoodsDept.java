@@ -53,13 +53,13 @@ public class FrozenFoodsDept extends Department {
 	    // frozenFoodsProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(ffp);
-		int howMany = ffp.getQuantity();
+		int howMany = ffp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		   
+
 		    frozenFoodsProducts.put(prodKey + i, ffp);
-		   
+
 		}
-		
+
 	    }
 	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		    frozenFoodsRecords.size(), frozenFoodsProducts.size());

@@ -53,7 +53,7 @@ public class BikesDept extends Department {
 
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bkp);
-		int howMany = bkp.getQuantity();
+		int howMany = bkp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 		    // System.out.println(prodKey);
 		    bikesProducts.put(prodKey + i, bkp);

@@ -53,20 +53,19 @@ public class FurnitureDept extends Department {
 	    // If it fails to convert any field, don't add that object to furnitureProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(fp);
-		int howMany = fp.getQuantity();
+		int howMany = fp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		   
-		furnitureProducts.put(prodKey + 1, fp);
+
+		    furnitureProducts.put(prodKey + 1, fp);
+		}
+
 	    }
-		
-	    }
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		furnitureRecords.size(), furnitureProducts.size());
-	    
-	 }
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    furnitureRecords.size(), furnitureProducts.size());
+
+	}
     }
 
-	
     @Override
     public void listProducts() {
 	String aKey = null;

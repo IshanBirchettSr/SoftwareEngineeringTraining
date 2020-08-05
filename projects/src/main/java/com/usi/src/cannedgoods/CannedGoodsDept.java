@@ -51,7 +51,7 @@ public class CannedGoodsDept extends Department {
 
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(cp);
-		int howMany = cp.getQuantity();
+		int howMany = cp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 		    // System.out.println(prodKey);
 		    cannedGoodsProducts.put(prodKey + i, cp);

@@ -50,7 +50,7 @@ public class DeliDept extends Department {
 	    boolean recordToProductSuccessful = dep.recordToProduct(record);
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(dep);
-		int howMany = dep.getQuantity();
+		int howMany = dep.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 		    // System.out.println(prodKey);
 		    deliProducts.put(prodKey + i, dep);

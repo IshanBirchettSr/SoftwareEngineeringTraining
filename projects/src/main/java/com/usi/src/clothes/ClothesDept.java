@@ -50,7 +50,7 @@ public class ClothesDept extends Department {
 	    boolean recordToProductSuccessful = ccp.recordToProduct(record);
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(ccp);
-		int howMany = ccp.getQuantity();
+		int howMany = ccp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 		    // System.out.println(prodKey);
 		    clothesProducts.put(prodKey + i, ccp);

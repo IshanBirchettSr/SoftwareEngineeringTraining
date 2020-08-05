@@ -36,6 +36,7 @@ public class BeddingDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.BEDDING_TRUCK);
 	beddingRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(beddingRecords);
+	keyMap = new HashMap<Integer, String>();
 // System.out.printf("%s Department open with %d records\n", deptName,
 // autoRecords.size());
 
@@ -52,7 +53,7 @@ public class BeddingDept extends Department {
 	    boolean recordToProductSuccessful = bp.recordToProduct(record);
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bp);
-		int howMany = bp.getQuantity();
+		int howMany = bp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 		    // System.out.println(prodKey);
 		    BeddingProducts.put(prodKey + i, bp);

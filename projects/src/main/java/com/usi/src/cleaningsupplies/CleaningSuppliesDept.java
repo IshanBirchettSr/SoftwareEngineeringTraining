@@ -51,7 +51,7 @@ public class CleaningSuppliesDept extends Department {
 
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(csp);
-		int howMany = csp.getQuantity();
+		int howMany = csp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 		    // System.out.println(prodKey);
 		    cleaningsuppliesProducts.put(prodKey + i, csp);
