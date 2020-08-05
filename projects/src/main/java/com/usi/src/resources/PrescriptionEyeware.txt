@@ -1,7 +1,7 @@
 /*Prescriptioneyeware.txt
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , DescriptionRa
-RayBan, Prescriptioneyeware, OUNCE, UUID , 1 , mens , RayBan, 2oz , 200.00 , BLACK , n/a, 20, prescriptionsunglasses
-Muse-Hopper, Prescriptioneyeware, OUNCE, UUID. womens, Muse-Hopper, 5oz, 118.00, TORTOISE, n/a, 10, prescriptionframes
-Michael Korrs, Prescriptioneyeware, OUNCE, UUID, womens, Michael Korrs, 3oz,260.00, LEOPARD, n/a 16, precriptionframes
-ProGear, Prescriptioneyeware, OUNCE, UUID, kids, Pro Gear, 30z, 100.00, RED, n/a, 20, prescriptionframes
-Revel Slater, Prescriptioneyeware, OUNCE, UUID, mens, Revel Slater, 100.00, BLACK, n/a, prescriptionsframes
+RayBan, Prescription_eyeware, OUNCES, UUID , 1 , mens , RayBan, 2 , 200.00 , BLACK , n/a, 20, prescriptionsunglasses
+Muse-Hopper, Prescription_eyeware, OUNCES, UUID, 1, womens, Muse-Hopper, 5 , 118.00, TORTOISE, n/a, 10, prescriptionframes
+Michael Korrs, Prescription_eyeware, OUNCES, UUID, 1, mens, Michael Korrs, 3, 260.00, LEOPARD, n/a, 16, precriptionframes
+ProGear, Prescription_eyeware, OUNCES, UUID, 1, womens, Pro Gear, 30 , 100.00, RED, n/a, 20, prescriptionframes
+Revel Slater, Prescription_eyeware, OUNCES, UUID, 1, mens, Revel Slater, 3 ,100.00, BLACK, n/a, 23, prescriptionsframes
