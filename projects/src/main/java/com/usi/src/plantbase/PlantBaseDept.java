@@ -36,9 +36,9 @@ public class PlantBaseDept extends Department {
 	plantbaseRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(plantbaseRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
-	// plantbaseRecords.size());
-
-	// PlantBaseAutomotive Product Load
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Automotive Product Load
 	plantbaseProducts = new HashMap<String, PlantBaseProd>();
 	loadProducts();
     }

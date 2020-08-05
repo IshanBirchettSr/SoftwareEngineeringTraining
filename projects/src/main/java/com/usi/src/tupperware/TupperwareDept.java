@@ -34,9 +34,9 @@ public class TupperwareDept extends Department {
 	tupperwareRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(tupperwareRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
-	// tupperwareRecords.size());
-
-	// Tupperware Product Load
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Automotive Product Load
 	tupperwareProducts = new HashMap<String, TupperwareProd>();
 	loadProducts();
     }

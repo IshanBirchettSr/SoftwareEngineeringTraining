@@ -25,9 +25,14 @@ public class PrescriptionEyewareDept extends Department {
 	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.PRESCRIPTION_EYEWARE_TRUCK);
-	List<String> prescriptionEyewareRecords = unLoadTrucks.getRecords();
-	this.setLoadedRecords(prescriptionEyewareRecords);
-	System.out.printf("%s Department open with %d products\n", deptName, prescriptionEyewareRecords.size());
+	List<String> prescriptioneyewareRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(prescriptioneyewareRecords);
+	// System.out.printf("%s Department open with %d records\n", deptName,
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Automotive Product Load
+	prescriptioneyewareProducts = new HashMap<String, PrescriptionEyewareProd>();
+	loadProducts();
     }
 
     @Override

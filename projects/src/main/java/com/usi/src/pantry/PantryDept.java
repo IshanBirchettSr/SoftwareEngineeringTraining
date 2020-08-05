@@ -35,9 +35,9 @@ public class PantryDept extends Department {
 	pantryRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(pantryRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
-	// pantryRecords.size());
-
-	// Pantry Product Load
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Automotive Product Load
 	pantryProducts = new HashMap<String, PantryProd>();
 	loadProducts();
     }
