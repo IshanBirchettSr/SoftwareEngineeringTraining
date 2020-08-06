@@ -36,7 +36,7 @@ public class ShoeDept extends Department {
 	this.setLoadedRecords(shoeRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 	// Automotive Product Load
 	shoeProducts = new HashMap<String, ShoeProd>();
 	loadProducts();

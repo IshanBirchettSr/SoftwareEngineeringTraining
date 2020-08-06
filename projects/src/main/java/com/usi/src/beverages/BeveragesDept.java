@@ -43,7 +43,7 @@ public class BeveragesDept extends Department {
 	this.setLoadedRecords(beveragesRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// pantryRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 	// Beverages Product Load
 	beveragesProducts = new HashMap<String, BeveragesProd>();
 	loadProducts();
@@ -53,15 +53,19 @@ public class BeveragesDept extends Department {
     protected void loadProducts() {
 	// Load products
 	for (String record : beveragesRecords) {
-	    BeveragesProd ap = new BeveragesProd();
-	    boolean recordToProductSuccessful = ap.recordToProduct(record);
+	    BeveragesProd bp = new BeveragesProd();
+	    boolean recordToProductSuccessful = bp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to beveragesProducts
 	    if (recordToProductSuccessful == true) {
-		String prodKey = ProdKeyGen.genKey(ap);
-		beveragesProducts.put(prodKey, ap);
+		String prodKey = ProdKeyGen.genKey(bp);
+		int howMany = bp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    beveragesProducts.put(prodKey + i, bp);
+		}
 	    }
 	}
+
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		beveragesRecords.size(), beveragesProducts.size());
 

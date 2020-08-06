@@ -41,10 +41,10 @@ public class ToiletryDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.TOILETRIES_TRUCK);
 	toletriesRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(toletriesRecords);
-// System.out.printf("%s Department open with %d records\n", deptName,
-// autoRecords.size());
-
-// Automotive Product Load
+	// System.out.printf("%s Department open with %d records\n", deptName,
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Automotive Product Load
 	ToiletryProducts = new HashMap<String, ToiletryProd>();
 	loadProducts();
     }

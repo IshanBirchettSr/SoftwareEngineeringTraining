@@ -43,7 +43,7 @@ public class GardenDept extends Department {
 	this.setLoadedRecords(gardenRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 	// Automotive Product Load
 	gardenProducts = new HashMap<String, GardenProd>();
 	loadProducts();
@@ -59,12 +59,16 @@ public class GardenDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(gp);
-		gardenProducts.put(prodKey, gp);
-	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		gardenRecords.size(), gardenProducts.size());
+		int howMany = gp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
 
+		    gardenProducts.put(prodKey + 1, gp);
+		}
+
+	    }
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    gardenRecords.size(), gardenProducts.size());
+	}
     }
 
     @Override

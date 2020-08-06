@@ -41,9 +41,9 @@ public class SeafoodDept extends Department {
 	seafoodRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(seafoodRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
-	// seafoodRecords.size());
-
-	// Seafood Product Load
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Automotive Product Load
 	seafoodProducts = new HashMap<String, SeafoodProd>();
 	loadProducts();
     }

@@ -30,9 +30,9 @@ public class StationaryDept extends Department {
 	stationaryRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(stationaryRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
-	// stationaryRecords.size());
-
-	// Stationary Product Load
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Automotive Product Load
 	stationaryProducts = new HashMap<String, StationaryProd>();
 	loadProducts();
     }

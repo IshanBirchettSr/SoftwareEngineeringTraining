@@ -34,9 +34,9 @@ public class PetcareDept extends Department {
 	petcareRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(petcareRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
-	// petcareRecords.size());
-
-	// Petcare Product Load
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Automotive Product Load
 	petcareProducts = new HashMap<String, PetcareProd>();
 	loadProducts();
     }

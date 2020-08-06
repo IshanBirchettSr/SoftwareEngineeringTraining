@@ -17,7 +17,6 @@ public class FragranceDept extends Department {
     HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold FragranceProd objects.
     HashMap<String, FragranceProd> fragranceProducts;
-    private HashMap<String, FragranceProd> FragranceProducts;
 
     /**
      * Constructor
@@ -31,9 +30,9 @@ public class FragranceDept extends Department {
 	this.setLoadedRecords(fragranceRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 	// Fragrance Product Load
-	FragranceProducts = new HashMap<String, FragranceProd>();
+	fragranceProducts = new HashMap<String, FragranceProd>();
 	loadProducts();
     }
 
@@ -48,11 +47,17 @@ public class FragranceDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(fdd);
-		FragranceProducts.put(prodKey, fdd);
+		int howMany = fdd.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
+
+		    fragranceProducts.put(prodKey + 1, fdd);
+		}
+
 	    }
+
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		fragranceRecords.size(), FragranceProducts.size());
+		fragranceRecords.size(), fragranceProducts.size());
 
     }
 

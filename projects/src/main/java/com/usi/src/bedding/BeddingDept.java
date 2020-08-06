@@ -38,7 +38,7 @@ public class BeddingDept extends Department {
 	this.setLoadedRecords(beddingRecords);
 // System.out.printf("%s Department open with %d records\n", deptName,
 // autoRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 // Automotive Product Load
 	BeddingProducts = new HashMap<String, BeddingProd>();
 	loadProducts();
@@ -50,11 +50,13 @@ public class BeddingDept extends Department {
 	for (String record : beddingRecords) {
 	    BeddingProd bp = new BeddingProd();
 	    boolean recordToProductSuccessful = bp.recordToProduct(record);
-
-	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bp);
-		BeddingProducts.put(prodKey, bp);
+		int howMany = bp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    BeddingProducts.put(prodKey + i, bp);
+		}
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

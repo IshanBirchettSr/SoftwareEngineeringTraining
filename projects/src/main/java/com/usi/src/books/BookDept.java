@@ -34,6 +34,7 @@ public class BookDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.BOOK_TRUCK);
 	bookRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(bookRecords);
+	keyMap = new HashMap<Integer, String>();
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// bookRecords.size());
 
@@ -48,11 +49,13 @@ public class BookDept extends Department {
 	for (String record : bookRecords) {
 	    BookProd bp = new BookProd();
 	    boolean recordToProductSuccessful = bp.recordToProduct(record);
-
-	    // If it fails to convert any field, don't add that object to petcareProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bp);
-		bookProducts.put(prodKey, bp);
+		int howMany = bp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    bookProducts.put(prodKey + i, bp);
+		}
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
