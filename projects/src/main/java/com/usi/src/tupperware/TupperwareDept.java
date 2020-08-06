@@ -48,20 +48,21 @@ public class TupperwareDept extends Department {
 	    TupperwareProd twp = new TupperwareProd();
 	    boolean recordToProductSuccessful = twp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
+	    // If it fails to convert any field, don't add that object to tuppwareProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(twp);
-		int howMany = twp.getQuantity();
+		int howMany = twp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		    // System.out.println(prodKey);
-		    tupperwareProducts.put(prodKey + i, twp);
+
+		    tupperwareProducts.put(prodKey + 1, twp);
 		}
-		// autoProducts.put(prodKey, ap);
 
 	    }
+
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    tupperwareRecords.size(), tupperwareProducts.size());
+
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		tupperwareRecords.size(), tupperwareProducts.size());
 
     }
 

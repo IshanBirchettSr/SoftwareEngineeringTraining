@@ -55,20 +55,22 @@ public class SeafoodDept extends Department {
 	    SeafoodProd sfp = new SeafoodProd();
 	    boolean recordToProductSuccessful = sfp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
+	    // If it fails to convert any field, don't add that object to seafoodProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(sfp);
-		int howMany = sfp.getQuantity();
+
+		int howMany = sfp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		    // System.out.println(prodKey);
-		    seafoodProducts.put(prodKey + i, sfp);
+
+		    seafoodProducts.put(prodKey + 1, sfp);
 		}
-		// autoProducts.put(prodKey, ap);
 
 	    }
+
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    seafoodRecords.size(), seafoodProducts.size());
+
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		seafoodRecords.size(), seafoodProducts.size());
 
     }
 

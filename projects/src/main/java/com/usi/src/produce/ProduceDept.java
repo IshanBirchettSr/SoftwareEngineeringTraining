@@ -55,22 +55,22 @@ public class ProduceDept extends Department {
 	    ProduceProd pdd = new ProduceProd();
 	    boolean recordToProductSuccessful = pdd.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
+	    // If it fails to convert any field, don't add that object to produceProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(pdd);
-		int howMany = pdd.getQuantity();
+
+		int howMany = pdd.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		    // System.out.println(prodKey);
-		    ProduceProducts.put(prodKey + i, pdd);
+
+		    ProduceProducts.put(prodKey + 1, pdd);
 		}
-		// autoProducts.put(prodKey, ap);
 
 	    }
-	}
-	// autoProducts.put(prodKey, ap);
 
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		produceRecords.size(), ProduceProducts.size());
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    produceRecords.size(), ProduceProducts.size());
+	}
+
     }
 
     @Override

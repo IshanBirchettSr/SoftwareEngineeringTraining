@@ -47,17 +47,19 @@ public class StationaryDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(sp);
-		int howMany = sp.getQuantity();
+
+		int howMany = sp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		    // System.out.println(prodKey);
-		    stationaryProducts.put(prodKey + i, sp);
+
+		    stationaryProducts.put(prodKey + 1, sp);
 		}
-		// autoProducts.put(prodKey, ap);
 
 	    }
+
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    stationaryRecords.size(), stationaryProducts.size());
+
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		stationaryRecords.size(), stationaryProducts.size());
 
     }
 

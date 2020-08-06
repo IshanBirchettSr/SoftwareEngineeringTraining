@@ -51,18 +51,18 @@ public class PetcareDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(pp);
-		int howMany = pp.getQuantity();
+
+		int howMany = pp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		    // System.out.println(prodKey);
-		    petcareProducts.put(prodKey + i, pp);
+
+		    petcareProducts.put(prodKey + 1, pp);
 		}
-		// autoProducts.put(prodKey, ap);
 
 	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		petcareRecords.size(), petcareProducts.size());
 
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    petcareRecords.size(), petcareProducts.size());
+	}
     }
 
     @Override
