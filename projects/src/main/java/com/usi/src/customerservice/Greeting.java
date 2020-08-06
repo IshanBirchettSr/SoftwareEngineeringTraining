@@ -30,6 +30,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import util.DataCsvLoad;
 import util.Department;
 import util.StoreConstants;
 
@@ -45,6 +46,7 @@ public class Greeting extends Application {
     Stage parentStage = null;
     // List<Department> dList = null;
     Scene deptsScene = null;
+    List<String> membershipRecords = null;
 
     /**
      * 
@@ -52,12 +54,22 @@ public class Greeting extends Application {
     public Greeting() {
 	super();
 	membershipCards = new HashMap<String, MembershipSignUp>();
-	loadCards();
+	loadCardRecords();
+	// *Record Load
 
     }
 
-    public void loadCards() {
+    public void loadCardRecords() {
+	DataCsvLoad loadMembershipRecords = new DataCsvLoad();
+	loadMembershipRecords.loadData(StoreConstants.MEMBERSHIPCARD_TRUCK);
+	membershipRecords = loadMembershipRecords.getRecords();
 
+    }
+
+    public void loadMemCardRecords() {
+	for (String record : membershipRecords) {
+	    MembershipSignUp ap = new MembershipSignUp(record);
+	}
     }
 
     public Customer sayGreeting(String[] args) {
