@@ -37,7 +37,7 @@ public class FurnitureDept extends Department {
 	this.setLoadedRecords(furnitureRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// furnitureRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 	// Furniture Product Load
 	furnitureProducts = new HashMap<String, FurnitureProd>();
 	loadProducts();
@@ -53,12 +53,17 @@ public class FurnitureDept extends Department {
 	    // If it fails to convert any field, don't add that object to furnitureProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(fp);
-		furnitureProducts.put(prodKey, fp);
-	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		furnitureRecords.size(), furnitureProducts.size());
+		int howMany = fp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
 
+		    furnitureProducts.put(prodKey + 1, fp);
+		}
+
+	    }
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    furnitureRecords.size(), furnitureProducts.size());
+
+	}
     }
 
     @Override

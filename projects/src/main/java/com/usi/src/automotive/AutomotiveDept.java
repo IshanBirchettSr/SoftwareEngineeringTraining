@@ -50,12 +50,12 @@ public class AutomotiveDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(ap);
-		int howMany = ap.getQuantity();
+		int howMany = ap.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		    System.out.println(prodKey);
+		    // System.out.println(prodKey);
 		    autoProducts.put(prodKey + i, ap);
 		}
-		autoProducts.put(prodKey, ap);
+		// autoProducts.put(prodKey, ap);
 
 	    }
 	}

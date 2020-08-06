@@ -25,26 +25,34 @@ public class PrescriptionEyewareDept extends Department {
 	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.PRESCRIPTION_EYEWARE_TRUCK);
-	List<String> prescriptionEyewareRecords = unLoadTrucks.getRecords();
-	this.setLoadedRecords(prescriptionEyewareRecords);
-	System.out.printf("%s Department open with %d products\n", deptName, prescriptionEyewareRecords.size());
+	prescriptioneyewareRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(prescriptioneyewareRecords);
+	// System.out.printf("%s Department open with %d records\n", deptName,
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Automotive Product Load
+	prescriptioneyewareProducts = new HashMap<String, PrescriptionEyewareProd>();
+	loadProducts();
     }
 
     @Override
     protected void loadProducts() {
 	// TODO Auto-generated method stub
 	for (String record : prescriptioneyewareRecords) {
-	    PrescriptionEyewareProd ep = new PrescriptionEyewareProd();
-	    boolean recordToProductSuccessful = ep.recordToProduct(record);
+	    PrescriptionEyewareProd pw = new PrescriptionEyewareProd();
+	    boolean recordToProductSuccessful = pw.recordToProduct(record);
 
 	    if (recordToProductSuccessful == true) {
-		String prodKey = ProdKeyGen.genKey(ep);
-		prescriptioneyewareProducts.put(prodKey, ep);
+		String prodKey = ProdKeyGen.genKey(pw);
+		int howMany = pw.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
+		    prescriptioneyewareProducts.put(prodKey + 1, pw);
+		}
 	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		prescriptioneyewareRecords.size(), prescriptioneyewareProducts.size());
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    prescriptioneyewareRecords.size(), prescriptioneyewareProducts.size());
 
+	}
     }
 
     @Override

@@ -204,7 +204,7 @@ public abstract class Product {
     /**
      * @return the numUnitsInstock
      */
-    protected int getNumUnitsInstock() {
+    public int getNumUnitsInstock() {
 	return numUnitsInstock;
     }
 

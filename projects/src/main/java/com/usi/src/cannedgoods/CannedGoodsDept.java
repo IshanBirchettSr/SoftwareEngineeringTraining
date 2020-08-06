@@ -33,6 +33,7 @@ public class CannedGoodsDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.CANNED_GOODS_TRUCKS);
 	cannedGoodsRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(cannedGoodsRecords);
+	keyMap = new HashMap<Integer, String>();
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
 
@@ -48,10 +49,13 @@ public class CannedGoodsDept extends Department {
 	    CannedGoodsProd cp = new CannedGoodsProd();
 	    boolean recordToProductSuccessful = cp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(cp);
-		cannedGoodsProducts.put(prodKey, cp);
+		int howMany = cp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    cannedGoodsProducts.put(prodKey + i, cp);
+		}
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

@@ -42,7 +42,7 @@ public class ElectronicsDept extends Department {
 	this.setLoadedRecords(electronicsRecords);
 // System.out.printf("%s Department open with %d records\n", deptName,
 // autoRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
 // Automotive Product Load
 	electronicsProducts = new HashMap<String, ElectronicsProd>();
 	loadProducts();
@@ -55,10 +55,15 @@ public class ElectronicsDept extends Department {
 	    ElectronicsProd ep = new ElectronicsProd();
 	    boolean recordToProductSuccessful = ep.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
+	    // If it fails to convert any field, don't add that object to haircareProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(ep);
-		electronicsProducts.put(prodKey, ep);
+		int howMany = ep.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
+
+		    electronicsProducts.put(prodKey + 1, ep);
+		}
+
 	    }
 	}
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

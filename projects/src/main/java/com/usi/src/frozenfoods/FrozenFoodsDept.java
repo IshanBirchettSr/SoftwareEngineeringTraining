@@ -33,10 +33,12 @@ public class FrozenFoodsDept extends Department {
 	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.FROZEN_FOODS_TRUCK);
-	List<String> frozenFoodsRecords = unLoadTrucks.getRecords();
+	frozenFoodsRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(frozenFoodsRecords);
 	System.out.printf("%s Department open with %d products\n", deptName, frozenFoodsRecords.size());
-
+	keyMap = new HashMap<Integer, String>();
+	frozenFoodsProducts = new HashMap<String, FrozenFoodsProd>();
+	loadProducts();
     }
 
     @Override
@@ -51,12 +53,18 @@ public class FrozenFoodsDept extends Department {
 	    // frozenFoodsProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(ffp);
-		frozenFoodsProducts.put(prodKey, ffp);
-	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		frozenFoodsRecords.size(), frozenFoodsProducts.size());
+		int howMany = ffp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
 
+		    frozenFoodsProducts.put(prodKey + i, ffp);
+
+		}
+
+	    }
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    frozenFoodsRecords.size(), frozenFoodsProducts.size());
+
+	}
     }
 
     @Override

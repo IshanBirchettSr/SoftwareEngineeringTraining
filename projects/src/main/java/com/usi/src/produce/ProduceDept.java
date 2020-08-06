@@ -41,8 +41,8 @@ public class ProduceDept extends Department {
 	produceRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(produceRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
-	// produceRecords.size());
-
+	// autoRecords.size());
+	keyMap = new HashMap<Integer, String>();
 	// Automotive Product Load
 	ProduceProducts = new HashMap<String, ProduceProd>();
 	loadProducts();

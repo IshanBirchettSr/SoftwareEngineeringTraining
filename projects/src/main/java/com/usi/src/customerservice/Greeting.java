@@ -363,6 +363,7 @@ public class Greeting extends Application {
 	happyShoppingTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
 
 	ComboBox<String> combo_box = new ComboBox(FXCollections.observableArrayList(dStrs));
+	combo_box.setValue("<SELECT>");
 	Label selected = new Label("Please Observe MASK On COVID 19 - Social Distancing 6 X 6 ft.");
 
 	EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
