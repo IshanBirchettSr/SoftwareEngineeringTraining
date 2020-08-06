@@ -59,6 +59,7 @@ public class ToiletryDept extends Department {
 	    // If it fails to convert any field, don't add that object to toiletryProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(tp);
+
 		int howMany = tp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 

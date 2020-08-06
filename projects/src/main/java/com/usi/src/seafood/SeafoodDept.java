@@ -58,11 +58,13 @@ public class SeafoodDept extends Department {
 	    // If it fails to convert any field, don't add that object to seafoodProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(sfp);
+
 		int howMany = sfp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 
 		    seafoodProducts.put(prodKey + 1, sfp);
 		}
+
 	    }
 
 	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

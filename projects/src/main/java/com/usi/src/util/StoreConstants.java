@@ -47,6 +47,7 @@ public class StoreConstants {
     public static final String LINEN_TRUCK = APP_HOME + "/src/resources/Linen.txt";
     public static final String LUGGAGE_TRUCK = APP_HOME + "/src/resources/Luggage.txt";
     public static final String MEAT_TRUCK = APP_HOME + "/src/resources/Meat.txt";
+    public static final String MEMBERSHIPCARD_TRUCK = "/src/resources/MembershipCard.txt";
     public static final String PANTRY_TRUCK = APP_HOME + "/src/resources/Pantry.txt";
     public static final String PETCARE_TRUCK = APP_HOME + "/src/resources/Petcare.txt";
     public static final String PHARMACY_TRUCK = APP_HOME + "/src/resources/Pharmacy.txt";
@@ -79,7 +80,8 @@ public class StoreConstants {
 	HOUSEWARES("housewares"), LINEN("linen"), LUGGAGE("luggage"), MEAT("meat"), PANTRY("pantry"),
 	PETCARE("petcare"), PHARMACY("pharmacy"), PLANTBASE("plantbase"), PRESCRIPTION_EYEWARE("perscriptioneyeware"),
 	PRODUCE("produce"), SEAFOOD("seafood"), SHOE("shoe"), SHOPPING_CART("shoppingcart"), STATIONARY("stationary"),
-	TOILETRIES("toiletries"), TOYS("toys"), TUPPERWARE("tupperware"), VEGETABLES("vegetables");
+	TOILETRIES("toiletries"), TOYS("toys"), TUPPERWARE("tupperware");
+
 
 	private String dName;
 

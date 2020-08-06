@@ -49,7 +49,6 @@ public class PantryDept extends Department {
 	    PantryProd pp = new PantryProd();
 	    boolean recordToProductSuccessful = pp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to pantryProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(pp);
 		int howMany = pp.getNumUnitsInstock();

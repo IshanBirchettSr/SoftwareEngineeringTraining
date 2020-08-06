@@ -58,11 +58,13 @@ public class ProduceDept extends Department {
 	    // If it fails to convert any field, don't add that object to produceProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(pdd);
+
 		int howMany = pdd.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 
 		    ProduceProducts.put(prodKey + 1, pdd);
 		}
+
 	    }
 
 	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

@@ -48,14 +48,16 @@ public class PetcareDept extends Department {
 	    PetcareProd pp = new PetcareProd();
 	    boolean recordToProductSuccessful = pp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to petcareProducts
+	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(pp);
+
 		int howMany = pp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 
 		    petcareProducts.put(prodKey + 1, pp);
 		}
+
 	    }
 
 	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

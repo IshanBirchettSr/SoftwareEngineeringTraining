@@ -56,6 +56,7 @@ public class TupperwareDept extends Department {
 
 		    tupperwareProducts.put(prodKey + 1, twp);
 		}
+
 	    }
 
 	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,

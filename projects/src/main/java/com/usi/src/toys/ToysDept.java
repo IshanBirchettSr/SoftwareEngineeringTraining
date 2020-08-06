@@ -48,7 +48,7 @@ public class ToysDept extends Department {
 	    ToysProd tp = new ToysProd();
 	    boolean recordToProductSuccessful = tp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to toysProducts
+	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(tp);
 		int howMany = tp.getNumUnitsInstock();
