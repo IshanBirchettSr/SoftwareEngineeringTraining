@@ -58,12 +58,19 @@ public class ProduceDept extends Department {
 	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(pdd);
-		ProduceProducts.put(prodKey, pdd);
+		int howMany = pdd.getQuantity();
+		for (int i = 0; i < howMany; i++) {
+		    // System.out.println(prodKey);
+		    ProduceProducts.put(prodKey + i, pdd);
+		}
+		// autoProducts.put(prodKey, ap);
+
 	    }
 	}
+	// autoProducts.put(prodKey, ap);
+
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		produceRecords.size(), ProduceProducts.size());
-
     }
 
     @Override

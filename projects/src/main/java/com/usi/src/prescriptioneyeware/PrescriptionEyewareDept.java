@@ -42,7 +42,9 @@ public class PrescriptionEyewareDept extends Department {
 	    PrescriptionEyewareProd pw = new PrescriptionEyewareProd();
 	    boolean recordToProductSuccessful = pw.recordToProduct(record);
 
+	    // If it fails to convert any field, don't add that object to autoProducts
 	    if (recordToProductSuccessful == true) {
+
 		String prodKey = ProdKeyGen.genKey(pw);
 		int howMany = pw.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {

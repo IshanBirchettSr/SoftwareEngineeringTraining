@@ -49,6 +49,7 @@ public class PantryDept extends Department {
 	    PantryProd pp = new PantryProd();
 	    boolean recordToProductSuccessful = pp.recordToProduct(record);
 
+
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(pp);
 		int howMany = pp.getNumUnitsInstock();
