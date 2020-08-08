@@ -35,9 +35,9 @@ public class PantryDept extends Department {
 	pantryRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(pantryRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
-	// autoRecords.size());
+	// pantryRecords.size());
 	keyMap = new HashMap<Integer, String>();
-	// Automotive Product Load
+	// Pantry Product Load
 	pantryProducts = new HashMap<String, PantryProd>();
 	loadProducts();
     }
@@ -53,13 +53,13 @@ public class PantryDept extends Department {
 		String prodKey = ProdKeyGen.genKey(pp);
 		int howMany = pp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		    // System.out.println(prodKey);
-		    pantryProducts.put(prodKey + i, pp);
+
+		    pantryProducts.put(prodKey + 1, pp);
 		}
-		// autoProducts.put(prodKey, ap);
 
 	    }
 	}
+
 	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
 		pantryRecords.size(), pantryProducts.size());
 

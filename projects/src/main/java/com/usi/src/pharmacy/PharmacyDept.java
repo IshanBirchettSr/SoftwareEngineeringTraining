@@ -56,15 +56,19 @@ public class PharmacyDept extends Department {
 	    PharmacyProd pp = new PharmacyProd();
 	    boolean recordToProductSuccessful = pp.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to autoProducts
+	    // If it fails to convert any field, don't add that object to pharmacyProducts
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(pp);
-		pharmacyProducts.put(prodKey, pp);
-	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		pharmacyRecords.size(), pharmacyProducts.size());
+		int howMany = pp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
 
+		    pharmacyProducts.put(prodKey + 1, pp);
+		}
+	    }
+
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    pharmacyRecords.size(), pharmacyProducts.size());
+	}
     }
 
     @Override
