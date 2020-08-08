@@ -254,7 +254,9 @@ public class Greeting extends Application {
 		EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				System.out.println("Welcome! Enjoy your trip!");
+				newWindow.close();
 				displayDepts();
+
 			}
 		};
 		yesButton.setOnAction(yesEvent);
@@ -266,7 +268,7 @@ public class Greeting extends Application {
 		EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				System.out.println("Please try again");
-				newWindow.hide();
+				newWindow.close();
 			}
 		};
 		noButton.setOnAction(noEvent);
