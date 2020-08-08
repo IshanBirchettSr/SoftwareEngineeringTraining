@@ -42,7 +42,7 @@ public class Greeting extends Application {
     VBox primaryPane = null;
     HashMap<String, MembershipSignUp> membershipCards = null;
     MembershipSignUp mCard = null;
-    Customer patron = null;
+    Customer currentCustomer = null;
     Stage parentStage = null;
     // List<Department> dList = null;
     Scene deptsScene = null;
@@ -75,39 +75,8 @@ public class Greeting extends Application {
     public Customer sayGreeting(String[] args) {
 
 	launch(args);
-	// Scanner in = new Scanner(System.in);
-	Customer cust = new Customer();
-//
-//	System.out.printf("Welcome to %s\n", StoreConstants.STORE_NAME);
-//	System.out.printf("Do you have a %s Membership Card? ", StoreConstants.STORE_NAME);
-//	boolean member = YesNoInput.stringToBoolean(in.next());
-//	if (member == true) {
-//	    // membershipCards.get();
-//	    // get phone number from user
-//	    // get membership card
-//	    // return customer object
-//	    System.out.printf("Great! Today's discount is %d%%, Happy Shopping!!\n",
-//		    StoreConstants.TODAYS_MEMBER_DISCOUNT);
-//	} else {
-//	    System.out.println("Would you like to sign up for a membership card?");
-//	    boolean signUp = YesNoInput.stringToBoolean(in.next());
-//	    if (signUp == true) {
-//		// in.nextLine();
-//		MembershipSignUp memSignUp = new MembershipSignUp(in);
-//		String memInfo = memSignUp.membershipApplication();
-//		membershipCards.put(memSignUp.getPhoneNumber(), memSignUp);
-//		// return customer object
-//		System.out.println(memInfo);
-//	    } else {
-//		System.out.printf(
-//			"Ok, well you can signup at any time the future and instantly save %d%%.\nHappy Shopping\n",
-//			StoreConstants.TODAYS_MEMBER_DISCOUNT);
-//		// We will need to still have to create and return a anonomus Customer object to
-//		// represent customers who do not have memberships.
-//	    }
-//
-//	}
-	return cust;
+	currentCustomer = new Customer();
+	return currentCustomer;
     }
 
     public void welcomeScreen(String[] args) {
@@ -124,17 +93,15 @@ public class Greeting extends Application {
 	welcomeTxt.setX(50.00);
 	welcomeTxt.setY(80.00);
 	welcomeTxt.setFill(Color.BLUE);
-	List<String> fontNames = Font.getFontNames();
-	for (String fontName : fontNames) {
-	    System.out.println(fontName);
-	}
-
 	welcomeTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
-
 	HBox gp = new HBox(20, welcomeTxt);
 	gp.setAlignment(Pos.CENTER);
-	// gp.setPadding(new Insets(10));
-
+//	
+//	List<String> fontNames = Font.getFontNames();
+//	for (String fontName : fontNames) {
+//	    System.out.println(fontName);
+//	}
+//
 	Image entranceImage = new Image(StoreConstants.STORE_ENTRANCE);
 	ImageView iv = new ImageView();
 	iv.setImage(entranceImage);
@@ -142,14 +109,15 @@ public class Greeting extends Application {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+	HBox ip = new HBox(iv);
+	ip.setAlignment(Pos.CENTER);
 
-	HBox storeView = new HBox(iv);
-	storeView.setAlignment(Pos.CENTER);
 	// storeView.setPadding(new Insets(20.50));
 
 	/* Now we perform our rendering */
 
-	Label lblCharacter = new Label("Do you have a membership card:");
+	Label lblCharacter = new Label();
+	lblCharacter.setText("Do you have a membership card:");
 	lblCharacter.setMinWidth(100);
 	lblCharacter.setAlignment(Pos.CENTER_LEFT);
 
@@ -180,7 +148,7 @@ public class Greeting extends Application {
 	HBox paneCharacter = new HBox(20, lblCharacter, yesIDo, noIDoNot);
 	paneCharacter.setPadding(new Insets(10));
 	// Add the Character and Actor panes to a VBox
-	primaryPane = new VBox(10, gp, storeView, paneCharacter);
+	primaryPane = new VBox(10, gp, ip, paneCharacter);
 	primaryPane.setAlignment(Pos.CENTER);
 	// Create the bindings
 
@@ -220,8 +188,9 @@ public class Greeting extends Application {
 		// Lookup membership card using phone number
 		if (newValue.length() == 10) {
 		    mCard = membershipCards.get(newValue);
-		    if (mCard == null) {
-			System.out.println("Membership Card Not found using: " + newValue);
+		    if (mCard != null) {
+			displayMemCard(mCard);
+			System.out.println("Membership Card Found!");
 		    }
 		    parentStage.hide();
 		    parentStage.setScene(deptsScene);
@@ -234,6 +203,45 @@ public class Greeting extends Application {
 	HBox panePhoneNum = new HBox(20, phoneNumberLbl, phoneNumTxt);
 	panePhoneNum.setPadding(new Insets(10));
 	primaryPane.getChildren().add(panePhoneNum);
+    }
+
+    /**
+     * @param mCard2
+     */
+    protected void displayMemCard(MembershipSignUp mCard2) {
+	String imageKey = String.format(StoreConstants.MCARD, mCard2.getPhoneNumber());
+	Image mCardImage = new Image(imageKey);
+	ImageView iv = new ImageView();
+	iv.setImage(mCardImage);
+	iv.setFitWidth(400);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+	HBox mp = new HBox(iv);
+	mp.setAlignment(Pos.CENTER);
+
+	StackPane secondaryLayout = new StackPane();
+	VBox memSignUp = new VBox(10, mp);
+
+	Scene mCardScene = new Scene(memSignUp, 450, 600);
+
+	// New window (Stage)
+	Stage newWindow = new Stage();
+	newWindow.setTitle(String.format("%s- Membership Card", mCard.getFirstName()));
+	newWindow.setScene(mCardScene);
+
+	// Specifies the modality for new window.
+	newWindow.initModality(Modality.WINDOW_MODAL);
+
+	// Specifies the owner Window (parent) for new window
+	newWindow.initOwner(parentStage);
+
+	// Set position of second window, related to primary window.
+	newWindow.setX(parentStage.getX() + 25);
+	newWindow.setY(parentStage.getY() + 20);
+
+	newWindow.show();
+
     }
 
     private void membershipSignUp() {

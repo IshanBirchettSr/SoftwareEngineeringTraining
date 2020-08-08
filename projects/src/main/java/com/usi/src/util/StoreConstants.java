@@ -47,7 +47,7 @@ public class StoreConstants {
     public static final String LINEN_TRUCK = APP_HOME + "/src/resources/Linen.txt";
     public static final String LUGGAGE_TRUCK = APP_HOME + "/src/resources/Luggage.txt";
     public static final String MEAT_TRUCK = APP_HOME + "/src/resources/Meat.txt";
-    public static final String MEMBERSHIPCARD_TRUCK = "/src/resources/MembershipCard.txt";
+    public static final String MEMBERSHIPCARD_TRUCK = APP_HOME + "/src/resources/MembershipCard.txt";
     public static final String PANTRY_TRUCK = APP_HOME + "/src/resources/Pantry.txt";
     public static final String PETCARE_TRUCK = APP_HOME + "/src/resources/Petcare.txt";
     public static final String PHARMACY_TRUCK = APP_HOME + "/src/resources/Pharmacy.txt";
@@ -67,6 +67,7 @@ public class StoreConstants {
      */
     public static final String STORE_ENTRANCE = "file:///" + APP_HOME + "/images/SuperStoreEntrance.png";
     public static final String STORE_MAP = "file:///" + APP_HOME + "/images/StoreMap.png";
+    public static final String MCARD = "file:///" + APP_HOME + "/images/MCard%s.png";
 
     /*
      * Please keep deptNames in alphabetical order

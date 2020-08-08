@@ -1,4 +1,7 @@
 /*Membership card
 /*Membership  information highly confidential
-/*First name, Middle Name, Last Name, email address, street, city, state, zipcode, mobile number, home phone, age range, date of membership, coupon user
- Roxanne, Louise, Earnest, malachi236@charter.net, Laporte, North Grosvenordale, 8604553527, NA, NA, 08/2020, Yes
+/*First name, Middle Name, Last Name, email address, street, city, state, zipcode, phone number,  aarp membership
+ Roxanne, L, Earnest, malachi236@charter.net, 100 Laporte, North Grosvenordale, CT, 06255, 8604550000, Yes
+ Ishan, D, Birchett, ibirchettsr@gmail.com, 100 Sunnyview Heights, Worcester, MA, 01602, 5083330000, Yes
+ Allma, M, Johnson, alllmamjohnsonllc@gmail.com, 100 Main St, Inglewood, CA, 90302, 7026300000, No
+ Charlene, C, Cornelius, charlene.kingdomkeysministry@gmail.com, 102 Main St, Bronxs, NY, 10465, 2024440000, No
