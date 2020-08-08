@@ -226,8 +226,11 @@ public class Greeting extends Application {
 	Label mDate = new Label(membershipDate);
 	mDate.setAlignment(Pos.CENTER);
 
+	String mString = String.format("Membership Discount: %d%%", StoreConstants.TODAYS_MEMBER_DISCOUNT);
+	Label mDiscount = new Label(mString);
+
 	// StackPane secondaryLayout = new StackPane();
-	VBox memSignUp = new VBox(10, iv, mDate);
+	VBox memSignUp = new VBox(5, iv, mDate, mDiscount);
 
 	Scene mCardScene = new Scene(memSignUp, 450, 500);
 
