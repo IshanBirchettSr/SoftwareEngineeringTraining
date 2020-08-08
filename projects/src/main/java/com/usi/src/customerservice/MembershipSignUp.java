@@ -8,7 +8,11 @@
  */
 package customerservice;
 
-import java.util.Calendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import util.YesNoInput;
 
 /**
  * @author ibirc
@@ -156,18 +160,18 @@ public class MembershipSignUp {
     /**
      * @return the dateOfMembership
      */
-    public Calendar getDateOfMembership() {
+    public Date getDateOfMembership() {
 	return dateOfMembership;
     }
 
     /**
-     * @param dateOfMembership the dateOfMembership to set
+     * @param date the dateOfMembership to set
      */
-    public void setDateOfMembership(Calendar dateOfMembership) {
-	this.dateOfMembership = dateOfMembership;
+    public void setDateOfMembership(Date date) {
+	this.dateOfMembership = date;
     }
 
-    private Calendar dateOfMembership;
+    private Date dateOfMembership;
 
     /**
      
@@ -182,6 +186,26 @@ public class MembershipSignUp {
     private void LoadDataMember(String memRecord) {
 	String[] members = memRecord.split(",");
 	setFirstName(members[0].trim());
+	setmInitial(members[1].charAt(0));
+	setLastName(members[2].trim());
+	setEmailAddress(members[3].trim());
+	setStreetAddress(members[4].trim());
+	setCity(members[5].trim());
+	setState(members[6].trim());
+	setPostalCode(members[7].trim());
+	setPhoneNumber(members[8].trim());
+	boolean aarp = YesNoInput.stringToBoolean(members[9].trim());
+	setAarpMember(aarp);
+	SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+
+	try {
+
+	    Date date = formatter.parse(members[10].trim());
+	    setDateOfMembership(date);
+	} catch (ParseException e) {
+	    e.printStackTrace();
+	}
+
 	// *add set for all data members 1-?
     }
 
