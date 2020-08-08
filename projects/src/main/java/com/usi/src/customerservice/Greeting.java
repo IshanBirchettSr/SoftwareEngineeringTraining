@@ -55,8 +55,7 @@ public class Greeting extends Application {
 	super();
 	membershipCards = new HashMap<String, MembershipSignUp>();
 	loadCardRecords();
-	// *Record Load
-
+	loadMemCardRecords();
     }
 
     public void loadCardRecords() {
@@ -69,6 +68,7 @@ public class Greeting extends Application {
     public void loadMemCardRecords() {
 	for (String record : membershipRecords) {
 	    MembershipSignUp ap = new MembershipSignUp(record);
+	    membershipCards.put(ap.getPhoneNumber(), ap);
 	}
     }
 
@@ -192,11 +192,11 @@ public class Greeting extends Application {
 			displayMemCard(mCard);
 			System.out.println("Membership Card Found!");
 		    }
-		    parentStage.hide();
-		    parentStage.setScene(deptsScene);
-		    // parentStage.setTitle("Store Map");
-		    parentStage.setTitle("USI - Store Map");
-		    parentStage.show();
+//		    parentStage.hide();
+//		    parentStage.setScene(deptsScene);
+//		    // parentStage.setTitle("Store Map");
+//		    parentStage.setTitle("USI - Store Map");
+//		    parentStage.show();
 		}
 	    }
 	});
@@ -211,19 +211,25 @@ public class Greeting extends Application {
     protected void displayMemCard(MembershipSignUp mCard2) {
 	String imageKey = String.format(StoreConstants.MCARD, mCard2.getPhoneNumber());
 	Image mCardImage = new Image(imageKey);
+
 	ImageView iv = new ImageView();
 	iv.setImage(mCardImage);
-	iv.setFitWidth(400);
+	iv.setFitWidth(450);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
 	HBox mp = new HBox(iv);
 	mp.setAlignment(Pos.CENTER);
 
-	StackPane secondaryLayout = new StackPane();
-	VBox memSignUp = new VBox(10, mp);
+	String membershipDate = String.format("Membership Date: %s", mCard2.getDateOfMembership());
 
-	Scene mCardScene = new Scene(memSignUp, 450, 600);
+	Label mDate = new Label(membershipDate);
+	mDate.setAlignment(Pos.CENTER);
+
+	// StackPane secondaryLayout = new StackPane();
+	VBox memSignUp = new VBox(10, iv, mDate);
+
+	Scene mCardScene = new Scene(memSignUp, 450, 500);
 
 	// New window (Stage)
 	Stage newWindow = new Stage();
