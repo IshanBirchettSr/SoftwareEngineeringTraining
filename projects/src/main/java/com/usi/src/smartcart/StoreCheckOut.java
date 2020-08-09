@@ -1,8 +1,10 @@
 package smartcart;
+
 import java.util.List;
 
 import customerservice.Customer;
 import util.Product;
+
 /**
  * @author Allma M. Johnson
  *
@@ -24,6 +26,7 @@ public class StoreCheckOut extends Receipt {
 	List<Product> custProdList = cust.getListOfProds();
 	// send to print
 	setProdList(custProdList);
+	printReceipt();
 	return true;
     }
 }

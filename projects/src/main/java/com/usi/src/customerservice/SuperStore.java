@@ -98,8 +98,11 @@ public class SuperStore {
 
     public void openStore(String[] args) {
 	this.setStatus(true);
+	greeting = new Greeting();
 	do {
+	    if(greeting == null) {
 	    greeting = new Greeting();
+	    }
 	    patron = greeting.sayGreeting(args);
 	    patron.startShopping();
 	    checkoutLane01.checkoutCustomer(patron);

@@ -73,8 +73,9 @@ public class Greeting extends Application {
     }
 
     public Customer sayGreeting(String[] args) {
-
-	launch(args);
+	if (parentStage == null) {
+	    launch(args);
+	}
 	currentCustomer = new Customer();
 	return currentCustomer;
     }
@@ -85,7 +86,9 @@ public class Greeting extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-	parentStage = primaryStage;
+	if (parentStage == null) {
+	    parentStage = primaryStage;
+	}
 
 	String wcl = String.format("Welcome to %s", StoreConstants.STORE_NAME);
 	Text welcomeTxt = new Text(wcl);
@@ -226,22 +229,8 @@ public class Greeting extends Application {
 	Label mDate = new Label(membershipDate);
 	mDate.setAlignment(Pos.CENTER);
 
-	String mString = String.format("Membership Discount: %d%%", StoreConstants.TODAYS_MEMBER_DISCOUNT);
-	Label mDiscount = new Label(mString);
-
-	VBox memSignUp = new VBox(5, iv, mDate, mDiscount);
-
-	if (mCard2.isAarpMember()) {
-	    String mAarpM = String.format("AARP Discount: %d%%", StoreConstants.AARP_DISCOUNT);
-	    Label mAarp = new Label(mAarpM);
-
-	    memSignUp.getChildren().add(mAarp);
-	}
-	String mEmail = String.format("Email: %s", mCard2.getEmailAddress());
-	Label memEmail = new Label(mEmail);
-	memSignUp.getChildren().add(memEmail);
-
 	// StackPane secondaryLayout = new StackPane();
+	VBox memSignUp = new VBox(10, iv, mDate);
 
 	Scene mCardScene = new Scene(memSignUp, 450, 500);
 

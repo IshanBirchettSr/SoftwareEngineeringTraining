@@ -6,7 +6,6 @@ package smartcart;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
 import java.awt.font.TextAttribute;
 import java.awt.print.PageFormat;
 import java.awt.print.PrinterException;
@@ -35,12 +34,19 @@ public class Receipt extends StorePrinter {
     private String membershipId;
     String member = membershipId;
     List<Product> prods = null;
+    private static int counter = 0;
 
     @Override
     public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
+	int xSpace = 50;
+	int ySpace = 30;
 
+	if (page > 0) { /* We have only one page, and 'page' is zero-based */
+	    return NO_SUCH_PAGE;
+	}
 	Graphics2D g2d = (Graphics2D) g;
 	g2d.translate(pf.getImageableX(), pf.getImageableY());
+
 	Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
 	fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 
@@ -48,33 +54,36 @@ public class Receipt extends StorePrinter {
 	Font newFont = new Font(Font.SANS_SERIF, Font.BOLD, 16).deriveFont(fontAttributes);
 	g.setFont(newFont);
 	String storeName = StoreConstants.STORE_NAME;
-	g.drawString(storeName, 50, 30);
+	g.drawString(storeName, xSpace, ySpace);
 
 	Date curDate = new Date();
 	String todaysDate = DateFormat.getDateTimeInstance().format(curDate);
 	String datePurchased = String.format("Date: %s", todaysDate);
 	newFont = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
 	g.setFont(newFont);
-	g.drawString(datePurchased, 50, 50);
+	// Next line
+	ySpace += 20;
+	g.drawString(datePurchased, xSpace, ySpace);
 
 	double total = 0.00;
 	// For each loop
-	int i = 0;
+	ySpace += 20;
 	for (Product prod : prods) {
 	    String list = String.format("Product: %s, Quantity: %s, Price: %.2f\n", prod.getProductName(),
 		    prod.getQuantity(), prod.getPrice());
 	    total += prod.getPrice();
-	    g.drawString(list, 50, ((50) + i * 20));
-	    i++;
+	    g.drawString(list, xSpace, ySpace);
+	    ySpace += 15;
 	}
 	double totalAmount = total;
 	String tt = String.format("Your total today is $%.2f", totalAmount);
-	g.drawString(tt, 50, ((50) + 11 * 20));
+	ySpace += 20;
+	g.drawString(tt, xSpace, ySpace);
 	/* tell the caller that this page is part of the printed document */
 	return PAGE_EXISTS;
     }
 
-    public void printReceipt(ActionEvent e) {
+    public void printReceipt() {
 	System.out.printf("Here is your receipt. Thank you for shopping at the %s\n today!", StoreConstants.STORE_NAME);
 	PrinterJob job = PrinterJob.getPrinterJob();
 	job.setPrintable(this);
@@ -82,6 +91,8 @@ public class Receipt extends StorePrinter {
 	if (ok) {
 	    try {
 		job.print();
+
+		System.out.printf("Number of copies: %d", job.getCopies());
 	    } catch (PrinterException ex) {
 		System.out.println("The job did not successfully print");
 	    }
