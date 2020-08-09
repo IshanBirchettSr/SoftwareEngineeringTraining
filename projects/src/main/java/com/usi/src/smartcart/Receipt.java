@@ -77,7 +77,7 @@ public class Receipt extends StorePrinter {
 	}
 	double totalAmount = total;
 	String tt = String.format("Your total today is $%.2f", totalAmount);
-	ySpace += 20;
+	ySpace += 5;
 	g.drawString(tt, xSpace, ySpace);
 	/* tell the caller that this page is part of the printed document */
 	return PAGE_EXISTS;

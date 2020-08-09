@@ -43,10 +43,20 @@ public class Greeting extends Application {
     HashMap<String, MembershipSignUp> membershipCards = null;
     MembershipSignUp mCard = null;
     Customer currentCustomer = null;
-    Stage parentStage = null;
+    static Stage parentStage = null;
+
+    /**
+     * @return the parentStage
+     */
+    public static Stage getParentStage() {
+	return parentStage;
+    }
+
     // List<Department> dList = null;
     Scene deptsScene = null;
     List<String> membershipRecords = null;
+    Stage newWindow = null;
+    static Scene scene = null;
 
     /**
      * 
@@ -75,6 +85,8 @@ public class Greeting extends Application {
     public Customer sayGreeting(String[] args) {
 	if (parentStage == null) {
 	    launch(args);
+	} else {
+	    parentStage.setScene(scene);
 	}
 	currentCustomer = new Customer();
 	return currentCustomer;
@@ -214,6 +226,7 @@ public class Greeting extends Application {
     protected void displayMemCard(MembershipSignUp mCard2) {
 	String imageKey = String.format(StoreConstants.MCARD, mCard2.getPhoneNumber());
 	Image mCardImage = new Image(imageKey);
+	Scene mCardScene = null;
 
 	ImageView iv = new ImageView();
 	iv.setImage(mCardImage);
@@ -229,13 +242,60 @@ public class Greeting extends Application {
 	Label mDate = new Label(membershipDate);
 	mDate.setAlignment(Pos.CENTER);
 
-	// StackPane secondaryLayout = new StackPane();
-	VBox memSignUp = new VBox(10, iv, mDate);
+	String mString = String.format("Membership Discount: %d%%", StoreConstants.TODAYS_MEMBER_DISCOUNT);
+	Label mDiscount = new Label(mString);
 
-	Scene mCardScene = new Scene(memSignUp, 450, 500);
+	VBox memSignUp = new VBox(5, iv, mDate, mDiscount);
+
+	if (mCard2.isAarpMember()) {
+	    String mAarpM = String.format("AARP Discount: %d%%", StoreConstants.AARP_DISCOUNT);
+	    Label mAarp = new Label(mAarpM);
+
+	    memSignUp.getChildren().add(mAarp);
+	}
+	String mEmail = String.format("Email: %s", mCard2.getEmailAddress());
+	Label memEmail = new Label(mEmail);
+	memSignUp.getChildren().add(memEmail);
+
+	String rigMem = "Is this information correct?";
+	Label rightMem = new Label();
+	rightMem.setText(rigMem);
+
+	Button yesButton = new Button("Yes");
+	yesButton.setAlignment(Pos.CENTER);
+	yesButton.setAlignment(Pos.CENTER);
+
+	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		System.out.println("Welcome! Enjoy your trip!");
+		newWindow.close();
+		displayDepts();
+
+	    }
+	};
+	yesButton.setOnAction(yesEvent);
+
+	Button noButton = new Button("No");
+	noButton.setAlignment(Pos.CENTER);
+	noButton.setAlignment(Pos.CENTER);
+
+	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		System.out.println("Please try again");
+		newWindow.close();
+	    }
+	};
+	noButton.setOnAction(noEvent);
+
+	HBox correctMember = new HBox(10, rightMem, yesButton, noButton);
+	memSignUp.getChildren().add(correctMember);
+
+	// StackPane secondaryLayout = new StackPane();
+
+	mCardScene = new Scene(memSignUp, 450, 500);
 
 	// New window (Stage)
-	Stage newWindow = new Stage();
+	newWindow = new Stage();
 	newWindow.setTitle(String.format("%s- Membership Card", mCard.getFirstName()));
 	newWindow.setScene(mCardScene);
 
@@ -414,6 +474,8 @@ public class Greeting extends Application {
 	gp2.setPadding(new Insets(10));
 
 	deptsScene = new Scene(gp, 600, 575);
+	parentStage.setScene(deptsScene);
+	parentStage.show();
     }
 
 }
