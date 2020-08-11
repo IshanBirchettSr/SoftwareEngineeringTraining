@@ -1,14 +1,30 @@
 Charlene
-	Receipt Class
+	Receipt Class extends StorePrinter
+	StorePrinter Class
 	SuperStore Class
 
 Allma
 	Checkout 
-	1 - Shopping Cart
+		-- has a Receipt Object
+		-- has a 
+	Shopping Cart
+		 LED 
+		-- List of products and price in your cart
+		-- Should method that show the current balance
+		-- Constantly show balance as items are added to cart
+		-- Should support the ability to remove products from the cart
+		-- Extended Receipt object -- ???
 
 
 Roxanne
-	1 - Greeting Class
+	Greeting Class
+		-- It is responsible for creating a Membership Card
+		-- It responsible for persisting (storing in text file) those Membership Cards
+	Customer Class
+		-- Creating and persisting Customer Information
+		-- Customer must be able to have a Shopping Cart (has a relationship)
+		-- Customer must be able to take a product from the shelf of a department and add it to the shopping cart
+		
 	Record Loading
 	Product Price
 

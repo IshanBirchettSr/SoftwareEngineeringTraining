@@ -10,6 +10,8 @@ package util;
 
 import java.util.List;
 
+import javafx.scene.Scene;
+
 /**
  * @author ibirc
  *
@@ -130,5 +132,10 @@ public abstract class Department {
     public abstract List<Product> getProducts();
 
     public abstract List<Product> getProds(int index, int quantity);
+
+    /**
+     * @return
+     */
+    public abstract Scene getScene();
 
 }

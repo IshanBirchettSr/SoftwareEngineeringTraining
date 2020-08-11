@@ -5,6 +5,7 @@ package housewares;
 
 import java.util.List;
 
+import javafx.scene.Scene;
 import util.Department;
 import util.Product;
 
@@ -77,6 +78,12 @@ public class Kitchen extends Department {
 
     @Override
     public List<Product> getProds(int index, int quantity) {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public Scene getScene() {
 	// TODO Auto-generated method stub
 	return null;
     }

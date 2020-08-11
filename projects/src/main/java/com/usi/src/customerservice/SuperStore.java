@@ -49,13 +49,6 @@ public class SuperStore {
     Product prod;
     static List<Department> dList = null;
 
-    /**
-     * @return the dList
-     */
-    protected static List<Department> getdList() {
-	return dList;
-    }
-
     AutomotiveDept ad = null;
     BabyEssentialsDept bed = null;
     BakeryDept bd = null;
@@ -96,12 +89,19 @@ public class SuperStore {
     StoreCheckOut checkoutLane04 = null;
     StoreCheckOut checkoutLane05 = null;
 
+    /**
+     * @return the dList
+     */
+    protected static List<Department> getdList() {
+	return dList;
+    }
+
     public void openStore(String[] args) {
 	this.setStatus(true);
 	greeting = new Greeting();
 	do {
-	    if(greeting == null) {
-	    greeting = new Greeting();
+	    if (greeting == null) {
+		greeting = new Greeting();
 	    }
 	    patron = greeting.sayGreeting(args);
 	    patron.startShopping();

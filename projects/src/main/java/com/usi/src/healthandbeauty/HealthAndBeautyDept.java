@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import javafx.scene.Scene;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -104,5 +105,11 @@ public class HealthAndBeautyDept extends Department {
 	List<Product> pList = null;
 
 	return pList;
+    }
+
+    @Override
+    public Scene getScene() {
+	// TODO Auto-generated method stub
+	return null;
     }
 }

@@ -35,15 +35,20 @@ import util.Department;
 import util.StoreConstants;
 
 public class Greeting extends Application {
-    boolean isMember = false;
-    TextField txtCharacter;
-    TextField phoneNumTxt = null;
-    HBox pHBox = null;
-    VBox primaryPane = null;
-    HashMap<String, MembershipSignUp> membershipCards = null;
-    MembershipSignUp mCard = null;
-    Customer currentCustomer = null;
-    static Stage parentStage = null;
+    private boolean isMember = false;
+    private TextField txtCharacter;
+    private TextField phoneNumTxt = null;
+    private HBox pHBox = null;
+    private VBox primaryPane = null;
+    private HashMap<String, MembershipSignUp> membershipCards = null;
+    private MembershipSignUp mCard = null;
+    private Customer currentCustomer = null;
+    private static Stage parentStage = null;
+    // List<Department> dList = null;
+    private Scene deptsScene = null;
+    private List<String> membershipRecords = null;
+    private Stage newWindow = null;
+    private static Scene scene = null;
 
     /**
      * @return the parentStage
@@ -51,12 +56,6 @@ public class Greeting extends Application {
     public static Stage getParentStage() {
 	return parentStage;
     }
-
-    // List<Department> dList = null;
-    Scene deptsScene = null;
-    List<String> membershipRecords = null;
-    Stage newWindow = null;
-    static Scene scene = null;
 
     /**
      * 
@@ -439,19 +438,21 @@ public class Greeting extends Application {
 
 	happyShoppingTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
 
-	ComboBox<String> combo_box = new ComboBox(FXCollections.observableArrayList(dStrs));
-	combo_box.setValue("<SELECT>");
+	ComboBox<String> deptComboBox = new ComboBox(FXCollections.observableArrayList(dStrs));
+	deptComboBox.setValue("<SELECT>");
 	Label selected = new Label("Please Observe MASK On COVID 19 - Social Distancing 6 X 6 ft.");
 
 	EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		selected.setText("Scrolling to " + combo_box.getValue() + " Department ...");
+		String dName = deptComboBox.getValue();
+		selected.setText("Scrolling to " + dName + " Department ...");
+		displayDepartmentScene(dName);
 	    }
 	};
 
-	combo_box.setOnAction(event);
+	deptComboBox.setOnAction(event);
 
-	TilePane tp = new TilePane(combo_box);
+	TilePane tp = new TilePane(deptComboBox);
 	tp.setTileAlignment(Pos.CENTER);
 
 	String sDept = String.format("Choose Department: ");
@@ -476,6 +477,25 @@ public class Greeting extends Application {
 	deptsScene = new Scene(gp, 600, 575);
 	parentStage.setScene(deptsScene);
 	parentStage.show();
+    }
+
+    /**
+     * @param dName
+     */
+    protected void displayDepartmentScene(String dName) {
+	List<Department> dList = SuperStore.getdList();
+
+	// This can be refactored to use a HashMap with a String dName key
+	// So you don't have to do a for each loop every time. We will
+	// refactor later time permitting.
+	for (Department dp : dList) {
+	    if (dName.equals(dp.getDeptName())) {
+		System.out.printf("Found %s directory\n", dp.getDeptName());
+		// parentStage.setScene(dp.getScene());
+		// parentStage.show();
+	    }
+	}
+
     }
 
 }
