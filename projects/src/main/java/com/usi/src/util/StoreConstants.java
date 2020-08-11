@@ -62,13 +62,26 @@ public class StoreConstants {
     public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
     public static final String TUPPERWARE_TRUCK = APP_HOME + "/src/resources/Tupperware.txt";
     public static final String HEALTH_AND_BEAUTY_TRUCK = APP_HOME + "/src/resources/HealthandBeauty.txt";
+  
     /*
-     * Store Images
+     * Department Images
      * 
      */
     public static final String STORE_ENTRANCE = "file:///" + APP_HOME + "/images/SuperStoreEntrance.png";
     public static final String STORE_MAP = "file:///" + APP_HOME + "/images/StoreMap.png";
     public static final String MCARD = "file:///" + APP_HOME + "/images/MCard%s.png";
+    public static final String AUTOMOTIVEDEPT = "file:///" + APP_HOME + "/images/Autmotive_Dept.JPG";
+    public static final String BABYESSENTIALSDEPT = "file:///" + APP_HOME + "/images/Babyessemtials_Dept.JPG";
+    public static final String BAKERYDEPT = "file:///" + APP_HOME + "/images/Bakery_Dept.JPG";
+    public static final String BEDDINGDEPT = "file:///" + APP_HOME + "/images/Bedding_Dept.JPG";
+    public static final String BEVERAGESDEPT = "file:///" + APP_HOME + "/images/Beverages_Dept.JPG";
+    public static final String BIKESDEPT = "file:///" + APP_HOME + "/images/Bikes_Dept.JPG";
+    public static final String BOOKSDEPT = "file:///" + APP_HOME + "/images/Books_Dept.JPG";
+    public static final String CANNEDGOODSDEPT = "file:///" + APP_HOME + "/images/Cannedgoods_Dept.JPG";
+    public static final String CLEANINGSUPPLIES = "file:///" + APP_HOME + "/images/Cleaningsupplies_Dept.JPG";
+    public static final String CLOTHESDEPT = "file:///" + APP_HOME + "/images/Clothes_Dept.JPG";
+    public static final String DAIRYDEPT = "file:///" + APP_HOME + "/images/Dairy_Dept.JPG";
+    public static final String DELIDEPT = "file:///" + APP_HOME + "/images/Deli_Dept.JPG";
     public static final String ELECTRONICSDEPT = "file:///" + APP_HOME + "/images/Electronic_Dept.JPG";
     public static final String FRAGRANCEDEPT = "///file:///" + APP_HOME + "/images/Fragrance_Dept.jpg";
     public static final String FROZENFOODSDEPT = "///file:///" + APP_HOME + "/images/Frozenfoods_Dept.jpg";
@@ -93,7 +106,7 @@ public class StoreConstants {
     public static final String TOILETRIESDEPT = "///file:///" + APP_HOME + "/images/Toiletries_Dept.png";
     public static final String TOYSDEPT = "///file:///" + APP_HOME + "/images/Toys_Dept.png";
     public static final String TUPPERWAREDEPT = "///file:///" + APP_HOME + "/images/Tupperware_Dept.png";
-    // Department images
+
 
     /*
      * Please keep deptNames in alphabetical order
