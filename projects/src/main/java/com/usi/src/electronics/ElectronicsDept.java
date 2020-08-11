@@ -13,7 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -25,92 +29,103 @@ import util.StoreConstants;
  *
  */
 public class ElectronicsDept extends Department {
-    String deptName = StoreConstants.deptNames.ELECTRONICS.name();
-    List<String> electronicsRecords = null;
-    HashMap<Integer, String> keyMap = null;
+	String deptName = StoreConstants.deptNames.ELECTRONICS.name();
+	List<String> electronicsRecords = null;
+	HashMap<Integer, String> keyMap = null;
 // HashMap<K, V> to hold ElectronicsProd objects.
-    HashMap<String, ElectronicsProd> electronicsProducts;
+	HashMap<String, ElectronicsProd> electronicsProducts;
 
-    /**
-     * Constructor
-     */
-    public ElectronicsDept() {
-	super.setDeptName(deptName);
+	/**
+	 * Constructor
+	 */
+	public ElectronicsDept() {
+		super.setDeptName(deptName);
 // Record Load
-	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
-	electronicsRecords = unLoadTrucks.getRecords();
-	this.setLoadedRecords(electronicsRecords);
+		DataCsvLoad unLoadTrucks = new DataCsvLoad();
+		unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
+		electronicsRecords = unLoadTrucks.getRecords();
+		this.setLoadedRecords(electronicsRecords);
 // System.out.printf("%s Department open with %d records\n", deptName,
 // autoRecords.size());
-	keyMap = new HashMap<Integer, String>();
+		keyMap = new HashMap<Integer, String>();
 // Automotive Product Load
-	electronicsProducts = new HashMap<String, ElectronicsProd>();
-	loadProducts();
-    }
+		electronicsProducts = new HashMap<String, ElectronicsProd>();
+		loadProducts();
+	}
 
-    @Override
-    protected void loadProducts() {
+	@Override
+	protected void loadProducts() {
 // Load products
-	for (String record : electronicsRecords) {
-	    ElectronicsProd ep = new ElectronicsProd();
-	    boolean recordToProductSuccessful = ep.recordToProduct(record);
+		for (String record : electronicsRecords) {
+			ElectronicsProd ep = new ElectronicsProd();
+			boolean recordToProductSuccessful = ep.recordToProduct(record);
 
-	    // If it fails to convert any field, don't add that object to haircareProducts
-	    if (recordToProductSuccessful == true) {
-		String prodKey = ProdKeyGen.genKey(ep);
-		int howMany = ep.getNumUnitsInstock();
-		for (int i = 0; i < howMany; i++) {
+			// If it fails to convert any field, don't add that object to haircareProducts
+			if (recordToProductSuccessful == true) {
+				String prodKey = ProdKeyGen.genKey(ep);
+				int howMany = ep.getNumUnitsInstock();
+				for (int i = 0; i < howMany; i++) {
 
-		    electronicsProducts.put(prodKey + 1, ep);
+					electronicsProducts.put(prodKey + 1, ep);
+				}
+
+			}
+		}
+		System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+				electronicsRecords.size(), electronicsProducts.size());
+
+	}
+
+	@Override
+	public void listProducts() {
+		String aKey = null;
+		Set<String> electronicProductKeys = electronicsProducts.keySet();
+
+		int totalProducts = electronicProductKeys.size();
+		int i = 1;
+		for (String pKey : electronicProductKeys) {
+			Product pd = electronicsProducts.get(pKey);
+			if (aKey != pKey) {
+				System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+			}
+			aKey = pKey;
+			keyMap.put(i, pKey);
+			i++;
+		}
+	}
+
+	public List<Product> getProds(int index, int qauntity) {
+		ArrayList<Product> pdList = new ArrayList<Product>();
+		String pKey = keyMap.get(index);
+		for (int i = 0; i < qauntity; i++) {
+			ElectronicsProd pd = electronicsProducts.get(pKey);
+			pdList.add(pd);
 		}
 
-	    }
-	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		electronicsRecords.size(), electronicsProducts.size());
-
-    }
-
-    @Override
-    public void listProducts() {
-	String aKey = null;
-	Set<String> electronicProductKeys = electronicsProducts.keySet();
-
-	int totalProducts = electronicProductKeys.size();
-	int i = 1;
-	for (String pKey : electronicProductKeys) {
-	    Product pd = electronicsProducts.get(pKey);
-	    if (aKey != pKey) {
-		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
-	    }
-	    aKey = pKey;
-	    keyMap.put(i, pKey);
-	    i++;
-	}
-    }
-
-    public List<Product> getProds(int index, int qauntity) {
-	ArrayList<Product> pdList = new ArrayList<Product>();
-	String pKey = keyMap.get(index);
-	for (int i = 0; i < qauntity; i++) {
-	    ElectronicsProd pd = electronicsProducts.get(pKey);
-	    pdList.add(pd);
+		return pdList;
 	}
 
-	return pdList;
-    }
+	@Override
+	public List<Product> getProducts() {
+		List<Product> pList = null;
 
-    @Override
-    public List<Product> getProducts() {
-	List<Product> pList = null;
+		return pList;
+	}
 
-	return pList;
-    }
+	@Override
+	public Scene getScene() {
+		Image electricImage = new Image(StoreConstants.ELECTRONICSDEPT);
+		ImageView iv = new ImageView();
+		iv.setImage(electricImage);
+		iv.setFitWidth(600);
+		iv.setPreserveRatio(true);
+		iv.setSmooth(true);
+		iv.setCache(true);
+		HBox ep = new HBox(iv);
+		ep.setAlignment(Pos.CENTER);
 
-    @Override
-    public Scene getScene() {
-	// TODO Auto-generated method stub
-	return null;
-    }
+		Scene eScene = new Scene(ep, 600, 575);
+
+		return eScene;
+	}
 }
