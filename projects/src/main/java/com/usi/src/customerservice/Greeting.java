@@ -491,8 +491,8 @@ public class Greeting extends Application {
 	for (Department dp : dList) {
 	    if (dName.equals(dp.getDeptName())) {
 		System.out.printf("Found %s directory\n", dp.getDeptName());
-		// parentStage.setScene(dp.getScene());
-		// parentStage.show();
+		parentStage.setScene(dp.getScene());
+		parentStage.show();
 	    }
 	}
 

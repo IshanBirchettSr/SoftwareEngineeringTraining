@@ -62,7 +62,7 @@ public class StoreConstants {
     public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
     public static final String TUPPERWARE_TRUCK = APP_HOME + "/src/resources/Tupperware.txt";
     public static final String HEALTH_AND_BEAUTY_TRUCK = APP_HOME + "/src/resources/HealthandBeauty.txt";
-  
+
     /*
      * Department Images
      * 
@@ -93,20 +93,18 @@ public class StoreConstants {
     public static final String LINENDEPT = "///file:///" + APP_HOME + "/images/Linen_Dept.png";
     public static final String LUGGAGEDEPT = "///file:///" + APP_HOME + "/images/Luggage_Dept.jpg";
     public static final String MEATDEPT = "///file:///" + APP_HOME + "/images/Meat_Dept.jpg";
-    public static final String PANTRYDEPT = "///file:///" + APP_HOME + "/images/Pantry_Dept.png";
-    public static final String PETCAREDEPT = "///file:///" + APP_HOME + "/images/Petcare_Dept.png";
-    public static final String PHARMACYDEPT = "///file:///" + APP_HOME + "/images/Pharmacy_Dept.png";
-    public static final String PLANTBASEDEPT = "///file:///" + APP_HOME + "/images/PlantBase_Dept.png";
-    public static final String PRESCRIPTIONEYEWAREDEPT = "///file:///" + APP_HOME
-	    + "images/Prescriptioneyeware_Dept.png";
-    public static final String PRODUCEDEPT = "///file:///" + APP_HOME + "/images/Produce_Dept.png";
-    public static final String SEAFOODDEPT = "///file:///" + APP_HOME + "/images/Seafood_Dept.png";
-    public static final String SHOEDEPT = "///file:///" + APP_HOME + "/images/Shoe_Dept.png";
-    public static final String STATIONARYDEPT = "///file:///" + APP_HOME + "/images/Stationary_Dept.png";
-    public static final String TOILETRIESDEPT = "///file:///" + APP_HOME + "/images/Toiletries_Dept.png";
-    public static final String TOYSDEPT = "///file:///" + APP_HOME + "/images/Toys_Dept.png";
-    public static final String TUPPERWAREDEPT = "///file:///" + APP_HOME + "/images/Tupperware_Dept.png";
-
+    public static final String PANTRYDEPT = "file:///" + APP_HOME + "/images/pantryimage.png";
+    public static final String PETCAREDEPT = "file:///" + APP_HOME + "/images/petcareimage.png";
+    public static final String PHARMACYDEPT = "file:///" + APP_HOME + "/images/pharmacyimage.png";
+    public static final String PLANTBASEDEPT = "file:///" + APP_HOME + "/images/plantbaseimage.png";
+    public static final String PRESCRIPTIONEYEWAREDEPT = "file:///" + APP_HOME + "images/prescriptioneyewareimage.png";
+    public static final String PRODUCEDEPT = "file:///" + APP_HOME + "/images/produceimage.png";
+    public static final String SEAFOODDEPT = "file:///" + APP_HOME + "/images/seafoodimage.png";
+    public static final String SHOEDEPT = "file:///" + APP_HOME + "/images/shoeimage.png";
+    public static final String STATIONARYDEPT = "file:///" + APP_HOME + "/images/stationaryimage.png";
+    public static final String TOILETRIESDEPT = "file:///" + APP_HOME + "/images/toiletriesimage.png";
+    public static final String TOYSDEPT = "file:///" + APP_HOME + "/images/toysimage.png";
+    public static final String TUPPERWAREDEPT = "file:///" + APP_HOME + "/images/tupperwareimage.png";
 
     /*
      * Please keep deptNames in alphabetical order
