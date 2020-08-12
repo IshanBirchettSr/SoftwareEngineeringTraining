@@ -5,7 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -42,7 +46,6 @@ public class PrescriptionEyewareDept extends Department {
 	for (String record : prescriptioneyewareRecords) {
 	    PrescriptionEyewareProd pw = new PrescriptionEyewareProd();
 	    boolean recordToProductSuccessful = pw.recordToProduct(record);
-
 
 	    // If it fails to convert any field, don't add that object to
 	    // prescriptioneyewareProducts
@@ -100,7 +103,17 @@ public class PrescriptionEyewareDept extends Department {
 
     @Override
     public Scene getScene() {
-	// TODO Auto-generated method stub
-	return null;
+	Image prescriptioneyewareImage = new Image(StoreConstants.PRESCRIPTIONEYEWAREDEPT);
+	ImageView iv = new ImageView();
+	iv.setImage(prescriptioneyewareImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+
+	HBox prescriptioneyewareView = new HBox(iv);
+	prescriptioneyewareView.setAlignment(Pos.CENTER_LEFT);
+	Scene prescriptioneyewareScene = new Scene(prescriptioneyewareView, 600, 575);
+	return prescriptioneyewareScene;
     }
 }
