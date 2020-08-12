@@ -20,7 +20,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -35,467 +34,466 @@ import util.Department;
 import util.StoreConstants;
 
 public class Greeting extends Application {
-	private boolean isMember = false;
-	private TextField txtCharacter;
-	private TextField phoneNumTxt = null;
-	private HBox pHBox = null;
-	private VBox primaryPane = null;
-	private HashMap<String, MembershipSignUp> membershipCards = null;
-	private MembershipSignUp mCard = null;
-	private Customer currentCustomer = null;
-	private static Stage parentStage = null;
-	// List<Department> dList = null;
-	private Scene deptsScene = null;
-	private List<String> membershipRecords = null;
-	private Stage newWindow = null;
-	private static Scene scene = null;
+    private boolean isMember = false;
+    private TextField txtCharacter;
+    private TextField phoneNumTxt = null;
+    private HBox pHBox = null;
+    private VBox primaryPane = null;
+    private HashMap<String, MembershipSignUp> membershipCards = null;
+    private MembershipSignUp mCard = null;
+    private Customer currentCustomer = null;
+    private static Stage parentStage = null;
+    // List<Department> dList = null;
+    private Scene deptsScene = null;
+    private List<String> membershipRecords = null;
+    private Stage newWindow = null;
+    private static Scene scene = null;
 
-	/**
-	 * @return the parentStage
-	 */
-	public static Stage getParentStage() {
-		return parentStage;
+    /**
+     * @return the parentStage
+     */
+    public static Stage getParentStage() {
+	return parentStage;
+    }
+
+    /**
+     * 
+     */
+    public Greeting() {
+	super();
+	membershipCards = new HashMap<String, MembershipSignUp>();
+	loadCardRecords();
+	loadMemCardRecords();
+    }
+
+    public void loadCardRecords() {
+	DataCsvLoad loadMembershipRecords = new DataCsvLoad();
+	loadMembershipRecords.loadData(StoreConstants.MEMBERSHIPCARD_TRUCK);
+	membershipRecords = loadMembershipRecords.getRecords();
+
+    }
+
+    public void loadMemCardRecords() {
+	for (String record : membershipRecords) {
+	    MembershipSignUp ap = new MembershipSignUp(record);
+	    membershipCards.put(ap.getPhoneNumber(), ap);
+	}
+    }
+
+    public Customer sayGreeting(String[] args) {
+	if (parentStage == null) {
+	    launch(args);
+	} else {
+	    parentStage.setScene(scene);
+	}
+	currentCustomer = new Customer();
+	return currentCustomer;
+    }
+
+    public void welcomeScreen(String[] args) {
+
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+	if (parentStage == null) {
+	    parentStage = primaryStage;
 	}
 
-	/**
-	 * 
-	 */
-	public Greeting() {
-		super();
-		membershipCards = new HashMap<String, MembershipSignUp>();
-		loadCardRecords();
-		loadMemCardRecords();
-	}
-
-	public void loadCardRecords() {
-		DataCsvLoad loadMembershipRecords = new DataCsvLoad();
-		loadMembershipRecords.loadData(StoreConstants.MEMBERSHIPCARD_TRUCK);
-		membershipRecords = loadMembershipRecords.getRecords();
-
-	}
-
-	public void loadMemCardRecords() {
-		for (String record : membershipRecords) {
-			MembershipSignUp ap = new MembershipSignUp(record);
-			membershipCards.put(ap.getPhoneNumber(), ap);
-		}
-	}
-
-	public Customer sayGreeting(String[] args) {
-		if (parentStage == null) {
-			launch(args);
-		} else {
-			parentStage.setScene(scene);
-		}
-		currentCustomer = new Customer();
-		return currentCustomer;
-	}
-
-	public void welcomeScreen(String[] args) {
-
-	}
-
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		if (parentStage == null) {
-			parentStage = primaryStage;
-		}
-
-		String wcl = String.format("Welcome to %s", StoreConstants.STORE_NAME);
-		Text welcomeTxt = new Text(wcl);
-		welcomeTxt.setText(wcl);
-		welcomeTxt.setX(50.00);
-		welcomeTxt.setY(80.00);
-		welcomeTxt.setFill(Color.BLUE);
-		welcomeTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
-		HBox gp = new HBox(20, welcomeTxt);
-		gp.setAlignment(Pos.CENTER);
+	String wcl = String.format("Welcome to %s", StoreConstants.STORE_NAME);
+	Text welcomeTxt = new Text(wcl);
+	welcomeTxt.setText(wcl);
+	welcomeTxt.setX(50.00);
+	welcomeTxt.setY(80.00);
+	welcomeTxt.setFill(Color.BLUE);
+	welcomeTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
+	HBox gp = new HBox(20, welcomeTxt);
+	gp.setAlignment(Pos.CENTER);
 //	
 //	List<String> fontNames = Font.getFontNames();
 //	for (String fontName : fontNames) {
 //	    System.out.println(fontName);
 //	}
 //
-		Image entranceImage = new Image(StoreConstants.STORE_ENTRANCE);
-		ImageView iv = new ImageView();
-		iv.setImage(entranceImage);
-		iv.setFitWidth(600);
-		iv.setPreserveRatio(true);
-		iv.setSmooth(true);
-		iv.setCache(true);
-		HBox ip = new HBox(iv);
-		ip.setAlignment(Pos.CENTER);
+	Image entranceImage = new Image(StoreConstants.STORE_ENTRANCE);
+	ImageView iv = new ImageView();
+	iv.setImage(entranceImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+	HBox ip = new HBox(iv);
+	ip.setAlignment(Pos.CENTER);
 
-		// storeView.setPadding(new Insets(20.50));
+	// storeView.setPadding(new Insets(20.50));
 
-		/* Now we perform our rendering */
+	/* Now we perform our rendering */
 
-		Label lblCharacter = new Label();
-		lblCharacter.setText("Do you have a membership card:");
-		lblCharacter.setMinWidth(100);
-		lblCharacter.setAlignment(Pos.CENTER_LEFT);
+	Label lblCharacter = new Label();
+	lblCharacter.setText("Do you have a membership card:");
+	lblCharacter.setMinWidth(100);
+	lblCharacter.setAlignment(Pos.CENTER_LEFT);
 
-		Button yesIDo = new Button("Yes");
-		EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				isMember = true;
-				System.out.println("Customer is a member!");
-				getPhoneNumber();
+	Button yesIDo = new Button("Yes");
+	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		isMember = true;
+		System.out.println("Customer is a member!");
+		getPhoneNumber();
 
-			}
-		};
-		yesIDo.setOnAction(yesEvent);
+	    }
+	};
+	yesIDo.setOnAction(yesEvent);
 
-		Button noIDoNot = new Button("No");
-		yesIDo.setAlignment(Pos.CENTER);
-		noIDoNot.setAlignment(Pos.CENTER);
-		EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				System.out.println("Customer is NOT a member!");
-				isMember = false;
-				membershipSignUp();
-			}
-		};
+	Button noIDoNot = new Button("No");
+	yesIDo.setAlignment(Pos.CENTER);
+	noIDoNot.setAlignment(Pos.CENTER);
+	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		System.out.println("Customer is NOT a member!");
+		isMember = false;
+		membershipSignUp();
+	    }
+	};
 
-		noIDoNot.setOnAction(noEvent);
+	noIDoNot.setOnAction(noEvent);
 
-		HBox paneCharacter = new HBox(20, lblCharacter, yesIDo, noIDoNot);
-		paneCharacter.setPadding(new Insets(10));
-		// Add the Character and Actor panes to a VBox
-		primaryPane = new VBox(10, gp, ip, paneCharacter);
-		primaryPane.setAlignment(Pos.CENTER);
-		// Create the bindings
+	HBox paneCharacter = new HBox(20, lblCharacter, yesIDo, noIDoNot);
+	paneCharacter.setPadding(new Insets(10));
+	// Add the Character and Actor panes to a VBox
+	primaryPane = new VBox(10, gp, ip, paneCharacter);
+	primaryPane.setAlignment(Pos.CENTER);
+	// Create the bindings
 
-		ScrollPane sp = new ScrollPane();
-		sp.setContent(primaryPane);
-		sp.setPannable(true);
-		sp.setHvalue(0.0);
-		sp.setVvalue(1.9);
+	ScrollPane sp = new ScrollPane();
+	sp.setContent(primaryPane);
+	sp.setPannable(true);
+	sp.setHvalue(0.0);
+	sp.setVvalue(1.9);
 
-		displayDepts();
-		Scene scene = new Scene(sp, 600, 575);
+	displayDepts();
+	Scene scene = new Scene(sp, 600, 575);
 
-		primaryStage.setScene(scene);
-		String screenTitle = String.format("%s - %s", StoreConstants.STORE_NAME, "Greeting");
-		primaryStage.setTitle(screenTitle);
-		primaryStage.show();
+	primaryStage.setScene(scene);
+	String screenTitle = String.format("%s - %s", StoreConstants.STORE_NAME, "Greeting");
+	primaryStage.setTitle(screenTitle);
+	primaryStage.show();
 
-	}
+    }
 
-	private void getPhoneNumber() {
+    private void getPhoneNumber() {
 
-		Label phoneNumberLbl = new Label("Enter Phone Number:");
-		phoneNumberLbl.setMinWidth(100);
-		phoneNumberLbl.setAlignment(Pos.BOTTOM_RIGHT);
-		// Create the Actor text field
-		phoneNumTxt = new TextField();
-		phoneNumTxt.setMinWidth(200);
-		phoneNumTxt.setMaxWidth(200);
-		phoneNumTxt.setPromptText("10 digits [0-9], including area code.");
-		phoneNumTxt.textProperty().addListener(new ChangeListener<String>() {
+	Label phoneNumberLbl = new Label("Enter Phone Number:");
+	phoneNumberLbl.setMinWidth(100);
+	phoneNumberLbl.setAlignment(Pos.BOTTOM_RIGHT);
+	// Create the Actor text field
+	phoneNumTxt = new TextField();
+	phoneNumTxt.setMinWidth(200);
+	phoneNumTxt.setMaxWidth(200);
+	phoneNumTxt.setPromptText("10 digits [0-9], including area code.");
+	phoneNumTxt.textProperty().addListener(new ChangeListener<String>() {
 
-			@Override
-			public void changed(ObservableValue<? extends String> arg0, String oldValue, String newValue) {
-				if (!newValue.matches("\\d{0,10}([\\.]\\d{0,4})?")) {
-					phoneNumTxt.setText(oldValue);
-				}
-				// Lookup membership card using phone number
-				if (newValue.length() == 10) {
-					mCard = membershipCards.get(newValue);
-					if (mCard != null) {
-						displayMemCard(mCard);
-						System.out.println("Membership Card Found!");
-					}
+	    @Override
+	    public void changed(ObservableValue<? extends String> arg0, String oldValue, String newValue) {
+		if (!newValue.matches("\\d{0,10}([\\.]\\d{0,4})?")) {
+		    phoneNumTxt.setText(oldValue);
+		}
+		// Lookup membership card using phone number
+		if (newValue.length() == 10) {
+		    mCard = membershipCards.get(newValue);
+		    if (mCard != null) {
+			displayMemCard(mCard);
+			System.out.println("Membership Card Found!");
+		    }
 //		    parentStage.hide();
 //		    parentStage.setScene(deptsScene);
 //		    // parentStage.setTitle("Store Map");
 //		    parentStage.setTitle("USI - Store Map");
 //		    parentStage.show();
-				}
-			}
-		});
-		HBox panePhoneNum = new HBox(20, phoneNumberLbl, phoneNumTxt);
-		panePhoneNum.setPadding(new Insets(10));
-		primaryPane.getChildren().add(panePhoneNum);
-	}
-
-	/**
-	 * @param mCard2
-	 */
-	protected void displayMemCard(MembershipSignUp mCard2) {
-		String imageKey = String.format(StoreConstants.MCARD, mCard2.getPhoneNumber());
-		Image mCardImage = new Image(imageKey);
-		Scene mCardScene = null;
-
-		ImageView iv = new ImageView();
-		iv.setImage(mCardImage);
-		iv.setFitWidth(450);
-		iv.setPreserveRatio(true);
-		iv.setSmooth(true);
-		iv.setCache(true);
-		HBox mp = new HBox(iv);
-		mp.setAlignment(Pos.CENTER);
-
-		String membershipDate = String.format("Membership Date: %s", mCard2.getDateOfMembership());
-
-		Label mDate = new Label(membershipDate);
-		mDate.setAlignment(Pos.CENTER);
-
-		String mString = String.format("Membership Discount: %d%%", StoreConstants.TODAYS_MEMBER_DISCOUNT);
-		Label mDiscount = new Label(mString);
-
-		VBox memSignUp = new VBox(5, iv, mDate, mDiscount);
-
-		if (mCard2.isAarpMember()) {
-			String mAarpM = String.format("AARP Discount: %d%%", StoreConstants.AARP_DISCOUNT);
-			Label mAarp = new Label(mAarpM);
-
-			memSignUp.getChildren().add(mAarp);
 		}
-		String mEmail = String.format("Email: %s", mCard2.getEmailAddress());
-		Label memEmail = new Label(mEmail);
-		memSignUp.getChildren().add(memEmail);
+	    }
+	});
+	HBox panePhoneNum = new HBox(20, phoneNumberLbl, phoneNumTxt);
+	panePhoneNum.setPadding(new Insets(10));
+	primaryPane.getChildren().add(panePhoneNum);
+    }
 
-		String rigMem = "Is this information correct?";
-		Label rightMem = new Label();
-		rightMem.setText(rigMem);
+    /**
+     * @param mCard2
+     */
+    protected void displayMemCard(MembershipSignUp mCard2) {
+	String imageKey = String.format(StoreConstants.MCARD, mCard2.getPhoneNumber());
+	Image mCardImage = new Image(imageKey);
+	Scene mCardScene = null;
 
-		Button yesButton = new Button("Yes");
-		yesButton.setAlignment(Pos.CENTER);
-		yesButton.setAlignment(Pos.CENTER);
+	ImageView iv = new ImageView();
+	iv.setImage(mCardImage);
+	iv.setFitWidth(450);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+	HBox mp = new HBox(iv);
+	mp.setAlignment(Pos.CENTER);
 
-		EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				System.out.println("Welcome! Enjoy your trip!");
-				newWindow.close();
-				displayDepts();
+	String membershipDate = String.format("Membership Date: %s", mCard2.getDateOfMembership());
 
-			}
-		};
-		yesButton.setOnAction(yesEvent);
+	Label mDate = new Label(membershipDate);
+	mDate.setAlignment(Pos.CENTER);
 
-		Button noButton = new Button("No");
-		noButton.setAlignment(Pos.CENTER);
-		noButton.setAlignment(Pos.CENTER);
+	String mString = String.format("Membership Discount: %d%%", StoreConstants.TODAYS_MEMBER_DISCOUNT);
+	Label mDiscount = new Label(mString);
 
-		EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				System.out.println("Please try again");
-				newWindow.close();
-			}
-		};
-		noButton.setOnAction(noEvent);
+	VBox memSignUp = new VBox(5, iv, mDate, mDiscount);
 
-		HBox correctMember = new HBox(10, rightMem, yesButton, noButton);
-		memSignUp.getChildren().add(correctMember);
+	if (mCard2.isAarpMember()) {
+	    String mAarpM = String.format("AARP Discount: %d%%", StoreConstants.AARP_DISCOUNT);
+	    Label mAarp = new Label(mAarpM);
 
-		// StackPane secondaryLayout = new StackPane();
+	    memSignUp.getChildren().add(mAarp);
+	}
+	String mEmail = String.format("Email: %s", mCard2.getEmailAddress());
+	Label memEmail = new Label(mEmail);
+	memSignUp.getChildren().add(memEmail);
 
-		mCardScene = new Scene(memSignUp, 450, 500);
+	String rigMem = "Is this information correct?";
+	Label rightMem = new Label();
+	rightMem.setText(rigMem);
 
-		// New window (Stage)
-		newWindow = new Stage();
-		newWindow.setTitle(String.format("%s- Membership Card", mCard.getFirstName()));
-		newWindow.setScene(mCardScene);
+	Button yesButton = new Button("Yes");
+	yesButton.setAlignment(Pos.CENTER);
+	yesButton.setAlignment(Pos.CENTER);
 
-		// Specifies the modality for new window.
-		newWindow.initModality(Modality.WINDOW_MODAL);
+	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		System.out.println("Welcome! Enjoy your trip!");
+		newWindow.close();
+		displayDepts();
 
-		// Specifies the owner Window (parent) for new window
-		newWindow.initOwner(parentStage);
+	    }
+	};
+	yesButton.setOnAction(yesEvent);
 
-		// Set position of second window, related to primary window.
-		newWindow.setX(parentStage.getX() + 25);
-		newWindow.setY(parentStage.getY() + 20);
+	Button noButton = new Button("No");
+	noButton.setAlignment(Pos.CENTER);
+	noButton.setAlignment(Pos.CENTER);
 
-		newWindow.show();
+	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		System.out.println("Please try again");
+		newWindow.close();
+	    }
+	};
+	noButton.setOnAction(noEvent);
 
+	HBox correctMember = new HBox(10, rightMem, yesButton, noButton);
+	memSignUp.getChildren().add(correctMember);
+
+	// StackPane secondaryLayout = new StackPane();
+
+	mCardScene = new Scene(memSignUp, 450, 500);
+
+	// New window (Stage)
+	newWindow = new Stage();
+	newWindow.setTitle(String.format("%s- Membership Card", mCard.getFirstName()));
+	newWindow.setScene(mCardScene);
+
+	// Specifies the modality for new window.
+	newWindow.initModality(Modality.WINDOW_MODAL);
+
+	// Specifies the owner Window (parent) for new window
+	newWindow.initOwner(parentStage);
+
+	// Set position of second window, related to primary window.
+	newWindow.setX(parentStage.getX() + 25);
+	newWindow.setY(parentStage.getY() + 20);
+
+	newWindow.show();
+
+    }
+
+    private void membershipSignUp() {
+
+	Label lblCharacter = new Label(
+		"Would you like to maximize your savings today by signing up for a Membership Card? ");
+	lblCharacter.setMinWidth(100);
+	lblCharacter.setAlignment(Pos.CENTER_LEFT);
+
+	Button yesIDo = new Button("Yes");
+	EventHandler<ActionEvent> signUpEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		isMember = true;
+		newMembership();
+	    }
+	};
+	yesIDo.setOnAction(signUpEvent);
+
+	Button noIDoNot = new Button("No");
+	yesIDo.setAlignment(Pos.CENTER);
+	noIDoNot.setAlignment(Pos.CENTER);
+	EventHandler<ActionEvent> noSignUpEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		declineMembership();
+		isMember = false;
+	    }
+	};
+
+	noIDoNot.setOnAction(noSignUpEvent);
+
+	HBox paneMembershipSignUp = new HBox(20, lblCharacter, yesIDo, noIDoNot);
+	paneMembershipSignUp.setPadding(new Insets(10));
+
+	primaryPane.getChildren().add(paneMembershipSignUp);
+	return;
+    }
+
+    private void declineMembership() {
+	String declineMessage = String.format(
+		"Ok, well you can signup at any time in the future and instantly save %d%%. Happy Shopping!",
+		StoreConstants.TODAYS_MEMBER_DISCOUNT);
+
+	Label lblCharacter = new Label(declineMessage);
+	lblCharacter.setMinWidth(100);
+	lblCharacter.setAlignment(Pos.CENTER_LEFT);
+
+	HBox paneDeclineSignUp = new HBox(30, lblCharacter);
+	paneDeclineSignUp.setPadding(new Insets(10));
+
+	primaryPane.getChildren().add(paneDeclineSignUp);
+	return;
+    }
+
+    private void newMembership() {
+
+	String wcl = String.format("%s Membership Sign Up", StoreConstants.STORE_NAME);
+	Text membershipTxt = new Text(wcl);
+	membershipTxt.setText(wcl);
+	membershipTxt.setX(50.00);
+	membershipTxt.setY(80.00);
+	membershipTxt.setFill(Color.BLUE);
+
+	membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
+
+	HBox gp = new HBox(20, membershipTxt);
+	gp.setAlignment(Pos.CENTER);
+	gp.setPadding(new Insets(20.50));
+	HBox memSignUp = new HBox();
+	memSignUp.getChildren().add(membershipTxt);
+
+	Scene signUpScene = new Scene(memSignUp, 450, 600);
+
+	// New window (Stage)
+	Stage newWindow = new Stage();
+	newWindow.setTitle("Shoppers Super Store - Membership Sign Up");
+	newWindow.setScene(signUpScene);
+
+	// Specifies the modality for new window.
+	newWindow.initModality(Modality.WINDOW_MODAL);
+
+	// Specifies the owner Window (parent) for new window
+	newWindow.initOwner(parentStage);
+
+	// Set position of second window, related to primary window.
+	newWindow.setX(parentStage.getX() + 25);
+	newWindow.setY(parentStage.getY() + 20);
+
+	newWindow.show();
+    }
+
+    /**
+     * @param dList
+     */
+    public void displayDepts() {
+	List<Department> dList = SuperStore.getdList();
+
+	Image storeMapImage = new Image(StoreConstants.STORE_MAP);
+	ImageView iv = new ImageView();
+	iv.setImage(storeMapImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+
+	HBox storeMapView = new HBox(iv);
+	storeMapView.setAlignment(Pos.CENTER_LEFT);
+
+	System.out.printf("dList length %d\n", dList.size());
+	int dsize = dList.size();
+	String[] dStrs = new String[dsize];
+	int i = 0;
+	for (Department dp : dList) {
+	    dStrs[i] = dp.getDeptName();
+	    i++;
 	}
 
-	private void membershipSignUp() {
-
-		Label lblCharacter = new Label(
-				"Would you like to maximize your savings today by signing up for a Membership Card? ");
-		lblCharacter.setMinWidth(100);
-		lblCharacter.setAlignment(Pos.CENTER_LEFT);
-
-		Button yesIDo = new Button("Yes");
-		EventHandler<ActionEvent> signUpEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				isMember = true;
-				newMembership();
-			}
-		};
-		yesIDo.setOnAction(signUpEvent);
-
-		Button noIDoNot = new Button("No");
-		yesIDo.setAlignment(Pos.CENTER);
-		noIDoNot.setAlignment(Pos.CENTER);
-		EventHandler<ActionEvent> noSignUpEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				declineMembership();
-				isMember = false;
-			}
-		};
-
-		noIDoNot.setOnAction(noSignUpEvent);
-
-		HBox paneMembershipSignUp = new HBox(20, lblCharacter, yesIDo, noIDoNot);
-		paneMembershipSignUp.setPadding(new Insets(10));
-
-		primaryPane.getChildren().add(paneMembershipSignUp);
-		return;
-	}
-
-	private void declineMembership() {
-		String declineMessage = String.format(
-				"Ok, well you can signup at any time in the future and instantly save %d%%. Happy Shopping!",
-				StoreConstants.TODAYS_MEMBER_DISCOUNT);
-
-		Label lblCharacter = new Label(declineMessage);
-		lblCharacter.setMinWidth(100);
-		lblCharacter.setAlignment(Pos.CENTER_LEFT);
-
-		HBox paneDeclineSignUp = new HBox(30, lblCharacter);
-		paneDeclineSignUp.setPadding(new Insets(10));
-
-		primaryPane.getChildren().add(paneDeclineSignUp);
-		return;
-	}
-
-	private void newMembership() {
-
-		String wcl = String.format("%s Membership Sign Up", StoreConstants.STORE_NAME);
-		Text membershipTxt = new Text(wcl);
-		membershipTxt.setText(wcl);
-		membershipTxt.setX(50.00);
-		membershipTxt.setY(80.00);
-		membershipTxt.setFill(Color.BLUE);
-
-		membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
-
-		HBox gp = new HBox(20, membershipTxt);
-		gp.setAlignment(Pos.CENTER);
-		gp.setPadding(new Insets(20.50));
-		Label secondLabel = new Label("I'm a Label on new Window");
-
-		StackPane secondaryLayout = new StackPane();
-		HBox memSignUp = new HBox();
-		memSignUp.getChildren().add(membershipTxt);
-
-		Scene signUpScene = new Scene(memSignUp, 450, 600);
-
-		// New window (Stage)
-		Stage newWindow = new Stage();
-		newWindow.setTitle("Shoppers Super Store - Membership Sign Up");
-		newWindow.setScene(signUpScene);
-
-		// Specifies the modality for new window.
-		newWindow.initModality(Modality.WINDOW_MODAL);
-
-		// Specifies the owner Window (parent) for new window
-		newWindow.initOwner(parentStage);
-
-		// Set position of second window, related to primary window.
-		newWindow.setX(parentStage.getX() + 25);
-		newWindow.setY(parentStage.getY() + 20);
-
-		newWindow.show();
-	}
-
-	/**
-	 * @param dList
-	 */
-	public void displayDepts() {
-		List<Department> dList = SuperStore.getdList();
-
-		Image storeMapImage = new Image(StoreConstants.STORE_MAP);
-		ImageView iv = new ImageView();
-		iv.setImage(storeMapImage);
-		iv.setFitWidth(600);
-		iv.setPreserveRatio(true);
-		iv.setSmooth(true);
-		iv.setCache(true);
-
-		HBox storeMapView = new HBox(iv);
-		storeMapView.setAlignment(Pos.CENTER_LEFT);
-
-		System.out.printf("dList length %d\n", dList.size());
-		int dsize = dList.size();
-		String[] dStrs = new String[dsize];
-		int i = 0;
-		for (Department dp : dList) {
-			dStrs[i] = dp.getDeptName();
-			i++;
-		}
-
-		String hShop = String.format("Happy Shopping!");
-		Text happyShoppingTxt = new Text(hShop);
-		happyShoppingTxt.setText(hShop);
+	String hShop = String.format("Happy Shopping!");
+	Text happyShoppingTxt = new Text(hShop);
+	happyShoppingTxt.setText(hShop);
 //	happyShoppingTxt.setX(50.00);
 //	happyShoppingTxt.setY(80.00);
-		happyShoppingTxt.setFill(Color.BLUE);
+	happyShoppingTxt.setFill(Color.BLUE);
 
-		happyShoppingTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
+	happyShoppingTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
 
-		ComboBox<String> deptComboBox = new ComboBox(FXCollections.observableArrayList(dStrs));
-		deptComboBox.setValue("<SELECT>");
-		Label selected = new Label("Please Observe MASK On COVID 19 - Social Distancing 6 X 6 ft.");
+	ComboBox<String> deptComboBox = new ComboBox<String>(FXCollections.observableArrayList(dStrs));
+	deptComboBox.setValue("<SELECT>");
+	Label selected = new Label("Please Observe MASK On COVID 19 - Social Distancing 6 X 6 ft.");
 
-		EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				String dName = deptComboBox.getValue();
-				selected.setText("Scrolling to " + dName + " Department ...");
-				displayDepartmentScene(dName);
-			}
-		};
+	EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		String dName = deptComboBox.getValue();
+		selected.setText("Scrolling to " + dName + " Department ...");
+		displayDepartmentScene(dName);
+	    }
+	};
 
-		deptComboBox.setOnAction(event);
+	deptComboBox.setOnAction(event);
 
-		TilePane tp = new TilePane(deptComboBox);
-		tp.setTileAlignment(Pos.CENTER);
+	TilePane tp = new TilePane(deptComboBox);
+	tp.setTileAlignment(Pos.CENTER);
 
-		String sDept = String.format("Choose Department: ");
-		Text shoppingTxt = new Text(sDept);
-		shoppingTxt.setText(sDept);
-		shoppingTxt.setX(50.00);
-		shoppingTxt.setY(80.00);
-		shoppingTxt.setFill(Color.BLUE);
+	String sDept = String.format("Choose Department: ");
+	Text shoppingTxt = new Text(sDept);
+	shoppingTxt.setText(sDept);
+	shoppingTxt.setX(50.00);
+	shoppingTxt.setY(80.00);
+	shoppingTxt.setFill(Color.BLUE);
 
-		shoppingTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
+	shoppingTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
 
-		VBox gp0 = new VBox(20, happyShoppingTxt);
-		VBox gp1 = new VBox(20, storeMapView, selected);
-		HBox gp2 = new HBox(20, shoppingTxt, tp);
-		VBox gp = new VBox(20, gp0, gp1, gp2);
-		gp0.setAlignment(Pos.CENTER);
-		gp1.setAlignment(Pos.CENTER);
-		gp2.setAlignment(Pos.CENTER);
-		gp.setAlignment(Pos.CENTER);
-		gp2.setPadding(new Insets(10));
+	VBox gp0 = new VBox(20, happyShoppingTxt);
+	VBox gp1 = new VBox(20, storeMapView, selected);
+	HBox gp2 = new HBox(20, shoppingTxt, tp);
+	VBox gp = new VBox(20, gp0, gp1, gp2);
+	gp0.setAlignment(Pos.CENTER);
+	gp1.setAlignment(Pos.CENTER);
+	gp2.setAlignment(Pos.CENTER);
+	gp.setAlignment(Pos.CENTER);
+	gp2.setPadding(new Insets(10));
 
-		deptsScene = new Scene(gp, 600, 575);
-		parentStage.setScene(deptsScene);
+	deptsScene = new Scene(gp, 600, 575);
+	parentStage.setScene(deptsScene);
+	parentStage.show();
+    }
+
+    /**
+     * @param dName
+     */
+    protected void displayDepartmentScene(String dName) {
+	List<Department> dList = SuperStore.getdList();
+
+	// This can be refactored to use a HashMap with a String dName key
+	// So you don't have to do a for each loop every time. We will
+	// refactor later time permitting.
+	for (Department dp : dList) {
+	    if (dName.equals(dp.getDeptName())) {
+		System.out.printf("Found %s directory\n", dName);
+		String dTitle = String.format("%s - %s Department", StoreConstants.STORE_NAME, dName);
+		parentStage.setTitle(dTitle);
+		parentStage.setScene(dp.getScene());
 		parentStage.show();
+	    }
 	}
 
-	/**
-	 * @param dName
-	 */
-	protected void displayDepartmentScene(String dName) {
-		List<Department> dList = SuperStore.getdList();
-
-		// This can be refactored to use a HashMap with a String dName key
-		// So you don't have to do a for each loop every time. We will
-		// refactor later time permitting.
-		for (Department dp : dList) {
-			if (dName.equals(dp.getDeptName())) {
-				System.out.printf("Found %s directory\n", dp.getDeptName());
-				parentStage.setScene(dp.getScene());
-				parentStage.show();
-			}
-		}
-
-	}
+    }
 
 }
