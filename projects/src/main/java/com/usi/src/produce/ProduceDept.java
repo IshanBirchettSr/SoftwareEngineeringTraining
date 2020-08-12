@@ -13,7 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -112,7 +116,17 @@ public class ProduceDept extends Department {
 
     @Override
     public Scene getScene() {
-	// TODO Auto-generated method stub
-	return null;
+	Image produceImage = new Image(StoreConstants.PRODUCEDEPT);
+	ImageView iv = new ImageView();
+	iv.setImage(produceImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+
+	HBox produceView = new HBox(iv);
+	produceView.setAlignment(Pos.CENTER_LEFT);
+	Scene produceScene = new Scene(produceView, 600, 575);
+	return produceScene;
     }
 }

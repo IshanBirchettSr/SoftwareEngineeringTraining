@@ -8,7 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -108,7 +112,17 @@ public class ShoeDept extends Department {
 
     @Override
     public Scene getScene() {
-	// TODO Auto-generated method stub
-	return null;
+	Image shoepantryImage = new Image(StoreConstants.SHOEDEPT);
+	ImageView iv = new ImageView();
+	iv.setImage(shoepantryImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+
+	HBox shoeView = new HBox(iv);
+	shoeView.setAlignment(Pos.CENTER_LEFT);
+	Scene shoeScene = new Scene(shoeView, 600, 575);
+	return shoeScene;
     }
 }

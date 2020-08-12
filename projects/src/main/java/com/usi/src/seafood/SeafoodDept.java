@@ -13,7 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -113,7 +117,17 @@ public class SeafoodDept extends Department {
 
     @Override
     public Scene getScene() {
-	// TODO Auto-generated method stub
-	return null;
+	Image seafoodImage = new Image(StoreConstants.SEAFOODDEPT);
+	ImageView iv = new ImageView();
+	iv.setImage(seafoodImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+
+	HBox seafoodView = new HBox(iv);
+	seafoodView.setAlignment(Pos.CENTER_LEFT);
+	Scene seafoodScene = new Scene(seafoodView, 600, 575);
+	return seafoodScene;
     }
 }
