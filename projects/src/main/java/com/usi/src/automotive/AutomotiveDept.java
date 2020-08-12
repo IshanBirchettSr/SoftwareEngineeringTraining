@@ -5,7 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -103,9 +107,18 @@ public class AutomotiveDept extends Department {
 
     @Override
     public Scene getScene() {
-	// Your design
-	// Add to a Scene
-	// return
-	return null;
+	Image automotiveImage = new Image(StoreConstants.AUTOMOTIVEDEPT);
+	ImageView iv = new ImageView();
+	iv.setImage(automotiveImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+	HBox furp = new HBox(iv);
+	furp.setAlignment(Pos.CENTER);
+
+	Scene autoScene = new Scene(furp, 600, 575);
+	// TODO Auto-generated method stub
+	return autoScene;
     }
 }
