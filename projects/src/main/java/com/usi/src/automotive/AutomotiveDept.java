@@ -103,7 +103,9 @@ public class AutomotiveDept extends Department {
 
     @Override
     public Scene getScene() {
-	// TODO Auto-generated method stub
+	// Your design
+	// Add to a Scene
+	// return
 	return null;
     }
 }
