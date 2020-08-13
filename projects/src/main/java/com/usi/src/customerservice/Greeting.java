@@ -191,6 +191,8 @@ public class Greeting extends Application {
 	phoneNumTxt.setMinWidth(200);
 	phoneNumTxt.setMaxWidth(200);
 	phoneNumTxt.setPromptText("10 digits [0-9], including area code.");
+	phoneNumTxt.setFocusTraversable(true);
+	phoneNumTxt.requestFocus();
 	phoneNumTxt.textProperty().addListener(new ChangeListener<String>() {
 
 	    @Override
@@ -205,14 +207,10 @@ public class Greeting extends Application {
 			displayMemCard(mCard);
 			System.out.println("Membership Card Found!");
 		    }
-//		    parentStage.hide();
-//		    parentStage.setScene(deptsScene);
-//		    // parentStage.setTitle("Store Map");
-//		    parentStage.setTitle("USI - Store Map");
-//		    parentStage.show();
 		}
 	    }
 	});
+
 	HBox panePhoneNum = new HBox(20, phoneNumberLbl, phoneNumTxt);
 	panePhoneNum.setPadding(new Insets(10));
 	primaryPane.getChildren().add(panePhoneNum);
