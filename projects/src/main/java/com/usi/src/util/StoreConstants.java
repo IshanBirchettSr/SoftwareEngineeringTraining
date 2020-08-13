@@ -64,7 +64,8 @@ public class StoreConstants {
     public static final String STORE_ENTRANCE = "file:///" + APP_HOME + "/images/SuperStoreEntrance.png";
     public static final String STORE_MAP = "file:///" + APP_HOME + "/images/StoreMap.png";
     public static final String MCARD = "file:///" + APP_HOME + "/images/MCard%s.png";
-    public static final String AUTOMOTIVEDEPT = "file:///" + APP_HOME + "/images/Autmotive_Dept.JPG";
+
+    public static final String AUTOMOTIVEDEPT = "file:///" + APP_HOME + "/images/Automotive_Dept.png";
     public static final String BABYESSENTIALSDEPT = "file:///" + APP_HOME + "/images/Babyessemtials_Dept.JPG";
     public static final String BAKERYDEPT = "file:///" + APP_HOME + "/images/Bakery_Dept.JPG";
     public static final String BEDDINGDEPT = "file:///" + APP_HOME + "/images/Bedding_Dept.JPG";
@@ -99,6 +100,10 @@ public class StoreConstants {
     public static final String TOILETRIESDEPT = "file:///" + APP_HOME + "/images/toiletriesimage.png";
     public static final String TOYSDEPT = "file:///" + APP_HOME + "/images/toysimage.png";
     public static final String TUPPERWAREDEPT = "file:///" + APP_HOME + "/images/tupperwareimage.png";
+    /*
+     * Product Image
+     */
+    public static final String PRODUCT_IMAGE = "file:///" + APP_HOME + "/images" + "/%s_prod_%s_%s.png";
 
     /*
      * Please keep deptNames in alphabetical order
