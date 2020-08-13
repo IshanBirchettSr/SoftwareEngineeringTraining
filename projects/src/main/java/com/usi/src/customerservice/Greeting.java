@@ -37,7 +37,7 @@ public class Greeting extends Application {
     private boolean isMember = false;
     private TextField txtCharacter;
     private TextField phoneNumTxt = null;
-    private HBox pHBox = null;
+    private static HBox pHBox = null;
     private VBox primaryPane = null;
     private HashMap<String, MembershipSignUp> membershipCards = null;
     private MembershipSignUp mCard = null;
@@ -48,6 +48,7 @@ public class Greeting extends Application {
     private List<String> membershipRecords = null;
     private Stage newWindow = null;
     private static Scene scene = null;
+    static ComboBox<String> deptComboBox = null;
 
     /**
      * @return the parentStage
@@ -432,8 +433,8 @@ public class Greeting extends Application {
 
 	happyShoppingTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
 
-	ComboBox<String> deptComboBox = new ComboBox<String>(FXCollections.observableArrayList(dStrs));
-	deptComboBox.setValue("<SELECT>");
+	deptComboBox = new ComboBox<String>(FXCollections.observableArrayList(dStrs));
+	deptComboBox.setValue("Select Department");
 	Label selected = new Label("Please Observe MASK On COVID 19 - Social Distancing 6 X 6 ft.");
 
 	EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
@@ -487,10 +488,41 @@ public class Greeting extends Application {
 		System.out.printf("Found %s directory\n", dName);
 		String dTitle = String.format("%s - %s Department", StoreConstants.STORE_NAME, dName);
 		parentStage.setTitle(dTitle);
+		Scene dpScene = dp.getScene();
 		parentStage.setScene(dp.getScene());
 		parentStage.show();
 	    }
 	}
+
+    }
+
+    public static HBox getBottonDeptButtons() {
+	HBox pHbox = new HBox();
+
+	Button cButton = new Button("Checkout");
+	EventHandler<ActionEvent> cEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		System.out.println("Time to checkout!");
+	    }
+	};
+	cButton.setOnAction(cEvent);
+	cButton.setAlignment(Pos.CENTER);
+
+	Button sCart = new Button("View Cart");
+
+	sCart.setAlignment(Pos.CENTER);
+	EventHandler<ActionEvent> scEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		System.out.println("Customer is NOT a member!");
+	    }
+	};
+
+	sCart.setOnAction(scEvent);
+
+	pHBox = new HBox(20, cButton, sCart, deptComboBox);
+	// paneCharacter.setPadding(new Insets(10));
+
+	return pHBox;
 
     }
 

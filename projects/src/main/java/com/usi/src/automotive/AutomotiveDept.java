@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import customerservice.Greeting;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -229,7 +231,11 @@ public class AutomotiveDept extends Department {
 	sp.setPannable(true);
 	sp.setHvalue(0.0);
 	sp.setVvalue(0.0);
-	VBox aVBox = new VBox(20, ap, sp);
+	HBox dButtons = Greeting.getBottonDeptButtons();
+	dButtons.setAlignment(Pos.CENTER);
+	dButtons.setSpacing(30);
+	dButtons.setPadding(new Insets(15, 0, 15, 0));
+	VBox aVBox = new VBox(10, ap, sp, dButtons);
 	Scene aScene = new Scene(aVBox, 600, 650);
 	return aScene;
     }
