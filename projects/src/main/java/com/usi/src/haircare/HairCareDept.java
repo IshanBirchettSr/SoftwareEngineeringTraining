@@ -8,11 +8,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.Text;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -109,6 +119,17 @@ public class HairCareDept extends Department {
 
 	@Override
 	public Scene getScene() {
+
+		String imageKey = String.format("Welcome to the Hair Care Department!");
+		Text welcomeTxt = new Text(imageKey);
+		welcomeTxt.setText(imageKey);
+		welcomeTxt.setX(50.00);
+		welcomeTxt.setY(80.00);
+		welcomeTxt.setFill(Color.BLUE);
+		welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+		HBox hg = new HBox(20, welcomeTxt);
+		hg.setAlignment(Pos.TOP_CENTER);
+
 		Image haircareImage = new Image(StoreConstants.HAIRCAREDEPT);
 		ImageView iv = new ImageView();
 		iv.setImage(haircareImage);
@@ -119,7 +140,50 @@ public class HairCareDept extends Department {
 		HBox hp = new HBox(iv);
 		hp.setAlignment(Pos.CENTER);
 
-		Scene hScene = new Scene(hp, 600, 575);
+		VBox hBox = new VBox(20, hg, iv);
+
+		String goIn = String.format("Would you like to shop the Hair Care Department?");
+		Text shopTxt = new Text(goIn);
+		shopTxt.setText(goIn);
+		shopTxt.setX(50.00);
+		shopTxt.setY(80.00);
+		shopTxt.setFill(Color.BLUE);
+		shopTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
+
+		Label comeIn = new Label(goIn);
+		comeIn.setAlignment(Pos.BOTTOM_CENTER);
+
+		Button Enter = new Button("YES!");
+		EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+
+				System.out.println("Welcome!");
+
+			}
+		};
+		Enter.setOnAction(yesEvent);
+
+		Button noIDoNot = new Button("Next Department Please");
+		Enter.setAlignment(Pos.BOTTOM_CENTER);
+		noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
+		EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				System.out.println("No");
+
+			}
+		};
+
+		noIDoNot.setOnAction(noEvent);
+
+		HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
+		paneCharacter.setPadding(new Insets(10));
+		// Add the Character and Actor panes to a VBox
+		VBox hl = new VBox(10, hp, paneCharacter);
+		hl.setAlignment(Pos.CENTER);
+
+		hBox.getChildren().add(paneCharacter);
+
+		Scene hScene = new Scene(hBox, 600, 575);
 		// TODO Auto-generated method stub
 		return hScene;
 	}
