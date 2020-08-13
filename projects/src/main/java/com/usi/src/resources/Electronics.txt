@@ -1,8 +1,8 @@
 /*Electronics
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
 Ipad , Electronics , POUNDS , UUID , 1 , 10.2 inch screen , Apple , 1.06 , 279.00 , GRAY , Metal , 500 , 32 GB Memory/0 GB Ram/7th Genereation
-Ipad Air , Electronics , OUNCES , UUID , 1 , 10.5 inch screen , Apple , 28.16 , 469.00 , GOLD , Metal , 350 , 64 GB Memory/0 GB Ram 
-Ipad2 , Electronics , POUNDS , UUID , 1 , 10.2 inch screen , Apple , 1.06 , 379.00 , WHITE , Steel ,  50 , 128 GB/0 GB Ram/ 7th Generation
+Ipad , Electronics , OUNCES , UUID , 1 , 10.5 inch screen , Apple2 , 28.16 , 469.00 , GOLD , Metal , 350 , 64 GB Memory/0 GB Ram 
+Ipad , Electronics , POUNDS , UUID , 1 , 10.2 inch screen , Apple3 , 1.06 , 379.00 , WHITE , Steel ,  50 , 128 GB/0 GB Ram/ 7th Generation
 Smart TV, Electronics, POUNDS , UUID , 1 , 55 inch screen , Samsung , 49.8 , 599.00 , BLACK , Fiberglass , 30 , 4k/Touchscreen
 Smart TV , Electronics , POUNDS , UUID , 1 , 32 inch screen , Sony , 10.9 , 298.00 , SILVER , Metal , 100 , 720P HD
 Cellphone , Electronics , GRAMS , UUID , 1 , 5.5 inch screen , Apple , 140 , 469.00 , GOLD , Metal , 350 , IPHONE6/64 GB Memory/2 GB Ram 
