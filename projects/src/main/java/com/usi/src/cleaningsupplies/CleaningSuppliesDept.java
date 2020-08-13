@@ -5,7 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -103,7 +107,17 @@ public class CleaningSuppliesDept extends Department {
 
     @Override
     public Scene getScene() {
-	// TODO Auto-generated method stub
-	return null;
+	Image cleaningsuppliesImage = new Image(StoreConstants.CLEANINGSUPPLIESDEPT);
+	ImageView iv = new ImageView();
+	iv.setImage(cleaningsuppliesImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+	HBox fp = new HBox(iv);
+	fp.setAlignment(Pos.CENTER);
+
+	Scene csdScene = new Scene(fp, 600, 575);
+	return csdScene;
     }
 }

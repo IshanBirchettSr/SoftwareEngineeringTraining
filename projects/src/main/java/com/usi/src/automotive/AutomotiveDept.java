@@ -21,6 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
+
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -117,6 +118,7 @@ public class AutomotiveDept extends Department {
 
     @Override
     public Scene getScene() {
+      
 	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.AUTOMOTIVE);
 	Label slogan = new Label();
 	slogan.setText(sString);
@@ -229,7 +231,6 @@ public class AutomotiveDept extends Department {
 	sp.setVvalue(0.0);
 	VBox aVBox = new VBox(20, ap, sp);
 	Scene aScene = new Scene(aVBox, 600, 650);
-
 	return aScene;
     }
 }

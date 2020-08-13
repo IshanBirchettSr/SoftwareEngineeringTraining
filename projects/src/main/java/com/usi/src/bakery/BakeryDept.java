@@ -13,7 +13,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -104,7 +108,18 @@ public class BakeryDept extends Department {
 
     @Override
     public Scene getScene() {
+	Image bakeryImage = new Image(StoreConstants.BAKERYDEPT);
+	ImageView iv = new ImageView();
+	iv.setImage(bakeryImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+	HBox furp = new HBox(iv);
+	furp.setAlignment(Pos.CENTER);
+
+	Scene bScene = new Scene(furp, 600, 575);
 	// TODO Auto-generated method stub
-	return null;
+	return bScene;
     }
 }
