@@ -36,8 +36,9 @@ public class LuggageDept extends Department {
 	/**
 	 * Constructor
 	 */
-	public void LugggageDept() {
+	public LuggageDept() {
 		super.setDeptName(deptName);
+
 // Record Load
 		DataCsvLoad unLoadTrucks = new DataCsvLoad();
 		unLoadTrucks.loadData(StoreConstants.LUGGAGE_TRUCK);
