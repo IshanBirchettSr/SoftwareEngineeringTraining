@@ -2,6 +2,7 @@
 package frozenfoods;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -13,13 +14,18 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import util.DataCsvLoad;
 import util.Department;
@@ -134,11 +140,11 @@ public class FrozenFoodsDept extends Department {
 		Image frozenFoodImage = new Image(StoreConstants.FROZENFOODSDEPT);
 		ImageView iv = new ImageView();
 		iv.setImage(frozenFoodImage);
-		iv.setFitWidth(600);
+		iv.setFitWidth(300);
 		iv.setPreserveRatio(true);
 		iv.setSmooth(true);
 		iv.setCache(true);
-		HBox ffp = new HBox(iv);
+		HBox ffp = new HBox(20, iv);
 		ffp.setAlignment(Pos.CENTER);
 
 		VBox ffBox = new VBox(20, ffg, iv);
@@ -179,12 +185,113 @@ public class FrozenFoodsDept extends Department {
 		HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
 		paneCharacter.setPadding(new Insets(10));
 		// Add the Character and Actor panes to a VBox
-		VBox fl = new VBox(10, ffp, paneCharacter);
-		fl.setAlignment(Pos.CENTER);
+		VBox ffl = new VBox(10, ffp, paneCharacter);
+		ffl.setAlignment(Pos.CENTER);
 
 		ffBox.getChildren().add(paneCharacter);
 
-		Scene ffScene = new Scene(ffBox, 600, 575);
+		Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
+		instructions.setAlignment(Pos.CENTER);
+		instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
+		instructions.setStyle("-fx-background-color:lightblue");
+		VBox fpr = new VBox(15, ffBox, iv, instructions);
+		fpr.setAlignment(Pos.CENTER);
+
+		GridPane pGrid = new GridPane();
+		Insets iSet = new Insets(0, 30, 10, 10);
+		pGrid.setPadding(iSet);
+
+		String oProdName = "NoProd";
+		Set<String> eProductKeys = frozenFoodsProducts.keySet();
+		// You must sort the Set of keys
+		List<String> list = new ArrayList<>(eProductKeys);
+		Collections.sort(list);
+
+		int rowIndex = 0;
+		int columnIndex = 0;
+		String oldFilename = "Firstfile";
+
+		for (String pKey : list) {
+			Product pd = frozenFoodsProducts.get(pKey);
+
+			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "frozen foods", pd.getBrandName(),
+					pd.getProductName());
+			if (oldFilename.equals(iFileName)) {
+				// System.out.printf("%s==%s, %b\n", oldFilename,
+				// iFileName,oldFilename.equals(iFileName));
+				continue;
+			}
+			System.out.println(iFileName);
+			oldFilename = iFileName;
+
+			// Image View
+			Image pImage = new Image(iFileName);
+			ImageView pV = new ImageView();
+			pV.setFitHeight(125);
+			// pV.setFitHeight(65);
+			pV.setId(pd.getBrandName() + "-" + pd.getProductName());
+			pV.setImage(pImage);
+			pV.setPreserveRatio(true);
+
+			pV.setSmooth(true);
+			pV.setCache(true);
+			String electronicsToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+					pd.getPrice());
+			Tooltip.install(pV, new Tooltip(electronicsToolTip));
+
+			EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
+				public void handle(MouseEvent e) {
+					System.out.printf("Image Click on %s\n", pV.getId());
+				}
+			};
+			pV.setOnMouseClicked(iEvent);
+			if (oProdName.equals(pd.getProductName()) != true) {
+				Label pLabel = new Label();
+				pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
+				pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+				if (pd.getProductName().contains("Ipad")) {
+					pLabel.setText(pd.getProductName() + " Aisle");
+					pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+				} else {
+					pLabel.setText(pd.getProductName() + " Shelve");
+				}
+				pLabel.setAlignment(Pos.CENTER);
+				columnIndex = 0;
+				rowIndex += 1;
+				System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
+
+				pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
+				if (rowIndex == 0) {
+					rowIndex = 1;
+				} else {
+					rowIndex += 1;
+				}
+				System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
+				oProdName = pd.getProductName();
+			}
+			System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
+			pGrid.add(pV, columnIndex, rowIndex);
+
+			if (columnIndex < 5) {
+				columnIndex++;
+			} else {
+				rowIndex += 2;
+				columnIndex = 0;
+			}
+
+		}
+		// ap.getChildren().add(pGrid);
+		pGrid.setHgap(20);
+		pGrid.setVgap(40);
+		ScrollPane sp = new ScrollPane();
+		sp.setContent(pGrid);
+		sp.setPannable(true);
+		sp.setHvalue(0.0);
+		sp.setVvalue(0.0);
+
+		VBox fVBox = new VBox(20, fpr, sp);
+
+		Scene ffScene = new Scene(fVBox, 600, 575);
 
 		return ffScene;
 	}
