@@ -187,6 +187,7 @@ public class ElectronicsDept extends Department {
 		el.setAlignment(Pos.CENTER);
 
 		eBox.getChildren().add(paneCharacter);
+
 		Scene eScene = new Scene(eBox, 600, 575);
 
 		return eScene;
