@@ -126,7 +126,7 @@ public class AutomotiveDept extends Department {
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
-	slogan.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
+	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
 	Image autoImage = new Image(StoreConstants.AUTOMOTIVEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(autoImage);

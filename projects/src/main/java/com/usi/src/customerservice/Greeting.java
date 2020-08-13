@@ -81,7 +81,7 @@ public class Greeting extends Application {
 	}
     }
 
-    public Customer sayGreeting(String[] args) {
+    public Customer launchUI(String[] args) {
 	if (parentStage == null) {
 	    launch(args);
 	} else {

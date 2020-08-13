@@ -105,7 +105,7 @@ public class SuperStore {
 			if (greeting == null) {
 				greeting = new Greeting();
 			}
-			patron = greeting.sayGreeting(args);
+			patron = greeting.launchUI(args);
 			patron.startShopping();
 			checkoutLane01.checkoutCustomer(patron);
 		} while (true);
