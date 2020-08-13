@@ -107,7 +107,7 @@ public class CleaningSuppliesDept extends Department {
 
     @Override
     public Scene getScene() {
-	Image cleaningsuppliesImage = new Image(StoreConstants.CLEANINGSUPPLIESDEPT);
+	Image cleaningsuppliesImage = new Image(StoreConstants.CLEANINGSUPPLIES);
 	ImageView iv = new ImageView();
 	iv.setImage(cleaningsuppliesImage);
 	iv.setFitWidth(600);

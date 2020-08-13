@@ -18,10 +18,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
-
 import util.DataCsvLoad;
 import util.Department;
 import util.ProdKeyGen;
@@ -118,12 +118,13 @@ public class AutomotiveDept extends Department {
 
     @Override
     public Scene getScene() {
-      
+
 	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.AUTOMOTIVE);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
-	slogan.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 20));
+	slogan.setTextFill(Color.BLUE);
+	slogan.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
 	Image autoImage = new Image(StoreConstants.AUTOMOTIVEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(autoImage);
@@ -142,7 +143,6 @@ public class AutomotiveDept extends Department {
 	GridPane pGrid = new GridPane();
 	Insets iSet = new Insets(0, 30, 10, 10);
 	pGrid.setPadding(iSet);
-
 	String oProdName = "NoProd";
 	Set<String> aProductKeys = autoProducts.keySet();
 	// You must sort the Set of keys
