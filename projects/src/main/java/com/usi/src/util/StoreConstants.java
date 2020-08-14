@@ -66,7 +66,7 @@ public class StoreConstants {
     public static final String MCARD = "file:///" + APP_HOME + "/images/MCard%s.png";
 
     public static final String AUTOMOTIVEDEPT = "file:///" + APP_HOME + "/images/Automotive_Dept.png";
-    public static final String BABYESSENTIALSDEPT = "file:///" + APP_HOME + "/images/Babyessemtials_Dept.JPG";
+    public static final String BABYESSENTIALSDEPT = "file:///" + APP_HOME + "/images/BabyEssentials_Dept.png";
     public static final String BAKERYDEPT = "file:///" + APP_HOME + "/images/Bakery_Dept.JPG";
     public static final String BEDDINGDEPT = "file:///" + APP_HOME + "/images/Bedding_Dept.JPG";
     public static final String BEVERAGESDEPT = "file:///" + APP_HOME + "/images/Beverages_Dept.JPG";
