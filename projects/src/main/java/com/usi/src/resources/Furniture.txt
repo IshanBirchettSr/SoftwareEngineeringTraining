@@ -7,5 +7,5 @@ Mcdade Leather Seat Sectional Sofa, Furniture, NA, UUID, 75, NA, Ethan Allen, NA
 Kinsley Seat Sofa, Furniture, NA, UUID, 60, NA, Ashley Furniture, NA, 359.00, BLACK, NA, 8, seat sofa
 Ektorp Seat Sofa Bed, Furniture, NA, UUID, 45, NA, IKEA, NA, 275.00, WHITE, NA, 10, seat sofa bed
 Ladlow Seat Sofa, Furniture, NA, UUID, 62, NA, Broyhill, NA, 899.00, BROWN, NA, 7, seat sofa
-Plush Sofa Love Seat, Furniture, NA, UUID, 87, NA, Big Lots, NA, 349.00, INDIGO, NA, 4, soaf love seat
+Plush Sofa Love Seat, Furniture, NA, UUID, 87, NA, Big Lots, NA, 349.00, INDIGO, NA, 4, sofa love seat
 Sofa and Ottoman Seat, Furniture, NA, UUID, 28, NA, Macy's, NA, 549.00, BLACK, NA, 8, sofa and ottoman seat

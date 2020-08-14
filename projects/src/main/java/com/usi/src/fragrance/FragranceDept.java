@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import customerservice.Greeting;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -281,8 +282,12 @@ public class FragranceDept extends Department {
 		sp.setPannable(true);
 		sp.setHvalue(0.0);
 		sp.setVvalue(0.0);
+		HBox dButtons = Greeting.getBottonDeptButtons();
+		dButtons.setAlignment(Pos.CENTER);
+		dButtons.setSpacing(30);
+		dButtons.setPadding(new Insets(15, 0, 15, 0));
 
-		VBox fVBox = new VBox(20, fpr, sp);
+		VBox fVBox = new VBox(20, fpr, sp, dButtons);
 
 		Scene fScene = new Scene(fVBox, 600, 575);
 
