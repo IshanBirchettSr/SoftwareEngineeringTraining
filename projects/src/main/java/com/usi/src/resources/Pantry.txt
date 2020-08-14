@@ -1,8 +1,8 @@
 /*Pantry
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-M&M's , Pantry , OUNCES , UUID , 1 , small , Mars , 3 , 2.99 , NA , Chocolate , 100 , multi colors
+M&M's , Pantry , OUNCES , UUID , 1 , small , Mars , 3 , 2.99 , NA , Chocolate , 100 , multicolors
 Cheetos , Pantry , OUNCES , UUID , 1 , small , Lays , 5.75 , 1.99 , NA , Corn , 150 , cheesy corn chips
 Chips , Pantry , OUNCES , UUID , 1 , small , Lays , 5 , 1.99 , NA , Potato , 150 , salty chips
-Kit Kat , Pantry , OUNCES , UUID , 1 , small , Mar , 5 , 3.99 , NA , Chocolate , 300 , choclate wafer candy
+Kit Kat , Pantry , OUNCES , UUID , 1 , small , Mar , 5 , 3.99 , NA , Chocolate , 300 , chocolate wafer candy
 Pringles , Pantry , OUNCES , UUID , 1 , regular , Pringle , 3 , 2.99 , NA , potato , 150 , single can of stackable chips
-Nutragrain Bar , Pantry , OUNCES , UUID , 1 , regular , Kellog , 4 , 3.99 , NA , starwberry , 150 , breakfast bar
+Nutragrain Bar , Pantry , OUNCES , UUID , 1 , regular , Kellogg , 4 , 3.99 , NA , Strawberry , 150 , breakfast bar
