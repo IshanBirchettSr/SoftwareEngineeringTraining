@@ -64,7 +64,8 @@ public class StoreConstants {
     public static final String STORE_ENTRANCE = "file:///" + APP_HOME + "/images/SuperStoreEntrance.png";
     public static final String STORE_MAP = "file:///" + APP_HOME + "/images/StoreMap.png";
     public static final String MCARD = "file:///" + APP_HOME + "/images/MCard%s.png";
-
+    public static final String SC_ICON_EMPTY = "file:///" + APP_HOME + "/images/sc3.png";
+    public static final String SC_ICON_FULL = "file:///" + APP_HOME + "/images/sc1.png";
     public static final String AUTOMOTIVEDEPT = "file:///" + APP_HOME + "/images/Automotive_Dept.png";
     public static final String BABYESSENTIALSDEPT = "file:///" + APP_HOME + "/images/BabyEssentials_Dept.png";
     public static final String BAKERYDEPT = "file:///" + APP_HOME + "/images/Bakery_Dept.JPG";

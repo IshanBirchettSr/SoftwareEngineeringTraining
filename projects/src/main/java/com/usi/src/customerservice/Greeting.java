@@ -505,10 +505,18 @@ public class Greeting extends Application {
 		System.out.println("Time to checkout!");
 	    }
 	};
+
 	cButton.setOnAction(cEvent);
 	cButton.setAlignment(Pos.CENTER);
-
-	Button sCart = new Button("View Cart");
+	Image shoppingCartIcon = new Image(StoreConstants.SC_ICON_EMPTY);
+	ImageView iv = new ImageView();
+	iv.setImage(shoppingCartIcon);
+	// iv.setFitWidth(30);
+	iv.setFitHeight(15);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+	Button sCart = new Button("View Cart", iv);
 
 	sCart.setAlignment(Pos.CENTER);
 	EventHandler<ActionEvent> scEvent = new EventHandler<ActionEvent>() {
@@ -519,7 +527,7 @@ public class Greeting extends Application {
 
 	sCart.setOnAction(scEvent);
 
-	pHBox = new HBox(20, cButton, sCart, deptComboBox);
+	pHBox = new HBox(20, sCart, deptComboBox, cButton);
 	// paneCharacter.setPadding(new Insets(10));
 
 	return pHBox;
