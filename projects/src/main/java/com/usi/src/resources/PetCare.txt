@@ -9,4 +9,4 @@ Dog leash , Petcare , OUNCES , UUID , 1 , NA , Hartz , 1 , 7.99 , PINK , nylon ,
 Cat litter , Petcare , POUNDS , UUID , 1 , Value, Arm and Hammer , 7 , 6.99 , NA , Cotton , 150 , clumping
 Cat litter , Petcare , POUNDS , UUID , 1 , Value , Freshstep , 12 , 7.99 , NA , clay , 150 , clumping
 Bird seeds , Petcare , POUNDS , UUID , 1 , large , Hartz , 10 , 10.99 , NA , seeds , 150 , Bird seeds for parakeets
-Fish food , Petcare , OUNCES , UUID , 1 , small , Tetra , 2 , 3.99 , NA , shrimp , 150 , fish food for goldfish
+fish food , Petcare , OUNCES , UUID , 1 , small , Tetra , 2 , 3.99 , NA , shrimp , 150 , fish food for goldfish
