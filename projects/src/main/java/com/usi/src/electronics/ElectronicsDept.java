@@ -46,263 +46,264 @@ import util.StoreConstants;
  *
  */
 public class ElectronicsDept extends Department {
-	String deptName = StoreConstants.deptNames.ELECTRONICS.name();
-	List<String> electronicsRecords = null;
-	HashMap<Integer, String> keyMap = null;
+    String deptName = StoreConstants.deptNames.ELECTRONICS.name();
+    List<String> electronicsRecords = null;
+    HashMap<Integer, String> keyMap = null;
 // HashMap<K, V> to hold ElectronicsProd objects.
-	HashMap<String, ElectronicsProd> electronicsProducts;
+    HashMap<String, ElectronicsProd> electronicsProducts;
 
-	/**
-	 * Constructor
-	 */
-	public ElectronicsDept() {
-		super.setDeptName(deptName);
+    /**
+     * Constructor
+     */
+    public ElectronicsDept() {
+	super.setDeptName(deptName);
 // Record Load
-		DataCsvLoad unLoadTrucks = new DataCsvLoad();
-		unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
-		electronicsRecords = unLoadTrucks.getRecords();
-		this.setLoadedRecords(electronicsRecords);
+	DataCsvLoad unLoadTrucks = new DataCsvLoad();
+	unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
+	electronicsRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(electronicsRecords);
 // System.out.printf("%s Department open with %d records\n", deptName,
 // autoRecords.size());
-		keyMap = new HashMap<Integer, String>();
+	keyMap = new HashMap<Integer, String>();
 // Automotive Product Load
-		electronicsProducts = new HashMap<String, ElectronicsProd>();
-		loadProducts();
-	}
+	electronicsProducts = new HashMap<String, ElectronicsProd>();
+	loadProducts();
+    }
 
-	@Override
-	protected void loadProducts() {
+    @Override
+    protected void loadProducts() {
 // Load products
-		for (String record : electronicsRecords) {
-			ElectronicsProd ep = new ElectronicsProd();
-			boolean recordToProductSuccessful = ep.recordToProduct(record);
+	for (String record : electronicsRecords) {
+	    ElectronicsProd ep = new ElectronicsProd();
+	    boolean recordToProductSuccessful = ep.recordToProduct(record);
 
-			// If it fails to convert any field, don't add that object to haircareProducts
-			if (recordToProductSuccessful == true) {
-				String prodKey = ProdKeyGen.genKey(ep);
-				int howMany = ep.getNumUnitsInstock();
-				for (int i = 0; i < howMany; i++) {
+	    // If it fails to convert any field, don't add that object to haircareProducts
+	    if (recordToProductSuccessful == true) {
+		String prodKey = ProdKeyGen.genKey(ep);
+		int howMany = ep.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
 
-					electronicsProducts.put(prodKey + 1, ep);
-				}
-
-			}
-		}
-		System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-				electronicsRecords.size(), electronicsProducts.size());
-
-	}
-
-	@Override
-	public void listProducts() {
-		String aKey = null;
-		Set<String> eProductKeys = electronicsProducts.keySet();
-
-		int totalProducts = eProductKeys.size();
-		int i = 1;
-		for (String pKey : eProductKeys) {
-			Product pd = electronicsProducts.get(pKey);
-			if (aKey != pKey) {
-				System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
-			}
-			aKey = pKey;
-			keyMap.put(i, pKey);
-			i++;
-		}
-	}
-
-	public List<Product> getProds(int index, int qauntity) {
-		ArrayList<Product> pdList = new ArrayList<Product>();
-		String pKey = keyMap.get(index);
-		for (int i = 0; i < qauntity; i++) {
-			ElectronicsProd pd = electronicsProducts.get(pKey);
-			pdList.add(pd);
+		    electronicsProducts.put(prodKey + 1, ep);
 		}
 
-		return pdList;
+	    }
+	}
+	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		electronicsRecords.size(), electronicsProducts.size());
+
+    }
+
+    @Override
+    public void listProducts() {
+	String aKey = null;
+	Set<String> eProductKeys = electronicsProducts.keySet();
+
+	int totalProducts = eProductKeys.size();
+	int i = 1;
+	for (String pKey : eProductKeys) {
+	    Product pd = electronicsProducts.get(pKey);
+	    if (aKey != pKey) {
+		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+	    }
+	    aKey = pKey;
+	    keyMap.put(i, pKey);
+	    i++;
+	}
+    }
+
+    public List<Product> getProds(int index, int qauntity) {
+	ArrayList<Product> pdList = new ArrayList<Product>();
+	String pKey = keyMap.get(index);
+	for (int i = 0; i < qauntity; i++) {
+	    ElectronicsProd pd = electronicsProducts.get(pKey);
+	    pdList.add(pd);
 	}
 
-	@Override
-	public List<Product> getProducts() {
-		List<Product> pList = null;
+	return pdList;
+    }
 
-		return pList;
-	}
+    @Override
+    public List<Product> getProducts() {
+	List<Product> pList = null;
 
-	@Override
-	public Scene getScene() {
+	return pList;
+    }
 
-		String imageKey = String.format("Welcome to the Electronics Department!");
-		Text welcomeTxt = new Text(imageKey);
-		welcomeTxt.setText(imageKey);
-		welcomeTxt.setX(50.00);
-		welcomeTxt.setY(80.00);
-		welcomeTxt.setFill(Color.BLUE);
-		welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-		HBox eg = new HBox(20, welcomeTxt);
-		eg.setAlignment(Pos.TOP_CENTER);
+    @Override
+    public Scene getScene() {
 
-		Image electricImage = new Image(StoreConstants.ELECTRONICSDEPT);
-		ImageView iv = new ImageView();
-		iv.setImage(electricImage);
-		iv.setFitWidth(300);
-		iv.setPreserveRatio(true);
-		iv.setSmooth(true);
-		iv.setCache(true);
-		HBox ep = new HBox(20, iv);
-		ep.setAlignment(Pos.CENTER);
+	String imageKey = String.format("Welcome to the Electronics Department!");
+	Text welcomeTxt = new Text(imageKey);
+	welcomeTxt.setText(imageKey);
+	welcomeTxt.setX(50.00);
+	welcomeTxt.setY(80.00);
+	welcomeTxt.setFill(Color.BLUE);
+	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	HBox eg = new HBox(20, welcomeTxt);
+	eg.setAlignment(Pos.TOP_CENTER);
 
-		VBox eBox = new VBox(20, eg, iv);
+	Image electronicsImage = new Image(StoreConstants.ELECTRONICSDEPT);
+	ImageView iv = new ImageView();
+	iv.setImage(electronicsImage);
+	iv.setFitWidth(600);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+	HBox ep = new HBox(20, iv);
+	ep.setAlignment(Pos.CENTER);
 
-		String goIn = String.format("Would you like to shop the Electronic Department?");
-		Text shopTxt = new Text(goIn);
-		shopTxt.setText(goIn);
-		shopTxt.setX(50.00);
-		shopTxt.setY(80.00);
-		shopTxt.setFill(Color.BLUE);
-		shopTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
+	VBox eBox = new VBox(20, eg, iv);
 
-		Label comeIn = new Label(goIn);
-		comeIn.setAlignment(Pos.BOTTOM_CENTER);
+	String goIn = String.format("Would you like to shop the Electronics Department?");
+	Text shopTxt = new Text(goIn);
+	shopTxt.setText(goIn);
+	shopTxt.setX(50.00);
+	shopTxt.setY(80.00);
+	shopTxt.setFill(Color.BLUE);
+	shopTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
 
-		Button Enter = new Button("YES!");
-		EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
+	Label comeIn = new Label(goIn);
+	comeIn.setAlignment(Pos.BOTTOM_CENTER);
 
-				System.out.println("Welcome!");
+	Button Enter = new Button("YES!");
+	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
 
-			}
-		};
-		Enter.setOnAction(yesEvent);
+		System.out.println("Welcome!");
 
-		Button noIDoNot = new Button("Next Department Please");
-		Enter.setAlignment(Pos.BOTTOM_CENTER);
-		noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
-		EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				System.out.println("No");
+	    }
+	};
 
-			}
-		};
+	Enter.setOnAction(yesEvent);
 
-		noIDoNot.setOnAction(noEvent);
+	Button noIDoNot = new Button("Next Department Please");
+	Enter.setAlignment(Pos.BOTTOM_CENTER);
+	noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		System.out.println("No");
 
-		HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
-		paneCharacter.setPadding(new Insets(10));
-		// Add the Character and Actor panes to a VBox
-		VBox el = new VBox(10, ep, paneCharacter);
-		el.setAlignment(Pos.CENTER);
+	    }
+	};
 
-		eBox.getChildren().add(paneCharacter);
+	noIDoNot.setOnAction(noEvent);
 
-		Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
-		instructions.setAlignment(Pos.CENTER);
-		instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-		instructions.setStyle("-fx-background-color:lightblue");
-		VBox epr = new VBox(15, eBox, iv, instructions);
-		epr.setAlignment(Pos.CENTER);
+	HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
+	paneCharacter.setPadding(new Insets(10));
+	// Add the Character and Actor panes to a VBox
+	VBox el = new VBox(10, ep, paneCharacter);
+	el.setAlignment(Pos.CENTER);
 
-		// Product Grid
-		GridPane pGrid = new GridPane();
-		Insets iSet = new Insets(0, 30, 10, 10);
-		pGrid.setPadding(iSet);
+	eBox.getChildren().add(paneCharacter);
 
-		String oProdName = "NoProd";
-		Set<String> eProductKeys = electronicsProducts.keySet();
-		// You must sort the Set of keys
-		List<String> list = new ArrayList<>(eProductKeys);
-		Collections.sort(list);
+	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
+	instructions.setAlignment(Pos.CENTER);
+	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
+	instructions.setStyle("-fx-background-color:lightblue");
+	VBox epr = new VBox(15, eBox, iv, instructions);
+	epr.setAlignment(Pos.CENTER);
 
-		int rowIndex = 0;
-		int columnIndex = 0;
-		String oldFilename = "Firstfile";
+	// Product Grid
+	GridPane pGrid = new GridPane();
+	Insets iSet = new Insets(0, 30, 10, 10);
+	pGrid.setPadding(iSet);
 
-		for (String pKey : list) {
-			Product pd = electronicsProducts.get(pKey);
+	String oProdName = "NoProd";
+	Set<String> eProductKeys = electronicsProducts.keySet();
+	// You must sort the Set of keys
+	List<String> list = new ArrayList<>(eProductKeys);
+	Collections.sort(list);
 
-			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "electronics", pd.getBrandName(),
-					pd.getProductName());
-			if (oldFilename.equals(iFileName)) {
-				// System.out.printf("%s==%s, %b\n", oldFilename,
-				// iFileName,oldFilename.equals(iFileName));
-				continue;
-			}
-			System.out.println(iFileName);
-			oldFilename = iFileName;
+	int rowIndex = 0;
+	int columnIndex = 0;
+	String oldFilename = "Firstfile";
 
-			// Image View
-			Image pImage = new Image(iFileName);
-			ImageView pV = new ImageView();
-			pV.setFitHeight(125);
-			// pV.setFitHeight(65);
-			pV.setId(pd.getBrandName() + "-" + pd.getProductName());
-			pV.setImage(pImage);
-			pV.setPreserveRatio(true);
+	for (String pKey : list) {
+	    Product pd = electronicsProducts.get(pKey);
 
-			pV.setSmooth(true);
-			pV.setCache(true);
-			String electronicsToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
-					pd.getPrice());
-			Tooltip.install(pV, new Tooltip(electronicsToolTip));
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "electronics", pd.getBrandName(),
+		    pd.getProductName());
+	    if (oldFilename.equals(iFileName)) {
+		// System.out.printf("%s==%s, %b\n", oldFilename,
+		// iFileName,oldFilename.equals(iFileName));
+		continue;
+	    }
+	    System.out.println(iFileName);
+	    oldFilename = iFileName;
 
-			EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
-				public void handle(MouseEvent e) {
-					System.out.printf("Image Click on %s\n", pV.getId());
-				}
-			};
-			pV.setOnMouseClicked(iEvent);
-			if (oProdName.equals(pd.getProductName()) != true) {
-				Label pLabel = new Label();
-				pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-				pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-				if (pd.getProductName().contains("Ipad")) {
-					pLabel.setText(pd.getProductName() + " Aisle");
-					pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-				} else {
-					pLabel.setText(pd.getProductName() + " Shelve");
-				}
-				pLabel.setAlignment(Pos.CENTER);
-				columnIndex = 0;
-				rowIndex += 1;
-				System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
+	    // Image View
+	    Image pImage = new Image(iFileName);
+	    ImageView pV = new ImageView();
+	    pV.setFitHeight(125);
+	    // pV.setFitHeight(65);
+	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
+	    pV.setImage(pImage);
+	    pV.setPreserveRatio(true);
 
-				pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
-				if (rowIndex == 0) {
-					rowIndex = 1;
-				} else {
-					rowIndex += 1;
-				}
-				System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
-				oProdName = pd.getProductName();
-			}
-			System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
-			pGrid.add(pV, columnIndex, rowIndex);
+	    pV.setSmooth(true);
+	    pV.setCache(true);
+	    String pantryToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+		    pd.getPrice());
+	    Tooltip.install(pV, new Tooltip(pantryToolTip));
 
-			if (columnIndex < 5) {
-				columnIndex++;
-			} else {
-				rowIndex += 2;
-				columnIndex = 0;
-			}
-
+	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
+		public void handle(MouseEvent e) {
+		    System.out.printf("Image Click on %s\n", pV.getId());
 		}
-		// ap.getChildren().add(pGrid);
-		pGrid.setHgap(20);
-		pGrid.setVgap(40);
-		ScrollPane sp = new ScrollPane();
-		sp.setContent(pGrid);
-		sp.setPannable(true);
-		sp.setHvalue(0.0);
-		sp.setVvalue(0.0);
-		HBox dButtons = Greeting.getBottonDeptButtons();
-		dButtons.setAlignment(Pos.CENTER);
-		dButtons.setSpacing(30);
-		dButtons.setPadding(new Insets(15, 0, 15, 0));
+	    };
+	    pV.setOnMouseClicked(iEvent);
+	    if (oProdName.equals(pd.getProductName()) != true) {
+		Label pLabel = new Label();
+		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		if (pd.getProductName().contains("Ipad")) {
+		    pLabel.setText(pd.getProductName() + " Aisle");
+		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		} else {
+		    pLabel.setText(pd.getProductName() + " Shelve");
+		}
+		pLabel.setAlignment(Pos.CENTER);
+		columnIndex = 0;
+		rowIndex += 1;
+		System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
 
-		VBox eVBox = new VBox(20, epr, sp, dButtons);
+		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
+		if (rowIndex == 0) {
+		    rowIndex = 1;
+		} else {
+		    rowIndex += 1;
+		}
+		System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
+		oProdName = pd.getProductName();
+	    }
+	    System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
+	    pGrid.add(pV, columnIndex, rowIndex);
 
-		Scene eScene = new Scene(eVBox, 600, 650);
+	    if (columnIndex < 5) {
+		columnIndex++;
+	    } else {
+		rowIndex += 2;
+		columnIndex = 0;
+	    }
 
-		return eScene;
 	}
+	// ap.getChildren().add(pGrid);
+	pGrid.setHgap(20);
+	pGrid.setVgap(40);
+	ScrollPane sp = new ScrollPane();
+	sp.setContent(pGrid);
+	sp.setPannable(true);
+	sp.setHvalue(0.0);
+	sp.setVvalue(0.0);
+	HBox dButtons = Greeting.getBottonDeptButtons();
+	dButtons.setAlignment(Pos.CENTER);
+	dButtons.setSpacing(30);
+	dButtons.setPadding(new Insets(15, 0, 15, 0));
+
+	VBox eVBox = new VBox(20, epr, sp, dButtons);
+
+	Scene eScene = new Scene(eVBox, 600, 650);
+
+	return eScene;
+    }
 }
