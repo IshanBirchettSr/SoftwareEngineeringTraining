@@ -567,9 +567,20 @@ public class Greeting extends Application {
 	};
 	closeButton.setOnAction(closeEvent);
 
-	VBox mp = new VBox(pV, closeButton);
+	VBox descBox = new VBox();
+	descBox.setStyle("-fx-background-color: red;");
+	descBox.setPrefSize(200, 200);
 
-	Scene pScene = new Scene(mp, 250, 400);
+	VBox iDetailPane = new VBox();
+	iDetailPane.setStyle("-fx-background-color: green;");
+	iDetailPane.setPrefSize(200, 200);
+
+	VBox mp = new VBox(pV);
+	HBox pTopPane = new HBox(mp, iDetailPane);
+	HBox pBottomPane = new HBox(descBox);
+	VBox dPane = new VBox(pTopPane, pBottomPane);
+
+	Scene pScene = new Scene(dPane, 250, 400);
 
 	newWindow.setTitle(String.format("%s- Details", inProd.getProductName()));
 	newWindow.setScene(pScene);

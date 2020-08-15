@@ -138,7 +138,7 @@ public class PantryDept extends Department {
 	Image pantryImage = new Image(StoreConstants.PANTRYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(pantryImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
