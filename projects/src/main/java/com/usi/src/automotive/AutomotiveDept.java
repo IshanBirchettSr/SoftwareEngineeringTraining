@@ -173,7 +173,7 @@ public class AutomotiveDept extends Department {
 	    ImageView pV = new ImageView();
 	    pV.setFitHeight(125);
 	    // pV.setFitHeight(65);
-	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
+	    pV.setId(pKey);
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
 
@@ -185,6 +185,9 @@ public class AutomotiveDept extends Department {
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
 		    System.out.printf("Image Click on %s\n", pV.getId());
+		    Product pd2 = autoProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "auto");
+
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);

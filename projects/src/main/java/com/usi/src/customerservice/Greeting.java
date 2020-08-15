@@ -31,6 +31,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import util.DataCsvLoad;
 import util.Department;
+import util.Product;
 import util.StoreConstants;
 
 public class Greeting extends Application {
@@ -534,6 +535,56 @@ public class Greeting extends Application {
 
 	return pHBox;
 
+    }
+
+    public static void prodDetails(Product inProd, String dept) {
+
+	String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, dept, inProd.getBrandName(),
+		inProd.getProductName());
+
+	System.out.println(iFileName);
+
+	// Image View
+	Image pImage = new Image(iFileName);
+	ImageView pV = new ImageView();
+	pV.setFitHeight(200);
+	// pV.setFitHeight(65);
+	// pV.setId(inProd.get );
+	pV.setImage(pImage);
+	pV.setPreserveRatio(true);
+	pV.setSmooth(true);
+	pV.setCache(true);
+
+	Button closeButton = new Button("Close");
+	closeButton.setAlignment(Pos.CENTER);
+	// New window (Stage)
+	Stage newWindow = new Stage();
+
+	EventHandler<ActionEvent> closeEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		newWindow.close();
+	    }
+	};
+	closeButton.setOnAction(closeEvent);
+
+	VBox mp = new VBox(pV, closeButton);
+
+	Scene pScene = new Scene(mp, 250, 400);
+
+	newWindow.setTitle(String.format("%s- Details", inProd.getProductName()));
+	newWindow.setScene(pScene);
+
+	// Specifies the modality for new window.
+	newWindow.initModality(Modality.WINDOW_MODAL);
+
+	// Specifies the owner Window (parent) for new window
+	newWindow.initOwner(parentStage);
+
+	// Set position of second window, related to primary window.
+	newWindow.setX(parentStage.getX() + 25);
+	newWindow.setY(parentStage.getY() + 20);
+
+	newWindow.show();
     }
 
 }
