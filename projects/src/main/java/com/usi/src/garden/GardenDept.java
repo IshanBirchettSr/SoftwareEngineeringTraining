@@ -218,7 +218,7 @@ public class GardenDept extends Department {
 		for (String pKey : list) {
 			Product pd = gardenProducts.get(pKey);
 
-			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "furniture", pd.getBrandName(),
+			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "garden", pd.getBrandName(),
 					pd.getProductName());
 			if (oldFilename.equals(iFileName)) {
 				// System.out.printf("%s==%s, %b\n", oldFilename,
@@ -239,9 +239,9 @@ public class GardenDept extends Department {
 
 			pV.setSmooth(true);
 			pV.setCache(true);
-			String electronicsToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+			String gardenToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 					pd.getPrice());
-			Tooltip.install(pV, new Tooltip(electronicsToolTip));
+			Tooltip.install(pV, new Tooltip(gardenToolTip));
 
 			EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
@@ -253,7 +253,7 @@ public class GardenDept extends Department {
 				Label pLabel = new Label();
 				pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
 				pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-				if (pd.getProductName().contains("Ipad")) {
+				if (pd.getProductName().contains("planter")) {
 					pLabel.setText(pd.getProductName() + " Aisle");
 					pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
 				} else {

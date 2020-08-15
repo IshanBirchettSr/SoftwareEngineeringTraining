@@ -215,7 +215,7 @@ public class HousewaresDept extends Department {
 		for (String pKey : list) {
 			Product pd = housewaresProducts.get(pKey);
 
-			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "furniture", pd.getBrandName(),
+			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "housewares", pd.getBrandName(),
 					pd.getProductName());
 			if (oldFilename.equals(iFileName)) {
 				// System.out.printf("%s==%s, %b\n", oldFilename,
@@ -236,9 +236,9 @@ public class HousewaresDept extends Department {
 
 			pV.setSmooth(true);
 			pV.setCache(true);
-			String electronicsToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+			String housewaresToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 					pd.getPrice());
-			Tooltip.install(pV, new Tooltip(electronicsToolTip));
+			Tooltip.install(pV, new Tooltip(housewaresToolTip));
 
 			EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {

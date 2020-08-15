@@ -236,9 +236,9 @@ public class FrozenFoodsDept extends Department {
 
 			pV.setSmooth(true);
 			pV.setCache(true);
-			String electronicsToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+			String frozenfoodsToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 					pd.getPrice());
-			Tooltip.install(pV, new Tooltip(electronicsToolTip));
+			Tooltip.install(pV, new Tooltip(frozenfoodsToolTip));
 
 			EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
@@ -249,8 +249,8 @@ public class FrozenFoodsDept extends Department {
 			if (oProdName.equals(pd.getProductName()) != true) {
 				Label pLabel = new Label();
 				pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-				pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-				if (pd.getProductName().contains("Ipad")) {
+				pLabel.setStyle("-fx-border-color:black; -fx-background-color:cornflowerblue;");
+				if (pd.getProductName().contains("frozen food")) {
 					pLabel.setText(pd.getProductName() + " Aisle");
 					pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
 				} else {
