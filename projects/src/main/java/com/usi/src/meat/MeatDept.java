@@ -219,7 +219,7 @@ public class MeatDept extends Department {
 		for (String pKey : list) {
 			Product pd = meatProducts.get(pKey);
 
-			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "furniture", pd.getBrandName(),
+			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "meat", pd.getBrandName(),
 					pd.getProductName());
 			if (oldFilename.equals(iFileName)) {
 				// System.out.printf("%s==%s, %b\n", oldFilename,

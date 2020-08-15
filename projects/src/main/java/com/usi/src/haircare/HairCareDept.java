@@ -214,7 +214,7 @@ public class HairCareDept extends Department {
 		for (String pKey : list) {
 			Product pd = haircareProducts.get(pKey);
 
-			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "furniture", pd.getBrandName(),
+			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "hair_care", pd.getBrandName(),
 					pd.getProductName());
 			if (oldFilename.equals(iFileName)) {
 				// System.out.printf("%s==%s, %b\n", oldFilename,

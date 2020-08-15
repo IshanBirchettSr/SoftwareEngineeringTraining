@@ -205,7 +205,7 @@ public class LuggageDept extends Department {
 		for (String pKey : list) {
 			Product pd = luggageProducts.get(pKey);
 
-			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "furniture", pd.getBrandName(),
+			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "luggage", pd.getBrandName(),
 					pd.getProductName());
 			if (oldFilename.equals(iFileName)) {
 				// System.out.printf("%s==%s, %b\n", oldFilename,

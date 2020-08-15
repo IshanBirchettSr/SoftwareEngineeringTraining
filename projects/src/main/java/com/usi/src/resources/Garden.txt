@@ -1,8 +1,8 @@
 /*Garden
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
 Garden Planters , Garden , POUNDS , UUID , 1 , 15 GAL , Willstar , 20 , 10.25 , BLACK , Plastic , 32 , holds 15 gallons of soil Raised Plant Bed Garden Flower Planter Vegetable Box
-Garden Planters , Garden , POUNDS , UUID , 1 , 50 GAL , Willstar , 30 , 14.25 , BLACK , Plastic , 20 , holds 50 gallons of soil Raised Plant Bed Garden Flower Planter Vegetable Box
-Garden Planters , Garden , POUNDS , UUID , 1 , 100 GAL , Willstar , 50 , 23.17 , BLACK , Plastic , 15 , holds 100 gallons of soil Raised Plant Bed Garden Flower Planter Vegetable Box
+Garden Planters1 , Garden , POUNDS , UUID , 1 , 50 GAL , Willstar , 30 , 14.25 , BLACK , Plastic , 20 , holds 50 gallons of soil Raised Plant Bed Garden Flower Planter Vegetable Box
+Garden Planters2 , Garden , POUNDS , UUID , 1 , 100 GAL , Willstar , 50 , 23.17 , BLACK , Plastic , 15 , holds 100 gallons of soil Raised Plant Bed Garden Flower Planter Vegetable Box
 Terra Cotta Pot , Garden , POUNDS , UUID , 12 , 3-1/8 in , S&S , 3.75 , 25.17 , BROWN , Terra Cotta , 12 , 12 pk of Terra Cotta pots for indoor or outdoor planting
 Terra Cotta Pot , Garden , OUNCES , UUID , 25 , 3 inch , Hirt's Gardens , 7.1 , 21.99 , BROWN , Clay , 10 , 25 pk of Terra Cotta pots for indoor or outdoor planting
 Potting Soil , Garden , OUNCES , UUID , 1 , N/A , Miracle Gro , 27.67 , 9.99 , BLACK , soil , 35 , Fertlized soil feed plants for up to 3 months 
