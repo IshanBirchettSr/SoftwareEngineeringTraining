@@ -229,9 +229,9 @@ public class FragranceDept extends Department {
 
 			pV.setSmooth(true);
 			pV.setCache(true);
-			String electronicsToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+			String fragranceToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 					pd.getPrice());
-			Tooltip.install(pV, new Tooltip(electronicsToolTip));
+			Tooltip.install(pV, new Tooltip(fragranceToolTip));
 
 			EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
@@ -242,10 +242,10 @@ public class FragranceDept extends Department {
 			if (oProdName.equals(pd.getProductName()) != true) {
 				Label pLabel = new Label();
 				pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-				pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-				if (pd.getProductName().contains("Ipad")) {
+				pLabel.setStyle("-fx-border-color:black; -fx-background-color:pink;");
+				if (pd.getProductName().contains("fragrance")) {
 					pLabel.setText(pd.getProductName() + " Aisle");
-					pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+					pLabel.setStyle("-fx-border-color:pink; -fx-background-color:pink;");
 				} else {
 					pLabel.setText(pd.getProductName() + " Shelve");
 				}

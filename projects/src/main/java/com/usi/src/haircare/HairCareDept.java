@@ -235,9 +235,9 @@ public class HairCareDept extends Department {
 
 			pV.setSmooth(true);
 			pV.setCache(true);
-			String electronicsToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+			String haircareToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 					pd.getPrice());
-			Tooltip.install(pV, new Tooltip(electronicsToolTip));
+			Tooltip.install(pV, new Tooltip(haircareToolTip));
 
 			EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent e) {
@@ -249,7 +249,7 @@ public class HairCareDept extends Department {
 				Label pLabel = new Label();
 				pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
 				pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-				if (pd.getProductName().contains("Ipad")) {
+				if (pd.getProductName().contains("null")) {
 					pLabel.setText(pd.getProductName() + " Aisle");
 					pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
 				} else {
