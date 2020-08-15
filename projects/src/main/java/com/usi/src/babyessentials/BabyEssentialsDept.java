@@ -141,7 +141,7 @@ public class BabyEssentialsDept extends Department {
 	Image babyessentialsImage = new Image(StoreConstants.BABYESSENTIALSDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(babyessentialsImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
