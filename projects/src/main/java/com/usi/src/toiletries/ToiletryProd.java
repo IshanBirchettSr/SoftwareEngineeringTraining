@@ -17,7 +17,7 @@ public class ToiletryProd extends Product {
 	try {
 	    System.out.println(record);
 	    String[] fields = record.split(",");
-	    this.setProductName(fields[0].toString());
+	    this.setProductName(fields[0].toString().trim());
 	    String dName = fields[1].toString().trim();
 	    this.setDeptNameEnum(deptNames.valueOf(dName.toUpperCase().trim()));
 	    this.setUnitOfMeasureEnum(StoreConstants.unitOfMeasure.valueOf(fields[2].trim()));
