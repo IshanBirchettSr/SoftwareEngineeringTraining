@@ -110,12 +110,7 @@ public class Greeting extends Application {
 	welcomeTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
 	HBox gp = new HBox(20, welcomeTxt);
 	gp.setAlignment(Pos.CENTER);
-//	
-//	List<String> fontNames = Font.getFontNames();
-//	for (String fontName : fontNames) {
-//	    System.out.println(fontName);
-//	}
-//
+
 	Image entranceImage = new Image(StoreConstants.STORE_ENTRANCE);
 	ImageView iv = new ImageView();
 	iv.setImage(entranceImage);
@@ -179,6 +174,13 @@ public class Greeting extends Application {
 	String screenTitle = String.format("%s - %s", StoreConstants.STORE_NAME, "Greeting");
 	primaryStage.setTitle(screenTitle);
 	primaryStage.show();
+
+	List<String> fontNames = Font.getFontNames();
+	for (String fontName : fontNames) {
+	    welcomeTxt.setFont(Font.font(fontName, FontPosture.REGULAR, 20));
+	    // Thread.sleep(2000);
+	    System.out.println(fontName);
+	}
 
     }
 
