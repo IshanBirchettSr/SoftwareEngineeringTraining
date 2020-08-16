@@ -13,6 +13,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -581,6 +582,22 @@ public class Greeting extends Application {
 	};
 	howMany.setOnAction(howManyEvent);
 
+	Integer[] quantity = new Integer[10];
+	quantity[0] = 1;
+	quantity[1] = 2;
+	quantity[2] = 3;
+	quantity[3] = 4;
+	quantity[4] = 5;
+	quantity[5] = 6;
+	quantity[6] = 7;
+	quantity[7] = 8;
+	quantity[8] = 9;
+	quantity[9] = 10;
+
+	ChoiceBox<Integer> choose = new ChoiceBox<>();
+	choose.getItems().addAll(quantity);
+	choose.setValue(1);
+
 	Button closeButton = new Button("Close");
 	closeButton.setAlignment(Pos.CENTER);
 	// New window (Stage)
@@ -628,7 +645,7 @@ public class Greeting extends Application {
 	HBox pTopPane = new HBox(mp, iDetailPane);
 	pTopPane.setAlignment(Pos.CENTER);
 
-	HBox pButtons = new HBox(30, Buy, howMany, closeButton);
+	HBox pButtons = new HBox(30, Buy, howMany, choose, closeButton);
 	pButtons.setStyle("-fx-background-color: gray;");
 	pButtons.setAlignment(Pos.CENTER);
 
