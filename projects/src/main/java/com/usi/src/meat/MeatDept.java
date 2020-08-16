@@ -46,262 +46,263 @@ import util.StoreConstants;
  *
  */
 public class MeatDept extends Department {
-	String deptName = StoreConstants.deptNames.MEAT.name();
-	List<String> meatRecords = null;
-	HashMap<Integer, String> keyMap = null;
-	// HashMap<K, V> to hold MeatProd objects.
-	HashMap<String, MeatProd> meatProducts;
+    String deptName = StoreConstants.deptNames.MEAT.name();
+    List<String> meatRecords = null;
+    HashMap<Integer, String> keyMap = null;
+    // HashMap<K, V> to hold MeatProd objects.
+    HashMap<String, MeatProd> meatProducts;
 
-	/**
-	 * Constructor
-	 */
-	public MeatDept() {
-		super.setDeptName(deptName);
-		// Record Load
-		DataCsvLoad unLoadTrucks = new DataCsvLoad();
-		unLoadTrucks.loadData(StoreConstants.MEAT_TRUCK);
-		meatRecords = unLoadTrucks.getRecords();
-		this.setLoadedRecords(meatRecords);
-		// System.out.printf("%s Department open with %d records\n", deptName,
-		// meatRecords.size());
-		keyMap = new HashMap<Integer, String>();
-		// Product MeatLoad
-		meatProducts = new HashMap<String, MeatProd>();
-		loadProducts();
-	}
+    /**
+     * Constructor
+     */
+    public MeatDept() {
+	super.setDeptName(deptName);
+	// Record Load
+	DataCsvLoad unLoadTrucks = new DataCsvLoad();
+	unLoadTrucks.loadData(StoreConstants.MEAT_TRUCK);
+	meatRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(meatRecords);
+	// System.out.printf("%s Department open with %d records\n", deptName,
+	// meatRecords.size());
+	keyMap = new HashMap<Integer, String>();
+	// Product MeatLoad
+	meatProducts = new HashMap<String, MeatProd>();
+	loadProducts();
+    }
 
-	@Override
-	protected void loadProducts() {
-		// Load products
-		for (String record : meatRecords) {
-			MeatProd mp = new MeatProd();
-			boolean recordToProductSuccessful = mp.recordToProduct(record);
+    @Override
+    protected void loadProducts() {
+	// Load products
+	for (String record : meatRecords) {
+	    MeatProd mp = new MeatProd();
+	    boolean recordToProductSuccessful = mp.recordToProduct(record);
 
-			// If it fails to convert any field, don't add that object to autoProducts
-			if (recordToProductSuccessful == true) {
-				String prodKey = ProdKeyGen.genKey(mp);
-				int howMany = mp.getNumUnitsInstock();
-				for (int i = 0; i < howMany; i++) {
+	    // If it fails to convert any field, don't add that object to autoProducts
+	    if (recordToProductSuccessful == true) {
+		String prodKey = ProdKeyGen.genKey(mp);
+		int howMany = mp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
 
-					meatProducts.put(prodKey + 1, mp);
-				}
-
-			}
-			System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-					meatRecords.size(), meatProducts.size());
-
-		}
-	}
-
-	@Override
-	public void listProducts() {
-		String aKey = null;
-		Set<String> meatProductKeys = meatProducts.keySet();
-
-		int totalProducts = meatProductKeys.size();
-		int i = 1;
-		for (String pKey : meatProductKeys) {
-			Product pd = meatProducts.get(pKey);
-			if (aKey != pKey) {
-				System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
-			}
-			aKey = pKey;
-			keyMap.put(i, pKey);
-			i++;
-		}
-	}
-
-	public List<Product> getProds(int index, int qauntity) {
-		ArrayList<Product> pdList = new ArrayList<Product>();
-		String pKey = keyMap.get(index);
-		for (int i = 0; i < qauntity; i++) {
-			MeatProd pd = meatProducts.get(pKey);
-			pdList.add(pd);
+		    meatProducts.put(prodKey + 1, mp);
 		}
 
-		return pdList;
+	    }
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    meatRecords.size(), meatProducts.size());
+
+	}
+    }
+
+    @Override
+    public void listProducts() {
+	String aKey = null;
+	Set<String> meatProductKeys = meatProducts.keySet();
+
+	int totalProducts = meatProductKeys.size();
+	int i = 1;
+	for (String pKey : meatProductKeys) {
+	    Product pd = meatProducts.get(pKey);
+	    if (aKey != pKey) {
+		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+	    }
+	    aKey = pKey;
+	    keyMap.put(i, pKey);
+	    i++;
+	}
+    }
+
+    public List<Product> getProds(int index, int qauntity) {
+	ArrayList<Product> pdList = new ArrayList<Product>();
+	String pKey = keyMap.get(index);
+	for (int i = 0; i < qauntity; i++) {
+	    MeatProd pd = meatProducts.get(pKey);
+	    pdList.add(pd);
 	}
 
-	@Override
-	public List<Product> getProducts() {
-		List<Product> pList = null;
+	return pdList;
+    }
 
-		return pList;
-	}
+    @Override
+    public List<Product> getProducts() {
+	List<Product> pList = null;
 
-	@Override
-	public Scene getScene() {
+	return pList;
+    }
 
-		String imageKey = String.format("Welcome to the Meat Department!");
-		Text welcomeTxt = new Text(imageKey);
-		welcomeTxt.setText(imageKey);
-		welcomeTxt.setX(50.00);
-		welcomeTxt.setY(80.00);
-		welcomeTxt.setFill(Color.BLUE);
-		welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-		HBox mg = new HBox(20, welcomeTxt);
-		mg.setAlignment(Pos.TOP_CENTER);
+    @Override
+    public Scene getScene() {
 
-		Image meatImage = new Image(StoreConstants.MEATDEPT);
-		ImageView iv = new ImageView();
-		iv.setImage(meatImage);
-		iv.setFitWidth(300);
-		iv.setPreserveRatio(true);
-		iv.setSmooth(true);
-		iv.setCache(true);
-		HBox mp = new HBox(iv);
-		mp.setAlignment(Pos.CENTER);
+	String imageKey = String.format("Welcome to the Meat Department!");
+	Text welcomeTxt = new Text(imageKey);
+	welcomeTxt.setText(imageKey);
+	welcomeTxt.setX(50.00);
+	welcomeTxt.setY(80.00);
+	welcomeTxt.setFill(Color.BLUE);
+	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	HBox mg = new HBox(20, welcomeTxt);
+	mg.setAlignment(Pos.TOP_CENTER);
 
-		VBox mBox = new VBox(20, mg, iv);
+	Image meatImage = new Image(StoreConstants.MEATDEPT);
+	ImageView iv = new ImageView();
+	iv.setImage(meatImage);
+	iv.setFitWidth(300);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+	HBox mp = new HBox(iv);
+	mp.setAlignment(Pos.CENTER);
 
-		String goIn = String.format("Would you like to shop the Meat Department?");
-		Text shopTxt = new Text(goIn);
-		shopTxt.setText(goIn);
-		shopTxt.setX(50.00);
-		shopTxt.setY(80.00);
-		shopTxt.setFill(Color.BLUE);
-		shopTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
+	VBox mBox = new VBox(20, mg, iv);
 
-		Label comeIn = new Label(goIn);
-		comeIn.setAlignment(Pos.BOTTOM_CENTER);
+	String goIn = String.format("Would you like to shop the Meat Department?");
+	Text shopTxt = new Text(goIn);
+	shopTxt.setText(goIn);
+	shopTxt.setX(50.00);
+	shopTxt.setY(80.00);
+	shopTxt.setFill(Color.BLUE);
+	shopTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
 
-		Button Enter = new Button("YES!");
-		EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
+	Label comeIn = new Label(goIn);
+	comeIn.setAlignment(Pos.BOTTOM_CENTER);
 
-				System.out.println("Welcome!");
+	Button Enter = new Button("YES!");
+	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
 
-			}
-		};
-		Enter.setOnAction(yesEvent);
+		System.out.println("Welcome!");
 
-		Button noIDoNot = new Button("Next Department Please");
-		Enter.setAlignment(Pos.BOTTOM_CENTER);
-		noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
-		EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				System.out.println("No");
+	    }
+	};
+	Enter.setOnAction(yesEvent);
 
-			}
-		};
+	Button noIDoNot = new Button("Next Department Please");
+	Enter.setAlignment(Pos.BOTTOM_CENTER);
+	noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		System.out.println("No");
 
-		noIDoNot.setOnAction(noEvent);
+	    }
+	};
 
-		HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
-		paneCharacter.setPadding(new Insets(10));
-		// Add the Character and Actor panes to a VBox
-		VBox ml = new VBox(10, mp, paneCharacter);
-		ml.setAlignment(Pos.CENTER);
+	noIDoNot.setOnAction(noEvent);
 
-		mBox.getChildren().add(paneCharacter);
+	HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
+	paneCharacter.setPadding(new Insets(10));
+	// Add the Character and Actor panes to a VBox
+	VBox ml = new VBox(10, mp, paneCharacter);
+	ml.setAlignment(Pos.CENTER);
 
-		Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
-		instructions.setAlignment(Pos.CENTER);
-		instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-		instructions.setStyle("-fx-background-color:lightblue");
-		VBox mpr = new VBox(15, mBox, iv, instructions);
-		mpr.setAlignment(Pos.CENTER);
+	mBox.getChildren().add(paneCharacter);
 
-		GridPane pGrid = new GridPane();
-		Insets iSet = new Insets(0, 30, 10, 10);
-		pGrid.setPadding(iSet);
+	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
+	instructions.setAlignment(Pos.CENTER);
+	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
+	instructions.setStyle("-fx-background-color:lightblue");
+	VBox mpr = new VBox(15, mBox, iv, instructions);
+	mpr.setAlignment(Pos.CENTER);
 
-		String oProdName = "NoProd";
-		Set<String> eProductKeys = meatProducts.keySet();
-		// You must sort the Set of keys
-		List<String> list = new ArrayList<>(eProductKeys);
-		Collections.sort(list);
+	GridPane pGrid = new GridPane();
+	Insets iSet = new Insets(0, 30, 10, 10);
+	pGrid.setPadding(iSet);
 
-		int rowIndex = 0;
-		int columnIndex = 0;
-		String oldFilename = "Firstfile";
+	String oProdName = "NoProd";
+	Set<String> eProductKeys = meatProducts.keySet();
+	// You must sort the Set of keys
+	List<String> list = new ArrayList<>(eProductKeys);
+	Collections.sort(list);
 
-		for (String pKey : list) {
-			Product pd = meatProducts.get(pKey);
+	int rowIndex = 0;
+	int columnIndex = 0;
+	String oldFilename = "Firstfile";
 
-			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "meat", pd.getBrandName(),
-					pd.getProductName());
-			if (oldFilename.equals(iFileName)) {
-				// System.out.printf("%s==%s, %b\n", oldFilename,
-				// iFileName,oldFilename.equals(iFileName));
-				continue;
-			}
-			System.out.println(iFileName);
-			oldFilename = iFileName;
+	for (String pKey : list) {
+	    Product pd = meatProducts.get(pKey);
 
-			// Image View
-			Image pImage = new Image(iFileName);
-			ImageView pV = new ImageView();
-			pV.setFitHeight(125);
-			// pV.setFitHeight(65);
-			pV.setId(pd.getBrandName() + "-" + pd.getProductName());
-			pV.setImage(pImage);
-			pV.setPreserveRatio(true);
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "meat", pd.getBrandName(),
+		    pd.getProductName());
+	    if (oldFilename.equals(iFileName)) {
+		// System.out.printf("%s==%s, %b\n", oldFilename,
+		// iFileName,oldFilename.equals(iFileName));
+		continue;
+	    }
+	    System.out.println(iFileName);
+	    oldFilename = iFileName;
 
-			pV.setSmooth(true);
-			pV.setCache(true);
-			String meatToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
-			Tooltip.install(pV, new Tooltip(meatToolTip));
+	    // Image View
+	    Image pImage = new Image(iFileName);
+	    ImageView pV = new ImageView();
+	    pV.setFitHeight(125);
+	    // pV.setFitHeight(65);
+	    pV.setId(pKey);
+	    pV.setImage(pImage);
+	    pV.setPreserveRatio(true);
 
-			EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
-				public void handle(MouseEvent e) {
-					System.out.printf("Image Click on %s\n", pV.getId());
-				}
-			};
-			pV.setOnMouseClicked(iEvent);
-			if (oProdName.equals(pd.getProductName()) != true) {
-				Label pLabel = new Label();
-				pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-				pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-				if (pd.getProductName().contains("steak")) {
-					pLabel.setText(pd.getProductName() + " Aisle");
-					pLabel.setStyle("-fx-border-color:black; -fx-background-color:darksalmon;");
-				} else {
-					pLabel.setText(pd.getProductName() + " Shelve");
-				}
-				pLabel.setAlignment(Pos.CENTER);
-				columnIndex = 0;
-				rowIndex += 1;
-				System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
+	    pV.setSmooth(true);
+	    pV.setCache(true);
+	    String meatToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
+	    Tooltip.install(pV, new Tooltip(meatToolTip));
 
-				pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
-				if (rowIndex == 0) {
-					rowIndex = 1;
-				} else {
-					rowIndex += 1;
-				}
-				System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
-				oProdName = pd.getProductName();
-			}
-			System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
-			pGrid.add(pV, columnIndex, rowIndex);
-
-			if (columnIndex < 5) {
-				columnIndex++;
-			} else {
-				rowIndex += 2;
-				columnIndex = 0;
-			}
-
+	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
+		public void handle(MouseEvent e) {
+		    Product pd2 = meatProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "meat");
 		}
-		// ap.getChildren().add(pGrid);
-		pGrid.setHgap(20);
-		pGrid.setVgap(40);
-		ScrollPane sp = new ScrollPane();
-		sp.setContent(pGrid);
-		sp.setPannable(true);
-		sp.setHvalue(0.0);
-		sp.setVvalue(0.0);
+	    };
+	    pV.setOnMouseClicked(iEvent);
+	    if (oProdName.equals(pd.getProductName()) != true) {
+		Label pLabel = new Label();
+		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		if (pd.getProductName().contains("steak")) {
+		    pLabel.setText(pd.getProductName() + " Aisle");
+		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:darksalmon;");
+		} else {
+		    pLabel.setText(pd.getProductName() + " Shelve");
+		}
+		pLabel.setAlignment(Pos.CENTER);
+		columnIndex = 0;
+		rowIndex += 1;
+		System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
 
-		HBox dButtons = Greeting.getBottonDeptButtons();
-		dButtons.setAlignment(Pos.CENTER);
-		dButtons.setSpacing(30);
-		dButtons.setPadding(new Insets(15, 0, 15, 0));
+		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
+		if (rowIndex == 0) {
+		    rowIndex = 1;
+		} else {
+		    rowIndex += 1;
+		}
+		System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
+		oProdName = pd.getProductName();
+	    }
+	    System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
+	    pGrid.add(pV, columnIndex, rowIndex);
 
-		VBox mVBox = new VBox(20, mpr, sp, dButtons);
+	    if (columnIndex < 5) {
+		columnIndex++;
+	    } else {
+		rowIndex += 2;
+		columnIndex = 0;
+	    }
 
-		Scene mScene = new Scene(mVBox, 600, 575);
-		// TODO Auto-generated method stub
-		return mScene;
 	}
+	// ap.getChildren().add(pGrid);
+	pGrid.setHgap(20);
+	pGrid.setVgap(40);
+	ScrollPane sp = new ScrollPane();
+	sp.setContent(pGrid);
+	sp.setPannable(true);
+	sp.setHvalue(0.0);
+	sp.setVvalue(0.0);
+
+	HBox dButtons = Greeting.getBottonDeptButtons();
+	dButtons.setAlignment(Pos.CENTER);
+	dButtons.setSpacing(30);
+	dButtons.setPadding(new Insets(15, 0, 15, 0));
+
+	VBox mVBox = new VBox(20, mpr, sp, dButtons);
+
+	Scene mScene = new Scene(mVBox, 600, 575);
+	// TODO Auto-generated method stub
+	return mScene;
+    }
 }

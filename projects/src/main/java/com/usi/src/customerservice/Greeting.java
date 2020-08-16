@@ -555,6 +555,26 @@ public class Greeting extends Application {
 	pV.setSmooth(true);
 	pV.setCache(true);
 
+	Button Buy = new Button("Add to cart");
+	EventHandler<ActionEvent> addToCartEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+
+		System.out.println("ITEM ADDED TO CART");
+
+	    }
+	};
+	Buy.setOnAction(addToCartEvent);
+
+	Button howMany = new Button("Quantity");
+	Buy.setAlignment(Pos.BOTTOM_CENTER);
+	howMany.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> howManyEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+
+	    }
+	};
+	howMany.setOnAction(howManyEvent);
+
 	Button closeButton = new Button("Close");
 	closeButton.setAlignment(Pos.CENTER);
 	// New window (Stage)
@@ -576,11 +596,13 @@ public class Greeting extends Application {
 	iDetailPane.setPrefSize(200, 200);
 
 	VBox mp = new VBox(pV);
+	mp.setStyle("-fx-background-color: black;");
 	HBox pTopPane = new HBox(mp, iDetailPane);
-	HBox pBottomPane = new HBox(descBox);
+	HBox pButtons = new HBox(Buy, howMany, closeButton);
+	HBox pBottomPane = new HBox(pButtons, descBox);
 	VBox dPane = new VBox(pTopPane, pBottomPane);
 
-	Scene pScene = new Scene(dPane, 250, 400);
+	Scene pScene = new Scene(dPane, 400, 500);
 
 	newWindow.setTitle(String.format("%s- Details", inProd.getProductName()));
 	newWindow.setScene(pScene);

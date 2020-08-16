@@ -34,261 +34,262 @@ import util.Product;
 import util.StoreConstants;
 
 public class LuggageDept extends Department {
-	String deptName = StoreConstants.deptNames.LUGGAGE.name();
-	List<String> luggageRecords = null;
-	HashMap<Integer, String> keyMap = null;
+    String deptName = StoreConstants.deptNames.LUGGAGE.name();
+    List<String> luggageRecords = null;
+    HashMap<Integer, String> keyMap = null;
 // HashMap<K, V> to hold LuggageProd objects.
-	HashMap<String, LuggageProd> luggageProducts;
+    HashMap<String, LuggageProd> luggageProducts;
 
-	/**
-	 * Constructor
-	 */
-	public LuggageDept() {
-		super.setDeptName(deptName);
+    /**
+     * Constructor
+     */
+    public LuggageDept() {
+	super.setDeptName(deptName);
 
 // Record Load
-		DataCsvLoad unLoadTrucks = new DataCsvLoad();
-		unLoadTrucks.loadData(StoreConstants.LUGGAGE_TRUCK);
-		luggageRecords = unLoadTrucks.getRecords();
-		this.setLoadedRecords(luggageRecords);
-		keyMap = new HashMap<Integer, String>();
-		luggageProducts = new HashMap<String, LuggageProd>();
-		loadProducts();
-	}
+	DataCsvLoad unLoadTrucks = new DataCsvLoad();
+	unLoadTrucks.loadData(StoreConstants.LUGGAGE_TRUCK);
+	luggageRecords = unLoadTrucks.getRecords();
+	this.setLoadedRecords(luggageRecords);
+	keyMap = new HashMap<Integer, String>();
+	luggageProducts = new HashMap<String, LuggageProd>();
+	loadProducts();
+    }
 
-	@Override
-	protected void loadProducts() {
-		// TODO Auto-generated method stub
-		// Load products
-		for (String record : luggageRecords) {
-			LuggageProd lp = new LuggageProd();
-			boolean recordToProductSuccessful = lp.recordToProduct(record);
+    @Override
+    protected void loadProducts() {
+	// TODO Auto-generated method stub
+	// Load products
+	for (String record : luggageRecords) {
+	    LuggageProd lp = new LuggageProd();
+	    boolean recordToProductSuccessful = lp.recordToProduct(record);
 
-			// If it fails to convert any field, don't add that object to luggageProducts
-			if (recordToProductSuccessful == true) {
-				String prodKey = ProdKeyGen.genKey(lp);
-				int howMany = lp.getNumUnitsInstock();
-				for (int i = 0; i < howMany; i++) {
+	    // If it fails to convert any field, don't add that object to luggageProducts
+	    if (recordToProductSuccessful == true) {
+		String prodKey = ProdKeyGen.genKey(lp);
+		int howMany = lp.getNumUnitsInstock();
+		for (int i = 0; i < howMany; i++) {
 
-					luggageProducts.put(prodKey + 1, lp);
-				}
-
-			}
-			System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-					luggageRecords.size(), luggageProducts.size());
-		}
-	}
-
-	@Override
-	public void listProducts() {
-		String aKey = null;
-		Set<String> luggageProductKeys = luggageProducts.keySet();
-
-		int totalProducts = luggageProductKeys.size();
-		int i = 1;
-		for (String pKey : luggageProductKeys) {
-			Product pd = luggageProducts.get(pKey);
-			if (aKey != pKey) {
-				System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
-			}
-			aKey = pKey;
-			keyMap.put(i, pKey);
-			i++;
-		}
-	}
-
-	public List<Product> getProds(int index, int qauntity) {
-		ArrayList<Product> pdList = new ArrayList<Product>();
-		String pKey = keyMap.get(index);
-		for (int i = 0; i < qauntity; i++) {
-			LuggageProd pd = luggageProducts.get(pKey);
-			pdList.add(pd);
+		    luggageProducts.put(prodKey + 1, lp);
 		}
 
-		return pdList;
+	    }
+	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
+		    luggageRecords.size(), luggageProducts.size());
+	}
+    }
+
+    @Override
+    public void listProducts() {
+	String aKey = null;
+	Set<String> luggageProductKeys = luggageProducts.keySet();
+
+	int totalProducts = luggageProductKeys.size();
+	int i = 1;
+	for (String pKey : luggageProductKeys) {
+	    Product pd = luggageProducts.get(pKey);
+	    if (aKey != pKey) {
+		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+	    }
+	    aKey = pKey;
+	    keyMap.put(i, pKey);
+	    i++;
+	}
+    }
+
+    public List<Product> getProds(int index, int qauntity) {
+	ArrayList<Product> pdList = new ArrayList<Product>();
+	String pKey = keyMap.get(index);
+	for (int i = 0; i < qauntity; i++) {
+	    LuggageProd pd = luggageProducts.get(pKey);
+	    pdList.add(pd);
 	}
 
-	@Override
-	public List<Product> getProducts() {
-		List<Product> pList = null;
+	return pdList;
+    }
 
-		return pList;
-	}
+    @Override
+    public List<Product> getProducts() {
+	List<Product> pList = null;
 
-	@Override
-	public Scene getScene() {
+	return pList;
+    }
 
-		String imageKey = String.format("Welcome to the Luggage Department!");
-		Text welcomeTxt = new Text(imageKey);
-		welcomeTxt.setText(imageKey);
-		welcomeTxt.setX(50.00);
-		welcomeTxt.setY(80.00);
-		welcomeTxt.setFill(Color.BLUE);
-		welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-		HBox lug = new HBox(20, welcomeTxt);
-		lug.setAlignment(Pos.TOP_CENTER);
+    @Override
+    public Scene getScene() {
 
-		Image luggageImage = new Image(StoreConstants.LUGGAGEDEPT);
-		ImageView iv = new ImageView();
-		iv.setImage(luggageImage);
-		iv.setFitWidth(300);
-		iv.setPreserveRatio(true);
-		iv.setSmooth(true);
-		iv.setCache(true);
-		HBox lup = new HBox(iv);
-		lup.setAlignment(Pos.CENTER);
+	String imageKey = String.format("Welcome to the Luggage Department!");
+	Text welcomeTxt = new Text(imageKey);
+	welcomeTxt.setText(imageKey);
+	welcomeTxt.setX(50.00);
+	welcomeTxt.setY(80.00);
+	welcomeTxt.setFill(Color.BLUE);
+	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	HBox lug = new HBox(20, welcomeTxt);
+	lug.setAlignment(Pos.TOP_CENTER);
 
-		VBox lugBox = new VBox(20, lug, iv);
+	Image luggageImage = new Image(StoreConstants.LUGGAGEDEPT);
+	ImageView iv = new ImageView();
+	iv.setImage(luggageImage);
+	iv.setFitWidth(300);
+	iv.setPreserveRatio(true);
+	iv.setSmooth(true);
+	iv.setCache(true);
+	HBox lup = new HBox(iv);
+	lup.setAlignment(Pos.CENTER);
 
-		String goIn = String.format("Would you like to shop the Luggage Department?");
-		Text shopTxt = new Text(goIn);
-		shopTxt.setText(goIn);
-		shopTxt.setX(50.00);
-		shopTxt.setY(80.00);
-		shopTxt.setFill(Color.BLUE);
-		shopTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
+	VBox lugBox = new VBox(20, lug, iv);
 
-		Label comeIn = new Label(goIn);
-		comeIn.setAlignment(Pos.BOTTOM_CENTER);
+	String goIn = String.format("Would you like to shop the Luggage Department?");
+	Text shopTxt = new Text(goIn);
+	shopTxt.setText(goIn);
+	shopTxt.setX(50.00);
+	shopTxt.setY(80.00);
+	shopTxt.setFill(Color.BLUE);
+	shopTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
 
-		Button Enter = new Button("YES!");
-		EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
+	Label comeIn = new Label(goIn);
+	comeIn.setAlignment(Pos.BOTTOM_CENTER);
 
-				System.out.println("Welcome!");
+	Button Enter = new Button("YES!");
+	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
 
-			}
-		};
-		Enter.setOnAction(yesEvent);
+		System.out.println("Welcome!");
 
-		Button noIDoNot = new Button("Next Department Please");
-		Enter.setAlignment(Pos.BOTTOM_CENTER);
-		noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
-		EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
-			public void handle(ActionEvent e) {
-				System.out.println("No");
+	    }
+	};
+	Enter.setOnAction(yesEvent);
 
-			}
-		};
+	Button noIDoNot = new Button("Next Department Please");
+	Enter.setAlignment(Pos.BOTTOM_CENTER);
+	noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		System.out.println("No");
 
-		noIDoNot.setOnAction(noEvent);
+	    }
+	};
 
-		HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
-		paneCharacter.setPadding(new Insets(10));
-		// Add the Character and Actor panes to a VBox
-		VBox el = new VBox(10, lup, paneCharacter);
-		el.setAlignment(Pos.CENTER);
+	noIDoNot.setOnAction(noEvent);
 
-		lugBox.getChildren().add(paneCharacter);
+	HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
+	paneCharacter.setPadding(new Insets(10));
+	// Add the Character and Actor panes to a VBox
+	VBox el = new VBox(10, lup, paneCharacter);
+	el.setAlignment(Pos.CENTER);
 
-		Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
-		instructions.setAlignment(Pos.CENTER);
-		instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-		instructions.setStyle("-fx-background-color:lightblue");
-		VBox lugpr = new VBox(15, lugBox, iv, instructions);
-		lugpr.setAlignment(Pos.CENTER);
+	lugBox.getChildren().add(paneCharacter);
 
-		GridPane pGrid = new GridPane();
-		Insets iSet = new Insets(0, 30, 10, 10);
-		pGrid.setPadding(iSet);
+	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
+	instructions.setAlignment(Pos.CENTER);
+	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
+	instructions.setStyle("-fx-background-color:lightblue");
+	VBox lugpr = new VBox(15, lugBox, iv, instructions);
+	lugpr.setAlignment(Pos.CENTER);
 
-		String oProdName = "NoProd";
-		Set<String> eProductKeys = luggageProducts.keySet();
-		// You must sort the Set of keys
-		List<String> list = new ArrayList<>(eProductKeys);
-		Collections.sort(list);
+	GridPane pGrid = new GridPane();
+	Insets iSet = new Insets(0, 30, 10, 10);
+	pGrid.setPadding(iSet);
 
-		int rowIndex = 0;
-		int columnIndex = 0;
-		String oldFilename = "Firstfile";
+	String oProdName = "NoProd";
+	Set<String> eProductKeys = luggageProducts.keySet();
+	// You must sort the Set of keys
+	List<String> list = new ArrayList<>(eProductKeys);
+	Collections.sort(list);
 
-		for (String pKey : list) {
-			Product pd = luggageProducts.get(pKey);
+	int rowIndex = 0;
+	int columnIndex = 0;
+	String oldFilename = "Firstfile";
 
-			String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "luggage", pd.getBrandName(),
-					pd.getProductName());
-			if (oldFilename.equals(iFileName)) {
-				// System.out.printf("%s==%s, %b\n", oldFilename,
-				// iFileName,oldFilename.equals(iFileName));
-				continue;
-			}
-			System.out.println(iFileName);
-			oldFilename = iFileName;
+	for (String pKey : list) {
+	    Product pd = luggageProducts.get(pKey);
 
-			// Image View
-			Image pImage = new Image(iFileName);
-			ImageView pV = new ImageView();
-			pV.setFitHeight(125);
-			// pV.setFitHeight(65);
-			pV.setId(pd.getBrandName() + "-" + pd.getProductName());
-			pV.setImage(pImage);
-			pV.setPreserveRatio(true);
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "luggage", pd.getBrandName(),
+		    pd.getProductName());
+	    if (oldFilename.equals(iFileName)) {
+		// System.out.printf("%s==%s, %b\n", oldFilename,
+		// iFileName,oldFilename.equals(iFileName));
+		continue;
+	    }
+	    System.out.println(iFileName);
+	    oldFilename = iFileName;
 
-			pV.setSmooth(true);
-			pV.setCache(true);
-			String luggageToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
-					pd.getPrice());
-			Tooltip.install(pV, new Tooltip(luggageToolTip));
+	    // Image View
+	    Image pImage = new Image(iFileName);
+	    ImageView pV = new ImageView();
+	    pV.setFitHeight(125);
+	    // pV.setFitHeight(65);
+	    pV.setId(pKey);
+	    pV.setImage(pImage);
+	    pV.setPreserveRatio(true);
 
-			EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
-				public void handle(MouseEvent e) {
-					System.out.printf("Image Click on %s\n", pV.getId());
-				}
-			};
-			pV.setOnMouseClicked(iEvent);
-			if (oProdName.equals(pd.getProductName()) != true) {
-				Label pLabel = new Label();
-				pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-				pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-				if (pd.getProductName().contains("luggage")) {
-					pLabel.setText(pd.getProductName() + " Aisle");
-					pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-				} else {
-					pLabel.setText(pd.getProductName() + " Shelve");
-				}
-				pLabel.setAlignment(Pos.CENTER);
-				columnIndex = 0;
-				rowIndex += 1;
-				System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
+	    pV.setSmooth(true);
+	    pV.setCache(true);
+	    String luggageToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+		    pd.getPrice());
+	    Tooltip.install(pV, new Tooltip(luggageToolTip));
 
-				pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
-				if (rowIndex == 0) {
-					rowIndex = 1;
-				} else {
-					rowIndex += 1;
-				}
-				System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
-				oProdName = pd.getProductName();
-			}
-			System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
-			pGrid.add(pV, columnIndex, rowIndex);
-
-			if (columnIndex < 5) {
-				columnIndex++;
-			} else {
-				rowIndex += 2;
-				columnIndex = 0;
-			}
-
+	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
+		public void handle(MouseEvent e) {
+		    Product pd2 = luggageProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "luggage");
 		}
-		// ap.getChildren().add(pGrid);
-		pGrid.setHgap(20);
-		pGrid.setVgap(40);
-		ScrollPane sp = new ScrollPane();
-		sp.setContent(pGrid);
-		sp.setPannable(true);
-		sp.setHvalue(0.0);
-		sp.setVvalue(0.0);
+	    };
+	    pV.setOnMouseClicked(iEvent);
+	    if (oProdName.equals(pd.getProductName()) != true) {
+		Label pLabel = new Label();
+		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		if (pd.getProductName().contains("luggage")) {
+		    pLabel.setText(pd.getProductName() + " Aisle");
+		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		} else {
+		    pLabel.setText(pd.getProductName() + " Shelve");
+		}
+		pLabel.setAlignment(Pos.CENTER);
+		columnIndex = 0;
+		rowIndex += 1;
+		System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
 
-		HBox dButtons = Greeting.getBottonDeptButtons();
-		dButtons.setAlignment(Pos.CENTER);
-		dButtons.setSpacing(30);
-		dButtons.setPadding(new Insets(15, 0, 15, 0));
+		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
+		if (rowIndex == 0) {
+		    rowIndex = 1;
+		} else {
+		    rowIndex += 1;
+		}
+		System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
+		oProdName = pd.getProductName();
+	    }
+	    System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
+	    pGrid.add(pV, columnIndex, rowIndex);
 
-		VBox lugVBox = new VBox(20, lugpr, sp, dButtons);
+	    if (columnIndex < 5) {
+		columnIndex++;
+	    } else {
+		rowIndex += 2;
+		columnIndex = 0;
+	    }
 
-		Scene luScene = new Scene(lugVBox, 600, 575);
-		// TODO Auto-generated method stub
-		return luScene;
 	}
+	// ap.getChildren().add(pGrid);
+	pGrid.setHgap(20);
+	pGrid.setVgap(40);
+	ScrollPane sp = new ScrollPane();
+	sp.setContent(pGrid);
+	sp.setPannable(true);
+	sp.setHvalue(0.0);
+	sp.setVvalue(0.0);
+
+	HBox dButtons = Greeting.getBottonDeptButtons();
+	dButtons.setAlignment(Pos.CENTER);
+	dButtons.setSpacing(30);
+	dButtons.setPadding(new Insets(15, 0, 15, 0));
+
+	VBox lugVBox = new VBox(20, lugpr, sp, dButtons);
+
+	Scene luScene = new Scene(lugVBox, 600, 575);
+	// TODO Auto-generated method stub
+	return luScene;
+    }
 }

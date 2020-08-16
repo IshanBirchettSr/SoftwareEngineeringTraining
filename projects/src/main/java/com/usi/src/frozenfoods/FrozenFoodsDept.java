@@ -238,7 +238,8 @@ public class FrozenFoodsDept extends Department {
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
+		    Product pd2 = frozenFoodsProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "frozen foods");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
