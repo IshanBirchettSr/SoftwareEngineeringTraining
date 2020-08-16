@@ -19,6 +19,11 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.layout.BorderWidths;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -173,6 +178,7 @@ public class Greeting extends Application {
 
 	primaryStage.setScene(scene);
 	String screenTitle = String.format("%s - %s", StoreConstants.STORE_NAME, "Greeting");
+	primaryStage.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
 	primaryStage.setTitle(screenTitle);
 	primaryStage.show();
 
@@ -547,8 +553,8 @@ public class Greeting extends Application {
 	// Image View
 	Image pImage = new Image(iFileName);
 	ImageView pV = new ImageView();
-	pV.setFitHeight(200);
-	// pV.setFitHeight(65);
+	pV.setFitWidth(225);
+	// pV.setFitHeight(200);
 	// pV.setId(inProd.get );
 	pV.setImage(pImage);
 	pV.setPreserveRatio(true);
@@ -579,6 +585,7 @@ public class Greeting extends Application {
 	closeButton.setAlignment(Pos.CENTER);
 	// New window (Stage)
 	Stage newWindow = new Stage();
+	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
 
 	EventHandler<ActionEvent> closeEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
@@ -587,22 +594,50 @@ public class Greeting extends Application {
 	};
 	closeButton.setOnAction(closeEvent);
 
+	// Description Pane
 	VBox descBox = new VBox();
 	descBox.setStyle("-fx-background-color: red;");
-	descBox.setPrefSize(200, 200);
+	descBox.setPrefSize(175, 200);
+
+	// Borders
+	BorderWidths bs = new BorderWidths(1, 1, 1, 1);
+	Color bColor = Color.GRAY;
+
+	descBox.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
+	descBox.setAlignment(Pos.CENTER_RIGHT);
+
+	// Banding Pane
+	VBox brandingBox = new VBox();
+	brandingBox.setStyle("-fx-background-color: yellow;");
+	brandingBox.setPrefSize(225, 200);
+	brandingBox.setAlignment(Pos.CENTER_RIGHT);
+	brandingBox.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
 
 	VBox iDetailPane = new VBox();
 	iDetailPane.setStyle("-fx-background-color: green;");
-	iDetailPane.setPrefSize(200, 200);
+	iDetailPane.setPrefSize(175, 200);
+	iDetailPane.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
+	iDetailPane.setFillWidth(true);
+	iDetailPane.setAlignment(Pos.CENTER_RIGHT);
 
 	VBox mp = new VBox(pV);
-	mp.setStyle("-fx-background-color: black;");
+	mp.setStyle("-fx-background-color: white;");
+	mp.setAlignment(Pos.CENTER_LEFT);
+	mp.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
+	mp.setFillWidth(true);
 	HBox pTopPane = new HBox(mp, iDetailPane);
-	HBox pButtons = new HBox(Buy, howMany, closeButton);
-	HBox pBottomPane = new HBox(pButtons, descBox);
-	VBox dPane = new VBox(pTopPane, pBottomPane);
+	pTopPane.setAlignment(Pos.CENTER);
 
-	Scene pScene = new Scene(dPane, 400, 500);
+	HBox pButtons = new HBox(30, Buy, howMany, closeButton);
+	pButtons.setStyle("-fx-background-color: gray;");
+	pButtons.setAlignment(Pos.CENTER);
+
+	HBox pBottomPane = new HBox(brandingBox, descBox);
+	pBottomPane.setAlignment(Pos.BASELINE_CENTER);
+
+	VBox dPane = new VBox(pTopPane, pBottomPane, pButtons);
+	dPane.setStyle("-fx-background-color: gray;");
+	Scene pScene = new Scene(dPane, 400, 425);
 
 	newWindow.setTitle(String.format("%s- Details", inProd.getProductName()));
 	newWindow.setScene(pScene);
@@ -612,10 +647,11 @@ public class Greeting extends Application {
 
 	// Specifies the owner Window (parent) for new window
 	newWindow.initOwner(parentStage);
+	newWindow.setResizable(false);
 
 	// Set position of second window, related to primary window.
-	newWindow.setX(parentStage.getX() + 25);
-	newWindow.setY(parentStage.getY() + 20);
+	newWindow.setX(parentStage.getX() + 85);
+	newWindow.setY(parentStage.getY() + 50);
 
 	newWindow.show();
     }

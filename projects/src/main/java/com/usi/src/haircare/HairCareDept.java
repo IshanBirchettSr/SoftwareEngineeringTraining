@@ -242,7 +242,7 @@ public class HairCareDept extends Department {
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
 		    Product pd2 = haircareProducts.get(pKey);
-		    Greeting.prodDetails(pd2, "hair care");
+		    Greeting.prodDetails(pd2, "hair_care");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
