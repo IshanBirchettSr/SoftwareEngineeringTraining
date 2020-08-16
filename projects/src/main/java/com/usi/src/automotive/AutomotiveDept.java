@@ -90,10 +90,10 @@ public class AutomotiveDept extends Department {
 
 	int i = 1;
 	for (String pKey : aProductKeys) {
-	    Product pd = autoProducts.get(pKey);
-	    if (aKey != pKey) {
-		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
-	    }
+//	    Product pd = autoProducts.get(pKey);
+//	    if (aKey != pKey) {
+//		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+//	    }
 	    aKey = pKey;
 	    keyMap.put(i, pKey);
 	    i++;
@@ -204,7 +204,7 @@ public class AutomotiveDept extends Department {
 		pLabel.setAlignment(Pos.CENTER);
 		columnIndex = 0;
 		rowIndex += 1;
-		System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
+		// System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
 
 		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
 		if (rowIndex == 0) {
@@ -212,10 +212,10 @@ public class AutomotiveDept extends Department {
 		} else {
 		    rowIndex += 1;
 		}
-		System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
+		// System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
 		oProdName = pd.getProductName();
 	    }
-	    System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
+	    // System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
 	    pGrid.add(pV, columnIndex, rowIndex);
 
 	    if (columnIndex < 5) {

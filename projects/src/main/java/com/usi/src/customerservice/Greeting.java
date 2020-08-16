@@ -1,5 +1,6 @@
 package customerservice;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,6 +28,9 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -55,6 +59,7 @@ public class Greeting extends Application {
     private Stage newWindow = null;
     private static Scene scene = null;
     static ComboBox<String> deptComboBox = null;
+    static MediaPlayer mPlayer = null;
 
     /**
      * @return the parentStage
@@ -182,12 +187,12 @@ public class Greeting extends Application {
 	primaryStage.setTitle(screenTitle);
 	primaryStage.show();
 
-	List<String> fontNames = Font.getFontNames();
-	for (String fontName : fontNames) {
-	    welcomeTxt.setFont(Font.font(fontName, FontPosture.REGULAR, 20));
-	    // Thread.sleep(2000);
-	    System.out.println(fontName);
-	}
+//	List<String> fontNames = Font.getFontNames();
+//	for (String fontName : fontNames) {
+//	    welcomeTxt.setFont(Font.font(fontName, FontPosture.REGULAR, 20));
+//	    // Thread.sleep(2000);
+//	    System.out.println(fontName);
+//	}
 
     }
 
@@ -545,11 +550,17 @@ public class Greeting extends Application {
 
     public static void prodDetails(Product inProd, String dept) {
 
+	String pName[] = inProd.getProductName().split(" ");
+	StringBuilder pNameCat = new StringBuilder();
+	for (String pN : pName) {
+	    pNameCat.append(pN);
+	}
+	System.out.printf("%s vs. %s\n", inProd.getProductName(), pNameCat);
+
 	String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, dept, inProd.getBrandName(),
 		inProd.getProductName());
-
-	System.out.println(iFileName);
-
+	String iVideoName = String.format(StoreConstants.PRODUCT_VIDEO, dept, inProd.getBrandName(), pNameCat);
+	// System.out.println(iVideoName);
 	// Image View
 	Image pImage = new Image(iFileName);
 	ImageView pV = new ImageView();
@@ -587,13 +598,6 @@ public class Greeting extends Application {
 	Stage newWindow = new Stage();
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
 
-	EventHandler<ActionEvent> closeEvent = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-		newWindow.close();
-	    }
-	};
-	closeButton.setOnAction(closeEvent);
-
 	// Description Pane
 	VBox descBox = new VBox();
 	descBox.setStyle("-fx-background-color: red;");
@@ -610,8 +614,34 @@ public class Greeting extends Application {
 	VBox brandingBox = new VBox();
 	brandingBox.setStyle("-fx-background-color: yellow;");
 	brandingBox.setPrefSize(225, 200);
-	brandingBox.setAlignment(Pos.CENTER_RIGHT);
+	brandingBox.setAlignment(Pos.TOP_CENTER);
 	brandingBox.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
+
+	String vPath = iVideoName;
+	String iVideoNameCheck = String.format(StoreConstants.PRODUCT_VIDEO_Check, dept, inProd.getBrandName(),
+		pNameCat);
+	File file = new File(iVideoNameCheck);
+	mPlayer = null;
+	System.out.printf("%s\n", iVideoNameCheck);
+	if (file.exists() == true) {
+	    Media vMedia = new Media(vPath);
+	    mPlayer = new MediaPlayer(vMedia);
+	    mPlayer.setAutoPlay(true);
+	    MediaView mView = new MediaView(mPlayer);
+	    mView.setFitWidth(225);
+	    brandingBox.setAlignment(Pos.TOP_CENTER);
+	    brandingBox.getChildren().add(mView);
+	}
+
+	EventHandler<ActionEvent> closeEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		if (mPlayer != null) {
+		    mPlayer.stop();
+		}
+		newWindow.close();
+	    }
+	};
+	closeButton.setOnAction(closeEvent);
 
 	VBox iDetailPane = new VBox();
 	iDetailPane.setStyle("-fx-background-color: green;");
@@ -637,7 +667,7 @@ public class Greeting extends Application {
 
 	VBox dPane = new VBox(pTopPane, pBottomPane, pButtons);
 	dPane.setStyle("-fx-background-color: gray;");
-	Scene pScene = new Scene(dPane, 400, 425);
+	Scene pScene = new Scene(dPane, 400, 500);
 
 	newWindow.setTitle(String.format("%s- Details", inProd.getProductName()));
 	newWindow.setScene(pScene);

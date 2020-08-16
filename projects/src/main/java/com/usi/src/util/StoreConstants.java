@@ -105,6 +105,8 @@ public class StoreConstants {
      * Product Image
      */
     public static final String PRODUCT_IMAGE = "file:///" + APP_HOME + "/images" + "/%s_prod_%s_%s.png";
+    public static final String PRODUCT_VIDEO = "file:///" + APP_HOME + "/images" + "/%s_prod_%s_%s.mp4";
+    public static final String PRODUCT_VIDEO_Check = APP_HOME + "/images" + "/%s_prod_%s_%s.mp4";
 
     /*
      * Please keep deptNames in alphabetical order
