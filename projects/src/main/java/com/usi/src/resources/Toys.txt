@@ -3,7 +3,7 @@
 /* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock , Description
 /* Toys/Action Figures and Collection Sets  
 X-Men Action Figure Collection Set, Toys, NA, UUID, 1, NA, Mattel, NA, 48.99, NA, NA, 5, Eight Piece X-Men Collection Action Figure Set
-Storm Action Figure, Toys, NA, UUID, 1, NA, Mattel, NA, 12.99, WHITE, NA, 4, Storm Action Figure
+Storm Action Figure, Toys, NA, UUID, 1, NA, Marvel, NA, 12.99, WHITE, NA, 4, Storm Action Figure
 Captain Marvel Action Figure, Toys, NA, UUID, 1, NA, Mattel, NA, 12.99, BLUE, NA, 4, Captain Marvel Action Figure
 Superman Action Figure, Toys, NA, UUID, 1, NA, Mattel, NA, 7.99, BLUE, NA, 4,  Superman Action Figure
 Black Panther Action Figure, Toys, NA,  UUID, 1, NA, Mattel, NA, 10.99, BLACK, NA, 4, Black Panther Action Figure

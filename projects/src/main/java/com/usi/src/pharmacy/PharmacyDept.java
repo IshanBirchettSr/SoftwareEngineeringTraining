@@ -144,7 +144,7 @@ public class PharmacyDept extends Department {
 	Image pharmacyImage = new Image(StoreConstants.PHARMACYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(pharmacyImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -220,7 +220,7 @@ public class PharmacyDept extends Department {
 	for (String pKey : list) {
 	    Product pd = pharmacyProducts.get(pKey);
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "electronics", pd.getBrandName(),
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "pharmacy", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
 		// System.out.printf("%s==%s, %b\n", oldFilename,

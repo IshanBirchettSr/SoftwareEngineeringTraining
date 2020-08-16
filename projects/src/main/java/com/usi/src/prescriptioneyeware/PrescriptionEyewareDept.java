@@ -133,7 +133,7 @@ public class PrescriptionEyewareDept extends Department {
 	Image prescriptioneyewareImage = new Image(StoreConstants.PRESCRIPTIONEYEWAREDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(prescriptioneyewareImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);

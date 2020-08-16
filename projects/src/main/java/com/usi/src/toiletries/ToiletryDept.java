@@ -146,7 +146,7 @@ public class ToiletryDept extends Department {
 	Image toiletriesImage = new Image(StoreConstants.TOILETRIESDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(toiletriesImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -222,7 +222,7 @@ public class ToiletryDept extends Department {
 	for (String pKey : list) {
 	    Product pd = ToiletryProducts.get(pKey);
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "electronics", pd.getBrandName(),
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "toiletries", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
 		// System.out.printf("%s==%s, %b\n", oldFilename,
