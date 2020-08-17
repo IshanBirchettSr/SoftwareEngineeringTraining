@@ -13,3 +13,5 @@ Baby Food , Baby_Essentials , OUNCES , UUID , 2 , Stage 1 , Gerber , 2 , 3.99 , 
 Baby Food , Baby_Essentials , OUNCES , UUID , 4 , Stage 2 , Gerber , 4 , 4.99 , BEIGE , apple , 150 ,babies 1st foods
 Baby Food , Baby_Essentials , OUNCES , UUID , 2 , Stage 3 , Beech Nut , 2 , 2.99 , BEIGE , banana , 150 , toddlers first
 Baby Food , Baby_Essentials , OUNCES , UUID , 2 , Stage 3 , Beech Nut , 6 , 3.99 , BLUE , blueberry , 150 , toddlers first
+Bath Pod , Baby_Essentials , OUNCES , UUID , 2 , Stage 3 , Fisher Price , NA , 23.99 , BLUE , NA, 150 , bath item
+Car Seat , Baby_Essentials , POUNDS , UUID , 2 , NA , Fisher Price , NA , 63.99 , BLACK , NA, 50 , car seat
