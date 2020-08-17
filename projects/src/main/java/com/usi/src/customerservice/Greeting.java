@@ -551,16 +551,22 @@ public class Greeting extends Application {
     public static void prodDetails(Product inProd, String dept) {
 
 	String pName[] = inProd.getProductName().split(" ");
+	String bName[] = inProd.getBrandName().split(" ");
 	StringBuilder pNameCat = new StringBuilder();
 	for (String pN : pName) {
 	    pNameCat.append(pN);
 	}
+	StringBuilder bNameCat = new StringBuilder();
+	for (String bN : bName) {
+	    bNameCat.append(bN);
+	}
 	System.out.printf("%s vs. %s\n", inProd.getProductName(), pNameCat);
+	System.out.printf("%s vs. %s\n", inProd.getBrandName(), bNameCat);
 
 	String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, dept, inProd.getBrandName(),
 		inProd.getProductName());
-	String iVideoName = String.format(StoreConstants.PRODUCT_VIDEO, dept, inProd.getBrandName(), pNameCat);
-	// System.out.println(iVideoName);
+	String iVideoName = String.format(StoreConstants.PRODUCT_VIDEO, dept, bNameCat, pNameCat);
+	System.out.println(iVideoName);
 	// Image View
 	Image pImage = new Image(iFileName);
 	ImageView pV = new ImageView();
@@ -618,8 +624,7 @@ public class Greeting extends Application {
 	brandingBox.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
 
 	String vPath = iVideoName;
-	String iVideoNameCheck = String.format(StoreConstants.PRODUCT_VIDEO_Check, dept, inProd.getBrandName(),
-		pNameCat);
+	String iVideoNameCheck = String.format(StoreConstants.PRODUCT_VIDEO_Check, dept, bNameCat, pNameCat);
 	File file = new File(iVideoNameCheck);
 	mPlayer = null;
 	System.out.printf("%s\n", iVideoNameCheck);
