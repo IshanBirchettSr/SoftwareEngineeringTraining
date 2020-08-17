@@ -1,9 +1,8 @@
 /*Produce
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description/*
 Avacado, 	Produce, 	POUNDS, UUID, 3, NA, Haas, 	2, 		6.99,		GREEN, 	avacado, 	50, 		avacado
-Clementines,	Produce, POUNDS, UUID, 1, NA, HALO,	 3, 	6.99,	 ORANGE, 	clementine, 43, 	Halo clementines
+Clementines,	Produce, POUNDS, UUID, 1, NA, CUTIES, 	6.99,	4, ORANGE, 	clementine, 43, 	Halo clementines
 Potato, 	Produce,	 POUNDS, UUID, 1, NA, Market, 37,  3.99, 	BROWN,	 potato, 	54, 	russet potatos
 Carrots, 	Produce, 	POUNDS, UUID, 1, SM, Green Giant, 4,	1.99, 	ORANGE, 	carrot, 	34, 	baby cut carrots
 Spinach,	 Produce, 	OUNCES, UUID, 1, NA, Fresh Express, 6,	 3.99,	 GREEN, spinach, 	31, 	baby spinach
 Watermelon,	 Produce,	 POUNDS, UUID, 1, NA, Melon Up, 3,	1.99, 	GREEN, 	watermelon,	 50,	 watermelon
-

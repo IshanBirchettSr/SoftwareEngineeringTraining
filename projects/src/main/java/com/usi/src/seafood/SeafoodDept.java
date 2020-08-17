@@ -147,7 +147,7 @@ public class SeafoodDept extends Department {
 	Image seafoodImage = new Image(StoreConstants.SEAFOODDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(seafoodImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);

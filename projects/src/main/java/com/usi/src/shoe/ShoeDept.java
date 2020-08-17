@@ -139,10 +139,10 @@ public class ShoeDept extends Department {
 	HBox eg = new HBox(20, welcomeTxt);
 	eg.setAlignment(Pos.TOP_CENTER);
 
-	Image shoeImage = new Image(StoreConstants.ELECTRONICSDEPT);
+	Image shoeImage = new Image(StoreConstants.SHOEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(shoeImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);

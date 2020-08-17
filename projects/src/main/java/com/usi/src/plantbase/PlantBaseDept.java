@@ -139,7 +139,7 @@ public class PlantBaseDept extends Department {
 	Image plantbaseImage = new Image(StoreConstants.PLANTBASEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(plantbaseImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -215,7 +215,7 @@ public class PlantBaseDept extends Department {
 	for (String pKey : list) {
 	    Product pd = plantbaseProducts.get(pKey);
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "electronics", pd.getBrandName(),
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "plantbase", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
 		// System.out.printf("%s==%s, %b\n", oldFilename,
