@@ -121,6 +121,7 @@ public class BeddingDept extends Department {
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+
 	Image beddingImage = new Image(StoreConstants.BEDDINGDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(beddingImage);
@@ -128,6 +129,7 @@ public class BeddingDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
@@ -182,8 +184,7 @@ public class BeddingDept extends Department {
 		    public void handle(MouseEvent e) {
 			System.out.printf("Image Click on %s\n", pV.getId());
 			Product pd2 = BeddingProducts.get(pKey);
-			Greeting.prodDetails(pd2, "auto");
-
+			Greeting.prodDetails(pd2, "bedding");
 		    }
 		};
 		pV.setOnMouseClicked(iEvent);
@@ -235,8 +236,8 @@ public class BeddingDept extends Department {
 	    dButtons.setSpacing(30);
 	    dButtons.setPadding(new Insets(15, 0, 15, 0));
 	    VBox aVBox = new VBox(10, ap, sp, dButtons);
-	    Scene aScene = new Scene(aVBox, 400, 650);
-	    return aScene;
+	    Scene beddScene = new Scene(aVBox, 400, 650);
+	    return beddScene;
 	}
     }
 }
