@@ -42,7 +42,6 @@ public class BeddingDept extends Department {
     String deptName = StoreConstants.deptNames.BEDDING.name();
     List<String> beddingRecords = null;
     HashMap<Integer, String> keyMap = null;
-// HashMap<K, V> to hold ElectronicsProd objects.
     HashMap<String, BeddingProd> BeddingProducts;
 
     /**
@@ -50,22 +49,18 @@ public class BeddingDept extends Department {
      */
     public BeddingDept() {
 	super.setDeptName(deptName);
-// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.BEDDING_TRUCK);
 	beddingRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(beddingRecords);
-// System.out.printf("%s Department open with %d records\n", deptName,
-// autoRecords.size());
 	keyMap = new HashMap<Integer, String>();
-// Automotive Product Load
 	BeddingProducts = new HashMap<String, BeddingProd>();
 	loadProducts();
     }
 
     @Override
     protected void loadProducts() {
-// Load products
+	// Load products
 	for (String record : beddingRecords) {
 	    BeddingProd bp = new BeddingProd();
 	    boolean recordToProductSuccessful = bp.recordToProduct(record);
@@ -87,8 +82,6 @@ public class BeddingDept extends Department {
     public void listProducts() {
 	String aKey = null;
 	Set<String> aProductKeys = BeddingProducts.keySet();
-
-	int totalProducts = aProductKeys.size();
 	int i = 1;
 	for (String pKey : aProductKeys) {
 	    Product pd = BeddingProducts.get(pKey);
@@ -119,6 +112,7 @@ public class BeddingDept extends Department {
 	return pList;
     }
 
+    @Override
     public Scene getScene() {
 
 	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.BEDDING);
@@ -191,7 +185,6 @@ public class BeddingDept extends Department {
 			System.out.printf("Image Click on %s\n", pV.getId());
 			Product pd2 = BeddingProducts.get(pKey);
 			Greeting.prodDetails(pd2, "bedding");
-
 		    }
 		};
 		pV.setOnMouseClicked(iEvent);
@@ -244,8 +237,6 @@ public class BeddingDept extends Department {
 	    dButtons.setPadding(new Insets(15, 0, 15, 0));
 	    VBox aVBox = new VBox(10, ap, sp, dButtons);
 	    Scene beddScene = new Scene(aVBox, 400, 650);
-
-	    // TODO Auto-generated method stub
 	    return beddScene;
 	}
     }
