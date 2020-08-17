@@ -128,7 +128,7 @@ public class BabyEssentialsDept extends Department {
 
     @Override
     public Scene getScene() {
-	String imageKey = String.format("Welcome to the Baby Essentials!");
+	String imageKey = String.format("Welcome to Baby Essentials!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
