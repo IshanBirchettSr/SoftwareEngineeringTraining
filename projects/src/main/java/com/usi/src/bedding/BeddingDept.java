@@ -192,7 +192,7 @@ public class BeddingDept extends Department {
 		    Label pLabel = new Label();
 		    pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
-		    if (pd.getProductName().contains("Tire")) {
+		    if (pd.getProductName().contains("Pillow")) {
 			pLabel.setText(pd.getProductName() + " Aisle");
 			pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
 		    } else {
