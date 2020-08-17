@@ -599,17 +599,7 @@ public class Greeting extends Application {
 	};
 	howMany.setOnAction(howManyEvent);
 
-	Integer[] quantity = new Integer[10];
-	quantity[0] = 1;
-	quantity[1] = 2;
-	quantity[2] = 3;
-	quantity[3] = 4;
-	quantity[4] = 5;
-	quantity[5] = 6;
-	quantity[6] = 7;
-	quantity[7] = 8;
-	quantity[8] = 9;
-	quantity[9] = 10;
+	Integer[] quantity = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
 	ChoiceBox<Integer> choose = new ChoiceBox<>();
 	choose.getItems().addAll(quantity);
