@@ -126,7 +126,8 @@ public class PlantBaseDept extends Department {
 
     @Override
     public Scene getScene() {
-	String imageKey = String.format("Welcome to the Plant Base Department!");
+
+	String imageKey = String.format("Welcome to the Plantbase Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -139,7 +140,7 @@ public class PlantBaseDept extends Department {
 	Image plantbaseImage = new Image(StoreConstants.PLANTBASEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(plantbaseImage);
-	iv.setFitWidth(400);
+	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -228,21 +229,22 @@ public class PlantBaseDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(125);
+	    pV.setFitHeight(200);
 	    // pV.setFitHeight(65);
-	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
+	    pV.setId(pKey);
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
 
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String pantryToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+	    String plantbaseToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 		    pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(pantryToolTip));
+	    Tooltip.install(pV, new Tooltip(plantbaseToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
+		    Product pd2 = plantbaseProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "plantbase");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);

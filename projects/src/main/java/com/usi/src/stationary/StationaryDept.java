@@ -123,6 +123,7 @@ public class StationaryDept extends Department {
 
     @Override
     public Scene getScene() {
+
 	String imageKey = String.format("Welcome to the Stationary Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
@@ -136,7 +137,7 @@ public class StationaryDept extends Department {
 	Image stationaryImage = new Image(StoreConstants.STATIONARYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(stationaryImage);
-	iv.setFitWidth(400);
+	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -225,21 +226,22 @@ public class StationaryDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(125);
+	    pV.setFitHeight(200);
 	    // pV.setFitHeight(65);
-	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
+	    pV.setId(pKey);
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
 
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String pantryToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+	    String stationaryToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 		    pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(pantryToolTip));
+	    Tooltip.install(pV, new Tooltip(stationaryToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
+		    Product pd2 = stationaryProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "stationary");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);

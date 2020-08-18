@@ -125,7 +125,8 @@ public class PantryDept extends Department {
 
     @Override
     public Scene getScene() {
-	String imageKey = String.format("Welcome to the Pantry Department!");
+
+	String imageKey = String.format("Ohh look, SNACKS! Welcome to the Pantry Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -138,7 +139,7 @@ public class PantryDept extends Department {
 	Image pantryImage = new Image(StoreConstants.PANTRYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(pantryImage);
-	iv.setFitWidth(400);
+	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -227,9 +228,9 @@ public class PantryDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(125);
+	    pV.setFitHeight(200);
 	    // pV.setFitHeight(65);
-	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
+	    pV.setId(pKey);
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
 
@@ -241,7 +242,8 @@ public class PantryDept extends Department {
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
+		    Product pd2 = pantryProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "pantry");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
