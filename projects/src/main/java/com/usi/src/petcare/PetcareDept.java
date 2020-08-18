@@ -117,28 +117,22 @@ public class PetcareDept extends Department {
     }
 
     @Override
-    public List<Product> getProducts() {
-	List<Product> pList = null;
-
-	return pList;
-    }
-
-    @Override
     public Scene getScene() {
-	String imageKey = String.format("Welcome to the Petcare Department!");
+
+	String imageKey = String.format("Wolf!, Meow!, Chirp-Chirp!, Welcome to the Petcare Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
 	welcomeTxt.setY(80.00);
 	welcomeTxt.setFill(Color.BLUE);
-	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-	HBox eg = new HBox(20, welcomeTxt);
+	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 15));
+	HBox eg = new HBox(15, welcomeTxt);
 	eg.setAlignment(Pos.TOP_CENTER);
 
 	Image petcareImage = new Image(StoreConstants.PETCAREDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(petcareImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(500);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -227,21 +221,22 @@ public class PetcareDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(125);
+	    pV.setFitHeight(200);
 	    // pV.setFitHeight(65);
-	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
+	    pV.setId(pKey);
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
 
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String pantryToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+	    String petcareToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 		    pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(pantryToolTip));
+	    Tooltip.install(pV, new Tooltip(petcareToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
+		    Product pd2 = petcareProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "petcare");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
@@ -298,5 +293,11 @@ public class PetcareDept extends Department {
 	Scene eScene = new Scene(eVBox, 600, 650);
 
 	return eScene;
+    }
+
+    @Override
+    public List<Product> getProducts() {
+	// TODO Auto-generated method stub
+	return null;
     }
 }

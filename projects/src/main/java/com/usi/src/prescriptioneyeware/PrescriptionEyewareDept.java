@@ -120,20 +120,21 @@ public class PrescriptionEyewareDept extends Department {
 
     @Override
     public Scene getScene() {
-	String imageKey = String.format("Welcome to the Prescription Eyeware Department!");
+
+	String imageKey = String.format("Welcome to the Prescription Eyeware Department! Walk-in's are welcomed!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
 	welcomeTxt.setY(80.00);
 	welcomeTxt.setFill(Color.BLUE);
-	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-	HBox eg = new HBox(20, welcomeTxt);
+	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 15));
+	HBox eg = new HBox(15, welcomeTxt);
 	eg.setAlignment(Pos.TOP_CENTER);
 
 	Image prescriptioneyewareImage = new Image(StoreConstants.PRESCRIPTIONEYEWAREDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(prescriptioneyewareImage);
-	iv.setFitWidth(400);
+	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -222,21 +223,22 @@ public class PrescriptionEyewareDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(125);
+	    pV.setFitHeight(200);
 	    // pV.setFitHeight(65);
-	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
+	    pV.setId(pKey);
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
 
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String pantryToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+	    String prescriptioneyewareToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 		    pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(pantryToolTip));
+	    Tooltip.install(pV, new Tooltip(prescriptioneyewareToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
+		    Product pd2 = prescriptioneyewareProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "electronics");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);

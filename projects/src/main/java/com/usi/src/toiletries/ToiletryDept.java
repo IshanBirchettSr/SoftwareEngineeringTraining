@@ -133,7 +133,8 @@ public class ToiletryDept extends Department {
 
     @Override
     public Scene getScene() {
-	String imageKey = String.format("Welcome to the Toiletries Department!");
+
+	String imageKey = String.format("Welcome to the Toiletry Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -143,9 +144,9 @@ public class ToiletryDept extends Department {
 	HBox eg = new HBox(20, welcomeTxt);
 	eg.setAlignment(Pos.TOP_CENTER);
 
-	Image toiletriesImage = new Image(StoreConstants.TOILETRIESDEPT);
+	Image toiletryImage = new Image(StoreConstants.TOILETRIESDEPT);
 	ImageView iv = new ImageView();
-	iv.setImage(toiletriesImage);
+	iv.setImage(toiletryImage);
 	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
@@ -155,7 +156,7 @@ public class ToiletryDept extends Department {
 
 	VBox eBox = new VBox(20, eg, iv);
 
-	String goIn = String.format("Would you like to shop the Toiletries Department?");
+	String goIn = String.format("Would you like to shop the Toiletry Department?");
 	Text shopTxt = new Text(goIn);
 	shopTxt.setText(goIn);
 	shopTxt.setX(50.00);
@@ -222,7 +223,7 @@ public class ToiletryDept extends Department {
 	for (String pKey : list) {
 	    Product pd = ToiletryProducts.get(pKey);
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "toiletries", pd.getBrandName(),
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "toiletry", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
 		// System.out.printf("%s==%s, %b\n", oldFilename,
@@ -235,21 +236,22 @@ public class ToiletryDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(125);
+	    pV.setFitHeight(200);
 	    // pV.setFitHeight(65);
-	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
+	    pV.setId(pKey);
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
 
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String pantryToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+	    String toiletryToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 		    pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(pantryToolTip));
+	    Tooltip.install(pV, new Tooltip(toiletryToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
+		    Product pd2 = ToiletryProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "toiletry");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
