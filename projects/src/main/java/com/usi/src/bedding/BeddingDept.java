@@ -121,7 +121,6 @@ public class BeddingDept extends Department {
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-
 	Image beddingImage = new Image(StoreConstants.BEDDINGDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(beddingImage);
@@ -134,8 +133,8 @@ public class BeddingDept extends Department {
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox ap = new VBox(15, slogan, iv, instructions);
-	ap.setAlignment(Pos.CENTER);
+	VBox bp = new VBox(15, slogan, iv, instructions);
+	bp.setAlignment(Pos.CENTER);
 
 	// Product Grid
 	GridPane pGrid = new GridPane();
@@ -143,6 +142,7 @@ public class BeddingDept extends Department {
 	pGrid.setPadding(iSet);
 	String oProdName = "NoProd";
 	Set<String> aProductKeys = BeddingProducts.keySet();
+
 	// You must sort the Set of keys
 	List<String> list = new ArrayList<>(aProductKeys);
 	Collections.sort(list);
@@ -235,7 +235,7 @@ public class BeddingDept extends Department {
 	    dButtons.setAlignment(Pos.CENTER);
 	    dButtons.setSpacing(30);
 	    dButtons.setPadding(new Insets(15, 0, 15, 0));
-	    VBox aVBox = new VBox(10, ap, sp, dButtons);
+	    VBox aVBox = new VBox(10, bp, sp, dButtons);
 	    Scene beddScene = new Scene(aVBox, 400, 650);
 	    return beddScene;
 	}

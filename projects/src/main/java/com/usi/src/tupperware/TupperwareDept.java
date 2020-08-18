@@ -118,14 +118,8 @@ public class TupperwareDept extends Department {
     }
 
     @Override
-    public List<Product> getProducts() {
-	List<Product> pList = null;
-
-	return pList;
-    }
-
-    @Override
     public Scene getScene() {
+
 	String imageKey = String.format("Welcome to the Tupperware Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
@@ -139,7 +133,7 @@ public class TupperwareDept extends Department {
 	Image tupperwareImage = new Image(StoreConstants.TUPPERWAREDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(tupperwareImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -228,21 +222,22 @@ public class TupperwareDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(125);
+	    pV.setFitHeight(200);
 	    // pV.setFitHeight(65);
-	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
+	    pV.setId(pKey);
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
 
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String pantryToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+	    String tupperwareToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
 		    pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(pantryToolTip));
+	    Tooltip.install(pV, new Tooltip(tupperwareToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
+		    Product pd2 = tupperwareProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "tupperware");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
@@ -299,5 +294,11 @@ public class TupperwareDept extends Department {
 	Scene eScene = new Scene(eVBox, 600, 650);
 
 	return eScene;
+    }
+
+    @Override
+    public List<Product> getProducts() {
+	// TODO Auto-generated method stub
+	return null;
     }
 }
