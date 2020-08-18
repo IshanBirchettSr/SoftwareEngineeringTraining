@@ -234,4 +234,10 @@ public class CleaningSuppliesDept extends Department {
 	return aScene;
     }
 
+    @Override
+    public List<Product> getProducts() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
 }
