@@ -20,7 +20,6 @@ import util.Product;
 public class ShoppingCart {
 
     private List<Product> scProds;
-    private double runningTotal = 0.0;
 
     /**
      * 
@@ -31,8 +30,6 @@ public class ShoppingCart {
 
     public void addProduct(Product storeProduct) {
 	scProds.add(storeProduct);
-	setRunningTotal(storeProduct.getPrice());
-
     }
 
     public List<Product> getProductList() {
@@ -44,24 +41,17 @@ public class ShoppingCart {
      * @return the runningTotal
      */
     public double getRunningTotal() {
+	double runningTotal = 0;
+	for (Product pd : scProds) {
+	    runningTotal += pd.getPrice();
+	}
 	return runningTotal;
     }
 
-    /**
-     * @param runningTotal the runningTotal to set
-     */
-    public void setRunningTotal(double runningTotal) {
-	this.runningTotal += runningTotal;
-    }
-
-    public void deductFromRunningTotal(double runningTotal) {
-	this.runningTotal += runningTotal;
-    }
-
-    public void returnProductToShelf(Product returnProduct) {
-	scProds.remove(returnProduct);
-	deductFromRunningTotal(returnProduct.getPrice());
-
+    public void returnProductToShelf(Product returnProduct, int qnty) {
+	for (int i = 0; i < qnty; i++) {
+	    scProds.remove(returnProduct);
+	}
     }
 
     public void whatsInCart() {

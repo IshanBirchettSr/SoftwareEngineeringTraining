@@ -9,7 +9,6 @@
 package customerservice;
 
 import java.util.List;
-import java.util.Scanner;
 
 import smartcart.ShoppingCart;
 import util.Department;
@@ -24,42 +23,52 @@ public class Customer {
     // type name, object name, =, initialize
     ShoppingCart cart = null;
     List<Department> dList = null;
-    List<Product> pList = null;
+//    List<Product> pList = null;
 
     /**
      * @return
      * 
      */
-    public void Customer() {
+    public Customer() {
 	dList = SuperStore.getdList();
-
+	cart = new ShoppingCart();
     }
 
-    public void startShopping() {
-	int pdNumber = -1;
-	int qNumber = -1;
-	Scanner in = new Scanner(System.in);
-	cart = new ShoppingCart();
-	dList = SuperStore.getdList();
-	for (Department dp : dList) {
-	    System.out.printf("Department: %s\n", dp.getDeptName());
-	    dp.listProducts();
-	    do {
-		System.out.printf("Please enter product #:");
-		pdNumber = in.nextInt();
-		if (pdNumber == 0) {
-		    break;
-		}
-		System.out.printf("Please enter quantity:");
-		qNumber = in.nextInt();
-		pList = dp.getProds(pdNumber, qNumber);
-		for (Product pd : pList) {
-		    cart.addProduct(pd);
-		}
-	    } while (pdNumber != 0);
+//    public void startShopping() {
+//	int pdNumber = -1;
+//	int qNumber = -1;
+//	Scanner in = new Scanner(System.in);
+//	cart = new ShoppingCart();
+//	dList = SuperStore.getdList();
+//	for (Department dp : dList) {
+//	    System.out.printf("Department: %s\n", dp.getDeptName());
+//	    dp.listProducts();
+//	    do {
+//		System.out.printf("Please enter product #:");
+//		pdNumber = in.nextInt();
+//		if (pdNumber == 0) {
+//		    break;
+//		}
+//		System.out.printf("Please enter quantity:");
+//		qNumber = in.nextInt();
+//		pList = dp.getProds(pdNumber, qNumber);
+//		for (Product pd : pList) {
+//		    cart.addProduct(pd);
+//		}
+//	    } while (pdNumber != 0);
+//	}
+//    }
+
+    // Add Products
+    public void addProduct(Product pd, int qnty) {
+	for (int i = 0; i < qnty; i++) {
+	    cart.addProduct(pd);
 	}
     }
-    // Testing
+
+    public double cartTotal() {
+	return cart.getRunningTotal();
+    }
 
     /**
      * @return

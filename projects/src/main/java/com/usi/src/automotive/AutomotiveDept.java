@@ -51,8 +51,6 @@ public class AutomotiveDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.AUTOMOTIVE_TRUCK);
 	autoRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(autoRecords);
-	// System.out.printf("%s Department open with %d records\n", deptName,
-	// autoRecords.size());
 	keyMap = new HashMap<Integer, String>();
 	// Automotive Product Load
 	autoProducts = new HashMap<String, AutomotiveProd>();
@@ -71,15 +69,12 @@ public class AutomotiveDept extends Department {
 		String prodKey = ProdKeyGen.genKey(ap);
 		int howMany = ap.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-		    // System.out.println(prodKey);
+
 		    autoProducts.put(prodKey + i, ap);
 		}
-		// autoProducts.put(prodKey, ap);
 
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		autoRecords.size(), autoProducts.size());
 
     }
 
@@ -90,10 +85,6 @@ public class AutomotiveDept extends Department {
 
 	int i = 1;
 	for (String pKey : aProductKeys) {
-//	    Product pd = autoProducts.get(pKey);
-//	    if (aKey != pKey) {
-//		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
-//	    }
 	    aKey = pKey;
 	    keyMap.put(i, pKey);
 	    i++;
@@ -161,11 +152,8 @@ public class AutomotiveDept extends Department {
 	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "auto", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
-		// System.out.printf("%s==%s, %b\n", oldFilename,
-		// iFileName,oldFilename.equals(iFileName));
 		continue;
 	    }
-	    System.out.println(iFileName);
 	    oldFilename = iFileName;
 
 	    // Image View
@@ -204,18 +192,14 @@ public class AutomotiveDept extends Department {
 		pLabel.setAlignment(Pos.CENTER);
 		columnIndex = 0;
 		rowIndex += 1;
-		// System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
-
 		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
 		if (rowIndex == 0) {
 		    rowIndex = 1;
 		} else {
 		    rowIndex += 1;
 		}
-		// System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
 		oProdName = pd.getProductName();
 	    }
-	    // System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
 	    pGrid.add(pV, columnIndex, rowIndex);
 
 	    if (columnIndex < 5) {

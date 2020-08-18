@@ -52,7 +52,7 @@ public class Greeting extends Application {
     private VBox primaryPane = null;
     private HashMap<String, MembershipSignUp> membershipCards = null;
     private MembershipSignUp mCard = null;
-    private Customer currentCustomer = null;
+    static private Customer currentCustomer = null;
     private static Stage parentStage = null;
     // List<Department> dList = null;
     private Scene deptsScene = null;
@@ -94,12 +94,13 @@ public class Greeting extends Application {
     }
 
     public Customer launchUI(String[] args) {
+	currentCustomer = new Customer();
 	if (parentStage == null) {
 	    launch(args);
 	} else {
 	    parentStage.setScene(scene);
 	}
-	currentCustomer = new Customer();
+
 	return currentCustomer;
     }
 
@@ -221,7 +222,6 @@ public class Greeting extends Application {
 		    mCard = membershipCards.get(newValue);
 		    if (mCard != null) {
 			displayMemCard(mCard);
-			System.out.println("Membership Card Found!");
 		    }
 		}
 	    }
@@ -279,7 +279,6 @@ public class Greeting extends Application {
 
 	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		System.out.println("Welcome! Enjoy your trip!");
 		newWindow.close();
 		displayDepts();
 
@@ -293,7 +292,6 @@ public class Greeting extends Application {
 
 	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		System.out.println("Please try again");
 		newWindow.close();
 	    }
 	};
@@ -429,8 +427,6 @@ public class Greeting extends Application {
 
 	HBox storeMapView = new HBox(iv);
 	storeMapView.setAlignment(Pos.CENTER_LEFT);
-
-	System.out.printf("dList length %d\n", dList.size());
 	int dsize = dList.size();
 	String[] dStrs = new String[dsize];
 	int i = 0;
@@ -500,10 +496,8 @@ public class Greeting extends Application {
 	// refactor later time permitting.
 	for (Department dp : dList) {
 	    if (dName.equals(dp.getDeptName())) {
-		System.out.printf("Found %s directory\n", dName);
 		String dTitle = String.format("%s - %s Department", StoreConstants.STORE_NAME, dName);
 		parentStage.setTitle(dTitle);
-		Scene dpScene = dp.getScene();
 		parentStage.setScene(dp.getScene());
 		parentStage.show();
 	    }
@@ -561,13 +555,10 @@ public class Greeting extends Application {
 	for (String bN : bName) {
 	    bNameCat.append(bN);
 	}
-	System.out.printf("%s vs. %s\n", inProd.getProductName(), pNameCat);
-	System.out.printf("%s vs. %s\n", inProd.getBrandName(), bNameCat);
 
 	String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, dept, inProd.getBrandName(),
 		inProd.getProductName());
 	String iVideoName = String.format(StoreConstants.PRODUCT_VIDEO, dept, bNameCat, pNameCat);
-	System.out.println(iVideoName);
 	// Image View
 	Image pImage = new Image(iFileName);
 	ImageView pV = new ImageView();
@@ -579,12 +570,16 @@ public class Greeting extends Application {
 	pV.setSmooth(true);
 	pV.setCache(true);
 
+	Integer[] quantity = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	ChoiceBox<Integer> choose = new ChoiceBox<>();
+	choose.getItems().addAll(quantity);
+	choose.setValue(1);
+
 	Button Buy = new Button("Add to cart");
 	EventHandler<ActionEvent> addToCartEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-
-		System.out.println("ITEM ADDED TO CART");
-
+		currentCustomer.addProduct(inProd, choose.getValue());
 	    }
 	};
 	Buy.setOnAction(addToCartEvent);
@@ -598,12 +593,6 @@ public class Greeting extends Application {
 	    }
 	};
 	howMany.setOnAction(howManyEvent);
-
-	Integer[] quantity = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-
-	ChoiceBox<Integer> choose = new ChoiceBox<>();
-	choose.getItems().addAll(quantity);
-	choose.setValue(1);
 
 	Button closeButton = new Button("Close");
 	closeButton.setAlignment(Pos.CENTER);
@@ -634,7 +623,6 @@ public class Greeting extends Application {
 	String iVideoNameCheck = String.format(StoreConstants.PRODUCT_VIDEO_Check, dept, bNameCat, pNameCat);
 	File file = new File(iVideoNameCheck);
 	mPlayer = null;
-	System.out.printf("%s\n", iVideoNameCheck);
 	if (file.exists() == true) {
 	    Media vMedia = new Media(vPath);
 	    mPlayer = new MediaPlayer(vMedia);
