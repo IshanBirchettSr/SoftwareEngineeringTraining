@@ -77,9 +77,6 @@ public class CannedGoodsDept extends Department {
 		}
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		cannedGoodsRecords.size(), cannedGoodsProducts.size());
-
     }
 
     @Override
@@ -87,7 +84,6 @@ public class CannedGoodsDept extends Department {
 	String aKey = null;
 	Set<String> cannedProductKeys = cannedGoodsProducts.keySet();
 
-	int totalProducts = cannedProductKeys.size();
 	int i = 1;
 	for (String pKey : cannedProductKeys) {
 	    Product pd = cannedGoodsProducts.get(pKey);

@@ -82,9 +82,6 @@ public class PlantBaseDept extends Department {
 		    plantbaseProducts.put(prodKey + 1, pp);
 		}
 	    }
-
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    plantbaseRecords.size(), plantbaseProducts.size());
 	}
     }
 
@@ -93,7 +90,6 @@ public class PlantBaseDept extends Department {
 	String aKey = null;
 	Set<String> plantBaseProductKeys = plantbaseProducts.keySet();
 
-	int totalProducts = plantBaseProductKeys.size();
 	int i = 1;
 	for (String pKey : plantBaseProductKeys) {
 	    Product pd = plantbaseProducts.get(pKey);

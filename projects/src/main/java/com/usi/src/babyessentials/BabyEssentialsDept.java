@@ -85,8 +85,6 @@ public class BabyEssentialsDept extends Department {
 		    BabyEssentialsProducts.put(prodKey + i, bp);
 		}
 	    }
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    babyEssentialsRecords.size(), BabyEssentialsProducts.size());
 	}
     }
 

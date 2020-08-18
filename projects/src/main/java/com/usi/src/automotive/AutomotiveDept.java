@@ -69,7 +69,6 @@ public class AutomotiveDept extends Department {
 		String prodKey = ProdKeyGen.genKey(ap);
 		int howMany = ap.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-
 		    autoProducts.put(prodKey + i, ap);
 		}
 
@@ -172,7 +171,6 @@ public class AutomotiveDept extends Department {
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
 		    Product pd2 = autoProducts.get(pKey);
 		    Greeting.prodDetails(pd2, "auto");
 

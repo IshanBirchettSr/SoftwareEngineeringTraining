@@ -88,9 +88,6 @@ public class ElectronicsDept extends Department {
 
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		electronicsRecords.size(), electronicsProducts.size());
-
     }
 
     @Override
@@ -98,7 +95,6 @@ public class ElectronicsDept extends Department {
 	String aKey = null;
 	Set<String> eProductKeys = electronicsProducts.keySet();
 
-	int totalProducts = eProductKeys.size();
 	int i = 1;
 	for (String pKey : eProductKeys) {
 	    Product pd = electronicsProducts.get(pKey);

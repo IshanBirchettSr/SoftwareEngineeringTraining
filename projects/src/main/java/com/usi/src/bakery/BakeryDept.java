@@ -64,10 +64,6 @@ public class BakeryDept extends Department {
 
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		bakeryRecords.size(), bakeryProducts.size());
-
-	// TODO Auto-generated method stub
     }
 
     @Override

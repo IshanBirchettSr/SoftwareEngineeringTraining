@@ -22,7 +22,7 @@ public class BeveragesProd extends Product {
     public boolean recordToProduct(String record) {
 	// TODO Auto-generated method stub
 	try {
-	    System.out.println(record);
+	    // System.out.println(record);
 	    String[] fields = record.split(",");
 	    this.setProductName(fields[0].toString().trim());
 	    String dName = fields[1].toString().trim();

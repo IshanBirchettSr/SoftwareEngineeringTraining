@@ -84,10 +84,6 @@ public class BeveragesDept extends Department {
 		}
 	    }
 	}
-
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		beveragesRecords.size(), beveragesProducts.size());
-
     }
 
     @Override
@@ -95,7 +91,6 @@ public class BeveragesDept extends Department {
 	String aKey = null;
 	Set<String> beverageProductKeys = beveragesProducts.keySet();
 
-	int totalProducts = beverageProductKeys.size();
 	int i = 1;
 	for (String pKey : beverageProductKeys) {
 	    Product pd = beveragesProducts.get(pKey);

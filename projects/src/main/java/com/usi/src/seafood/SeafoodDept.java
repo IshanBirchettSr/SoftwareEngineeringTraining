@@ -86,14 +86,8 @@ public class SeafoodDept extends Department {
 
 		    seafoodProducts.put(prodKey + 1, sfp);
 		}
-
 	    }
-
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    seafoodRecords.size(), seafoodProducts.size());
-
 	}
-
     }
 
     @Override
@@ -101,7 +95,6 @@ public class SeafoodDept extends Department {
 	String aKey = null;
 	Set<String> seafoodProductKeys = seafoodProducts.keySet();
 
-	int totalProducts = seafoodProductKeys.size();
 	int i = 1;
 	for (String pKey : seafoodProductKeys) {
 	    Product pd = seafoodProducts.get(pKey);

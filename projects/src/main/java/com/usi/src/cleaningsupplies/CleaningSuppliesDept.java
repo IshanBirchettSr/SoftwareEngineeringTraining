@@ -76,9 +76,6 @@ public class CleaningSuppliesDept extends Department {
 		}
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		cleaningsuppliesRecords.size(), cleaningsuppliesProducts.size());
-
     }
 
     @Override
@@ -86,7 +83,6 @@ public class CleaningSuppliesDept extends Department {
 	String aKey = null;
 	Set<String> cleaningProductKeys = cleaningsuppliesProducts.keySet();
 
-	int totalProducts = cleaningProductKeys.size();
 	int i = 1;
 	for (String pKey : cleaningProductKeys) {
 	    Product pd = cleaningsuppliesProducts.get(pKey);

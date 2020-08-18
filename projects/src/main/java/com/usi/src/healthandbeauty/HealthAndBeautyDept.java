@@ -49,7 +49,6 @@ public class HealthAndBeautyDept extends Department {
     String deptName = StoreConstants.deptNames.HEALTH_AND_BEAUTY.name();
     List<String> healthAndBeautyRecords = null;
     HashMap<Integer, String> keyMap = null;
-    // HashMap<K, V> to hold HousewaresProd objects.
     HashMap<String, HealthAndBeautyProd> healthAndBeautyProducts;
 
     /**
@@ -97,7 +96,6 @@ public class HealthAndBeautyDept extends Department {
 	String aKey = null;
 	Set<String> healthAndBeautyProductKeys = healthAndBeautyProducts.keySet();
 
-	int totalProducts = healthAndBeautyProductKeys.size();
 	int i = 1;
 	for (String pKey : healthAndBeautyProductKeys) {
 	    Product pd = healthAndBeautyProducts.get(pKey);
@@ -130,7 +128,6 @@ public class HealthAndBeautyDept extends Department {
 
     @Override
     public Scene getScene() {
-
 	String imageKey = String.format("Welcome to the Health and Beauty Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
@@ -302,7 +299,6 @@ public class HealthAndBeautyDept extends Department {
 	VBox hbVBox = new VBox(20, hbpr, sp, dButtons);
 
 	Scene hbScene = new Scene(hbVBox, 600, 575);
-	// TODO Auto-generated method stub
 	return hbScene;
     }
 }

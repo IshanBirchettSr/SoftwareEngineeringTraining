@@ -50,8 +50,6 @@ public class FragranceDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.FRAGRANCE_TRUCK);
 	fragranceRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(fragranceRecords);
-	// System.out.printf("%s Department open with %d records\n", deptName,
-	// autoRecords.size());
 	keyMap = new HashMap<Integer, String>();
 	// Fragrance Product Load
 	fragranceProducts = new HashMap<String, FragranceProd>();
@@ -60,8 +58,6 @@ public class FragranceDept extends Department {
 
     @Override
     protected void loadProducts() {
-	// TODO Auto-generated method stub
-	// Load products
 	for (String record : fragranceRecords) {
 	    FragranceProd fdd = new FragranceProd();
 	    boolean recordToProductSuccessful = fdd.recordToProduct(record);
@@ -71,16 +67,12 @@ public class FragranceDept extends Department {
 		String prodKey = ProdKeyGen.genKey(fdd);
 		int howMany = fdd.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-
 		    fragranceProducts.put(prodKey + 1, fdd);
 		}
 
 	    }
 
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		fragranceRecords.size(), fragranceProducts.size());
-
     }
 
     @Override
@@ -88,7 +80,6 @@ public class FragranceDept extends Department {
 	String aKey = null;
 	Set<String> fragranceProductKeys = fragranceProducts.keySet();
 
-	int totalProducts = fragranceProductKeys.size();
 	int i = 1;
 	for (String pKey : fragranceProductKeys) {
 	    Product pd = fragranceProducts.get(pKey);

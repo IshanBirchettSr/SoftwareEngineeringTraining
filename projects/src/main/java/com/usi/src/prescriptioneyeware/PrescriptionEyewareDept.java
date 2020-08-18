@@ -75,10 +75,6 @@ public class PrescriptionEyewareDept extends Department {
 		    prescriptioneyewareProducts.put(prodKey + 1, pw);
 		}
 	    }
-
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    prescriptioneyewareRecords.size(), prescriptioneyewareProducts.size());
-
 	}
     }
 
@@ -87,7 +83,6 @@ public class PrescriptionEyewareDept extends Department {
 	String aKey = null;
 	Set<String> prescriptionProductKeys = prescriptioneyewareProducts.keySet();
 
-	int totalProducts = prescriptionProductKeys.size();
 	int i = 1;
 	for (String pKey : prescriptionProductKeys) {
 	    Product pd = prescriptioneyewareProducts.get(pKey);

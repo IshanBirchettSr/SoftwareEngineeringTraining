@@ -85,7 +85,7 @@ public class SuperStore {
     ToiletryDept tyd = null;
     ToysDept td = null;
     TupperwareDept twd = null;
-    StoreCheckOut checkoutLane01 = null;
+
     StoreCheckOut checkoutLane02 = null;
     StoreCheckOut checkoutLane03 = null;
     StoreCheckOut checkoutLane04 = null;
@@ -106,7 +106,8 @@ public class SuperStore {
 		greeting = new Greeting();
 	    }
 	    patron = greeting.launchUI(args);
-	    checkoutLane01.checkoutCustomer(patron);
+	    patron = null;
+	    greeting = null;
 	} while (true);
     }
 
@@ -115,9 +116,6 @@ public class SuperStore {
     }
 
     public boolean departmentClosed() {
-
-	if (false)
-	    prod.loadProducts();
 	System.out.print("This department is not open for business.");
 	this.departmentClosed();
 	return status;
@@ -202,7 +200,6 @@ public class SuperStore {
     }
 
     public SuperStore() {
-	checkoutLane01 = new StoreCheckOut();
 	checkoutLane02 = new StoreCheckOut();
 	checkoutLane03 = new StoreCheckOut();
 	checkoutLane04 = new StoreCheckOut();

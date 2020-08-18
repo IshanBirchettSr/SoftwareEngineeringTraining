@@ -87,8 +87,6 @@ public class MeatDept extends Department {
 		}
 
 	    }
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    meatRecords.size(), meatProducts.size());
 
 	}
     }
@@ -98,7 +96,6 @@ public class MeatDept extends Department {
 	String aKey = null;
 	Set<String> meatProductKeys = meatProducts.keySet();
 
-	int totalProducts = meatProductKeys.size();
 	int i = 1;
 	for (String pKey : meatProductKeys) {
 	    Product pd = meatProducts.get(pKey);
@@ -302,7 +299,6 @@ public class MeatDept extends Department {
 	VBox mVBox = new VBox(20, mpr, sp, dButtons);
 
 	Scene mScene = new Scene(mVBox, 600, 575);
-	// TODO Auto-generated method stub
 	return mScene;
     }
 }

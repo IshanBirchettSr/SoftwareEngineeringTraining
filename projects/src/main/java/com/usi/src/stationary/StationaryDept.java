@@ -77,10 +77,6 @@ public class StationaryDept extends Department {
 		}
 
 	    }
-
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    stationaryRecords.size(), stationaryProducts.size());
-
 	}
 
     }
@@ -90,7 +86,6 @@ public class StationaryDept extends Department {
 	String aKey = null;
 	Set<String> stationaryProductKeys = stationaryProducts.keySet();
 
-	int totalProducts = stationaryProductKeys.size();
 	int i = 1;
 	for (String pKey : stationaryProductKeys) {
 	    Product pd = stationaryProducts.get(pKey);

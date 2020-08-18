@@ -77,9 +77,6 @@ public class BookDept extends Department {
 		}
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		bookRecords.size(), bookProducts.size());
-
     }
 
     @Override
@@ -87,7 +84,6 @@ public class BookDept extends Department {
 	String aKey = null;
 	Set<String> bookProductKeys = bookProducts.keySet();
 
-	int totalProducts = bookProductKeys.size();
 	int i = 1;
 	for (String pKey : bookProductKeys) {
 	    Product pd = bookProducts.get(pKey);

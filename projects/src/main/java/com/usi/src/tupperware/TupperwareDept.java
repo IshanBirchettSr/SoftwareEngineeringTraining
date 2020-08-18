@@ -80,10 +80,6 @@ public class TupperwareDept extends Department {
 		}
 
 	    }
-
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    tupperwareRecords.size(), tupperwareProducts.size());
-
 	}
 
     }
@@ -93,7 +89,6 @@ public class TupperwareDept extends Department {
 	String aKey = null;
 	Set<String> tupperwareProductKeys = tupperwareProducts.keySet();
 
-	int totalProducts = tupperwareProductKeys.size();
 	int i = 1;
 	for (String pKey : tupperwareProductKeys) {
 	    Product pd = tupperwareProducts.get(pKey);
@@ -298,7 +293,6 @@ public class TupperwareDept extends Department {
 
     @Override
     public List<Product> getProducts() {
-	// TODO Auto-generated method stub
 	return null;
     }
 }

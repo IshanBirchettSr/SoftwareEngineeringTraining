@@ -87,9 +87,6 @@ public class PharmacyDept extends Department {
 		    pharmacyProducts.put(prodKey + 1, pp);
 		}
 	    }
-
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    pharmacyRecords.size(), pharmacyProducts.size());
 	}
     }
 
@@ -98,7 +95,6 @@ public class PharmacyDept extends Department {
 	String aKey = null;
 	Set<String> pharmacyProductKeys = pharmacyProducts.keySet();
 
-	int totalProducts = pharmacyProductKeys.size();
 	int i = 1;
 	for (String pKey : pharmacyProductKeys) {
 	    Product pd = pharmacyProducts.get(pKey);

@@ -44,7 +44,6 @@ public class LinenDept extends Department {
     String deptName = StoreConstants.deptNames.LINEN.name();
     List<String> linenRecords = null;
     HashMap<Integer, String> keyMap = null;
-    // HashMap<K, V> to hold AutomotiveProd objects.
     HashMap<String, LinenProd> linenProducts;
 
     /**
@@ -57,7 +56,6 @@ public class LinenDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.LINEN_TRUCK);
 	linenRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(linenRecords);
-	System.out.printf("%s Department open with %d products\n", deptName, linenRecords.size());
 	keyMap = new HashMap<Integer, String>();
 	linenProducts = new HashMap<String, LinenProd>();
 	loadProducts();
@@ -73,15 +71,10 @@ public class LinenDept extends Department {
 		String prodKey = ProdKeyGen.genKey(lp);
 		int howMany = lp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
-
 		    linenProducts.put(prodKey + 1, lp);
 		}
 
 	    }
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    linenRecords.size(), linenProducts.size());
-
-	    // TODO Auto-generated method stub
 	}
     }
 
@@ -90,7 +83,6 @@ public class LinenDept extends Department {
 	String aKey = null;
 	Set<String> linenProductKeys = linenProducts.keySet();
 
-	int totalProducts = linenProductKeys.size();
 	int i = 1;
 	for (String pKey : linenProductKeys) {
 	    Product pd = linenProducts.get(pKey);
@@ -213,11 +205,8 @@ public class LinenDept extends Department {
 	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "linen", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
-		// System.out.printf("%s==%s, %b\n", oldFilename,
-		// iFileName,oldFilename.equals(iFileName));
 		continue;
 	    }
-	    System.out.println(iFileName);
 	    oldFilename = iFileName;
 
 	    // Image View
@@ -254,7 +243,6 @@ public class LinenDept extends Department {
 		pLabel.setAlignment(Pos.CENTER);
 		columnIndex = 0;
 		rowIndex += 1;
-		System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
 
 		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
 		if (rowIndex == 0) {
@@ -262,10 +250,8 @@ public class LinenDept extends Department {
 		} else {
 		    rowIndex += 1;
 		}
-		System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
 		oProdName = pd.getProductName();
 	    }
-	    System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
 	    pGrid.add(pV, columnIndex, rowIndex);
 
 	    if (columnIndex < 5) {
@@ -293,8 +279,6 @@ public class LinenDept extends Department {
 	VBox lVBox = new VBox(20, lpr, sp, dButtons);
 
 	Scene lScene = new Scene(lVBox, 600, 575);
-
-	// TODO Auto-generated method stub
 	return lScene;
     }
 }

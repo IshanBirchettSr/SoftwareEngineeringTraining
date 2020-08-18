@@ -62,8 +62,6 @@ public class DeliDept extends Department {
 
     @Override
     protected void loadProducts() {
-	// TODO Auto-generated method stub
-	// Load products
 	for (String record : deliRecords) {
 	    DeliProd dep = new DeliProd();
 	    boolean recordToProductSuccessful = dep.recordToProduct(record);
@@ -74,13 +72,8 @@ public class DeliDept extends Department {
 		    // System.out.println(prodKey);
 		    deliProducts.put(prodKey + i, dep);
 		}
-		// autoProducts.put(prodKey, ap);
-
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		deliRecords.size(), deliProducts.size());
-
     }
 
     @Override
@@ -88,7 +81,6 @@ public class DeliDept extends Department {
 	String aKey = null;
 	Set<String> deliProductKeys = deliProducts.keySet();
 
-	int totalProducts = deliProductKeys.size();
 	int i = 1;
 	for (String pKey : deliProductKeys) {
 	    Product pd = deliProducts.get(pKey);

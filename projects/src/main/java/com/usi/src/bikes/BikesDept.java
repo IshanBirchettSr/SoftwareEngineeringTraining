@@ -79,9 +79,6 @@ public class BikesDept extends Department {
 		}
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		bikesRecords.size(), bikesProducts.size());
-
     }
 
     @Override

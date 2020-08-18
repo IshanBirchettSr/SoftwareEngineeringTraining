@@ -21,7 +21,7 @@ public class DairyProd extends Product {
     @Override
     public boolean recordToProduct(String record) {
 	try {
-	    System.out.println(record);
+	    // System.out.println(record);
 	    String[] fields = record.split(",");
 	    this.setProductName(fields[0].toString());
 	    String dName = fields[1].toString().trim();

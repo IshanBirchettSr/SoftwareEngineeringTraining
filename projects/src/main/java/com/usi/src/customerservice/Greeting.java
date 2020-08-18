@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -39,15 +40,16 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import smartcart.StoreCheckOut;
 import util.DataCsvLoad;
 import util.Department;
 import util.Product;
 import util.StoreConstants;
 
 public class Greeting extends Application {
-    private boolean isMember = false;
-    private TextField txtCharacter;
-    private TextField phoneNumTxt = null;
+    private static TextField phoneNumTxt = null;
+    static HBox panePhoneNum = null;
     private static HBox pHBox = null;
     private VBox primaryPane = null;
     private HashMap<String, MembershipSignUp> membershipCards = null;
@@ -104,12 +106,9 @@ public class Greeting extends Application {
 	return currentCustomer;
     }
 
-    public void welcomeScreen(String[] args) {
-
-    }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
+
 	if (parentStage == null) {
 	    parentStage = primaryStage;
 	}
@@ -146,8 +145,6 @@ public class Greeting extends Application {
 	Button yesIDo = new Button("Yes");
 	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		isMember = true;
-		System.out.println("Customer is a member!");
 		getPhoneNumber();
 
 	    }
@@ -159,8 +156,6 @@ public class Greeting extends Application {
 	noIDoNot.setAlignment(Pos.CENTER);
 	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		System.out.println("Customer is NOT a member!");
-		isMember = false;
 		membershipSignUp();
 	    }
 	};
@@ -181,7 +176,16 @@ public class Greeting extends Application {
 	sp.setVvalue(1.9);
 
 	displayDepts();
-	Scene scene = new Scene(sp, 600, 575);
+	EventHandler<WindowEvent> closeStageEvent = new EventHandler<WindowEvent>() {
+	    public void handle(WindowEvent e) {
+		System.out.println("Stage Close");
+		Platform.exit();
+		System.exit(0);
+	    }
+	};
+	primaryStage.setOnCloseRequest(closeStageEvent);
+
+	scene = new Scene(sp, 600, 575);
 
 	primaryStage.setScene(scene);
 	String screenTitle = String.format("%s - %s", StoreConstants.STORE_NAME, "Greeting");
@@ -227,7 +231,7 @@ public class Greeting extends Application {
 	    }
 	});
 
-	HBox panePhoneNum = new HBox(20, phoneNumberLbl, phoneNumTxt);
+	panePhoneNum = new HBox(20, phoneNumberLbl, phoneNumTxt);
 	panePhoneNum.setPadding(new Insets(10));
 	primaryPane.getChildren().add(panePhoneNum);
     }
@@ -333,7 +337,6 @@ public class Greeting extends Application {
 	Button yesIDo = new Button("Yes");
 	EventHandler<ActionEvent> signUpEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		isMember = true;
 		newMembership();
 	    }
 	};
@@ -345,7 +348,6 @@ public class Greeting extends Application {
 	EventHandler<ActionEvent> noSignUpEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
 		declineMembership();
-		isMember = false;
 	    }
 	};
 
@@ -506,13 +508,18 @@ public class Greeting extends Application {
     }
 
     public static HBox getBottonDeptButtons() {
-	HBox pHbox = new HBox();
-
 	Button cButton = new Button("Checkout");
 	EventHandler<ActionEvent> cEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
 		System.out.println("Time to checkout!");
+		StoreCheckOut checkoutLane01 = new StoreCheckOut();
+		checkoutLane01.checkoutCustomer(currentCustomer);
+		resetParentStage();
+
+		parentStage.setScene(scene);
+
 	    }
+
 	};
 
 	cButton.setOnAction(cEvent);
@@ -530,7 +537,7 @@ public class Greeting extends Application {
 	sCart.setAlignment(Pos.CENTER);
 	EventHandler<ActionEvent> scEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		System.out.println("Customer is NOT a member!");
+		// System.out.println("Customer is NOT a member!");
 	    }
 	};
 
@@ -541,6 +548,10 @@ public class Greeting extends Application {
 
 	return pHBox;
 
+    }
+
+    static private void resetParentStage() {
+	phoneNumTxt.setVisible(false);
     }
 
     public static void prodDetails(Product inProd, String dept) {

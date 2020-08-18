@@ -75,9 +75,6 @@ public class DairyDept extends Department {
 		}
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		dairyRecords.size(), dairyProducts.size());
-
     }
 
     @Override
@@ -85,7 +82,6 @@ public class DairyDept extends Department {
 	String aKey = null;
 	Set<String> dairyProductKeys = dairyProducts.keySet();
 
-	int totalProducts = dairyProductKeys.size();
 	int i = 1;
 	for (String pKey : dairyProductKeys) {
 	    Product pd = dairyProducts.get(pKey);

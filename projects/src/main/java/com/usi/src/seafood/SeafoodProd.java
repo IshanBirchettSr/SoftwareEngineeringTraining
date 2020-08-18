@@ -40,7 +40,7 @@ public class SeafoodProd extends Product {
     public boolean recordToProduct(String record) {
 	// Records
 	try {
-	    System.out.println(record);
+	    // System.out.println(record);
 	    String[] fields = record.split(",");
 	    this.setProductName(fields[0].toString().trim());
 	    String dName = fields[1].toString().trim();

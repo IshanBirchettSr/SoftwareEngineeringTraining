@@ -83,9 +83,6 @@ public class HousewaresDept extends Department {
 		}
 
 	    }
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    housewaresRecords.size(), housewaresProducts.size());
-
 	}
     }
 
@@ -94,7 +91,6 @@ public class HousewaresDept extends Department {
 	String aKey = null;
 	Set<String> housewareProductKeys = housewaresProducts.keySet();
 
-	int totalProducts = housewareProductKeys.size();
 	int i = 1;
 	for (String pKey : housewareProductKeys) {
 	    Product pd = housewaresProducts.get(pKey);

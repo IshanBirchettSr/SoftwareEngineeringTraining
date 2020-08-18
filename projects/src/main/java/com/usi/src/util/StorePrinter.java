@@ -31,12 +31,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
-import smartcart.Receipt;
-
 public class StorePrinter implements Printable, ActionListener {
-  @Override
-  
-  public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
+    @Override
+
+    public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
 
 	if (page > 0) { /* We have only one page, and 'page' is zero-based */
 	    return NO_SUCH_PAGE;
@@ -109,12 +107,10 @@ public class StorePrinter implements Printable, ActionListener {
 	f.setVisible(true);
     }
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
 
-	
-		
-	}
+    }
+
+}

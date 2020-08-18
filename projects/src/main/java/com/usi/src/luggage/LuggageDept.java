@@ -37,7 +37,6 @@ public class LuggageDept extends Department {
     String deptName = StoreConstants.deptNames.LUGGAGE.name();
     List<String> luggageRecords = null;
     HashMap<Integer, String> keyMap = null;
-// HashMap<K, V> to hold LuggageProd objects.
     HashMap<String, LuggageProd> luggageProducts;
 
     /**
@@ -58,8 +57,6 @@ public class LuggageDept extends Department {
 
     @Override
     protected void loadProducts() {
-	// TODO Auto-generated method stub
-	// Load products
 	for (String record : luggageRecords) {
 	    LuggageProd lp = new LuggageProd();
 	    boolean recordToProductSuccessful = lp.recordToProduct(record);
@@ -74,8 +71,6 @@ public class LuggageDept extends Department {
 		}
 
 	    }
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    luggageRecords.size(), luggageProducts.size());
 	}
     }
 
@@ -84,7 +79,6 @@ public class LuggageDept extends Department {
 	String aKey = null;
 	Set<String> luggageProductKeys = luggageProducts.keySet();
 
-	int totalProducts = luggageProductKeys.size();
 	int i = 1;
 	for (String pKey : luggageProductKeys) {
 	    Product pd = luggageProducts.get(pKey);
@@ -289,7 +283,6 @@ public class LuggageDept extends Department {
 	VBox lugVBox = new VBox(20, lugpr, sp, dButtons);
 
 	Scene luScene = new Scene(lugVBox, 600, 575);
-	// TODO Auto-generated method stub
 	return luScene;
     }
 }

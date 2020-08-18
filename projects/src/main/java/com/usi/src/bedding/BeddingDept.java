@@ -73,8 +73,6 @@ public class BeddingDept extends Department {
 		}
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		beddingRecords.size(), BeddingProducts.size());
 
     }
 

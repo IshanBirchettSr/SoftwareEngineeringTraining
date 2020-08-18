@@ -81,9 +81,6 @@ public class PetcareDept extends Department {
 		}
 
 	    }
-
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    petcareRecords.size(), petcareProducts.size());
 	}
     }
 
@@ -92,7 +89,6 @@ public class PetcareDept extends Department {
 	String aKey = null;
 	Set<String> petcareProductKeys = petcareProducts.keySet();
 
-	int totalProducts = petcareProductKeys.size();
 	int i = 1;
 	for (String pKey : petcareProductKeys) {
 	    Product pd = petcareProducts.get(pKey);
@@ -297,7 +293,6 @@ public class PetcareDept extends Department {
 
     @Override
     public List<Product> getProducts() {
-	// TODO Auto-generated method stub
 	return null;
     }
 }

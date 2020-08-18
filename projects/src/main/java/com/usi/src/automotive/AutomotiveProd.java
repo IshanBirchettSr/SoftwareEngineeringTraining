@@ -21,22 +21,11 @@ public class AutomotiveProd extends Product {
 	// TODO Auto-generated constructor stub
     }
 
-    /*
-     * ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand
-     * , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-     * /*Automotive/Tires private String productName; private deptNames
-     * deptNameEnum; private unitOfMeasure unitOfMeasureEnum; private String
-     * barCode; private int quantity; private util.StoreConstants.size sizeEnum;
-     * private String bandName; private weight weightEnum; private double price;
-     * private util.StoreConstants.color colorEnum; private String ingredient;
-     * private int numUnitsInstock; private String description;
-     */
-
     @Override
     public boolean recordToProduct(String record) {
 	// Records
 	try {
-	    System.out.println(record);
+	    // System.out.println(record);
 	    String[] fields = record.split(",");
 	    this.setProductName(fields[0].toString().trim());
 	    String dName = fields[1].toString().trim();

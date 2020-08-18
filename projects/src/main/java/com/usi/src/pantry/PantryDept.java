@@ -81,10 +81,6 @@ public class PantryDept extends Department {
 
 	    }
 	}
-
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		pantryRecords.size(), pantryProducts.size());
-
     }
 
     @Override
@@ -92,7 +88,6 @@ public class PantryDept extends Department {
 	String aKey = null;
 	Set<String> pantryProductKeys = pantryProducts.keySet();
 
-	int totalProducts = pantryProductKeys.size();
 	int i = 1;
 	for (String pKey : pantryProductKeys) {
 	    Product pd = pantryProducts.get(pKey);

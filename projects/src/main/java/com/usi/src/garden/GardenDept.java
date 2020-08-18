@@ -88,8 +88,6 @@ public class GardenDept extends Department {
 		}
 
 	    }
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    gardenRecords.size(), gardenProducts.size());
 	}
     }
 

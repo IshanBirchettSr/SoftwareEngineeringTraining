@@ -44,7 +44,6 @@ public class FurnitureDept extends Department {
     String deptName = StoreConstants.deptNames.FURNITURE.name();
     List<String> furnitureRecords = null;
     HashMap<Integer, String> keyMap = null;
-    // HashMap<K, V> to hold FurnitureProd objects.
     HashMap<String, FurnitureProd> furnitureProducts;
 
     /**
@@ -57,8 +56,6 @@ public class FurnitureDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.FURNITURE_TRUCK);
 	furnitureRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(furnitureRecords);
-	// System.out.printf("%s Department open with %d records\n", deptName,
-	// furnitureRecords.size());
 	keyMap = new HashMap<Integer, String>();
 	// Furniture Product Load
 	furnitureProducts = new HashMap<String, FurnitureProd>();
@@ -82,9 +79,6 @@ public class FurnitureDept extends Department {
 		}
 
 	    }
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    furnitureRecords.size(), furnitureProducts.size());
-
 	}
     }
 
@@ -93,7 +87,6 @@ public class FurnitureDept extends Department {
 	String aKey = null;
 	Set<String> furnitureProductKeys = furnitureProducts.keySet();
 
-	int totalProducts = furnitureProductKeys.size();
 	int i = 1;
 	for (String pKey : furnitureProductKeys) {
 	    Product pd = furnitureProducts.get(pKey);

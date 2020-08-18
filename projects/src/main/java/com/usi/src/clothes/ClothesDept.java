@@ -78,9 +78,6 @@ public class ClothesDept extends Department {
 		}
 	    }
 	}
-	System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		clothesRecords.size(), clothesProducts.size());
-
     }
 
     @Override
@@ -88,7 +85,6 @@ public class ClothesDept extends Department {
 	String aKey = null;
 	Set<String> clothesProductKeys = clothesProducts.keySet();
 
-	int totalProducts = clothesProductKeys.size();
 	int i = 1;
 	for (String pKey : clothesProductKeys) {
 	    Product pd = clothesProducts.get(pKey);
@@ -127,7 +123,6 @@ public class ClothesDept extends Department {
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-	Image autoImage = new Image(StoreConstants.CLOTHESDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(ClothesImage);
 	iv.setFitWidth(400);

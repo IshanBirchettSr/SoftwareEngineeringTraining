@@ -43,7 +43,6 @@ public class FrozenFoodsDept extends Department {
     String deptName = StoreConstants.deptNames.FROZEN_FOODS.name();
     List<String> frozenFoodsRecords = null;
     HashMap<Integer, String> keyMap = null;
-// HashMap<K, V> to hold ElectronicsProd objects.
     HashMap<String, FrozenFoodsProd> frozenFoodsProducts;
 
     /**
@@ -57,7 +56,6 @@ public class FrozenFoodsDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.FROZEN_FOODS_TRUCK);
 	frozenFoodsRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(frozenFoodsRecords);
-	System.out.printf("%s Department open with %d products\n", deptName, frozenFoodsRecords.size());
 	keyMap = new HashMap<Integer, String>();
 	frozenFoodsProducts = new HashMap<String, FrozenFoodsProd>();
 	loadProducts();
@@ -65,8 +63,6 @@ public class FrozenFoodsDept extends Department {
 
     @Override
     protected void loadProducts() {
-	// TODO Auto-generated method stub
-	// Load products
 	for (String record : frozenFoodsRecords) {
 	    FrozenFoodsProd ffp = new FrozenFoodsProd();
 	    boolean recordToProductSuccessful = ffp.recordToProduct(record);
@@ -83,9 +79,6 @@ public class FrozenFoodsDept extends Department {
 		}
 
 	    }
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    frozenFoodsRecords.size(), frozenFoodsProducts.size());
-
 	}
     }
 
@@ -94,7 +87,6 @@ public class FrozenFoodsDept extends Department {
 	String aKey = null;
 	Set<String> frozenfoodsProductKeys = frozenFoodsProducts.keySet();
 
-	int totalProducts = frozenfoodsProductKeys.size();
 	int i = 1;
 	for (String pKey : frozenfoodsProductKeys) {
 	    Product pd = frozenFoodsProducts.get(pKey);

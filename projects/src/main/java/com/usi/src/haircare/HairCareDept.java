@@ -82,9 +82,6 @@ public class HairCareDept extends Department {
 		}
 
 	    }
-	    System.out.printf("%s Department loaded %d (crates) and created %d types of products\n", deptName,
-		    haircareRecords.size(), haircareProducts.size());
-
 	}
     }
 
@@ -93,7 +90,6 @@ public class HairCareDept extends Department {
 	String aKey = null;
 	Set<String> haircareProductKeys = haircareProducts.keySet();
 
-	int totalProducts = haircareProductKeys.size();
 	int i = 1;
 	for (String pKey : haircareProductKeys) {
 	    Product pd = haircareProducts.get(pKey);
@@ -298,7 +294,6 @@ public class HairCareDept extends Department {
 	VBox hVBox = new VBox(20, hpr, sp, dButtons);
 
 	Scene hScene = new Scene(hVBox, 600, 575);
-	// TODO Auto-generated method stub
 	return hScene;
     }
 }

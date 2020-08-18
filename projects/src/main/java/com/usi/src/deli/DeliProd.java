@@ -27,7 +27,7 @@ public class DeliProd extends Product {
     @Override
     public boolean recordToProduct(String record) {
 	try {
-	    System.out.println(record);
+	    // System.out.println(record);
 	    String[] fields = record.split(",");
 	    this.setProductName(fields[0].toString().trim());
 	    String dName = fields[1].toString().trim();
