@@ -190,8 +190,8 @@ public class BeddingDept extends Department {
 		pV.setOnMouseClicked(iEvent);
 		if (oProdName.equals(pd.getProductName()) != true) {
 		    Label pLabel = new Label();
-		    pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
+		    pLabel.setFont(Font.font("Veranda", FontWeight.BOLD, FontPosture.ITALIC, 30));
+		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:blue;");
 		    if (pd.getProductName().contains("Pillow")) {
 			pLabel.setText(pd.getProductName() + " Aisle");
 			pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
