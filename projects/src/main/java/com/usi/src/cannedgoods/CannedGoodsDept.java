@@ -120,15 +120,15 @@ public class CannedGoodsDept extends Department {
 
     @Override
     public Scene getScene() {
-	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.AUTOMOTIVE);
+	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.CANNED_GOODS);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-	Image autoImage = new Image(StoreConstants.AUTOMOTIVEDEPT);
+	Image cannedgoodsImage = new Image(StoreConstants.CANNEDGOODSDEPT);
 	ImageView iv = new ImageView();
-	iv.setImage(autoImage);
+	iv.setImage(cannedgoodsImage);
 	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
