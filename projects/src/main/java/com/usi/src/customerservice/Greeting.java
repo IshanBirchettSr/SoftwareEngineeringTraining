@@ -509,9 +509,11 @@ public class Greeting extends Application {
 
     public static HBox getBottonDeptButtons() {
 	Button cButton = new Button("Checkout");
+
 	EventHandler<ActionEvent> cEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
 		System.out.println("Time to checkout!");
+
 		StoreCheckOut checkoutLane01 = new StoreCheckOut();
 		checkoutLane01.checkoutCustomer(currentCustomer);
 		resetParentStage();
