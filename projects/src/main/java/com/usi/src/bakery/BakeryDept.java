@@ -72,7 +72,7 @@ public class BakeryDept extends Department {
 	    boolean recordToProductSuccessful = bp.recordToProduct(record);
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bp);
-		int howMany = bp.getNumOfUnitsInStock();
+		int howMany = bp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 		    // System.out.println(prodKey);
 		    bakeryProducts.put(prodKey + i, bp);
@@ -134,7 +134,7 @@ public class BakeryDept extends Department {
 	Image bakeryImage = new Image(StoreConstants.BAKERYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(bakeryImage);
-	iv.setFitWidth(600);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -169,7 +169,7 @@ public class BakeryDept extends Department {
 	noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		System.out.println("No");// TODO Auto-generated method stub
+		System.out.println("No");
 	    }
 	};
 
@@ -206,7 +206,7 @@ public class BakeryDept extends Department {
 	for (String pKey : list) {
 	    Product pd = bakeryProducts.get(pKey);
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "babyessentials", pd.getBrandName(),
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "bakery", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
 		// System.out.printf("%s==%s, %b\n", oldFilename,
@@ -234,7 +234,7 @@ public class BakeryDept extends Department {
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
 		    System.out.printf("Image Click on %s\n", pV.getId());
-
+		    Greeting.prodDetails(pd, "bakery");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
