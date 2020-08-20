@@ -183,7 +183,7 @@ public class BikesDept extends Department {
 		public void handle(MouseEvent e) {
 		    System.out.printf("Image Click on %s\n", pV.getId());
 		    Product pd2 = bikesProducts.get(pKey);
-		    Greeting.prodDetails(pd2, "auto");
+		    Greeting.prodDetails(pd2, "bikes");
 
 		}
 	    };
