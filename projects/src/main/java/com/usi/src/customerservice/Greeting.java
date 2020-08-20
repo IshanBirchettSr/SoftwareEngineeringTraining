@@ -696,6 +696,7 @@ public class Greeting extends Application {
 	// Set position of second window, related to primary window.
 	newWindow.setX(parentStage.getX() + 85);
 	newWindow.setY(parentStage.getY() + 50);
+	newWindow.show();
 
     }
 
