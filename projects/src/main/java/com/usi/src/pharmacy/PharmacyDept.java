@@ -128,14 +128,14 @@ public class PharmacyDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Welcome to the Pharmacy Department!");
+	String imageKey = String.format("Aches and pains you say? Welcome to the Pharmacy Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
 	welcomeTxt.setY(80.00);
 	welcomeTxt.setFill(Color.BLUE);
-	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-	HBox eg = new HBox(20, welcomeTxt);
+	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 15));
+	HBox eg = new HBox(15, welcomeTxt);
 	eg.setAlignment(Pos.TOP_CENTER);
 
 	Image pharmacyImage = new Image(StoreConstants.PHARMACYDEPT);
