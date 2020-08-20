@@ -38,7 +38,7 @@ public class Receipt extends StorePrinter {
     private String membershipId;
     String member = membershipId;
     List<Product> prods = null;
-    private static int counter = 0;
+    // private static int counter = 0;
 
     @Override
     public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
@@ -122,8 +122,8 @@ public class Receipt extends StorePrinter {
 	properties.put("mail.smtp.host", "smtp.gmail.com");
 	properties.put("mail.smtp.port", "587");
 
-	String MyAccountEmail = "superstore0502@gmail.com";
-	String password = "superstore0502";
+	// String MyAccountEmail = "superstore0502@gmail.com";
+	// String password = "superstore0502";
 
 	System.out.printf("Your reciept will be emailed to you. Thank you for shopping at the %s\\n today!",
 		StoreConstants.STORE_NAME);

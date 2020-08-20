@@ -96,7 +96,7 @@ public class GardenDept extends Department {
 	String aKey = null;
 	Set<String> gardenProductKeys = gardenProducts.keySet();
 
-	int totalProducts = gardenProductKeys.size();
+	// int totalProducts = gardenProductKeys.size();
 	int i = 1;
 	for (String pKey : gardenProductKeys) {
 	    Product pd = gardenProducts.get(pKey);

@@ -90,7 +90,7 @@ public class BabyEssentialsDept extends Department {
 	String aKey = null;
 	Set<String> babyProductKeys = babyEssentialsProducts.keySet();
 
-	int totalProducts = babyProductKeys.size();
+	// int totalProducts = babyProductKeys.size();
 	int i = 1;
 	for (String pKey : babyProductKeys) {
 	    Product pd = babyEssentialsProducts.get(pKey);

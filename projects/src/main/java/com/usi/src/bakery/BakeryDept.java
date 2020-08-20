@@ -88,7 +88,7 @@ public class BakeryDept extends Department {
 	String aKey = null;
 	Set<String> bakeryProductKeys = bakeryProducts.keySet();
 
-	int totalProducts = bakeryProductKeys.size();
+	// int totalProducts = bakeryProductKeys.size();
 	int i = 1;
 	for (String pKey : bakeryProductKeys) {
 	    Product pd = bakeryProducts.get(pKey);
