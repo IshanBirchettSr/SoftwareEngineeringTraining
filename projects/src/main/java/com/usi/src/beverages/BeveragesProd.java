@@ -20,7 +20,7 @@ public class BeveragesProd extends Product {
 
     @Override
     public boolean recordToProduct(String record) {
-	// TODO Auto-generated method stub
+
 	try {
 	    // System.out.println(record);
 	    String[] fields = record.split(",");

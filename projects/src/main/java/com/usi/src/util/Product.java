@@ -44,7 +44,7 @@ public abstract class Product {
      */
     public Product() {
 	super();
-	// TODO Auto-generated constructor stub
+
     }
 
     /**
@@ -233,7 +233,7 @@ public abstract class Product {
      * @return
      */
     public boolean loadProducts() {
-	// TODO Auto-generated method stub
+
 	return false;
     }
 

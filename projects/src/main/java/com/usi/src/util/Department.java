@@ -39,8 +39,6 @@ public abstract class Department {
 	this.loadedRecords = inLoadedRecords;
     }
 
-    // TODO Auto-generated method stub
-
     /**
      * @return the deptName
      */

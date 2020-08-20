@@ -10,7 +10,7 @@ import util.StoreConstants.deptNames;
 public class PrescriptionEyewareProd extends Product {
 
     public void PrescriptioneyewareProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     @Override

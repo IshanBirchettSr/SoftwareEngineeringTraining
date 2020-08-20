@@ -151,7 +151,7 @@ public class StoreConstants {
 	LEOPARD("leopard");
 
 	color(String string) {
-	    // TODO Auto-generated constructor stub
+
 	}
     }
 
@@ -164,11 +164,10 @@ public class StoreConstants {
 	 */
 
 	barcode() {
-	    // TODO Auto-generated constructor stub
+
 	}
 
 	barcode(String string) {
-	    // TODO Auto-generated constructor stub
 
 	    /**
 	     * "barcode(String string) {" is for a linear barcode.
@@ -183,7 +182,7 @@ public class StoreConstants {
 	QUANTITIES_OF_10_OR_LESS("quantitiesof10orless");
 
 	numberInStock(String string) {
-	    // TODO Auto-generated constructor stub
+
 	}
     }
 
@@ -196,7 +195,7 @@ public class StoreConstants {
 	NEGOTIATED_PRICE("negotiatedprice");
 
 	price(String string) {
-	    // TODO Auto-generated constructor stub
+
 	}
     }
 
@@ -204,7 +203,7 @@ public class StoreConstants {
 	ONE_TO_ONE_HUNDRED_THOUSAND("1-100,000");
 
 	quantity(String string) {
-	    // TODO Auto-generated constructor stub
+
 	}
     }
 
@@ -214,7 +213,7 @@ public class StoreConstants {
 	LOAF("loaf"), NA("na");
 
 	size(String string) {
-	    // TODO Auto-generated constructor stub
+
 	}
     }
 
@@ -224,7 +223,6 @@ public class StoreConstants {
 	TONS("tn"), NA("na");
 
 	unitOfMeasure(String string) {
-	    // TODO Auto-generated constructor stub
 
 	}
     }
@@ -234,7 +232,7 @@ public class StoreConstants {
 	UK_TON("ukton"), NA("na");
 
 	weight(String string) {
-	    // TODO Auto-generated constructor stub
+
 	}
     }
 }

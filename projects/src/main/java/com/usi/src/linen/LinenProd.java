@@ -17,7 +17,7 @@ public class LinenProd extends Product {
      * 
      */
     public LinenProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     @Override

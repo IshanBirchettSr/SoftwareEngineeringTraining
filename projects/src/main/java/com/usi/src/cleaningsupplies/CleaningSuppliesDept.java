@@ -232,7 +232,7 @@ public class CleaningSuppliesDept extends Department {
 
     @Override
     public List<Product> getProducts() {
-	// TODO Auto-generated method stub
+
 	return null;
     }
 

@@ -18,13 +18,13 @@ public class HaircareProd extends Product {
      * 
      */
     public HaircareProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     @Override
     // records
     public boolean recordToProduct(String record) {
-	// TODO Auto-generated method stub
+
 	try {
 	    // System.out.println(record);
 	    String[] fields = record.split(",");

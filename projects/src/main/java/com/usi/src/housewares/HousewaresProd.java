@@ -19,7 +19,7 @@ public class HousewaresProd extends Product {
      */
 
     public HousewaresProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     /*

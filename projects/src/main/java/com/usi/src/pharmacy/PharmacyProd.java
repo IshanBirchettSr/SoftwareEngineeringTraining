@@ -22,7 +22,7 @@ public class PharmacyProd extends Product {
      * 
      */
     public PharmacyProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     /*
