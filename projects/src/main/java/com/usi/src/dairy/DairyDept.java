@@ -55,7 +55,7 @@ public class DairyDept extends Department {
 // System.out.printf("%s Department open with %d records\n", deptName,
 // dairyRecords.size());  }
 
-	// Automotive Product Load
+	// Dairy Product Load
 	dairyProducts = new HashMap<String, DairyProd>();
 	loadProducts();
     }
@@ -123,7 +123,7 @@ public class DairyDept extends Department {
 	Image dairyImage = new Image(StoreConstants.DAIRYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(dairyImage);
-	iv.setFitWidth(400);
+	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -151,7 +151,7 @@ public class DairyDept extends Department {
 	for (String pKey : list) {
 	    Product pd = dairyProducts.get(pKey);
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "auto", pd.getBrandName(),
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "dairy", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
 		// System.out.printf("%s==%s, %b\n", oldFilename,
@@ -172,8 +172,8 @@ public class DairyDept extends Department {
 
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String autoToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(autoToolTip));
+	    String dairyToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
+	    Tooltip.install(pV, new Tooltip(dairyToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
@@ -187,10 +187,10 @@ public class DairyDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:lightblue;");
 		if (pd.getProductName().contains("Tire")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
+		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:lightblue;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}

@@ -119,7 +119,7 @@ public class BikesDept extends Department {
 
     @Override
     public Scene getScene() {
-	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.BIKES);
+	String sString = String.format("Get On Your %s and Ride!", StoreConstants.deptNames.BIKES);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
