@@ -518,8 +518,8 @@ public class Greeting extends Application {
 		System.out.println("Time to checkout!");
 
 		paymentPreference(null, null);
-    StoreCheckOut checkoutLane01 = new StoreCheckOut();
-		checkoutLane01.checkoutCustomer(currentCustomer);
+		// StoreCheckOut checkoutLane01 = new StoreCheckOut();
+		// checkoutLane01.checkoutCustomer(currentCustomer);
 
 		resetParentStage();
 
