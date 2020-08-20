@@ -17,7 +17,7 @@ public class TupperwareProd extends Product {
      * 
      */
     public TupperwareProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     /*

@@ -59,7 +59,6 @@ public class PrescriptionEyewareDept extends Department {
 
     @Override
     protected void loadProducts() {
-	// TODO Auto-generated method stub
 	for (String record : prescriptioneyewareRecords) {
 	    PrescriptionEyewareProd pw = new PrescriptionEyewareProd();
 	    boolean recordToProductSuccessful = pw.recordToProduct(record);

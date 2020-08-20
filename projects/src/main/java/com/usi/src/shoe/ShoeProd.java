@@ -21,7 +21,7 @@ public class ShoeProd extends Product {
      * 
      */
     public ShoeProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     /*

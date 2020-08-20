@@ -22,7 +22,7 @@ public class SeafoodProd extends Product {
      * 
      */
     public SeafoodProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     /*

@@ -21,7 +21,7 @@ public class DeptIsle {
     Shelve[] shelves;
 
     public DeptIsle() {
-	// TODO Auto-generated constructor stub
+
     }
 
 }

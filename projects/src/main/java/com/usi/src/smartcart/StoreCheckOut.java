@@ -18,7 +18,6 @@ public class StoreCheckOut extends Receipt {
 
     public StoreCheckOut() {
 
-	// TODO Auto-generated constructor stub
     }
 
     public boolean checkoutCustomer(Customer cust) {

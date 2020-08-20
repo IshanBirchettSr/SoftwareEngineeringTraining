@@ -22,7 +22,6 @@ public class ClothesProd extends Product {
      * 
      */
     public ClothesProd() {
-	// TODO Auto-generated constructor stub
 
     }
 

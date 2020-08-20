@@ -21,7 +21,7 @@ public class LED extends StorePrinter {
      */
 
     public LED() {
-	// TODO Auto-generated constructor stub
+
     }
 
 }

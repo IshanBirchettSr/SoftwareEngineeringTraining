@@ -132,7 +132,7 @@ public class StationaryDept extends Department {
 	Image stationaryImage = new Image(StoreConstants.STATIONARYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(stationaryImage);
-	iv.setFitWidth(300);
+	iv.setFitWidth(500);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);

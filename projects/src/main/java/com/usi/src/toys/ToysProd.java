@@ -17,7 +17,7 @@ public class ToysProd extends Product {
      * 
      */
     public ToysProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     /*
