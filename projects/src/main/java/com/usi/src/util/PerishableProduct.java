@@ -8,7 +8,7 @@
  */
 package util;
 
-import java.util.Date;
+//import java.util.Date;
 
 /**
  * @author ibirc
@@ -19,7 +19,7 @@ public class PerishableProduct extends Product {
     /**
      * Data Members
      */
-    private Date experationDate;
+    // private Date experationDate;
 
     public PerishableProduct() {
 

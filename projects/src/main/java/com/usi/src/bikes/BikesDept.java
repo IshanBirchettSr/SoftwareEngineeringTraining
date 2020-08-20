@@ -86,7 +86,7 @@ public class BikesDept extends Department {
 	String aKey = null;
 	Set<String> bikeProductKeys = bikesProducts.keySet();
 
-	int totalProducts = bikeProductKeys.size();
+	// int totalProducts = bikeProductKeys.size();
 	int i = 1;
 	for (String pKey : bikeProductKeys) {
 	    Product pd = bikesProducts.get(pKey);
