@@ -96,7 +96,6 @@ public class GardenDept extends Department {
 	String aKey = null;
 	Set<String> gardenProductKeys = gardenProducts.keySet();
 
-	// int totalProducts = gardenProductKeys.size();
 	int i = 1;
 	for (String pKey : gardenProductKeys) {
 	    Product pd = gardenProducts.get(pKey);
@@ -300,7 +299,7 @@ public class GardenDept extends Department {
 	VBox gVBox = new VBox(20, gpr, sp, dButtons);
 
 	Scene gScene = new Scene(gVBox, 600, 575);
-	// TODO Auto-generated method stub
+
 	return gScene;
     }
 }

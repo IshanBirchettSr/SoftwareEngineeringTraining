@@ -22,12 +22,12 @@ public class PerishableProduct extends Product {
     // private Date experationDate;
 
     public PerishableProduct() {
-	// TODO Auto-generated constructor stub
+
     }
 
     @Override
     public boolean recordToProduct(String record) {
-	// TODO Auto-generated method stub
+
 	return false;
     }
 }

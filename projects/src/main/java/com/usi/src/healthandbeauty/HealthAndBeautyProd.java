@@ -22,7 +22,7 @@ public class HealthAndBeautyProd extends Product {
      * 
      */
     public HealthAndBeautyProd() {
-	// TODO Auto-generated constructor stub
+
     }
     /*
      * ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand
@@ -38,7 +38,7 @@ public class HealthAndBeautyProd extends Product {
     @Override
     // records
     public boolean recordToProduct(String record) {
-	// TODO Auto-generated method stub
+
 	try {
 	    // System.out.println(record);
 	    String[] fields = record.split(",");

@@ -9,7 +9,7 @@ public class ProduceProd extends Product {
      * 
      */
     public ProduceProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     /*

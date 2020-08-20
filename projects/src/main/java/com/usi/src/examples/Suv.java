@@ -14,11 +14,11 @@ package examples;
  */
 public class Suv extends Vehicle {
 
-	/**
-	 * 
-	 */
-	public Suv() {
-		// TODO Auto-generated constructor stub
-	}
+    /**
+     * 
+     */
+    public Suv() {
+
+    }
 
 }

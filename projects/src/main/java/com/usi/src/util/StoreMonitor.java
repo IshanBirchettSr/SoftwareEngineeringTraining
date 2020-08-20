@@ -31,7 +31,7 @@ public class StoreMonitor extends Application {
      * 
      */
     public StoreMonitor() {
-	// TODO Auto-generated constructor stub
+
     }
 
     public static void main(String[] args) {

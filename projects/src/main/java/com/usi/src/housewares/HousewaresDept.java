@@ -295,7 +295,7 @@ public class HousewaresDept extends Department {
 	VBox hwVBox = new VBox(20, hwpr, sp, dButtons);
 
 	Scene hwpScene = new Scene(hwVBox, 600, 575);
-	// TODO Auto-generated method stub
+
 	return hwpScene;
     }
 }

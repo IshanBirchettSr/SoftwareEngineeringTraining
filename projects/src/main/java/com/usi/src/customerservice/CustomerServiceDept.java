@@ -25,35 +25,34 @@ public class CustomerServiceDept extends Department {
      */
     public CustomerServiceDept() {
 	super();
-	// TODO Auto-generated constructor stub
+
     }
 
     @Override
     protected void loadProducts() {
-	// TODO Auto-generated method stub
+
     }
 
     @Override
     public void listProducts() {
-	// TODO Auto-generated method stub
 
     }
 
     @Override
     public List<Product> getProducts() {
-	// TODO Auto-generated method stub
+
 	return null;
     }
 
     @Override
     public List<Product> getProds(int index, int quantity) {
-	// TODO Auto-generated method stub
+
 	return null;
     }
 
     @Override
     public Scene getScene() {
-	// TODO Auto-generated method stub
+
 	return null;
     }
 
