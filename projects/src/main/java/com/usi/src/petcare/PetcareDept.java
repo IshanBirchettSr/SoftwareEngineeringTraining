@@ -128,7 +128,7 @@ public class PetcareDept extends Department {
 	Image petcareImage = new Image(StoreConstants.PETCAREDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(petcareImage);
-	iv.setFitWidth(500);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);

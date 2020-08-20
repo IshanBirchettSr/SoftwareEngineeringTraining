@@ -138,7 +138,7 @@ public class ShoeDept extends Department {
 	Image shoeImage = new Image(StoreConstants.SHOEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(shoeImage);
-	iv.setFitWidth(300);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);

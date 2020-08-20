@@ -130,7 +130,7 @@ public class ProduceDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Avocados? Oh my!, Welcome to the Produce Department!");
+	String imageKey = String.format("Avocados? Oh my! Welcome to the Produce Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -143,7 +143,7 @@ public class ProduceDept extends Department {
 	Image produceImage = new Image(StoreConstants.PRODUCEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(produceImage);
-	iv.setFitWidth(300);
+	iv.setFitWidth(500);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
