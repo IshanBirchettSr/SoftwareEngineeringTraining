@@ -63,6 +63,8 @@ public class Greeting extends Application {
     private static Scene scene = null;
     static ComboBox<String> deptComboBox = null;
     static MediaPlayer mPlayer = null;
+    static HBox paneCardNumber = null;
+    private static TextField cardNumberTxt = null;
 
     /**
      * @return the parentStage
@@ -698,6 +700,181 @@ public class Greeting extends Application {
 	newWindow.setY(parentStage.getY() + 50);
 	newWindow.show();
 
+    }
+
+    public static void paymentPreference() {
+
+	String pKey = String.format("How would you like to pay for your purchase?");
+	Text welcomeTxt = new Text(pKey);
+	welcomeTxt.setText(pKey);
+	welcomeTxt.setX(50.00);
+	welcomeTxt.setY(80.00);
+	welcomeTxt.setFill(Color.BLUE);
+	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	HBox pg = new HBox(20, welcomeTxt);
+	pg.setAlignment(Pos.TOP_CENTER);
+
+	String cashierImage = String.format(StoreConstants.COVID_CASHIER);
+
+	Image ccImage = new Image(cashierImage);
+	ImageView ccV = new ImageView();
+	ccV.setFitWidth(400);
+	// pV.setFitHeight(200);
+	// pV.setId(inProd.get );
+	ccV.setImage(ccImage);
+	ccV.setPreserveRatio(true);
+	ccV.setSmooth(true);
+	ccV.setCache(true);
+	HBox ccp = new HBox(20, ccV);
+	ccp.setAlignment(Pos.CENTER);
+
+	VBox ccBox = new VBox(20, pg, ccp);
+	ccBox.setAlignment(Pos.CENTER);
+
+	Label swipe = new Label("Please choose your payment method");
+	swipe.setAlignment(Pos.BOTTOM_CENTER);
+
+	// HBox ccBox = new HBox(ccV);
+
+	String visaImage = String.format(StoreConstants.SC_ICON_VISA);
+	String mastercardImage = String.format(StoreConstants.SC_ICON_MASTERCARD);
+	String ebtImage = String.format(StoreConstants.SC_ICON_EBT);
+	String cashImage = String.format(StoreConstants.SC_ICON_CASH);
+
+	Image vImage = new Image(visaImage);
+	ImageView vV = new ImageView();
+	vV.setFitWidth(25);
+	// pV.setFitHeight(200);
+	// pV.setId(inProd.get );
+	vV.setImage(vImage);
+	vV.setPreserveRatio(true);
+	vV.setSmooth(true);
+	vV.setCache(true);
+
+	Image mImage = new Image(mastercardImage);
+	ImageView mV = new ImageView();
+	mV.setFitWidth(25);
+	// pV.setFitHeight(200);
+	// pV.setId(inProd.get );
+	mV.setImage(mImage);
+	mV.setPreserveRatio(true);
+	mV.setSmooth(true);
+	mV.setCache(true);
+
+	Image eImage = new Image(ebtImage);
+	ImageView eV = new ImageView();
+	eV.setFitWidth(25);
+	// pV.setFitHeight(200);
+	// pV.setId(inProd.get );
+	eV.setImage(eImage);
+	eV.setPreserveRatio(true);
+	eV.setSmooth(true);
+	eV.setCache(true);
+
+	Image cImage = new Image(cashImage);
+	ImageView cV = new ImageView();
+	cV.setFitWidth(25);
+	// pV.setFitHeight(200);
+	// pV.setId(inProd.get );
+	cV.setImage(cImage);
+	cV.setPreserveRatio(true);
+	cV.setSmooth(true);
+	cV.setCache(true);
+
+	Button visa = new Button("VISA", vV);
+	EventHandler<ActionEvent> visaEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+
+	    }
+	};
+	visa.setOnAction(visaEvent);
+
+	Button mc = new Button("MASTERCARD", mV);
+	visa.setAlignment(Pos.BOTTOM_CENTER);
+	mc.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> mastercardEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+
+	    }
+	};
+	mc.setOnAction(mastercardEvent);
+
+	Button ebt = new Button("EBT", eV);
+	ebt.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> ebtEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+
+	    }
+	};
+
+	ebt.setOnAction(ebtEvent);
+
+	Button cash = new Button("CASH", cV);
+	cash.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> cashEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+
+	    }
+
+	};
+
+	cash.setOnAction(cashEvent);
+
+	Stage newWindow = new Stage();
+	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_VISA));
+	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_MASTERCARD));
+	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_EBT));
+	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_CASH));
+
+	HBox payButtons = new HBox(10, visa, mc, ebt, cash);
+	payButtons.setAlignment(Pos.BOTTOM_CENTER);
+	payButtons.setSpacing(30);
+	payButtons.setPadding(new Insets(15, 0, 15, 0));
+	payButtons.setAlignment(Pos.BOTTOM_CENTER);
+
+	ccBox.getChildren().add(payButtons);
+
+	Label cardNumberLbl = new Label("Please Enter Your Card Number:");
+	cardNumberLbl.setMinWidth(100);
+	cardNumberLbl.setAlignment(Pos.BOTTOM_RIGHT);
+	// Create the Actor text field
+	cardNumberTxt = new TextField();
+	cardNumberTxt.setMinWidth(200);
+	cardNumberTxt.setMaxWidth(200);
+	cardNumberTxt.setPromptText("Enter Card Number Here");
+	cardNumberTxt.setFocusTraversable(true);
+	cardNumberTxt.requestFocus();
+	cardNumberTxt.textProperty().addListener(new ChangeListener<String>() {
+
+	    @Override
+	    public void changed(ObservableValue<? extends String> arg0, String oldValue, String newValue) {
+		if (!newValue.matches("\\d{0,20}([\\.]\\d{0,4})?")) {
+		    cardNumberTxt.setText(oldValue);
+		}
+	    }
+	});
+
+	paneCardNumber = new HBox(20, cardNumberLbl, cardNumberTxt);
+	paneCardNumber.setPadding(new Insets(10));
+	ccBox.getChildren().add(paneCardNumber);
+
+	HBox tBox = new HBox(ccBox);
+	tBox.setAlignment(Pos.CENTER);
+
+	Scene paymentScene = new Scene(tBox, 500, 550);
+
+	// Need to configure way to link running total to this method
+	newWindow.setTitle(String.format("Your total today is $.2f", currentCustomer.cartTotal()));
+	newWindow.setScene(paymentScene);
+
+	// Specifies the modality for new window.
+	newWindow.initModality(Modality.WINDOW_MODAL);
+
+	// Specifies the owner Window (parent) for new window
+	newWindow.initOwner(parentStage);
+	newWindow.setResizable(false);
+
+	newWindow.show();
     }
 
 //    private void viewCart() {
