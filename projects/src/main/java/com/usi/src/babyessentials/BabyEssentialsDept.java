@@ -50,7 +50,7 @@ public class BabyEssentialsDept extends Department {
     List<String> babyEssentialsRecords = null;
     HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold BabyEssentialsProd objects.
-    HashMap<String, BabyEssentialsProd> BabyEssentialsProducts;
+    HashMap<String, BabyEssentialsProd> babyEssentialsProducts;
 
     /**
      * Constructor
@@ -62,11 +62,9 @@ public class BabyEssentialsDept extends Department {
 	unLoadTrucks.loadData(StoreConstants.BABY_ESSENTIALS_TRUCK);
 	babyEssentialsRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(babyEssentialsRecords);
-	// System.out.printf("%s Department open with %d records\n", deptName,
-	// autoRecords.size());
 	keyMap = new HashMap<Integer, String>();
 	// Baby Essentials Product Load
-	BabyEssentialsProducts = new HashMap<String, BabyEssentialsProd>();
+	babyEssentialsProducts = new HashMap<String, BabyEssentialsProd>();
 	loadProducts();
     }
 
@@ -81,8 +79,7 @@ public class BabyEssentialsDept extends Department {
 		String prodKey = ProdKeyGen.genKey(bp);
 		int howMany = bp.getQuantity();
 		for (int i = 0; i < howMany; i++) {
-		    // System.out.println(prodKey);
-		    BabyEssentialsProducts.put(prodKey + i, bp);
+		    babyEssentialsProducts.put(prodKey + i, bp);
 		}
 	    }
 	}
@@ -91,12 +88,12 @@ public class BabyEssentialsDept extends Department {
     @Override
     public void listProducts() {
 	String aKey = null;
-	Set<String> babyProductKeys = BabyEssentialsProducts.keySet();
+	Set<String> babyProductKeys = babyEssentialsProducts.keySet();
 
 	int totalProducts = babyProductKeys.size();
 	int i = 1;
 	for (String pKey : babyProductKeys) {
-	    Product pd = BabyEssentialsProducts.get(pKey);
+	    Product pd = babyEssentialsProducts.get(pKey);
 	    if (aKey != pKey) {
 		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
 	    }
@@ -110,7 +107,7 @@ public class BabyEssentialsDept extends Department {
 	ArrayList<Product> pdList = new ArrayList<Product>();
 	String pKey = keyMap.get(index);
 	for (int i = 0; i < quantity; i++) {
-	    BabyEssentialsProd pd = BabyEssentialsProducts.get(pKey);
+	    BabyEssentialsProd pd = babyEssentialsProducts.get(pKey);
 	    pdList.add(pd);
 	}
 
@@ -202,7 +199,7 @@ public class BabyEssentialsDept extends Department {
 	pGrid.setPadding(iSet);
 
 	String oProdName = "NoProd";
-	Set<String> eProductKeys = BabyEssentialsProducts.keySet();
+	Set<String> eProductKeys = babyEssentialsProducts.keySet();
 	// You must sort the Set of keys
 	List<String> list = new ArrayList<>(eProductKeys);
 	Collections.sort(list);
@@ -211,7 +208,7 @@ public class BabyEssentialsDept extends Department {
 	int columnIndex = 0;
 	String oldFilename = "Firstfile";
 	for (String pKey : list) {
-	    Product pd = BabyEssentialsProducts.get(pKey);
+	    Product pd = babyEssentialsProducts.get(pKey);
 
 	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "babyessentials", pd.getBrandName(),
 		    pd.getProductName());
@@ -220,7 +217,6 @@ public class BabyEssentialsDept extends Department {
 		// iFileName,oldFilename.equals(iFileName));
 		continue;
 	    }
-	    System.out.println(iFileName);
 	    oldFilename = iFileName;
 
 	    // Image View
@@ -240,8 +236,8 @@ public class BabyEssentialsDept extends Department {
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
-
+		    Product pd2 = babyEssentialsProducts.get(pKey);
+		    Greeting.prodDetails(pd2, "babyessentials");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
@@ -258,18 +254,14 @@ public class BabyEssentialsDept extends Department {
 		pLabel.setAlignment(Pos.CENTER);
 		columnIndex = 0;
 		rowIndex += 1;
-		System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
-
 		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
 		if (rowIndex == 0) {
 		    rowIndex = 1;
 		} else {
 		    rowIndex += 1;
 		}
-		System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
 		oProdName = pd.getProductName();
 	    }
-	    System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
 	    pGrid.add(pV, columnIndex, rowIndex);
 	    if (columnIndex < 5) {
 		columnIndex++;

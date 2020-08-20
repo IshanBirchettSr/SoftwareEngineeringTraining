@@ -178,7 +178,6 @@ public class Greeting extends Application {
 	displayDepts();
 	EventHandler<WindowEvent> closeStageEvent = new EventHandler<WindowEvent>() {
 	    public void handle(WindowEvent e) {
-		System.out.println("Stage Close");
 		Platform.exit();
 		System.exit(0);
 	    }
@@ -512,8 +511,6 @@ public class Greeting extends Application {
 
 	EventHandler<ActionEvent> cEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		System.out.println("Time to checkout!");
-
 		StoreCheckOut checkoutLane01 = new StoreCheckOut();
 		checkoutLane01.checkoutCustomer(currentCustomer);
 		resetParentStage();
