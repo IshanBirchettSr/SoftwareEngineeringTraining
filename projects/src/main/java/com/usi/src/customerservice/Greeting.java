@@ -594,16 +594,8 @@ public class Greeting extends Application {
 	choose.getItems().addAll(quantity);
 	choose.setValue(1);
 
-	Button Buy = new Button("Add to cart");
-	EventHandler<ActionEvent> addToCartEvent = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-		currentCustomer.addProduct(inProd, choose.getValue());
-	    }
-	};
-	Buy.setOnAction(addToCartEvent);
-
 	Button howMany = new Button("Quantity");
-	Buy.setAlignment(Pos.BOTTOM_CENTER);
+
 	howMany.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> howManyEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
@@ -618,6 +610,18 @@ public class Greeting extends Application {
 	Stage newWindow = new Stage();
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
 
+	Button Buy = new Button("Add to cart");
+	EventHandler<ActionEvent> addToCartEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		currentCustomer.addProduct(inProd, choose.getValue());
+		if (mPlayer != null) {
+		    mPlayer.stop();
+		}
+		newWindow.close();
+	    }
+	};
+	Buy.setOnAction(addToCartEvent);
+	Buy.setAlignment(Pos.BOTTOM_CENTER);
 	// Description Pane
 	VBox descBox = new VBox();
 	descBox.setStyle("-fx-background-color: red;");
