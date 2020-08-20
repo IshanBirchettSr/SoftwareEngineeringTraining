@@ -51,7 +51,7 @@ public class ToiletryDept extends Department {
     List<String> toletriesRecords = null;
     HashMap<Integer, String> keyMap = null;
 // HashMap<K, V> to hold ElectronicsProd objects.
-    HashMap<String, ToiletryProd> ToiletryProducts;
+    HashMap<String, ToiletryProd> ToiletriesProducts;
 
     /**
      * Constructor
@@ -67,7 +67,7 @@ public class ToiletryDept extends Department {
 	// autoRecords.size());
 	keyMap = new HashMap<Integer, String>();
 	// Automotive Product Load
-	ToiletryProducts = new HashMap<String, ToiletryProd>();
+	ToiletriesProducts = new HashMap<String, ToiletryProd>();
 	loadProducts();
     }
 
@@ -85,7 +85,7 @@ public class ToiletryDept extends Department {
 		int howMany = tp.getNumUnitsInstock();
 		for (int i = 0; i < howMany; i++) {
 
-		    ToiletryProducts.put(prodKey + 1, tp);
+		    ToiletriesProducts.put(prodKey + 1, tp);
 		}
 	    }
 	}
@@ -94,11 +94,11 @@ public class ToiletryDept extends Department {
     @Override
     public void listProducts() {
 	String aKey = null;
-	Set<String> toiletryProductKeys = ToiletryProducts.keySet();
+	Set<String> toiletryProductKeys = ToiletriesProducts.keySet();
 
 	int i = 1;
 	for (String pKey : toiletryProductKeys) {
-	    Product pd = ToiletryProducts.get(pKey);
+	    Product pd = ToiletriesProducts.get(pKey);
 	    if (aKey != pKey) {
 		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
 	    }
@@ -112,7 +112,7 @@ public class ToiletryDept extends Department {
 	ArrayList<Product> pdList = new ArrayList<Product>();
 	String pKey = keyMap.get(index);
 	for (int i = 0; i < qauntity; i++) {
-	    ToiletryProd pd = ToiletryProducts.get(pKey);
+	    ToiletryProd pd = ToiletriesProducts.get(pKey);
 	    pdList.add(pd);
 	}
 
@@ -139,10 +139,10 @@ public class ToiletryDept extends Department {
 	HBox eg = new HBox(20, welcomeTxt);
 	eg.setAlignment(Pos.TOP_CENTER);
 
-	Image toiletryImage = new Image(StoreConstants.TOILETRIESDEPT);
+	Image toiletriesImage = new Image(StoreConstants.TOILETRIESDEPT);
 	ImageView iv = new ImageView();
-	iv.setImage(toiletryImage);
-	iv.setFitWidth(300);
+	iv.setImage(toiletriesImage);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -206,7 +206,7 @@ public class ToiletryDept extends Department {
 	pGrid.setPadding(iSet);
 
 	String oProdName = "NoProd";
-	Set<String> eProductKeys = ToiletryProducts.keySet();
+	Set<String> eProductKeys = ToiletriesProducts.keySet();
 	// You must sort the Set of keys
 	List<String> list = new ArrayList<>(eProductKeys);
 	Collections.sort(list);
@@ -216,7 +216,7 @@ public class ToiletryDept extends Department {
 	String oldFilename = "Firstfile";
 
 	for (String pKey : list) {
-	    Product pd = ToiletryProducts.get(pKey);
+	    Product pd = ToiletriesProducts.get(pKey);
 
 	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "toiletry", pd.getBrandName(),
 		    pd.getProductName());
@@ -245,8 +245,8 @@ public class ToiletryDept extends Department {
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    Product pd2 = ToiletryProducts.get(pKey);
-		    Greeting.prodDetails(pd2, "toiletry");
+		    Product pd = ToiletriesProducts.get(pKey);
+		    Greeting.prodDetails(pd, "toiletry");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);

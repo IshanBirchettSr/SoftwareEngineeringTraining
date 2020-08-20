@@ -103,7 +103,7 @@ public class StoreConstants {
     public static final String SEAFOODDEPT = "file:///" + APP_HOME + "/images/Seafood_Dept.png";
     public static final String SHOEDEPT = "file:///" + APP_HOME + "/images/Shoe_Dept.png";
     public static final String STATIONARYDEPT = "file:///" + APP_HOME + "/images/Stationary_Dept.png";
-    public static final String TOILETRIESDEPT = "file:///" + APP_HOME + "/images/Toiletries_Dept.png";
+    public static final String TOILETRIESDEPT = "file:///" + APP_HOME + "/images/Toiletry_Dept.png";
     public static final String TOYSDEPT = "file:///" + APP_HOME + "/images/Toys_Dept.png";
     public static final String TUPPERWAREDEPT = "file:///" + APP_HOME + "/images/Tupperware_Dept.png";
     /*

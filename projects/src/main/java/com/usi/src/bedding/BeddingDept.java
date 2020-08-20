@@ -113,7 +113,7 @@ public class BeddingDept extends Department {
     @Override
     public Scene getScene() {
 
-	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.BEDDING);
+	String sString = String.format("Nighty Nite Sleep Tight!", StoreConstants.deptNames.BEDDING);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
@@ -129,7 +129,7 @@ public class BeddingDept extends Department {
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
-	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
+	instructions.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
 	VBox bp = new VBox(15, slogan, iv, instructions);
 	bp.setAlignment(Pos.CENTER);
@@ -188,11 +188,11 @@ public class BeddingDept extends Department {
 		pV.setOnMouseClicked(iEvent);
 		if (oProdName.equals(pd.getProductName()) != true) {
 		    Label pLabel = new Label();
-		    pLabel.setFont(Font.font("Veranda", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:blue;");
+		    pLabel.setFont(Font.font("Lucinda Sans)", FontWeight.SEMI_BOLD, FontPosture.ITALIC, 30));
+		    pLabel.setStyle("-fx-border-color:blue; -fx-background-color:pink;");
 		    if (pd.getProductName().contains("Pillow")) {
 			pLabel.setText(pd.getProductName() + " Aisle");
-			pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
+			pLabel.setStyle("-fx-border-color:blue; -fx-background-color:pink;");
 		    } else {
 			pLabel.setText(pd.getProductName() + " Shelve");
 		    }

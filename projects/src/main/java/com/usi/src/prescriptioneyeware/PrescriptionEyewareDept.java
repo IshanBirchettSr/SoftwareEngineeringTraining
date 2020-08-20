@@ -129,7 +129,7 @@ public class PrescriptionEyewareDept extends Department {
 	Image prescriptioneyewareImage = new Image(StoreConstants.PRESCRIPTIONEYEWAREDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(prescriptioneyewareImage);
-	iv.setFitWidth(300);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -232,8 +232,8 @@ public class PrescriptionEyewareDept extends Department {
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    Product pd2 = prescriptioneyewareProducts.get(pKey);
-		    Greeting.prodDetails(pd2, "electronics");
+		    Product pd = prescriptioneyewareProducts.get(pKey);
+		    Greeting.prodDetails(pd, "prescriptioneyeware");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
