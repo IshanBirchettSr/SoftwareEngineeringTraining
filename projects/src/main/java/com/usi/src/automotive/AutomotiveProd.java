@@ -18,7 +18,7 @@ public class AutomotiveProd extends Product {
      * 
      */
     public AutomotiveProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     @Override

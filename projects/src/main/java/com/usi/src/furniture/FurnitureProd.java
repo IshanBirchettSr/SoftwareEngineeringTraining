@@ -17,7 +17,7 @@ public class FurnitureProd extends Product {
      * 
      */
     public FurnitureProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     /*

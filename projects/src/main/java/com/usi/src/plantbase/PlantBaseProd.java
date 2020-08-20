@@ -17,7 +17,7 @@ public class PlantBaseProd extends Product {
      * 
      */
     public PlantBaseProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     /*

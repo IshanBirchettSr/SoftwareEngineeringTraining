@@ -8,7 +8,7 @@
  */
 package util;
 
-import java.util.Date;
+//import java.util.Date;
 
 /**
  * @author ibirc
@@ -19,15 +19,15 @@ public class PerishableProduct extends Product {
     /**
      * Data Members
      */
-    private Date experationDate;
+    // private Date experationDate;
 
     public PerishableProduct() {
-	// TODO Auto-generated constructor stub
+
     }
 
     @Override
     public boolean recordToProduct(String record) {
-	// TODO Auto-generated method stub
+
 	return false;
     }
 }

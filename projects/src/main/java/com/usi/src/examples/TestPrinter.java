@@ -21,7 +21,7 @@ public class TestPrinter extends StorePrinter {
      */
     public TestPrinter() {
 	super();
-	// TODO Auto-generated constructor stub
+
     }
 
     /**

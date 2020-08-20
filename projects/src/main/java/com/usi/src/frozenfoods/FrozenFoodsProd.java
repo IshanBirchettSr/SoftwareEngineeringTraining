@@ -8,14 +8,13 @@ import util.StoreConstants.deptNames;
  * Roxanne L Earnest
  */
 public class FrozenFoodsProd extends Product {
-    // TODO Auto-generated constructor stub
 
     public FrozenFoodsProd() {
-	// TODO Auto-generated constructor stub
+
     }
 
     public boolean loadProductRecord(String record) {
-	// TODO Auto-generated method stub
+
 	return false;
     }
 

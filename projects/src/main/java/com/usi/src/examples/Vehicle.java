@@ -21,8 +21,8 @@ public class Vehicle {
     private boolean parkBrake = true;
     private int numberOfSeats = 5;
 
-    private Engine eg = null;
-    private Transmission tm = null;
+//    private Engine eg = null;
+    // private Transmission tm = null;
 
     /**
      * @return the hasSteeringWheel
