@@ -133,7 +133,7 @@ public class ToysDept extends Department {
 	Image toysImage = new Image(StoreConstants.TOYSDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(toysImage);
-	iv.setFitWidth(300);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);

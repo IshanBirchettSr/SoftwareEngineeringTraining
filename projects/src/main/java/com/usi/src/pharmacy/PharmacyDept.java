@@ -141,7 +141,7 @@ public class PharmacyDept extends Department {
 	Image pharmacyImage = new Image(StoreConstants.PHARMACYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(pharmacyImage);
-	iv.setFitWidth(300);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -244,8 +244,8 @@ public class PharmacyDept extends Department {
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    Product pd2 = pharmacyProducts.get(pKey);
-		    Greeting.prodDetails(pd2, "electronics");
+		    Product pd = pharmacyProducts.get(pKey);
+		    Greeting.prodDetails(pd, "pharmacy");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
