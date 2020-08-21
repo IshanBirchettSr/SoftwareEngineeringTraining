@@ -153,7 +153,7 @@ public class BookDept extends Department {
 	for (String pKey : list) {
 	    Product pd = bookProducts.get(pKey);
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "auto", pd.getBrandName(),
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "books", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
 		// System.out.printf("%s==%s, %b\n", oldFilename,
@@ -173,14 +173,14 @@ public class BookDept extends Department {
 	    pV.setPreserveRatio(true);
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String autoToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(autoToolTip));
+	    String booksToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
+	    Tooltip.install(pV, new Tooltip(booksToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
 		    System.out.printf("Image Click on %s\n", pV.getId());
 		    Product pd2 = bookProducts.get(pKey);
-		    Greeting.prodDetails(pd2, "book");
+		    Greeting.prodDetails(pd2, "books");
 
 		}
 	    };
@@ -189,18 +189,18 @@ public class BookDept extends Department {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
 		pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
-		if (pd.getProductName().contains("Tire")) {
+		if (pd.getProductName().contains("Love")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
-		pLabel.setAlignment(Pos.CENTER);
+		pLabel.setAlignment(Pos.CENTER_RIGHT);
 		columnIndex = 0;
 		rowIndex += 1;
 		// System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
 
-		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
+		pGrid.add(pLabel, columnIndex + 10, rowIndex, 10, 1);
 		if (rowIndex == 0) {
 		    rowIndex = 1;
 		} else {
@@ -233,7 +233,7 @@ public class BookDept extends Department {
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 	VBox aVBox = new VBox(10, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 400, 650);
+	Scene aScene = new Scene(aVBox, 600, 650);
 	return aScene;
     }
 }

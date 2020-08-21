@@ -116,15 +116,15 @@ public class CannedGoodsDept extends Department {
 
     @Override
     public Scene getScene() {
-	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.AUTOMOTIVE);
+	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.CANNED_GOODS);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-	Image autoImage = new Image(StoreConstants.AUTOMOTIVEDEPT);
+	Image cannedgoodsImage = new Image(StoreConstants.CANNEDGOODSDEPT);
 	ImageView iv = new ImageView();
-	iv.setImage(autoImage);
+	iv.setImage(cannedgoodsImage);
 	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
@@ -153,7 +153,7 @@ public class CannedGoodsDept extends Department {
 	for (String pKey : list) {
 	    Product pd = cannedGoodsProducts.get(pKey);
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "auto", pd.getBrandName(),
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "cannedgoods", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
 		// System.out.printf("%s==%s, %b\n", oldFilename,
@@ -174,14 +174,15 @@ public class CannedGoodsDept extends Department {
 
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String autoToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(autoToolTip));
+	    String cannedgoodsToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+		    pd.getPrice());
+	    Tooltip.install(pV, new Tooltip(cannedgoodsToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
 		    System.out.printf("Image Click on %s\n", pV.getId());
 		    Product pd2 = cannedGoodsProducts.get(pKey);
-		    Greeting.prodDetails(pd2, "auto");
+		    Greeting.prodDetails(pd2, "cannedgoods");
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
