@@ -65,6 +65,7 @@ public class StoreConstants {
     public static final String STORE_MAP = "file:///" + APP_HOME + "/images/StoreMap.png";
     public static final String MCARD = "file:///" + APP_HOME + "/images/MCard%s.png";
     public static final String COVID_CASHIER = "file:///" + APP_HOME + "/images/covid_cashier.png";
+    public static final String VIEW_CART = "file:///" + APP_HOME + "/images/ShoppingCart.png";
     public static final String SC_ICON_EMPTY = "file:///" + APP_HOME + "/images/sc3.png";
     public static final String SC_ICON_FULL = "file:///" + APP_HOME + "/images/sc1.png";
     public static final String SC_ICON_VISA = "file:///" + APP_HOME + "/images/visa.png";
