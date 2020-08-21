@@ -906,42 +906,48 @@ public class Greeting extends Application {
 	int totalQuantity = 1;
 	boolean firstTime = true;
 	String oldPn = "no name";
-	Product newPd = null;
+	Product oldPd = null;
 	Label cLabel = new Label();
+
 	for (Product cPd : pList) {
 	    if (oldPn.equals("no name") == true) {
 		oldPn = cPd.getBrandName();
-		newPd = cPd;
+		oldPd = cPd;
+		firstTime = true;
+		// System.out.println("No Name Hit\n");
 		continue;
 	    }
-	    firstTime = true;
+
 	    if (oldPn.equals(cPd.getBrandName()) == true) {
-		firstTime = false;
 		totalQuantity++;
-		newPd = cPd;
+		oldPd = cPd;
 		continue;
 
 	    } else {
+		// System.out.printf("Else %b\n", firstTime);
 		if (firstTime == true) {
-		    firstTime = false;
 		    cLabel = new Label();
-		    String item = String.format("%s - %s Qty %d $%.2f", newPd.getBrandName(), newPd.getProductName(),
-			    totalQuantity, newPd.getPrice());
+		    String item = String.format("%s - %s Qty %d $%.2f", oldPd.getBrandName(), oldPd.getProductName(),
+			    totalQuantity, oldPd.getPrice());
 		    cLabel.setText(item);
 		    spv.getChildren().add(cLabel);
 		    totalQuantity = 1;
-		    oldPn = newPd.getBrandName();
+		    oldPn = cPd.getBrandName();
+		    oldPd = cPd;
 		}
-
 	    }
-
 	}
+
 	if (firstTime == true) {
-	    String item = String.format("%s - %s Qty %d $%.2f", newPd.getBrandName(), newPd.getProductName(),
-		    totalQuantity, newPd.getPrice());
+	    String item = "No items in your Smart Cart.";
+	    if (oldPd != null) {
+		item = String.format("%s - %s Qty %d $%.2f", oldPd.getBrandName(), oldPd.getProductName(),
+			totalQuantity, oldPd.getPrice());
+	    }
+	    cLabel = new Label();
 	    cLabel.setText(item);
 	    spv.getChildren().add(cLabel);
-
+	    firstTime = false;
 	}
 	sp.setContent(spv);
 	Stage newWindow = new Stage();
@@ -954,7 +960,7 @@ public class Greeting extends Application {
 	closeButton.setOnAction(closeEvent);
 
 	Button noIDoNot = new Button("No");
-	closeButton.setAlignment(Pos.CENTER);
+	closeButton.setAlignment(Pos.BOTTOM_CENTER);
 	noIDoNot.setAlignment(Pos.CENTER);
 	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
@@ -965,14 +971,14 @@ public class Greeting extends Application {
 
 	noIDoNot.setOnAction(noEvent);
 	HBox cBox = new HBox(closeButton);
-	cBox.setAlignment(Pos.CENTER);
+	cBox.setAlignment(Pos.BOTTOM_CENTER);
 	VBox paneViewCart = new VBox(20, vcp, sp, cBox);
 	paneViewCart.setPadding(new Insets(10));
 
 	Scene viewCartScene = new Scene(paneViewCart, 450, 600);
 
 	// New window (Stage)
-	String priceTitle = String.format("Cart Total $%.2f", currentCustomer.cart.getRunningTotal());
+	String priceTitle = String.format("Smart Cart Total $%.2f", currentCustomer.cart.getRunningTotal());
 	newWindow.setTitle(priceTitle);
 	newWindow.setScene(viewCartScene);
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));

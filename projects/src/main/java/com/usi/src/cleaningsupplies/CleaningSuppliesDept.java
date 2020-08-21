@@ -40,7 +40,6 @@ public class CleaningSuppliesDept extends Department {
     HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold CleaningSuppliesProd objects.
     HashMap<String, CleaningSuppliesProd> cleaningsuppliesProducts;
-    private Image cleaningsuppliesImage;
 
     /**
      * Constructor

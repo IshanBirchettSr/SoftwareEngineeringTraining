@@ -33,8 +33,9 @@ public class ShoppingCart {
     }
 
     public List<Product> getProductList() {
-	return scProds;
 
+	scProds.sort((Product p1, Product p2) -> p1.getBrandName().compareTo(p2.getBrandName()));
+	return scProds;
     }
 
     /**

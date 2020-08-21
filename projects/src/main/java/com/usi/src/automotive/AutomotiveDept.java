@@ -79,12 +79,12 @@ public class AutomotiveDept extends Department {
 
     @Override
     public void listProducts() {
-	String aKey = null;
+	// String aKey = null;
 	Set<String> aProductKeys = autoProducts.keySet();
 
 	int i = 1;
 	for (String pKey : aProductKeys) {
-	    aKey = pKey;
+	    // aKey = pKey;
 	    keyMap.put(i, pKey);
 	    i++;
 	}

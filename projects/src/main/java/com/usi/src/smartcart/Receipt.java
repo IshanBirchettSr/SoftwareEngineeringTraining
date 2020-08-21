@@ -18,10 +18,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import customerservice.Customer;
-import javafx.print.PageLayout;
-import javafx.print.PageOrientation;
-import javafx.print.Paper;
-import javafx.print.Printer;
 import util.Product;
 import util.StoreConstants;
 import util.StorePrinter;
@@ -90,9 +86,10 @@ public class Receipt extends StorePrinter {
 
     public void printReceipt() {
 	System.out.printf("Here is your receipt. Thank you for shopping at the %s\n today!", StoreConstants.STORE_NAME);
-	Printer printer = Printer.getDefaultPrinter();
-	PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT,
-		Printer.MarginType.DEFAULT);
+	// Printer printer = Printer.getDefaultPrinter();
+	// PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER,
+	// PageOrientation.PORTRAIT,
+	// Printer.MarginType.DEFAULT);
 //	        double scaleX = pageLayout.getPrintableWidth() / node.getBoundsInParent().getWidth();
 //	        double scaleY = pageLayout.getPrintableHeight() / node.getBoundsInParent().getHeight();
 //	        node.getTransforms().add(new Scale(scaleX, scaleY));
