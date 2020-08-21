@@ -40,6 +40,7 @@ public class CleaningSuppliesDept extends Department {
     HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold CleaningSuppliesProd objects.
     HashMap<String, CleaningSuppliesProd> cleaningsuppliesProducts;
+    private Image cleaningsuppliesImage;
 
     /**
      * Constructor
@@ -108,15 +109,15 @@ public class CleaningSuppliesDept extends Department {
 
     @Override
     public Scene getScene() {
-	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.AUTOMOTIVE);
+	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.CLEANING_SUPPLIES);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-	Image autoImage = new Image(StoreConstants.AUTOMOTIVEDEPT);
+	Image cleaningsuppliesImage = new Image(StoreConstants.CLEANINGSUPPLIESDEPT);
 	ImageView iv = new ImageView();
-	iv.setImage(autoImage);
+	iv.setImage(cleaningsuppliesImage);
 	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
@@ -145,7 +146,7 @@ public class CleaningSuppliesDept extends Department {
 	for (String pKey : list) {
 	    Product pd = cleaningsuppliesProducts.get(pKey);
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "auto", pd.getBrandName(),
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "cleaningsupplies", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
 		// System.out.printf("%s==%s, %b\n", oldFilename,
@@ -166,8 +167,9 @@ public class CleaningSuppliesDept extends Department {
 
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String autoToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(autoToolTip));
+	    String cleaningsuppliesToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+		    pd.getPrice());
+	    Tooltip.install(pV, new Tooltip(cleaningsuppliesToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
