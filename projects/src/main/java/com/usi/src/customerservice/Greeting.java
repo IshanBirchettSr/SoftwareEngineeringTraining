@@ -538,7 +538,7 @@ public class Greeting extends Application {
 	sCart.setAlignment(Pos.CENTER);
 	EventHandler<ActionEvent> scEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		// System.out.println("Customer is NOT a member!");
+		viewCart();
 	    }
 	};
 
@@ -877,87 +877,117 @@ public class Greeting extends Application {
 	newWindow.show();
     }
 
-//    private void viewCart() {
-//
-//	Label lblCharacter = new Label(
-//		"Do you have items in your cart?");
-//	lblCharacter.setMinWidth(100);
-//	lblCharacter.setAlignment(Pos.CENTER_LEFT);
-//
-//	Button yesIDo = new Button("Yes");
-//	EventHandler<ActionEvent> signUpEvent = new EventHandler<ActionEvent>() {
-//	    public void handle(ActionEvent e) {
-//		newItemsInCart();
-//	    }
-//	};
-//	yesIDo.setOnAction(signUpEvent);
-//
-//	Button noIDoNot = new Button("No");
-//	yesIDo.setAlignment(Pos.CENTER);
-//	noIDoNot.setAlignment(Pos.CENTER);
-//	EventHandler<ActionEvent> noSignUpEvent = new EventHandler<ActionEvent>() {
-//	    public void handle(ActionEvent e) {
-//		declineItemsInCart();
-//	    }
-//
-//	    private void declineItemsInCart() {
-//		
-//	    }
-//	};
-//
-//	noIDoNot.setOnAction(noItemsInCart);
-//
-//	HBox paneViewCart = new HBox(20, lblCharacter, yesIDo, noIDoNot);
-//	paneViewCart.setPadding(new Insets(10));
-//
-//	primaryPane.getChildren().add(paneViewCart);
-//	return;
-//    }
-//
-//    private void declineItemsInCart() {
-//	String declineMessage = String.format(
-//		"No items yet? Well lets get shopping! Don't for get to sign up for our Membership card and save 5% instantly! Happy Shopping!",
-//		StoreConstants.VIEW_CART);
-//
-//	Label lblCharacter = new Label(declineItemsInCart);
-//	lblCharacter.setMinWidth(100);
-//	lblCharacter.setAlignment(Pos.CENTER_LEFT);
-//
-//	HBox paneDeclineItemsInCart = new HBox(30, lblCharacter);
-//	paneDeclineItemsInCart.setPadding(new Insets(10));
-//
-//	primaryPane.getChildren().add(paneDeclineItemsInCart);
-//	return;
-//    }
-//
-//    private void viewCart() {
-//
-//	String wcl = String.format("%s Items in Cart", StoreConstants.STORE_NAME);
-//	Text membershipTxt = new Text(wcl);
-//	membershipTxt.setText(wcl);
-//	membershipTxt.setX(50.00);
-//	membershipTxt.setY(80.00);
-//	membershipTxt.setFill(Color.BLUE);
-//
-//	membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
-//
-//	HBox gp = new HBox(20, viewCartTxt);
-//	gp.setAlignment(Pos.CENTER);
-//	gp.setPadding(new Insets(20.50));
-//	HBox memSignUp = new HBox();
-//	memViewCart.getChildren().add(viewCartTxt);
-//
-//	Scene cartScene = new Scene(viewCart, 450, 600);
-//
-//	// New window (Stage)
-//	Stage newWindow = new Stage();
-//	newWindow.setTitle("Shoppers Super Store - View Cart");
-//	newWindow.setScene(cartScene);
-//    
-//    @Override
-//
-//	// Specifies the modality for new window.
-//	newWindow.initModality(Modality.WINDOW_MODAL);
-//}
+    private static void viewCart() {
+
+	Label lblCharacter = new Label("Let's see the items in your cart.");
+	lblCharacter.setMinWidth(100);
+	lblCharacter.setAlignment(Pos.CENTER_LEFT);
+
+	String viewCartImage = String.format(StoreConstants.VIEW_CART);
+
+	Image vcImage = new Image(viewCartImage);
+	ImageView vcV = new ImageView();
+	vcV.setFitWidth(400);
+	// pV.setFitHeight(200);
+	// pV.setId(inProd.get );
+	vcV.setImage(vcImage);
+	vcV.setPreserveRatio(true);
+	vcV.setSmooth(true);
+	vcV.setCache(true);
+	VBox vcp = new VBox(20, lblCharacter, vcV);
+	vcp.setAlignment(Pos.CENTER);
+
+	VBox spv = new VBox();
+	ScrollPane sp = new ScrollPane();
+	sp.setPannable(true);
+	sp.setHvalue(0.0);
+	sp.setVvalue(0.0);
+	List<Product> pList = currentCustomer.cart.getProductList();
+	int totalQuantity = 1;
+	boolean firstTime = true;
+	String oldPn = "no name";
+	Product newPd = null;
+	Label cLabel = new Label();
+	for (Product cPd : pList) {
+	    if (oldPn.equals("no name") == true) {
+		oldPn = cPd.getBrandName();
+		newPd = cPd;
+		continue;
+	    }
+	    firstTime = true;
+	    if (oldPn.equals(cPd.getBrandName()) == true) {
+		firstTime = false;
+		totalQuantity++;
+		newPd = cPd;
+		continue;
+
+	    } else {
+		if (firstTime == true) {
+		    firstTime = false;
+		    cLabel = new Label();
+		    String item = String.format("%s - %s Qty %d $%.2f", newPd.getBrandName(), newPd.getProductName(),
+			    totalQuantity, newPd.getPrice());
+		    cLabel.setText(item);
+		    spv.getChildren().add(cLabel);
+		    totalQuantity = 1;
+		    oldPn = newPd.getBrandName();
+		}
+
+	    }
+
+	}
+	if (firstTime == true) {
+	    String item = String.format("%s - %s Qty %d $%.2f", newPd.getBrandName(), newPd.getProductName(),
+		    totalQuantity, newPd.getPrice());
+	    cLabel.setText(item);
+	    spv.getChildren().add(cLabel);
+
+	}
+	sp.setContent(spv);
+	Stage newWindow = new Stage();
+	Button closeButton = new Button("Close");
+	EventHandler<ActionEvent> closeEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		newWindow.close();
+	    }
+	};
+	closeButton.setOnAction(closeEvent);
+
+	Button noIDoNot = new Button("No");
+	closeButton.setAlignment(Pos.CENTER);
+	noIDoNot.setAlignment(Pos.CENTER);
+	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		// declineItemsInCart();
+	    }
+
+	};
+
+	noIDoNot.setOnAction(noEvent);
+	HBox cBox = new HBox(closeButton);
+	cBox.setAlignment(Pos.CENTER);
+	VBox paneViewCart = new VBox(20, vcp, sp, cBox);
+	paneViewCart.setPadding(new Insets(10));
+
+	Scene viewCartScene = new Scene(paneViewCart, 450, 600);
+
+	// New window (Stage)
+	String priceTitle = String.format("Cart Total $%.2f", currentCustomer.cart.getRunningTotal());
+	newWindow.setTitle(priceTitle);
+	newWindow.setScene(viewCartScene);
+	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
+
+	// Specifies the modality for new window.
+	newWindow.initModality(Modality.WINDOW_MODAL);
+
+	// Specifies the owner Window (parent) for new window
+	newWindow.initOwner(parentStage);
+
+	// Set position of second window, related to primary window.
+	newWindow.setX(parentStage.getX() + 25);
+	newWindow.setY(parentStage.getY() + 20);
+
+	newWindow.show();
+    }
 
 }
