@@ -618,7 +618,7 @@ public class Greeting extends Application {
 	Buy.setAlignment(Pos.BOTTOM_CENTER);
 	// Description Pane
 	VBox descBox = new VBox();
-	descBox.setStyle("-fx-background-color: red;");
+	descBox.setStyle("-fx-background-color: cadetblue;");
 	descBox.setPrefSize(175, 200);
 
 	// Borders
@@ -630,7 +630,7 @@ public class Greeting extends Application {
 
 	// Banding Pane
 	VBox brandingBox = new VBox();
-	brandingBox.setStyle("-fx-background-color: yellow;");
+	brandingBox.setStyle("-fx-background-color: cadetblue;");
 	brandingBox.setPrefSize(225, 200);
 	brandingBox.setAlignment(Pos.TOP_CENTER);
 	brandingBox.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
@@ -660,7 +660,7 @@ public class Greeting extends Application {
 	closeButton.setOnAction(closeEvent);
 
 	VBox iDetailPane = new VBox();
-	iDetailPane.setStyle("-fx-background-color: green;");
+	iDetailPane.setStyle("-fx-background-color: bisque;");
 	iDetailPane.setPrefSize(175, 200);
 	iDetailPane.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
 	iDetailPane.setFillWidth(true);
