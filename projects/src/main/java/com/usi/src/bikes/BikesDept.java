@@ -184,14 +184,13 @@ public class BikesDept extends Department {
 		    System.out.printf("Image Click on %s\n", pV.getId());
 		    Product pd2 = bikesProducts.get(pKey);
 		    Greeting.prodDetails(pd2, "bikes");
-
 		}
 	    };
 	    pV.setOnMouseClicked(iEvent);
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:burlywood;");
 		if (pd.getProductName().contains("Tire")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
