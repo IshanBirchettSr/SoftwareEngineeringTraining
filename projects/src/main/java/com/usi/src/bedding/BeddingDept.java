@@ -34,7 +34,7 @@ import util.Product;
 import util.StoreConstants;
 
 /**
- * @author Allma M. Johnson and Chich
+ * @author Allma M. Johnson and Chich and Roxanne Earnest
  *
  */
 public class BeddingDept extends Department {
