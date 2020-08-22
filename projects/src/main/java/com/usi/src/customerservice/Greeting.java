@@ -22,6 +22,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
@@ -46,8 +48,10 @@ import util.DataCsvLoad;
 import util.Department;
 import util.Product;
 import util.StoreConstants;
+import util.StoreConstants.paymentType;
 
 public class Greeting extends Application {
+    static Label phoneNumberLbl = null;
     private static TextField phoneNumTxt = null;
     static HBox panePhoneNum = null;
     private static HBox pHBox = null;
@@ -65,6 +69,7 @@ public class Greeting extends Application {
     static MediaPlayer mPlayer = null;
     static HBox paneCardNumber = null;
     private static TextField cardNumberTxt = null;
+    static Scene paymentScene = null;
 
     /**
      * @return the parentStage
@@ -216,7 +221,6 @@ public class Greeting extends Application {
 	phoneNumTxt.setFocusTraversable(true);
 	phoneNumTxt.requestFocus();
 	phoneNumTxt.textProperty().addListener(new ChangeListener<String>() {
-
 	    @Override
 	    public void changed(ObservableValue<? extends String> arg0, String oldValue, String newValue) {
 		if (!newValue.matches("\\d{0,10}([\\.]\\d{0,4})?")) {
@@ -513,10 +517,8 @@ public class Greeting extends Application {
 
 	EventHandler<ActionEvent> cEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		StoreCheckOut checkoutLane01 = new StoreCheckOut();
-		checkoutLane01.checkoutCustomer(currentCustomer);
-		resetParentStage();
-
+		paymentPreference();
+		// resetParentStage();
 		parentStage.setScene(scene);
 
 	    }
@@ -553,6 +555,7 @@ public class Greeting extends Application {
 
     static private void resetParentStage() {
 	phoneNumTxt.setVisible(false);
+	phoneNumberLbl.setVisible(false);
     }
 
     public static void prodDetails(Product inProd, String dept) {
@@ -784,7 +787,8 @@ public class Greeting extends Application {
 	Button visa = new Button("VISA", vV);
 	EventHandler<ActionEvent> visaEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-
+		HBox cBox = addCardPaymentInput(paymentType.VISA);
+		ccBox.getChildren().add(cBox);
 	    }
 	};
 	visa.setOnAction(visaEvent);
@@ -794,7 +798,8 @@ public class Greeting extends Application {
 	mc.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> mastercardEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-
+		HBox cBox = addCardPaymentInput(paymentType.MASTERCARD);
+		ccBox.getChildren().add(cBox);
 	    }
 	};
 	mc.setOnAction(mastercardEvent);
@@ -803,7 +808,8 @@ public class Greeting extends Application {
 	ebt.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> ebtEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-
+		HBox cBox = addCardPaymentInput(paymentType.EBT);
+		ccBox.getChildren().add(cBox);
 	    }
 	};
 
@@ -813,7 +819,8 @@ public class Greeting extends Application {
 	cash.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> cashEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-
+		HBox cBox = addCashPaymentInput(paymentType.CASH);
+		ccBox.getChildren().add(cBox);
 	    }
 
 	};
@@ -825,7 +832,9 @@ public class Greeting extends Application {
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_MASTERCARD));
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_EBT));
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_CASH));
-
+	HBox swipeBox = new HBox(swipe);
+	swipeBox.setAlignment(Pos.BOTTOM_CENTER);
+	ccBox.getChildren().add(swipeBox);
 	HBox payButtons = new HBox(10, visa, mc, ebt, cash);
 	payButtons.setAlignment(Pos.BOTTOM_CENTER);
 	payButtons.setSpacing(30);
@@ -834,37 +843,10 @@ public class Greeting extends Application {
 
 	ccBox.getChildren().add(payButtons);
 
-	Label cardNumberLbl = new Label("Please Enter Your Card Number:");
-	cardNumberLbl.setMinWidth(100);
-	cardNumberLbl.setAlignment(Pos.BOTTOM_RIGHT);
-	// Create the Actor text field
-	cardNumberTxt = new TextField();
-	cardNumberTxt.setMinWidth(200);
-	cardNumberTxt.setMaxWidth(200);
-	cardNumberTxt.setPromptText("Enter Card Number Here");
-	cardNumberTxt.setFocusTraversable(true);
-	cardNumberTxt.requestFocus();
-	cardNumberTxt.textProperty().addListener(new ChangeListener<String>() {
-
-	    @Override
-	    public void changed(ObservableValue<? extends String> arg0, String oldValue, String newValue) {
-		if (!newValue.matches("\\d{0,20}([\\.]\\d{0,4})?")) {
-		    cardNumberTxt.setText(oldValue);
-		}
-	    }
-	});
-
-	paneCardNumber = new HBox(20, cardNumberLbl, cardNumberTxt);
-	paneCardNumber.setPadding(new Insets(10));
-	ccBox.getChildren().add(paneCardNumber);
-
-	HBox tBox = new HBox(ccBox);
-	tBox.setAlignment(Pos.CENTER);
-
-	Scene paymentScene = new Scene(tBox, 500, 550);
+	paymentScene = new Scene(ccBox, 500, 550);
 
 	// Need to configure way to link running total to this method
-	newWindow.setTitle(String.format("Your total today is $.2f", currentCustomer.cartTotal()));
+	newWindow.setTitle(String.format("Your total today is $%.2f", currentCustomer.cartTotal()));
 	newWindow.setScene(paymentScene);
 
 	// Specifies the modality for new window.
@@ -875,6 +857,64 @@ public class Greeting extends Application {
 	newWindow.setResizable(false);
 
 	newWindow.show();
+    }
+
+    private static HBox addCardPaymentInput(paymentType pt) {
+	Label cardNumberLbl = new Label("Please Enter Your 16 digit Card Number :");
+	cardNumberLbl.setMinWidth(100);
+	cardNumberLbl.setAlignment(Pos.BOTTOM_RIGHT);
+	// Create the Actor text field
+	cardNumberTxt = new TextField();
+	cardNumberTxt.setMinWidth(200);
+	cardNumberTxt.setMaxWidth(200);
+	cardNumberTxt.setPromptText("Enter 16 digit Card Number Here.");
+	cardNumberTxt.setFocusTraversable(true);
+	cardNumberTxt.requestFocus();
+	cardNumberTxt.textProperty().addListener(new ChangeListener<String>() {
+	    @Override
+	    public void changed(ObservableValue<? extends String> arg0, String oldValue, String newValue) {
+		if (!newValue.matches("\\d{0,10}([\\.]\\d{0,4})?")) {
+		    cardNumberTxt.setText(newValue);
+		}
+		// Lookup membership card using phone number
+		if (newValue.length() == 10) {
+		    cardNumberTxt.setText(newValue);
+		    StoreCheckOut checkoutLane01 = new StoreCheckOut();
+		    checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
+		}
+	    }
+	});
+
+	HBox cardInfo = new HBox(cardNumberLbl, cardNumberTxt);
+	return cardInfo;
+    }
+
+    private static HBox addCashPaymentInput(paymentType pt) {
+	Label cashLbl = new Label("Please Enter Cash Amount Tendered Number:");
+	cashLbl.setMinWidth(100);
+	cashLbl.setAlignment(Pos.BOTTOM_RIGHT);
+	// Create the Actor text field
+	TextField cashTxt = new TextField();
+	cashTxt.setMinWidth(200);
+	cashTxt.setMaxWidth(200);
+	cashTxt.setPromptText("Please enter cash amount here");
+	cashTxt.setFocusTraversable(true);
+	cashTxt.requestFocus();
+	cashTxt.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+	    @Override
+	    public void handle(KeyEvent ke) {
+		if (ke.getCode().equals(KeyCode.ENTER) && ke.getText().length() > 0) {
+		    System.out.printf("Cash Value Entered: %s\n", cashTxt.getText());
+		    StoreCheckOut checkoutLane01 = new StoreCheckOut();
+		    checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
+		}
+	    }
+	});
+
+	System.out.printf("Cash Value: %s\n", cashTxt.getText());
+	HBox cashInfo = new HBox(cashLbl, cashTxt);
+	return cashInfo;
     }
 
     private static void viewCart() {

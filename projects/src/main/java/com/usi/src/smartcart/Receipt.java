@@ -20,6 +20,7 @@ import java.util.Properties;
 import customerservice.Customer;
 import util.Product;
 import util.StoreConstants;
+import util.StoreConstants.paymentType;
 import util.StorePrinter;
 
 /**
@@ -33,7 +34,52 @@ public class Receipt extends StorePrinter {
     Customer cust = new Customer();
     private String membershipId;
     String member = membershipId;
+
+    /**
+     * @return the cust
+     */
+    protected Customer getCust() {
+	return cust;
+    }
+
+    /**
+     * @param cust the cust to set
+     */
+    protected void setCust(Customer cust) {
+	this.cust = cust;
+    }
+
+    /**
+     * @return the payType
+     */
+    protected paymentType getPayType() {
+	return payType;
+    }
+
+    /**
+     * @param payType the payType to set
+     */
+    protected void setPayType(paymentType payType) {
+	this.payType = payType;
+    }
+
+    /**
+     * @return the valueEntered
+     */
+    protected String getValueEntered() {
+	return valueEntered;
+    }
+
+    /**
+     * @param valueEntered the valueEntered to set
+     */
+    protected void setValueEntered(String valueEntered) {
+	this.valueEntered = valueEntered;
+    }
+
     List<Product> prods = null;
+    paymentType payType = null;
+    String valueEntered = null;
     // private static int counter = 0;
 
     @Override

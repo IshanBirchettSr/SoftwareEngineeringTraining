@@ -241,4 +241,15 @@ public class StoreConstants {
 
 	}
     }
+
+    public static enum paymentType {
+	VISA("visacard"), MASTERCARD("mastercard"), EBT("ebtcard"), CASH("cash");
+
+	/**
+	 * @param string
+	 */
+	paymentType(String string) {
+	    // TODO Auto-generated constructor stub
+	}
+    }
 }
