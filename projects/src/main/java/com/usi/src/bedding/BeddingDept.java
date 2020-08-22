@@ -113,7 +113,7 @@ public class BeddingDept extends Department {
     @Override
     public Scene getScene() {
 
-	String sString = String.format("Nighty Nite Sleep Tight!", StoreConstants.deptNames.BEDDING);
+	String sString = String.format("%s Nighty Nite Sleep Tight!", StoreConstants.deptNames.BEDDING);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
