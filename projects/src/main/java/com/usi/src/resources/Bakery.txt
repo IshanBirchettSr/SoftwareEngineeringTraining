@@ -4,7 +4,7 @@
 /*Bakery/Bread
 Sprouted Rye Bread, Bakery, OUNCES, UUID, 3, LOAF, Lodge Bread Company, NA, 2.95, NA, RYE SEASONINGS, 14, hand seeded tossed 
 Pumpernickel Bread, Bakery, OUNCES, UUID, 4, LOAF, Lodge Bread Company, NA, 3.95, NA, PUMPERNICKEL, 16, hand sculpted round
-Marble Rye Bread, Bakery, OUNCES, UUID, 3, LOAF, Lodge Bread Company, NA, 4.95, MARBLE, NA, 15, hand ancient sculpted
+Marble Rye Bread, Bakery, OUNCES, UUID, 3, LOAF, Lodge Bread Company, NA, 4.95, NA, NA, 15, hand ancient sculpted
 Parmsean Wheat Bread, Bakery, OUNCES, UUID, 8, LOAF, Lodge Bread Company, NA, 6.95, NA, PARMSEAN, 17, hand ancient hand made
 Stone Ground Wheat Bread, Bakery, OUNCES, UUID, 3, LOAF, Lodge Bread Company, NA, 4.95, NA, WHEAT, 16, hand sculpted swirl
 Honey Pumpernickel Bread, Bakery, OUNCES, UUID, 3, LOAF, Lodge Bread Company, NA, 6.95, NA, HONEY PUMPERNICKEL, 13, hand country tossed
