@@ -2,6 +2,6 @@
 Cheese, 	Deli, 	POUNDS, UUID, 1, NA, PICS, 1, 6.49, WHITE, cheese, 16, American Cheese
 Pepperoni, 	Deli, 	OUNCES, UUID, 3, NA, Margherita, 5, 3.99, NA, pepperoni, 23, sliced pepperoni
 Feta, 		Deli, 	OUNCES, UUID, 1, NA, Athenos, 6, 4.99, WHITE, cheese, 6, Crumbled Feta Cheese
-Hummas, 	Deli, 	OUNCES, UUID, 2, NA, Sabra, 17, 5.99, NA, chic peas, 32, classic hummas
-Turkey Breast, Deli, POUNDS, UUID, 1, NA, Dietz and Watson, 1, 10.99, NA, turkey, 5, Lite turkey breast
-Potato salad, Deli, 	POUNDS, UUID, 2, NA, Market, 16, 3.99, NA, potato, 5, potato salad
+Hummas, 	Deli, 	OUNCES, UUID, 2, NA, Sabra, 17, 5.99, NA, chic peas, 32, classic Hummas
+Turkey Breast, Deli, POUNDS, UUID, 1, NA, Dietz and Watson, 1, 10.99, NA, turkey, 5, Lite Turkey Breast
+Potato Salad, Deli, 	POUNDS, UUID, 2, NA, Market, 16, 3.99, NA, potato, 5, Potato Salad
