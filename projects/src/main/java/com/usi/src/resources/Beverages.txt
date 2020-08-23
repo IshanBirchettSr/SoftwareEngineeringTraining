@@ -10,5 +10,5 @@ Water , Beverages , FLUID_OUNCES , UUID , 12 , NA , SmartWater , 16.9 , 11.99 , 
 Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola , 2 , 2.79 , NA , corn syrup , 150 , Sprite 
 Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola , 2 , 1.79 , NA , Water , 150 , Ginger Ale
 Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola , 3 , 1.79 , NA , Water , 150 , Diet Coke 
-Soda , Beverages , FLUID_OUNCES , UUID , 12 , NA , Pepsi Co , 12 , 4.79 , NA , Water , 150 , Sunkist
-Soda , Beverages , FLUID_OUNCES , UUID , 12 , NA , Pepsi , 12 , 4.79 , NA , Water , 150 ,Cherry Pepsi
+Soda , Beverages , FLUID_OUNCES , UUID , 12 , NA , Sunkist , 12 , 4.79 , NA , Water , 150 , Sunkist
+Soda , Beverages , FLUID_OUNCES , UUID , 12 , NA , Cherry Pepsi , 12 , 4.79 , NA , Water , 150 ,Cherry Pepsi
