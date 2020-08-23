@@ -232,7 +232,7 @@ public class BookDept extends Department {
 	dButtons.setAlignment(Pos.CENTER);
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
-	VBox aVBox = new VBox(8, ap, sp, dButtons);
+	VBox aVBox = new VBox(5, ap, sp, dButtons);
 	Scene aScene = new Scene(aVBox, 600, 650);
 	return aScene;
     }
