@@ -873,11 +873,11 @@ public class Greeting extends Application {
 	cardNumberTxt.textProperty().addListener(new ChangeListener<String>() {
 	    @Override
 	    public void changed(ObservableValue<? extends String> arg0, String oldValue, String newValue) {
-		if (!newValue.matches("\\d{0,10}([\\.]\\d{0,4})?")) {
+		if (!newValue.matches("\\d{0,16}([\\.]\\d{0,4})?")) {
 		    cardNumberTxt.setText(newValue);
 		}
 		// Lookup membership card using phone number
-		if (newValue.length() == 10) {
+		if (newValue.length() == 16) {
 		    cardNumberTxt.setText(newValue);
 		    StoreCheckOut checkoutLane01 = new StoreCheckOut();
 		    checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
@@ -923,7 +923,7 @@ public class Greeting extends Application {
 	lblCharacter.setMinWidth(100);
 	lblCharacter.setAlignment(Pos.CENTER_LEFT);
 
-	String viewCartImage = String.format(StoreConstants.VIEW_CART);
+	String viewCartImage = StoreConstants.VIEW_CART;
 
 	Image vcImage = new Image(viewCartImage);
 	ImageView vcV = new ImageView();

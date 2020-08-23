@@ -162,7 +162,7 @@ public class BeveragesDept extends Department {
 	for (String pKey : list) {
 	    Product pd = beveragesProducts.get(pKey);
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "beverage", pd.getBrandName(),
+	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "beverages", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
 		// System.out.printf("%s==%s, %b\n", oldFilename,
@@ -200,7 +200,7 @@ public class BeveragesDept extends Department {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
 		pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
-		if (pd.getProductName().contains("Tire")) {
+		if (pd.getProductName().contains("Water")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
 		} else {
@@ -223,7 +223,7 @@ public class BeveragesDept extends Department {
 	    // System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
 	    pGrid.add(pV, columnIndex, rowIndex);
 
-	    if (columnIndex < 5) {
+	    if (columnIndex < 4) {
 		columnIndex++;
 	    } else {
 		rowIndex += 2;
