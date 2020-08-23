@@ -4,7 +4,7 @@ Cream Corn , Canned_Goods , OUNCES , UUID , 12  , Regular , Green Giant , 16 , 1
 Mixed Vegetables , Canned_Goods , OUNCES , UUID , 24, Regular , Green Giant , 16 , 30.99 , NA , stringbeans , 150 , corn with carrots and string beans in water
 Fiesta Corn , Canned_Goods , OUNCES , UUID , 36 , Regular , Green Giant , 16 , 46.44 , NA , corn , 150 , corn with red and green peppers
 Pineapples , Canned_Goods , OUNCES , UUID , 12 , Regular , Dole , 16 , 27.48 , NA , pineapples , 300 , sliced pineapples in pineapple juice
-Sliced carrots , Canned_Goods , OUNCES , UUID , 12 , Regular , Delmonte , 16 , 14.99 , NA , carrots , 150 , sliced carrots in water
-Diced carrots , Canned_Goods , OUNCES , UUID , 24, Regular , Green Giant , 16 , 27.99 , NA , carrots , 150 , premie extra calorie
-Corn beef hash , Canned_Goods , OUNCES , UUID , 1 , Regular, Libbys , 16 , 3.99 , NA , beef , 150 , Roasted beef and potatoes
+Sliced Carrots , Canned_Goods , OUNCES , UUID , 12 , Regular , Delmonte , 16 , 14.99 , NA , carrots , 150 , sliced carrots in water
+Diced Carrots , Canned_Goods , OUNCES , UUID , 24, Regular , Libbys , 16 , 27.99 , NA , carrots , 150 , premie extra calorie
+Corn Beef Hash , Canned_Goods , OUNCES , UUID , 1 , Regular, Libbys , 16 , 3.99 , NA , beef , 150 , Roasted beef and potatoes
 Chili , Canned_Goods , OUNCES , UUID , 1 , Regular , Hormel , 16 , 2.99 , NA , Beans , 150 , Vegan style bean chili
