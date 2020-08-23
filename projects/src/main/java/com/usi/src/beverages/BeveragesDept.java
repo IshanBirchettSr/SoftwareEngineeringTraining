@@ -223,7 +223,7 @@ public class BeveragesDept extends Department {
 	    // System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
 	    pGrid.add(pV, columnIndex, rowIndex);
 
-	    if (columnIndex < 5) {
+	    if (columnIndex < 4) {
 		columnIndex++;
 	    } else {
 		rowIndex += 2;

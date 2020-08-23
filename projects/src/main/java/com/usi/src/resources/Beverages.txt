@@ -2,13 +2,13 @@
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
 Water , Beverages , LITER , UUID , 1 , NA , Essentia , 3 , 4.99 , NA , Water , 100 , Alkaline Water
 Water , Beverages , GALLONS , UUID , 1 , NA , Poland Spring , 1 , 1.99 , NA , Water , 150 , Spring Water
-Water , Beverages , OUNCES , UUID , 24 , 12oz * 24 ct , Poland Spring , 288oz , 6.99 , NA , Water , 150 ,case of Spring Water
+Water , Beverages , OUNCES , UUID , 24 , 12oz * 24 ct , Poland Spring Case , 288oz , 6.99 , NA , Water , 150 ,case of Spring Water
 Water , Beverages , OUNCES , UUID , 6 , NA , Aquafina , 72 , 4.99 , NA , Water , 150 ,Sport pack
-Water , Beverages , GALLONS , UUID , 1 , NA , Poland Spring , 1 , 1.79 , NA , Water , 150 ,Distilled
+Water , Beverages , GALLONS , UUID , 1 , NA , Poland Spring Distilled Gallon, 1 , 1.79 , NA , Water , 150 ,Distilled
 Water , Beverages , FLUID_OUNCES , UUID , 20 , NA , FIJI , 16.9 , 7.99 , NA , Water , 150 , Spring Water
 Water , Beverages , FLUID_OUNCES , UUID , 12 , NA , SmartWater , 16.9 , 11.99 , NA , Water , 150 , Vapor Distilled/ Electrolyte 
 Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola , 2 , 2.79 , NA , corn syrup , 150 , Sprite 
-Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola , 2 , 1.79 , NA , Water , 150 , Ginger Ale
-Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola , 3 , 1.79 , NA , Water , 150 , Diet Coke 
+Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola Ginger Ale, 2 , 1.79 , NA , Water , 150 , Ginger Ale
+Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola Diet Coke, 2 , 1.79 , NA , Water , 150 , Diet Coke 
 Soda , Beverages , FLUID_OUNCES , UUID , 12 , NA , Sunkist , 12 , 4.79 , NA , Water , 150 , Sunkist
-Soda , Beverages , FLUID_OUNCES , UUID , 12 , NA , Cherry Pepsi , 12 , 4.79 , NA , Water , 150 ,Cherry Pepsi
+Soda , Beverages , FLUID_OUNCES , UUID , 12 , NA , Pepsi , 12 , 4.79 , NA , Water , 150 ,Cherry Pepsi
