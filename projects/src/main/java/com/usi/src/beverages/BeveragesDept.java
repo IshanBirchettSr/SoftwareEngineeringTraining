@@ -39,7 +39,7 @@ import util.Product;
 import util.StoreConstants;
 
 /**
- * @author ibirc and chich
+ * @author ibirc and chich and REarnest
  *
  */
 public class BeveragesDept extends Department {
