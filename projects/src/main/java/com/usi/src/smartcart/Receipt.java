@@ -87,7 +87,6 @@ public class Receipt extends StorePrinterFx {
     }
 
     private static int counter = 0;
-
     public VBox printNode() {
 	prods = cust.getListOfProds();
 	String sTextString = String.format("%s Receipt\n  %s", StoreConstants.STORE_NAME, new Date());
@@ -97,7 +96,6 @@ public class Receipt extends StorePrinterFx {
 	sText.setY(50);
 	HBox sBox = new HBox(sText);
 	sBox.setAlignment(Pos.TOP_CENTER);
-
 	VBox itemList = new VBox(2);
 	int total = 0;
 	for (Product prod : prods) {
@@ -145,7 +143,6 @@ public class Receipt extends StorePrinterFx {
 
     public void printReceipt() {
 	print(printNode());
-
     }
 
     public static void emailReceipt() {

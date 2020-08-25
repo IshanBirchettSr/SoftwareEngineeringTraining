@@ -65,13 +65,14 @@ public class Greeting extends Application {
     // List<Department> dList = null;
     private Scene deptsScene = null;
     private List<String> membershipRecords = null;
-    private Stage newWindow = null;
+    private static Stage newWindowPopup = null;
     private static Scene scene = null;
     static ComboBox<String> deptComboBox = null;
     static MediaPlayer mPlayer = null;
     static HBox paneCardNumber = null;
     private static TextField cardNumberTxt = null;
     static Scene paymentScene = null;
+    Stage newWindow = null;
 
     /**
      * @return the parentStage
@@ -232,6 +233,7 @@ public class Greeting extends Application {
 		if (newValue.length() == 10) {
 		    mCard = membershipCards.get(newValue);
 		    if (mCard != null) {
+			currentCustomer.setmCard(mCard);
 			displayMemCard(mCard);
 		    }
 		}
@@ -290,7 +292,7 @@ public class Greeting extends Application {
 
 	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		newWindow.close();
+		newWindowPopup.close();
 		displayDepts();
 
 	    }
@@ -303,7 +305,7 @@ public class Greeting extends Application {
 
 	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		newWindow.close();
+		newWindowPopup.close();
 	    }
 	};
 	noButton.setOnAction(noEvent);
@@ -316,21 +318,21 @@ public class Greeting extends Application {
 	mCardScene = new Scene(memSignUp, 450, 500);
 
 	// New window (Stage)
-	newWindow = new Stage();
-	newWindow.setTitle(String.format("%s- Membership Card", mCard.getFirstName()));
-	newWindow.setScene(mCardScene);
+	newWindowPopup = new Stage();
+	newWindowPopup.setTitle(String.format("%s- Membership Card", mCard.getFirstName()));
+	newWindowPopup.setScene(mCardScene);
 
 	// Specifies the modality for new window.
-	newWindow.initModality(Modality.WINDOW_MODAL);
+	newWindowPopup.initModality(Modality.WINDOW_MODAL);
 
 	// Specifies the owner Window (parent) for new window
-	newWindow.initOwner(parentStage);
+	newWindowPopup.initOwner(parentStage);
 
 	// Set position of second window, related to primary window.
-	newWindow.setX(parentStage.getX() + 25);
-	newWindow.setY(parentStage.getY() + 20);
+	newWindowPopup.setX(parentStage.getX() + 25);
+	newWindowPopup.setY(parentStage.getY() + 20);
 
-	newWindow.show();
+	newWindowPopup.show();
 
     }
 
@@ -801,7 +803,7 @@ public class Greeting extends Application {
 	Button visa = new Button("VISA", vV);
 	EventHandler<ActionEvent> visaEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		HBox cBox = addCardPaymentInput(paymentType.VISA);
+		VBox cBox = addCardPaymentInput(paymentType.VISA);
 		ccBox.getChildren().add(cBox);
 	    }
 	};
@@ -812,7 +814,7 @@ public class Greeting extends Application {
 	mc.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> mastercardEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		HBox cBox = addCardPaymentInput(paymentType.MASTERCARD);
+		VBox cBox = addCardPaymentInput(paymentType.MASTERCARD);
 		ccBox.getChildren().add(cBox);
 	    }
 	};
@@ -822,7 +824,7 @@ public class Greeting extends Application {
 	ebt.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> ebtEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		HBox cBox = addCardPaymentInput(paymentType.EBT);
+		VBox cBox = addCardPaymentInput(paymentType.EBT);
 		ccBox.getChildren().add(cBox);
 	    }
 	};
@@ -833,7 +835,7 @@ public class Greeting extends Application {
 	cash.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> cashEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		HBox cBox = addCashPaymentInput(paymentType.CASH);
+		VBox cBox = addCashPaymentInput(paymentType.CASH);
 		ccBox.getChildren().add(cBox);
 	    }
 
@@ -900,7 +902,7 @@ public class Greeting extends Application {
 	newWindow.show();
     }
 
-    private static HBox addCardPaymentInput(paymentType pt) {
+    private static VBox addCardPaymentInput(paymentType pt) {
 	Label cardNumberLbl = new Label("Please Enter Your 16 digit Card Number :");
 	cardNumberLbl.setMinWidth(100);
 	cardNumberLbl.setAlignment(Pos.BOTTOM_RIGHT);
@@ -920,17 +922,32 @@ public class Greeting extends Application {
 		// Lookup membership card using phone number
 		if (newValue.length() == 16) {
 		    cardNumberTxt.setText(newValue);
-		    StoreCheckOut checkoutLane01 = new StoreCheckOut();
-		    checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
+
 		}
 	    }
 	});
+	HBox payNode = new HBox();
+	Button payButton = new Button("PAY");
+	payNode.getChildren().add(payButton);
+	payNode.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		StoreCheckOut checkoutLane01 = new StoreCheckOut();
+		checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
+		newWindowPopup.close();
+	    }
+	};
+	payButton.setOnAction(payEvent);
 
-	HBox cardInfo = new HBox(cardNumberLbl, cardNumberTxt);
-	return cardInfo;
+	HBox cashInfo = new HBox(cardNumberLbl, cardNumberTxt);
+	VBox cardBox = new VBox();
+	cardBox.getChildren().add(cashInfo);
+	cardBox.getChildren().add(payNode);
+
+	return cardBox;
     }
 
-    private static HBox addCashPaymentInput(paymentType pt) {
+    private static VBox addCashPaymentInput(paymentType pt) {
 	Label cashLbl = new Label("Please Enter Cash Amount Tendered Number:");
 	cashLbl.setMinWidth(100);
 	cashLbl.setAlignment(Pos.BOTTOM_RIGHT);
@@ -954,8 +971,25 @@ public class Greeting extends Application {
 	});
 
 	System.out.printf("Cash Value: %s\n", cashTxt.getText());
-	HBox cashInfo = new HBox(cashLbl, cashTxt);
-	return cashInfo;
+
+	HBox payNode = new HBox();
+	Button payButton = new Button("PAY");
+	payNode.getChildren().add(payButton);
+	payNode.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		StoreCheckOut checkoutLane01 = new StoreCheckOut();
+		checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
+
+	    }
+	};
+	payButton.setOnAction(payEvent);
+
+	HBox cashInfo = new HBox(10, cashLbl, cashTxt);
+	VBox cashBox = new VBox();
+	cashBox.getChildren().add(cashInfo);
+	cashBox.getChildren().add(payNode);
+	return cashBox;
     }
 
     private static void viewCart() {
