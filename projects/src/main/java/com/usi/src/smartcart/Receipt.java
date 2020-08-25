@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import util.Product;
 import util.StoreConstants;
@@ -89,13 +90,13 @@ public class Receipt extends StorePrinterFx {
 
     public VBox printNode() {
 	prods = cust.getListOfProds();
-	String sTextString = String.format("%s Receipt -- %s", StoreConstants.STORE_NAME, new Date());
+	String sTextString = String.format("%s Receipt\n  %s", StoreConstants.STORE_NAME, new Date());
 	Text sText = new Text(sTextString);
-	sText.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	sText.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, 8));
 	sText.setX(30);
 	sText.setY(50);
 	HBox sBox = new HBox(sText);
-	sBox.setAlignment(Pos.BASELINE_LEFT);
+	sBox.setAlignment(Pos.TOP_CENTER);
 
 	VBox itemList = new VBox(2);
 	int total = 0;
@@ -104,7 +105,7 @@ public class Receipt extends StorePrinterFx {
 		    prod.getQuantity(), prod.getPrice());
 	    Text item = new Text(listItem);
 	    item.setX(30);
-	    item.setY(150);
+	    item.setY(75);
 	    item.setFill(Color.BLUE);
 	    item.setFont(Font.font("Arial", FontPosture.REGULAR, 6));
 	    itemList.getChildren().add(item);
@@ -124,7 +125,7 @@ public class Receipt extends StorePrinterFx {
 	Text thankYouText = new Text(thankYouMessage);
 	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
 	totalToday.setX(30);
-	totalToday.setY(150);
+	totalToday.setY(75);
 	HBox thankYouBox = new HBox(thankYouText);
 	thankYouBox.setAlignment(Pos.BASELINE_LEFT);
 
