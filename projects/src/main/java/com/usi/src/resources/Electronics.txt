@@ -8,3 +8,4 @@ Smart TV , Electronics , POUNDS , UUID , 1 , 32 inch screen , Sony , 10.9 , 298.
 Cellphone , Electronics , GRAMS , UUID , 1 , 5.5 inch screen , Apple , 140 , 469.00 , GOLD , Metal , 350 , IPHONE6/64 GB Memory/2 GB Ram 
 Cellphone , Electronics , GRAMS , UUID , 1 , 4.5 inch screen , LG , 170 , 169.00 , BLACK , Metal , 350 , LG AXIA/32 GB Memory/1 GB Ram 
 Cellphone , Electronics , GRAMS , UUID , 1 , 4.5 inch screen , Samsung , 150 , 769.00 , BLACK , Metal , 350 , S20/64 GB Memory/2 GB Ram 
+Computer , Electronics , POUNDS , UUID , 1 , 23.4 inch screen , HP , 140 , 469.00 , GOLD , Metal , 350 ,  12GB Memory/ 2GB Ram 

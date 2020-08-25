@@ -1,6 +1,8 @@
 package customerservice;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -707,7 +709,8 @@ public class Greeting extends Application {
 
     public static void paymentPreference() {
 
-	String pKey = String.format("How would you like to pay for your purchase?");
+	String pKey = String.format("Your total today is $%.2f\nHow would you like to pay for your purchase?",
+		currentCustomer.cartTotal());
 	Text welcomeTxt = new Text(pKey);
 	welcomeTxt.setText(pKey);
 	welcomeTxt.setX(50.00);
@@ -717,7 +720,7 @@ public class Greeting extends Application {
 	HBox pg = new HBox(20, welcomeTxt);
 	pg.setAlignment(Pos.TOP_CENTER);
 
-	String cashierImage = String.format(StoreConstants.COVID_CASHIER);
+	String cashierImage = StoreConstants.COVID_CASHIER;
 
 	Image ccImage = new Image(cashierImage);
 	ImageView ccV = new ImageView();
@@ -739,12 +742,7 @@ public class Greeting extends Application {
 
 	// HBox ccBox = new HBox(ccV);
 
-	String visaImage = String.format(StoreConstants.SC_ICON_VISA);
-	String mastercardImage = String.format(StoreConstants.SC_ICON_MASTERCARD);
-	String ebtImage = String.format(StoreConstants.SC_ICON_EBT);
-	String cashImage = String.format(StoreConstants.SC_ICON_CASH);
-
-	Image vImage = new Image(visaImage);
+	Image vImage = new Image(StoreConstants.SC_ICON_VISA);
 	ImageView vV = new ImageView();
 	vV.setFitWidth(25);
 	// pV.setFitHeight(200);
@@ -754,7 +752,7 @@ public class Greeting extends Application {
 	vV.setSmooth(true);
 	vV.setCache(true);
 
-	Image mImage = new Image(mastercardImage);
+	Image mImage = new Image(StoreConstants.SC_ICON_MASTERCARD);
 	ImageView mV = new ImageView();
 	mV.setFitWidth(25);
 	// pV.setFitHeight(200);
@@ -764,7 +762,7 @@ public class Greeting extends Application {
 	mV.setSmooth(true);
 	mV.setCache(true);
 
-	Image eImage = new Image(ebtImage);
+	Image eImage = new Image(StoreConstants.SC_ICON_EBT);
 	ImageView eV = new ImageView();
 	eV.setFitWidth(25);
 	// pV.setFitHeight(200);
@@ -774,7 +772,7 @@ public class Greeting extends Application {
 	eV.setSmooth(true);
 	eV.setCache(true);
 
-	Image cImage = new Image(cashImage);
+	Image cImage = new Image(StoreConstants.SC_ICON_CASH);
 	ImageView cV = new ImageView();
 	cV.setFitWidth(25);
 	// pV.setFitHeight(200);
@@ -783,6 +781,22 @@ public class Greeting extends Application {
 	cV.setPreserveRatio(true);
 	cV.setSmooth(true);
 	cV.setCache(true);
+
+	Image printImage = new Image(StoreConstants.SC_ICON_PRINT);
+	ImageView printV = new ImageView();
+	printV.setFitWidth(25);
+	printV.setImage(printImage);
+	printV.setPreserveRatio(true);
+	printV.setSmooth(true);
+	printV.setCache(true);
+
+	Image cancelImage = new Image(StoreConstants.SC_ICON_CANCEL);
+	ImageView cancelV = new ImageView();
+	cancelV.setFitWidth(25);
+	cancelV.setImage(cancelImage);
+	cancelV.setPreserveRatio(true);
+	cancelV.setSmooth(true);
+	cancelV.setCache(true);
 
 	Button visa = new Button("VISA", vV);
 	EventHandler<ActionEvent> visaEvent = new EventHandler<ActionEvent>() {
@@ -827,11 +841,31 @@ public class Greeting extends Application {
 
 	cash.setOnAction(cashEvent);
 
+	Button print = new Button("print", printV);
+	print.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> printNow = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+//		 StoreCheckOut checkoutLane01 = new StoreCheckOut();
+//		 checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
+
+	    }
+	};
+
+	print.setOnAction(printNow);
+
+	Button cancel = new Button("cancel", cancelV);
+	cancel.setAlignment(Pos.BOTTOM_CENTER);
+	EventHandler<ActionEvent> cancelTransaction = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+
+	    }
+	};
+
+	cancel.setOnAction(cancelTransaction);
+
 	Stage newWindow = new Stage();
-	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_VISA));
-	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_MASTERCARD));
-	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_EBT));
-	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_CASH));
+
+	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
 	HBox swipeBox = new HBox(swipe);
 	swipeBox.setAlignment(Pos.BOTTOM_CENTER);
 	ccBox.getChildren().add(swipeBox);
@@ -843,10 +877,17 @@ public class Greeting extends Application {
 
 	ccBox.getChildren().add(payButtons);
 
+	HBox PCbutton = new HBox(print, cancel);
+	PCbutton.setSpacing(30);
+	PCbutton.setPadding(new Insets(15, 0, 15, 0));
+	PCbutton.setAlignment(Pos.BOTTOM_CENTER);
+
+	ccBox.getChildren().add(PCbutton);
+
 	paymentScene = new Scene(ccBox, 500, 550);
 
 	// Need to configure way to link running total to this method
-	newWindow.setTitle(String.format("Your total today is $%.2f", currentCustomer.cartTotal()));
+	newWindow.setTitle(String.format("Payment Transaction"));
 	newWindow.setScene(paymentScene);
 
 	// Specifies the modality for new window.
@@ -1036,4 +1077,22 @@ public class Greeting extends Application {
 	newWindow.show();
     }
 
+    public static void printScene() {
+
+	String imageKey = String.format("USI SUPER STORE!");
+	Text welcomeTxt = new Text(imageKey);
+	welcomeTxt.setText(imageKey);
+	welcomeTxt.setX(50.00);
+	welcomeTxt.setY(80.00);
+	welcomeTxt.setFill(Color.BLACK);
+	welcomeTxt.setFont(Font.font("Verdana", FontWeight.EXTRA_BOLD, FontPosture.REGULAR, 20));
+	HBox printGreeting = new HBox(20, welcomeTxt);
+	printGreeting.setAlignment(Pos.TOP_CENTER);
+
+	Date curDate = new Date();
+	String todaysDate = DateFormat.getDateTimeInstance().format(curDate);
+	String datePurchased = String.format("Date: %s", todaysDate);
+	datePurchased.toUpperCase();
+
+    }
 }
