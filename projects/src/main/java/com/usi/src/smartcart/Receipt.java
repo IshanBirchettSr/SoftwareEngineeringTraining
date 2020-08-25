@@ -3,25 +3,22 @@
  */
 package smartcart;
 
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.font.TextAttribute;
-import java.awt.print.PageFormat;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
-import java.text.DateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
 import customerservice.Customer;
+import javafx.geometry.Pos;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.Text;
 import util.Product;
 import util.StoreConstants;
 import util.StoreConstants.paymentType;
-import util.StorePrinter;
+import util.StorePrinterFx;
 
 /**
  * @author chich
@@ -29,11 +26,22 @@ import util.StorePrinter;
  * 
  */
 
-public class Receipt extends StorePrinter {
+public class Receipt extends StorePrinterFx {
 
     Customer cust = new Customer();
     private String membershipId;
     String member = membershipId;
+    List<Product> prods = null;
+    paymentType payType = null;
+    String valueEntered = null;
+
+    /**
+     * Constructor
+     */
+    public Receipt() {
+
+	super();
+    }
 
     /**
      * @return the cust
@@ -77,81 +85,66 @@ public class Receipt extends StorePrinter {
 	this.valueEntered = valueEntered;
     }
 
-    List<Product> prods = null;
-    paymentType payType = null;
-    String valueEntered = null;
-    // private static int counter = 0;
+    private static int counter = 0;
 
-    @Override
-    public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
-	int xSpace = 50;
-	int ySpace = 30;
+    public VBox printNode() {
+	prods = cust.getListOfProds();
+	String sTextString = String.format("%s Receipt -- %s", StoreConstants.STORE_NAME, new Date());
+	Text sText = new Text(sTextString);
+	sText.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	sText.setX(30);
+	sText.setY(50);
+	HBox sBox = new HBox(sText);
+	sBox.setAlignment(Pos.BASELINE_LEFT);
 
-	if (page > 0) { /* We have only one page, and 'page' is zero-based */
-	    return NO_SUCH_PAGE;
-	}
-
-	Graphics2D g2d = (Graphics2D) g;
-	g2d.translate(pf.getImageableX(), pf.getImageableY());
-
-	Map<TextAttribute, Integer> fontAttributes = new HashMap<TextAttribute, Integer>();
-	fontAttributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-
-	/* Now we perform our rendering */
-	Font newFont = new Font(Font.SANS_SERIF, Font.BOLD, 16).deriveFont(fontAttributes);
-	g.setFont(newFont);
-	String storeName = StoreConstants.STORE_NAME;
-	g.drawString(storeName, xSpace, ySpace);
-
-	Date curDate = new Date();
-	String todaysDate = DateFormat.getDateTimeInstance().format(curDate);
-	String datePurchased = String.format("Date: %s", todaysDate);
-	newFont = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
-	g.setFont(newFont);
-	// Next line
-	ySpace += 20;
-	g.drawString(datePurchased, xSpace, ySpace);
-
-	double total = 0.00;
-	// For each loop
-	ySpace += 20;
+	VBox itemList = new VBox(2);
+	int total = 0;
 	for (Product prod : prods) {
-	    String list = String.format("Product: %s, Quantity: %s, Price: %.2f\n", prod.getProductName(),
+	    String listItem = String.format("Product: %s, Quantity: %s, Price: %.2f\n", prod.getProductName(),
 		    prod.getQuantity(), prod.getPrice());
+	    Text item = new Text(listItem);
+	    item.setX(30);
+	    item.setY(150);
+	    item.setFill(Color.BLUE);
+	    item.setFont(Font.font("Arial", FontPosture.REGULAR, 6));
+	    itemList.getChildren().add(item);
+	    itemList.setAlignment(Pos.BASELINE_LEFT);
 	    total += prod.getPrice();
-	    g.drawString(list, xSpace, ySpace);
-	    ySpace += 15;
 	}
 	double totalAmount = total;
 	String tt = String.format("Your total today is $%.2f", totalAmount);
-	ySpace += 5;
-	g.drawString(tt, xSpace, ySpace);
+	Text totalToday = new Text(tt);
+	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
+	totalToday.setX(30);
+	totalToday.setY(250);
+	itemList.getChildren().add(totalToday);
+
+	String thankYouMessage = String.format("%s %s thank you for your purchase today!",
+		cust.getmCard().getFirstName(), cust.getmCard().getLastName());
+	Text thankYouText = new Text(thankYouMessage);
+	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
+	totalToday.setX(30);
+	totalToday.setY(150);
+	HBox thankYouBox = new HBox(thankYouText);
+	thankYouBox.setAlignment(Pos.BASELINE_LEFT);
+
+	String tTextString = String.format("Thank you for shopping at the %s today!", StoreConstants.STORE_NAME);
+	Text tText = new Text(tTextString);
+	tText.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
+	totalToday.setX(30);
+	totalToday.setY(150);
+	HBox tBox = new HBox(tText);
+	tBox.setAlignment(Pos.BASELINE_LEFT);
+
+	VBox receiptNode = new VBox(5, sBox, itemList, thankYouBox, tBox);
+
 	/* tell the caller that this page is part of the printed document */
-	return PAGE_EXISTS;
+	return receiptNode;
     }
 
     public void printReceipt() {
-	System.out.printf("Here is your receipt. Thank you for shopping at the %s\n today!", StoreConstants.STORE_NAME);
-	// Printer printer = Printer.getDefaultPrinter();
-	// PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER,
-	// PageOrientation.PORTRAIT,
-	// Printer.MarginType.DEFAULT);
-//	        double scaleX = pageLayout.getPrintableWidth() / node.getBoundsInParent().getWidth();
-//	        double scaleY = pageLayout.getPrintableHeight() / node.getBoundsInParent().getHeight();
-//	        node.getTransforms().add(new Scale(scaleX, scaleY));
+	print(printNode());
 
-	PrinterJob job = PrinterJob.getPrinterJob();
-	job.setPrintable(this);
-	boolean ok = job.printDialog();
-	if (ok) {
-	    try {
-		job.print();
-
-		System.out.printf("Number of copies: %d", job.getCopies());
-	    } catch (PrinterException ex) {
-		System.out.println("The job did not successfully print");
-	    }
-	}
     }
 
     public static void emailReceipt() {
@@ -179,14 +172,6 @@ public class Receipt extends StorePrinter {
 
     public static void nonMember() {
 	System.out.printf("You could have saved $%.2f today!");
-    }
-
-    /**
-     * 
-     */
-    public Receipt() {
-
-	super();
     }
 
     public void setProdList(List<Product> prodList) {

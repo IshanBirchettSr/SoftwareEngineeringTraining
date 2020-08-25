@@ -1,11 +1,3 @@
-/**
- * Property of Urban Survival Initiative
- * Copyright (c) Notice 2020 - All rights reserved
- * 
- * This software is owned in whole by the Urban Survival Initiative.  It's intent purpose
- * is for training individuals to be software engineers.
- * 
- */
 package customerservice;
 
 import java.util.List;
@@ -21,6 +13,35 @@ import util.Product;
 public class Customer {
     ShoppingCart cart = null;
     List<Department> dList = null;
+    MembershipSignUp mCard = null;
+
+    /**
+     * @return the cart
+     */
+    public ShoppingCart getCart() {
+	return cart;
+    }
+
+    /**
+     * @param cart the cart to set
+     */
+    public void setCart(ShoppingCart cart) {
+	this.cart = cart;
+    }
+
+    /**
+     * @return the mCard
+     */
+    public MembershipSignUp getmCard() {
+	return mCard;
+    }
+
+    /**
+     * @param mCard the mCard to set
+     */
+    public void setmCard(MembershipSignUp mCard) {
+	this.mCard = mCard;
+    }
 
     /**
      * @return
