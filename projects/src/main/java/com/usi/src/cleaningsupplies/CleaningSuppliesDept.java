@@ -31,7 +31,7 @@ import util.Product;
 import util.StoreConstants;
 
 /**
- * @author Allma M. Johnson
+ * @author Allma M. Johnson and REarnest
  *
  */
 public class CleaningSuppliesDept extends Department {

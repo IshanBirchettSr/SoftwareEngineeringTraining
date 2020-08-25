@@ -42,7 +42,7 @@ import util.Product;
 import util.StoreConstants;
 
 /**
- * @author chich and Roxanne
+ * @author chich and Roxanne Earnest
  *
  */
 public class BabyEssentialsDept extends Department {
@@ -244,7 +244,7 @@ public class BabyEssentialsDept extends Department {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
 		pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-		if (pd.getProductName().contains("Ipad")) {
+		if (pd.getProductName().contains("Baby")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
 		} else {
