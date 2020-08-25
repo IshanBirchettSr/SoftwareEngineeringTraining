@@ -672,8 +672,24 @@ public class Greeting extends Application {
 	iDetailPane.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
 	iDetailPane.setFillWidth(true);
 	iDetailPane.setAlignment(Pos.CENTER_RIGHT);
+	// Label for Product Name.
+
+	String prNameString = String.format("Product Name: %s", inProd.getProductName());
+	Text prName = new Text(prNameString);
+
+//	String wcl = String.format("%s Membership Sign Up", StoreConstants.STORE_NAME);
+//	Text membershipTxt = new Text(wcl);
+//	membershipTxt.setText(wcl);
+//	membershipTxt.setX(50.00);
+//	membershipTxt.setY(80.00);
+//	membershipTxt.setFill(Color.BLUE);
+
+//	membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
+
+	iDetailPane.getChildren().add(prName);
 
 	VBox mp = new VBox(pV);
+
 	mp.setStyle("-fx-background-color: white;");
 	mp.setAlignment(Pos.CENTER_LEFT);
 	mp.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
