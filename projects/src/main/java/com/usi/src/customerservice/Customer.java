@@ -21,6 +21,35 @@ import util.Product;
 public class Customer {
     ShoppingCart cart = null;
     List<Department> dList = null;
+    MembershipSignUp mCard = null;
+
+    /**
+     * @return the cart
+     */
+    public ShoppingCart getCart() {
+	return cart;
+    }
+
+    /**
+     * @param cart the cart to set
+     */
+    public void setCart(ShoppingCart cart) {
+	this.cart = cart;
+    }
+
+    /**
+     * @return the mCard
+     */
+    public MembershipSignUp getmCard() {
+	return mCard;
+    }
+
+    /**
+     * @param mCard the mCard to set
+     */
+    public void setmCard(MembershipSignUp mCard) {
+	this.mCard = mCard;
+    }
 
     /**
      * @return
