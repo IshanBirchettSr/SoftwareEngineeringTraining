@@ -8,7 +8,7 @@ Water , Beverages , GALLONS , UUID , 1 , NA , Poland Spring Distilled Gallon, 1 
 Water , Beverages , FLUID_OUNCES , UUID , 20 , NA , FIJI , 16.9 , 7.99 , NA , Water , 150 , Spring Water
 Water , Beverages , FLUID_OUNCES , UUID , 12 , NA , SmartWater , 16.9 , 11.99 , NA , Water , 150 , Vapor Distilled/ Electrolyte 
 Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola , 2 , 2.79 , NA , corn syrup , 150 , Sprite 
-Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola Ginger Ale, 2 , 1.79 , NA , Water , 150 , Ginger Ale
+Soda , Beverages , LITER , UUID , 1 , NA , Schweepes Ginger Ale, 2 , 1.79 , NA , Water , 150 , Ginger Ale
 Soda , Beverages , LITER , UUID , 1 , NA , Coca Cola Diet Coke, 2 , 1.79 , NA , Water , 150 , Diet Coke 
 Soda , Beverages , FLUID_OUNCES , UUID , 12 , NA , Sunkist , 12 , 4.79 , NA , Water , 150 , Sunkist
 Soda , Beverages , FLUID_OUNCES , UUID , 12 , NA , Pepsi , 12 , 4.79 , NA , Water , 150 ,Cherry Pepsi
