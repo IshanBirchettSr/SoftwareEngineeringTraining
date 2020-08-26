@@ -396,14 +396,14 @@ public class Greeting extends Application {
 
 	membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 14));
 	// Allma start here with collecting membership data
-	MembershipSignUp newMember = new MembershipSignUp();
+	MembershipSignUp newMemberCard = new MembershipSignUp();
 
 	Text fNText = new Text("First Name: ");
 
 	TextField fNTextField = new TextField();
 	fNTextField.setPromptText("Please enter first name: ");
 	HBox firstNameBox = new HBox(fNText, fNTextField);
-	newMember.setFirstName("FirstName");
+	newMemberCard.setFirstName(fNTextField.toString());
 
 	HBox gp = new HBox(20, membershipTxt);
 	gp.setAlignment(Pos.CENTER);
