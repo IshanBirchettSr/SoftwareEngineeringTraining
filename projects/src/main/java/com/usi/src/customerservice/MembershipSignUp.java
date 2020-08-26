@@ -181,6 +181,13 @@ public class MembershipSignUp {
     }
 
     /**
+     * 
+     */
+    public MembershipSignUp() {
+	// TODO Auto-generated constructor stub
+    }
+
+    /**
      * @param memRecord
      */
     private void LoadDataMember(String memRecord) {

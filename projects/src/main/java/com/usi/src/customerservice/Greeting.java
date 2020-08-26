@@ -394,13 +394,23 @@ public class Greeting extends Application {
 	membershipTxt.setY(80.00);
 	membershipTxt.setFill(Color.BLUE);
 
-	membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
+	membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 14));
+	// Allma start here with collecting membership data
+	MembershipSignUp newMember = new MembershipSignUp();
+
+	Text fNText = new Text("First Name: ");
+
+	TextField fNTextField = new TextField();
+	fNTextField.setPromptText("Please enter first name: ");
+	HBox firstNameBox = new HBox(fNText, fNTextField);
+	newMember.setFirstName("FirstName");
 
 	HBox gp = new HBox(20, membershipTxt);
 	gp.setAlignment(Pos.CENTER);
 	gp.setPadding(new Insets(20.50));
-	HBox memSignUp = new HBox();
+	VBox memSignUp = new VBox();
 	memSignUp.getChildren().add(membershipTxt);
+	memSignUp.getChildren().add(firstNameBox);
 
 	Scene signUpScene = new Scene(memSignUp, 450, 600);
 
