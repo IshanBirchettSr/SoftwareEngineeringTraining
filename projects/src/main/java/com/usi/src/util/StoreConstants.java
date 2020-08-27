@@ -72,7 +72,7 @@ public class StoreConstants {
     public static final String SC_ICON_MASTERCARD = "file:///" + APP_HOME + "/images/mastercard.png";
     public static final String SC_ICON_EBT = "file:///" + APP_HOME + "/images/ebt.png";
     public static final String SC_ICON_CASH = "file:///" + APP_HOME + "/images/cash.png";
-    public static final String SC_ICON_PRINT = "file:///" + APP_HOME + "/images/printer_icon.png";
+    public static final String SC_ICON_PAY = "file:///" + APP_HOME + "/images/payIcon.png";
     public static final String SC_ICON_CANCEL = "file:///" + APP_HOME + "/images/cancel_icon.png";
     public static final String AUTOMOTIVEDEPT = "file:///" + APP_HOME + "/images/Automotive_Dept.png";
     public static final String BABYESSENTIALSDEPT = "file:///" + APP_HOME + "/images/BabyEssentials_Dept.png";
