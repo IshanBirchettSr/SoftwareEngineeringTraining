@@ -9,9 +9,12 @@ import java.util.Properties;
 
 import customerservice.Customer;
 import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -87,18 +90,52 @@ public class Receipt extends StorePrinterFx {
     }
 
     private static int counter = 0;
+
     public VBox printNode() {
 	prods = cust.getListOfProds();
-	String sTextString = String.format("%s Receipt\n  %s", StoreConstants.STORE_NAME, new Date());
+	final String Styler = "styles.css";
+
+	String sTextString = String.format("%s", StoreConstants.STORE_NAME);
 	Text sText = new Text(sTextString);
-	sText.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, 8));
+	sText.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 10));
+	sText.setStroke(Color.BLACK);
+	sText.getStyleClass().add(Styler);
 	sText.setX(30);
+	sText.setStrokeWidth(1);
 	sText.setY(50);
 	HBox sBox = new HBox(sText);
 	sBox.setAlignment(Pos.TOP_CENTER);
+
+	String st = ("Receipt");
+	Text str = new Text(st);
+	str.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 8));
+	str.setFill(Color.BLACK);
+	str.setX(30);
+	str.setY(50);
+	HBox r = new HBox(10, str);
+	r.setAlignment(Pos.CENTER);
+
+	String sd = String.format("%s", new Date());
+	Text ssd = new Text(sd);
+	ssd.setFont(Font.font("Arial", FontPosture.REGULAR, 3));
+	HBox date = new HBox(ssd);
+	date.setAlignment(Pos.BASELINE_LEFT);
+
+	Image StoreIcon = new Image(StoreConstants.SC_ICON_FULL);
+	ImageView si = new ImageView();
+	si.setFitWidth(25);
+	si.setImage(StoreIcon);
+	si.setPreserveRatio(true);
+	si.setSmooth(true);
+	si.setCache(true);
+	HBox sp = new HBox(si);
+	sp.setAlignment(Pos.TOP_CENTER);
+
 	VBox itemList = new VBox(2);
+
 	int total = 0;
 	for (Product prod : prods) {
+
 	    String listItem = String.format("Product: %s, Quantity: %s, Price: %.2f\n", prod.getProductName(),
 		    prod.getQuantity(), prod.getPrice());
 	    Text item = new Text(listItem);
@@ -121,9 +158,10 @@ public class Receipt extends StorePrinterFx {
 	String thankYouMessage = String.format("%s %s thank you for your purchase today!",
 		cust.getmCard().getFirstName(), cust.getmCard().getLastName());
 	Text thankYouText = new Text(thankYouMessage);
+	thankYouText.setFont(Font.font("Arial", FontPosture.REGULAR, 5));
 	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
 	totalToday.setX(30);
-	totalToday.setY(75);
+	totalToday.setY(300);
 	HBox thankYouBox = new HBox(thankYouText);
 	thankYouBox.setAlignment(Pos.BASELINE_LEFT);
 
@@ -131,14 +169,26 @@ public class Receipt extends StorePrinterFx {
 	Text tText = new Text(tTextString);
 	tText.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
 	totalToday.setX(30);
-	totalToday.setY(150);
+	totalToday.setY(300);
 	HBox tBox = new HBox(tText);
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
-	VBox receiptNode = new VBox(5, sBox, itemList, thankYouBox, tBox);
+	VBox receiptNode = new VBox(5, sBox, r, date, sp, itemList, thankYouBox, tBox);
 
 	/* tell the caller that this page is part of the printed document */
 	return receiptNode;
+    }
+
+    /**
+     * @param forestgreen
+     * @param lime
+     * @param i
+     * @param j
+     * @return
+     */
+    private Paint linearGradient(Color forestgreen, Color lime, int i, int j) {
+	// TODO Auto-generated method stub
+	return null;
     }
 
     public void printReceipt() {

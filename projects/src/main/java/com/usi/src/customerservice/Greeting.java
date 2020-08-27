@@ -1,8 +1,6 @@
 package customerservice;
 
 import java.io.File;
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -810,22 +808,6 @@ public class Greeting extends Application {
 	cV.setSmooth(true);
 	cV.setCache(true);
 
-	Image printImage = new Image(StoreConstants.SC_ICON_PRINT);
-	ImageView printV = new ImageView();
-	printV.setFitWidth(25);
-	printV.setImage(printImage);
-	printV.setPreserveRatio(true);
-	printV.setSmooth(true);
-	printV.setCache(true);
-
-	Image cancelImage = new Image(StoreConstants.SC_ICON_CANCEL);
-	ImageView cancelV = new ImageView();
-	cancelV.setFitWidth(25);
-	cancelV.setImage(cancelImage);
-	cancelV.setPreserveRatio(true);
-	cancelV.setSmooth(true);
-	cancelV.setCache(true);
-
 	Button visa = new Button("VISA", vV);
 	EventHandler<ActionEvent> visaEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
@@ -869,27 +851,18 @@ public class Greeting extends Application {
 
 	cash.setOnAction(cashEvent);
 
-	Button print = new Button("print", printV);
-	print.setAlignment(Pos.BOTTOM_CENTER);
-	EventHandler<ActionEvent> printNow = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-//		 StoreCheckOut checkoutLane01 = new StoreCheckOut();
-//		 checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
-
-	    }
-	};
-
-	print.setOnAction(printNow);
-
-	Button cancel = new Button("cancel", cancelV);
-	cancel.setAlignment(Pos.BOTTOM_CENTER);
-	EventHandler<ActionEvent> cancelTransaction = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-
-	    }
-	};
-
-	cancel.setOnAction(cancelTransaction);
+//	HBox payNode = new HBox();
+//	Button payButton = new Button("PAY");
+//	payNode.getChildren().add(payButton);
+//	payNode.setAlignment(Pos.BOTTOM_CENTER);
+//	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
+//	    public void handle(ActionEvent e) {
+//		StoreCheckOut checkoutLane01 = new StoreCheckOut();
+//		checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
+//
+//	    }
+//	};
+//	payButton.setOnAction(payEvent);
 
 	Stage newWindow = new Stage();
 
@@ -904,13 +877,6 @@ public class Greeting extends Application {
 	payButtons.setAlignment(Pos.BOTTOM_CENTER);
 
 	ccBox.getChildren().add(payButtons);
-
-	HBox PCbutton = new HBox(print, cancel);
-	PCbutton.setSpacing(30);
-	PCbutton.setPadding(new Insets(15, 0, 15, 0));
-	PCbutton.setAlignment(Pos.BOTTOM_CENTER);
-
-	ccBox.getChildren().add(PCbutton);
 
 	paymentScene = new Scene(ccBox, 500, 550);
 
@@ -952,8 +918,17 @@ public class Greeting extends Application {
 		}
 	    }
 	});
+
+	Image payI = new Image(StoreConstants.SC_ICON_PAY);
+	ImageView pi = new ImageView();
+	pi.setImage(payI);
+	pi.setFitWidth(20);
+	pi.setPreserveRatio(true);
+	pi.setSmooth(true);
+	pi.setCache(true);
+
 	HBox payNode = new HBox();
-	Button payButton = new Button("PAY");
+	Button payButton = new Button("PAY", pi);
 	payNode.getChildren().add(payButton);
 	payNode.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
@@ -964,6 +939,25 @@ public class Greeting extends Application {
 	    }
 	};
 	payButton.setOnAction(payEvent);
+
+	Image cancelImage = new Image(StoreConstants.SC_ICON_CANCEL);
+	ImageView cancelV = new ImageView();
+	cancelV.setFitWidth(25);
+	cancelV.setImage(cancelImage);
+	cancelV.setPreserveRatio(true);
+	cancelV.setSmooth(true);
+	cancelV.setCache(true);
+
+	Button cancel = new Button("cancel", cancelV);
+	cancel.setAlignment(Pos.BOTTOM_CENTER);
+	payNode.getChildren().add(cancel);
+	EventHandler<ActionEvent> cancelTransaction = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		newWindowPopup.close();
+	    }
+	};
+
+	cancel.setOnAction(cancelTransaction);
 
 	HBox cashInfo = new HBox(cardNumberLbl, cardNumberTxt);
 	VBox cardBox = new VBox();
@@ -992,24 +986,52 @@ public class Greeting extends Application {
 		    System.out.printf("Cash Value Entered: %s\n", cashTxt.getText());
 		    StoreCheckOut checkoutLane01 = new StoreCheckOut();
 		    checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
+		    newWindowPopup.close();
 		}
 	    }
 	});
 
 	System.out.printf("Cash Value: %s\n", cashTxt.getText());
 
+	Image payI = new Image(StoreConstants.SC_ICON_PAY);
+	ImageView pi = new ImageView();
+	pi.setImage(payI);
+	pi.setFitWidth(20);
+	pi.setPreserveRatio(true);
+	pi.setSmooth(true);
+	pi.setCache(true);
+
 	HBox payNode = new HBox();
-	Button payButton = new Button("PAY");
+	Button payButton = new Button("PAY", pi);
 	payNode.getChildren().add(payButton);
 	payNode.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
 		StoreCheckOut checkoutLane01 = new StoreCheckOut();
-		checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
-
+		checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
+		newWindowPopup.close();
 	    }
 	};
 	payButton.setOnAction(payEvent);
+
+	Image cancelImage = new Image(StoreConstants.SC_ICON_CANCEL);
+	ImageView cancelV = new ImageView();
+	cancelV.setFitWidth(25);
+	cancelV.setImage(cancelImage);
+	cancelV.setPreserveRatio(true);
+	cancelV.setSmooth(true);
+	cancelV.setCache(true);
+
+	Button cancel = new Button("cancel", cancelV);
+	cancel.setAlignment(Pos.BOTTOM_CENTER);
+	payNode.getChildren().add(cancel);
+	EventHandler<ActionEvent> cancelTransaction = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		newWindowPopup.close();
+	    }
+	};
+
+	cancel.setOnAction(cancelTransaction);
 
 	HBox cashInfo = new HBox(10, cashLbl, cashTxt);
 	VBox cashBox = new VBox();
@@ -1137,22 +1159,4 @@ public class Greeting extends Application {
 	newWindow.show();
     }
 
-    public static void printScene() {
-
-	String imageKey = String.format("USI SUPER STORE!");
-	Text welcomeTxt = new Text(imageKey);
-	welcomeTxt.setText(imageKey);
-	welcomeTxt.setX(50.00);
-	welcomeTxt.setY(80.00);
-	welcomeTxt.setFill(Color.BLACK);
-	welcomeTxt.setFont(Font.font("Verdana", FontWeight.EXTRA_BOLD, FontPosture.REGULAR, 20));
-	HBox printGreeting = new HBox(20, welcomeTxt);
-	printGreeting.setAlignment(Pos.TOP_CENTER);
-
-	Date curDate = new Date();
-	String todaysDate = DateFormat.getDateTimeInstance().format(curDate);
-	String datePurchased = String.format("Date: %s", todaysDate);
-	datePurchased.toUpperCase();
-
-    }
 }
