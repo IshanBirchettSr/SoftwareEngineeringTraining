@@ -393,7 +393,7 @@ public class Greeting extends Application {
 	membershipTxt.setFill(Color.BLUE);
 
 	membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 14));
-	// collecting membership data
+	// collecting membership data 8
 	MembershipSignUp newMemberCard = new MembershipSignUp();
 
 	Text fNText = new Text("First Name: ");
