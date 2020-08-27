@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>webcam-src</name>
+			<type>2</type>
+			<location>C:/Users/ibirc/Downloads/webcam-capture-0.3.12-dist/webcam-src</location>
+		</link>
+	</linkedResources>
 </projectDescription>

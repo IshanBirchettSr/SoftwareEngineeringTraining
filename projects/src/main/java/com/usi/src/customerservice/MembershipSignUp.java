@@ -8,10 +8,19 @@
  */
 package customerservice;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.imageio.ImageIO;
+
+import com.github.sarxos.webcam.Webcam;
+
+import javafx.scene.image.ImageView;
+import util.StoreConstants;
 import util.YesNoInput;
 
 /**
@@ -228,6 +237,27 @@ public class MembershipSignUp {
      */
     public void setPhoneNumber(String phoneNumber) {
 	this.phoneNumber = phoneNumber;
+    }
+
+    public ImageView takePhoto() {
+	Webcam webcam = Webcam.getDefault();
+	boolean camOpen = webcam.open();
+	ImageView iv = null;
+	if (camOpen == true) {
+	    BufferedImage bi = webcam.getImage();
+	    String pImage = null;
+	    try {
+		pImage = String.format(StoreConstants.MEMBERSHIP_PROFILE_IMAGE, phoneNumber);
+		ImageIO.write(bi, "PNG", new File(pImage));
+	    } catch (IOException e) {
+		e.printStackTrace();
+	    }
+	    webcam.close();
+	    iv = new ImageView(pImage);
+	}
+
+	return iv;
+
     }
 
 }

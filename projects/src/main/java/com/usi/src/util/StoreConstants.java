@@ -117,6 +117,11 @@ public class StoreConstants {
     public static final String PRODUCT_VIDEO_Check = APP_HOME + "/images" + "/%s_prod_%s_%s.mp4";
 
     /*
+     * New Member Profile Photos
+     */
+    public static final String MEMBERSHIP_PROFILE_IMAGE = "file:///" + APP_HOME + "/images/profile_images/%s.png";
+
+    /*
      * Please keep deptNames in alphabetical order
      */
     public static enum deptNames {
