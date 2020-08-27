@@ -61,7 +61,7 @@ public class BeveragesDept extends Department {
 	beveragesRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(beveragesRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
-	// pantryRecords.size());
+	// beveragesRecords.size());
 	keyMap = new HashMap<Integer, String>();
 	// Beverages Product Load
 	beveragesProducts = new HashMap<String, BeveragesProd>();
@@ -191,7 +191,7 @@ public class BeveragesDept extends Department {
 		public void handle(MouseEvent e) {
 		    System.out.printf("Image Click on %s\n", pV.getId());
 		    Product pd2 = beveragesProducts.get(pKey);
-		    Greeting.prodDetails(pd2, "beverage");
+		    Greeting.prodDetails(pd2, "beverages");
 
 		}
 	    };
