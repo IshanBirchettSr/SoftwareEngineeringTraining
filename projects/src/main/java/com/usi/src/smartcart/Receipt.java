@@ -187,7 +187,7 @@ public class Receipt extends StorePrinterFx {
      * @return
      */
     private Paint linearGradient(Color forestgreen, Color lime, int i, int j) {
-
+	// TODO Auto-generated method stub
 	return null;
     }
 

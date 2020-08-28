@@ -3,5 +3,5 @@
 /*First name, Middle Initial, Last Name, email address, street, city, state, zipcode, phone number,  aarp membership, Membership Date
  Roxanne, L, Earnest, malachi236@charter.net, 100 Laporte, North Grosvenordale, CT, 06255, 8604553527, Yes, 8/12/2020
  Ishan, D, Birchett, ibirchettsr@gmail.com, 100 Sunnyview Heights, Worcester, MA, 01602, 5083333556, Yes, 7/13/2019
- Allma, M, Johnson, allmamjohnsonllc@gmail.com, 100 Main St, Las Vegas, NV, 89136, 7026300627, No, 9/1/2020
+ Allma, M, Johnson, alllmamjohnsonllc@gmail.com, 100 Main St, Las Vegas, NV, 89136, 7026300627, No, 9/1/2020
  Charlene, C, Cornelius, charlene.kingdomkeysministry@gmail.com, 102 Main St, Bronxs, NY, 10465, 9175151760, No, 1/5/2020
