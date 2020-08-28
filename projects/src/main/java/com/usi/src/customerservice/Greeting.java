@@ -393,7 +393,7 @@ public class Greeting extends Application {
 	membershipTxt.setFill(Color.BLUE);
 
 	membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 14));
-	// collecting membership data 8
+	// Allma start here with collecting membership data
 	MembershipSignUp newMemberCard = new MembershipSignUp();
 
 	Text fNText = new Text("First Name: ");
@@ -412,145 +412,10 @@ public class Greeting extends Application {
 
 	Scene signUpScene = new Scene(memSignUp, 450, 600);
 
-	// middle initial
-	Text mIText = new Text("Middle Initial Name: ");
-
-	TextField mITextField = new TextField();
-	mITextField.setPromptText("Please enter middle initial: ");
-	HBox middleInitialBox = new HBox(mIText, mITextField);
-	newMemberCard.setmInitial(mITextField.toString().charAt(0));
-
-	HBox gp1 = new HBox(20, membershipTxt);
-	gp.setAlignment(Pos.CENTER);
-	gp.setPadding(new Insets(20.50));
-	VBox memSignUp1 = new VBox();
-	memSignUp.getChildren().add(membershipTxt);
-	memSignUp.getChildren().add(middleInitialBox);
-
-	Scene signUpScene1 = new Scene(memSignUp, 450, 600);
-
-	// last name
-	Text lNText = new Text("Last Name: ");
-
-	TextField lNTextField = new TextField();
-	lNTextField.setPromptText("Please enter last name: ");
-	HBox lastNameBox = new HBox(lNText, lNTextField);
-	newMemberCard.setLastName(lNTextField.toString());
-
-	HBox gp2 = new HBox(20, membershipTxt);
-	gp.setAlignment(Pos.CENTER);
-	gp.setPadding(new Insets(20.50));
-	VBox memSignUp2 = new VBox();
-	memSignUp.getChildren().add(membershipTxt);
-	memSignUp.getChildren().add(firstNameBox);
-
-	Scene signUpScene2 = new Scene(memSignUp, 450, 600);
-
-	// email address
-	Text eAText = new Text("Email Address: ");
-
-	TextField eATextField = new TextField();
-	fNTextField.setPromptText("Please enter email address: ");
-	HBox emailAddressBox = new HBox(eAText, eATextField);
-	newMemberCard.setEmailAddress(eATextField.toString());
-
-	HBox gp3 = new HBox(20, membershipTxt);
-	gp.setAlignment(Pos.CENTER);
-	gp.setPadding(new Insets(20.50));
-	VBox memSignUp3 = new VBox();
-	memSignUp.getChildren().add(membershipTxt);
-	memSignUp.getChildren().add(firstNameBox);
-
-	Scene signUpScene3 = new Scene(memSignUp, 450, 600);
-
-	// street
-	Text sText = new Text("Street: ");
-
-	TextField sTextField = new TextField();
-	sTextField.setPromptText("Please enter street: ");
-	HBox streetBox = new HBox(sText, sTextField);
-	newMemberCard.setStreetAddress(sTextField.toString());
-
-	HBox gp4 = new HBox(20, membershipTxt);
-	gp.setAlignment(Pos.CENTER);
-	gp.setPadding(new Insets(20.50));
-	VBox memSignUp4 = new VBox();
-	memSignUp.getChildren().add(membershipTxt);
-	memSignUp.getChildren().add(firstNameBox);
-
-	Scene signUpScene4 = new Scene(memSignUp, 450, 600);
-
-	// city
-	Text cText = new Text("City: ");
-
-	TextField cTextField = new TextField();
-	fNTextField.setPromptText("Please enter city: ");
-	HBox cityBox = new HBox(cText, cTextField);
-	newMemberCard.setCity(cTextField.toString());
-
-	HBox gp5 = new HBox(20, membershipTxt);
-	gp.setAlignment(Pos.CENTER);
-	gp.setPadding(new Insets(20.50));
-	VBox memSignUp5 = new VBox();
-	memSignUp.getChildren().add(membershipTxt);
-	memSignUp.getChildren().add(firstNameBox);
-
-	Scene signUpScene5 = new Scene(memSignUp, 450, 600);
 	// New window (Stage)
 	Stage newWindow = new Stage();
 	newWindow.setTitle("Shoppers Super Store - Membership Sign Up");
 	newWindow.setScene(signUpScene);
-
-	// state
-	Text stateText = new Text("State: ");
-
-	TextField stateTextField = new TextField();
-	fNTextField.setPromptText("Please enter state: ");
-	HBox stateBox = new HBox(sText, sTextField);
-	newMemberCard.setState(stateTextField.toString());
-
-	HBox gp6 = new HBox(20, membershipTxt);
-	gp.setAlignment(Pos.CENTER);
-	gp.setPadding(new Insets(20.50));
-	VBox memSignUp6 = new VBox();
-	memSignUp.getChildren().add(membershipTxt);
-	memSignUp.getChildren().add(firstNameBox);
-
-	Scene signUpScene6 = new Scene(memSignUp, 450, 600);
-
-	// postal code
-	Text pCText = new Text("Postal Code: ");
-
-	TextField pCTextField = new TextField();
-	fNTextField.setPromptText("Please enter postal code: ");
-	HBox postalCodeBox = new HBox(pCText, pCTextField);
-	newMemberCard.setPostalCode(pCTextField.toString());
-
-	HBox gp7 = new HBox(20, membershipTxt);
-	gp.setAlignment(Pos.CENTER);
-	gp.setPadding(new Insets(20.50));
-	VBox memSignUp7 = new VBox();
-	memSignUp.getChildren().add(membershipTxt);
-	memSignUp.getChildren().add(firstNameBox);
-
-	Scene signUpScene7 = new Scene(memSignUp, 450, 600);
-
-	// phone number
-	Text pNText = new Text("Phone Number: ");
-
-	TextField pNTextField = new TextField();
-	pNTextField.setPromptText("Please enter phone number: ");
-	HBox phoneNumberBox = new HBox(pNText, pNTextField);
-	newMemberCard.setPhoneNumber(pNTextField.toString());
-
-	HBox gp8 = new HBox(20, membershipTxt);
-	gp.setAlignment(Pos.CENTER);
-	gp.setPadding(new Insets(20.50));
-	VBox memSignUp8 = new VBox();
-	memSignUp.getChildren().add(membershipTxt);
-	memSignUp.getChildren().add(phoneNumberBox);
-
-	Scene signUpScene8 = new Scene(memSignUp, 450, 600);
 
 	// Specifies the modality for new window.
 	newWindow.initModality(Modality.WINDOW_MODAL);
