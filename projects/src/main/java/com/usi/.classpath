@@ -4,10 +4,10 @@
 	<classpathentry kind="src" path="webcam-src"/>
 	<classpathentry kind="src" path="images"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/ibirc/Downloads/webcam-capture-0.3.12-dist/webcam-capture-0.3.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ibirc/Downloads/webcam-capture-0.3.12-dist/libs/bridj-0.7.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ibirc/Downloads/webcam-capture-0.3.12-dist/libs/slf4j-api-1.7.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ibirc/Downloads/logback-classic-1.0.9.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ibirc/Downloads/logback-core-1.0.9.jar"/>
+	<classpathentry kind="lib" path="libs/bridj-0.7.0.jar"/>
+	<classpathentry kind="lib" path="libs/logback-classic-1.0.9.jar"/>
+	<classpathentry kind="lib" path="libs/logback-core-1.0.9.jar"/>
+	<classpathentry kind="lib" path="libs/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="lib" path="libs/webcam-capture-0.3.12.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
