@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import customerservice.Customer;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -133,20 +134,48 @@ public class Receipt extends StorePrinterFx {
 
 	VBox itemList = new VBox(2);
 
-	int total = 0;
-	for (Product prod : prods) {
+	List<Product> pList = cust.getCart().getProductList();
+	int totalQuantity = 1;
+	double total = 0;
+	boolean firstTime = true;
+	String oldPn = "no name";
+	Product oldPd = null;
 
-	    String listItem = String.format("Product: %s, Quantity: %s, Price: %.2f\n", prod.getProductName(),
-		    prod.getQuantity(), prod.getPrice());
-	    Text item = new Text(listItem);
-	    item.setX(30);
-	    item.setY(75);
-	    item.setFill(Color.BLUE);
-	    item.setFont(Font.font("Arial", FontPosture.REGULAR, 6));
-	    itemList.getChildren().add(item);
-	    itemList.setAlignment(Pos.BASELINE_LEFT);
-	    total += prod.getPrice();
+	for (Product cPd : pList) {
+	    if (oldPn.equals("no name") == true) {
+		oldPn = cPd.getBrandName();
+		oldPd = cPd;
+		firstTime = true;
+		// System.out.println("No Name Hit\n");
+		continue;
+	    }
+
+	    if (oldPn.equals(cPd.getBrandName()) == true) {
+		totalQuantity++;
+		oldPd = cPd;
+		continue;
+
+	    } else {
+		// System.out.printf("Else %b\n", firstTime);
+		if (firstTime == true) {
+
+		    String listItem = String.format("Product: %s, Quantity: %s, Price: %.2f\n", cPd.getProductName(),
+			    totalQuantity, cPd.getPrice());
+		    Text item = new Text(listItem);
+		    item.setX(30);
+		    item.setY(75);
+		    item.setFill(Color.BLUE);
+		    item.setFont(Font.font("Arial", FontPosture.REGULAR, 6));
+		    itemList.getChildren().add(item);
+		    itemList.setAlignment(Pos.BASELINE_LEFT);
+		    total += cPd.getPrice();
+		    totalQuantity = 1;
+		    oldPn = cPd.getBrandName();
+		    oldPd = cPd;
+		}
+	    }
 	}
+
 	double totalAmount = total;
 	String tt = String.format("Your total today is $%.2f", totalAmount);
 	Text totalToday = new Text(tt);
