@@ -19,6 +19,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -769,20 +770,30 @@ public class Greeting extends Application {
 	// Description Pane
 	VBox descBox = new VBox();
 	descBox.setStyle("-fx-background-color: cadetblue;");
-	descBox.setPrefSize(175, 200);
+	descBox.setPrefSize(375, 200);
+
+	String descString = String.format("Description: %s", inProd.getDescription());
+	TextArea desc = new TextArea(descString);
+	desc.setWrapText(true);
+	desc.setStyle("-fx-background-color: bisque;");
+	descBox.setAlignment(Pos.TOP_LEFT);
+	descBox.setPadding(new Insets(5));
+	descBox.getChildren().add(desc);
+	String ingredString = String.format("\n\nIngredients: %s", inProd.getIngredient());
+	desc.appendText(ingredString);
 
 	// Borders
 	BorderWidths bs = new BorderWidths(1, 1, 1, 1);
 	Color bColor = Color.GRAY;
 
 	descBox.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
-	descBox.setAlignment(Pos.CENTER_RIGHT);
+	descBox.setAlignment(Pos.TOP_LEFT);
 
-	// Banding Pane
+	// Branding Pane
 	VBox brandingBox = new VBox();
-	brandingBox.setStyle("-fx-background-color: cadetblue;");
+	brandingBox.setStyle("-fx-background-color: black;");
 	brandingBox.setPrefSize(225, 200);
-	brandingBox.setAlignment(Pos.TOP_CENTER);
+	brandingBox.setAlignment(Pos.CENTER);
 	brandingBox.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
 
 	String vPath = iVideoName;
@@ -795,7 +806,7 @@ public class Greeting extends Application {
 	    mPlayer.setAutoPlay(true);
 	    MediaView mView = new MediaView(mPlayer);
 	    mView.setFitWidth(225);
-	    brandingBox.setAlignment(Pos.TOP_CENTER);
+	    brandingBox.setAlignment(Pos.CENTER);
 	    brandingBox.getChildren().add(mView);
 	}
 
@@ -809,28 +820,48 @@ public class Greeting extends Application {
 	};
 	closeButton.setOnAction(closeEvent);
 
-	VBox iDetailPane = new VBox();
-	iDetailPane.setStyle("-fx-background-color: bisque;");
-	iDetailPane.setPrefSize(175, 200);
+	VBox iDetailPane = new VBox(5);
+	iDetailPane.setStyle("-fx-background-color: cadetblue;");
+	iDetailPane.setPrefSize(375, 200);
 	iDetailPane.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
 	iDetailPane.setFillWidth(true);
-	iDetailPane.setAlignment(Pos.CENTER_RIGHT);
-	// Label for Product Name.
+	iDetailPane.setAlignment(Pos.TOP_LEFT);
+	iDetailPane.setPadding(new Insets(5));
 
+	// Product Name.
 	String prNameString = String.format("Product Name: %s", inProd.getProductName());
 	Text prName = new Text(prNameString);
 
-//	String wcl = String.format("%s Membership Sign Up", StoreConstants.STORE_NAME);
-//	Text membershipTxt = new Text(wcl);
-//	membershipTxt.setText(wcl);
-//	membershipTxt.setX(50.00);
-//	membershipTxt.setY(80.00);
-//	membershipTxt.setFill(Color.BLUE);
+	// Brand Name
+	String brNameString = String.format("Brand Name: %s", inProd.getBrandName());
+	Text brName = new Text(brNameString);
 
-//	membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 20));
+	// Price
+	String priceString = String.format("Price: %.2f", inProd.getPrice());
+	Text price = new Text(priceString);
+	price.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 16));
+	// Unit of Measure
+	String uomString = String.format("Unit of Measure: %s", inProd.getUnitOfMeasureEnum().toString());
+	Text uom = new Text(uomString);
+	// Size
+	String sizeString = String.format("Size: %s", inProd.getSize());
+	Text size = new Text(sizeString);
+	// Weight
+	String wghtString = String.format("Weight: %s", inProd.getWeight());
+	Text wght = new Text(wghtString);
+	// Units in Stock
+	String uisString = String.format("Units in Stock: %s", inProd.getNumUnitsInstock());
+	Text uis = new Text(uisString);
 
 	iDetailPane.getChildren().add(prName);
+	iDetailPane.getChildren().add(brName);
+	iDetailPane.getChildren().add(size);
+	iDetailPane.getChildren().add(uom);
+	iDetailPane.getChildren().add(wght);
+	iDetailPane.getChildren().add(uis);
+	iDetailPane.getChildren().add(price);
 
+	// Media Player Branding Box
 	VBox mp = new VBox(pV);
 
 	mp.setStyle("-fx-background-color: white;");
@@ -845,11 +876,11 @@ public class Greeting extends Application {
 	pButtons.setAlignment(Pos.CENTER);
 
 	HBox pBottomPane = new HBox(brandingBox, descBox);
-	pBottomPane.setAlignment(Pos.BASELINE_CENTER);
+	pBottomPane.setAlignment(Pos.CENTER);
 
 	VBox dPane = new VBox(pTopPane, pBottomPane, pButtons);
 	dPane.setStyle("-fx-background-color: gray;");
-	Scene pScene = new Scene(dPane, 400, 500);
+	Scene pScene = new Scene(dPane, 600, 500);
 
 	newWindow.setTitle(String.format("%s- Details", inProd.getProductName()));
 	newWindow.setScene(pScene);

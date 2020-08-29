@@ -78,7 +78,7 @@ public abstract class Product {
     /**
      * @return the unitOfMeasureEnum
      */
-    protected unitOfMeasure getUnitOfMeasureEnum() {
+    public unitOfMeasure getUnitOfMeasureEnum() {
 	return unitOfMeasureEnum;
     }
 
@@ -120,7 +120,7 @@ public abstract class Product {
     /**
      * @return the sizeEnum
      */
-    protected String getSize() {
+    public String getSize() {
 	return this.size;
     }
 
@@ -148,7 +148,7 @@ public abstract class Product {
     /**
      * @return the weightEnum
      */
-    protected String getWeight() {
+    public String getWeight() {
 	return weight;
     }
 
@@ -190,7 +190,7 @@ public abstract class Product {
     /**
      * @return the ingredient
      */
-    protected String getIngredient() {
+    public String getIngredient() {
 	return ingredient;
     }
 
@@ -218,7 +218,7 @@ public abstract class Product {
     /**
      * @return the description
      */
-    protected String getDescription() {
+    public String getDescription() {
 	return description;
     }
 
