@@ -94,7 +94,6 @@ public class Receipt extends StorePrinterFx {
 
     public VBox printNode() {
 	prods = cust.getListOfProds();
-	final String Styler = StoreConstants.STYLER;
 
 	String sTextString = String.format("%s", StoreConstants.STORE_NAME);
 	Text sText = new Text(sTextString);
