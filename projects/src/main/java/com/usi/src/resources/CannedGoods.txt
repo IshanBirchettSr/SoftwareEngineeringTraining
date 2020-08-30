@@ -7,4 +7,4 @@ Pineapples , Canned_Goods , OUNCES , UUID , 12 , Regular , Dole , 16 , 27.48 , N
 Sliced Carrots , Canned_Goods , OUNCES , UUID , 12 , Regular , Delmonte , 16 , 14.99 , NA , carrots , 150 , sliced carrots in water
 Diced Carrots , Canned_Goods , OUNCES , UUID , 24, Regular , Libbys , 16 , 27.99 , NA , carrots , 150 , premie extra calorie
 Corn Beef Hash , Canned_Goods , OUNCES , UUID , 1 , Regular, Libbys , 16 , 3.99 , NA , beef , 150 , Roasted beef and potatoes
-Chili , Canned_Goods , OUNCES , UUID , 1 , Regular , Hormel , 16 , 2.99 , NA , Beans , 150 , Vegan style bean chili
+Chili , Canned_Goods , OUNCES , UUID , 1 , Regular , Hormel , 16 , 2.99 , NA , Beans tomato onions peppers salt cumin , 150 , Vegan style bean chili
