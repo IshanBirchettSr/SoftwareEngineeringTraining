@@ -236,6 +236,7 @@ public class MembershipSignUp {
      * @param mobilenumber the phoneNumber to set
      */
     public void setPhoneNumber(String phoneNumber) {
+	System.out.printf("Phone Number Entered %s\n", phoneNumber);
 	this.phoneNumber = phoneNumber;
     }
 
@@ -247,7 +248,13 @@ public class MembershipSignUp {
 	    BufferedImage bi = webcam.getImage();
 	    String pImage = null;
 	    try {
+		if (phoneNumber == null) {
+		    System.out.println("Phone Number NULL");
+		} else {
+		    System.out.printf("Phonenumber: %s\n", phoneNumber);
+		}
 		pImage = String.format(StoreConstants.MEMBERSHIP_PROFILE_IMAGE, phoneNumber);
+		System.out.printf("Filename and path: %s", pImage);
 		ImageIO.write(bi, "PNG", new File(pImage));
 	    } catch (IOException e) {
 		e.printStackTrace();

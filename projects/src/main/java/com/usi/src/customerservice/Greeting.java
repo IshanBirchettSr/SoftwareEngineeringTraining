@@ -1,6 +1,7 @@
 package customerservice;
 
 import java.io.File;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -72,6 +73,7 @@ public class Greeting extends Application {
     static HBox paneCardNumber = null;
     private static TextField cardNumberTxt = null;
     static Scene paymentScene = null;
+    private static ImageView camPhotoView = null;
     Stage newWindow = null;
 
     /**
@@ -87,6 +89,7 @@ public class Greeting extends Application {
     public Greeting() {
 	super();
 	membershipCards = new HashMap<String, MembershipSignUp>();
+
 	loadCardRecords();
 	loadMemCardRecords();
     }
@@ -456,8 +459,8 @@ public class Greeting extends Application {
 	Text stateText = new Text("State: ");
 
 	TextField stateTextField = new TextField();
-	sTextField.setPromptText("Please enter state: ");
-	HBox stateBox = new HBox(sText, sTextField);
+	stateTextField.setPromptText("Please enter state: ");
+	HBox stateBox = new HBox(stateText, stateTextField);
 	newMemberCard.setState(stateTextField.toString());
 
 	// postal code
@@ -473,8 +476,19 @@ public class Greeting extends Application {
 
 	TextField pNTextField = new TextField();
 	pNTextField.setPromptText("Please enter phone number: ");
+	pNTextField.textProperty().addListener(new ChangeListener<String>() {
+	    @Override
+	    public void changed(ObservableValue<? extends String> arg0, String oldValue, String newValue) {
+		if (!newValue.matches("\\d{0,10}([\\.]\\d{0,4})?")) {
+		    pNTextField.setText(oldValue);
+		}
+		// Lookup membership card using phone number
+		if (newValue.length() == 10) {
+		    newMemberCard.setPhoneNumber(pNTextField.getText());
+		}
+	    }
+	});
 	HBox phoneNumberBox = new HBox(pNText, pNTextField);
-	newMemberCard.setPhoneNumber(pNTextField.toString());
 
 	// Aarp
 	Text AarpText = new Text("Are you an AARP Mmeber?: ");
@@ -487,8 +501,32 @@ public class Greeting extends Application {
 	VBox memSignUp = new VBox(gp, firstNameBox, middleInitialBox, lastNameBox, emailAddressBox, streetBox, cityBox,
 		stateBox, postalCodeBox, phoneNumberBox, AarpTextBox);
 
-	newMemberCard.setDateOfMembership(null);
+	newMemberCard.setDateOfMembership(new Date());
 
+	Button cameraButton = new Button("Take Picture");
+	cameraButton.setAlignment(Pos.CENTER);
+	cameraButton.setAlignment(Pos.CENTER);
+	Image defaultImage = new Image(StoreConstants.MEMBERSHIP_DEFAULT_PROFILE_IMAGE);
+	defaultImage = null;
+	camPhotoView = new ImageView(defaultImage);
+	camPhotoView.setImage(defaultImage);
+	camPhotoView.maxWidth(50);
+	// camPhotoView.maxHeight(50);
+	EventHandler<ActionEvent> takePhotoEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		camPhotoView = newMemberCard.takePhoto();
+	    }
+	};
+
+	cameraButton.setOnAction(takePhotoEvent);
+	TextArea pText = new TextArea();
+	HBox photoPane = new HBox(10, pText, camPhotoView);
+	Button cancelButton = new Button("Cancel");
+	HBox photoButtons = new HBox(10, cameraButton, cancelButton);
+	photoButtons.setAlignment(Pos.CENTER);
+
+	memSignUp.getChildren().add(photoPane);
+	memSignUp.getChildren().add(photoButtons);
 	Scene signUpScene = new Scene(memSignUp, 450, 600);
 	newWindow = new Stage();
 	newWindow.setScene(signUpScene);
