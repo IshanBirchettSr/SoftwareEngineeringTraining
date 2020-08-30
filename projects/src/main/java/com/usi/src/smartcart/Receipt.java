@@ -94,13 +94,12 @@ public class Receipt extends StorePrinterFx {
 
     public VBox printNode() {
 	prods = cust.getListOfProds();
-	final String Styler = "styles.css";
 
 	String sTextString = String.format("%s", StoreConstants.STORE_NAME);
 	Text sText = new Text(sTextString);
-	sText.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 10));
+	sText.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 15));
 	sText.setStroke(Color.BLACK);
-	sText.getStyleClass().add(Styler);
+	sText.setStyle("-fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, green 0%, lime 50%);");
 	sText.setX(30);
 	sText.setStrokeWidth(1);
 	sText.setY(50);
@@ -140,17 +139,23 @@ public class Receipt extends StorePrinterFx {
 	boolean firstTime = true;
 	String oldPn = "no name";
 	Product oldPd = null;
+	Text item = null;
+
+	if (pList == null) {
+	    System.out.println("pList is null\n");
+
+	}
 
 	for (Product cPd : pList) {
 	    if (oldPn.equals("no name") == true) {
-		oldPn = cPd.getBrandName();
+		oldPn = cPd.getProductName();
 		oldPd = cPd;
 		firstTime = true;
 		// System.out.println("No Name Hit\n");
 		continue;
 	    }
 
-	    if (oldPn.equals(cPd.getBrandName()) == true) {
+	    if (oldPn.equals(cPd.getProductName()) == true) {
 		totalQuantity++;
 		oldPd = cPd;
 		continue;
@@ -161,7 +166,7 @@ public class Receipt extends StorePrinterFx {
 
 		    String listItem = String.format("Product: %s, Quantity: %s, Price: %.2f\n", cPd.getProductName(),
 			    totalQuantity, cPd.getPrice());
-		    Text item = new Text(listItem);
+		    item = new Text(listItem);
 		    item.setX(30);
 		    item.setY(75);
 		    item.setFill(Color.BLUE);
@@ -170,10 +175,26 @@ public class Receipt extends StorePrinterFx {
 		    itemList.setAlignment(Pos.BASELINE_LEFT);
 		    total += cPd.getPrice();
 		    totalQuantity = 1;
-		    oldPn = cPd.getBrandName();
+		    oldPn = cPd.getProductName();
 		    oldPd = cPd;
 		}
 	    }
+	}
+	if (firstTime == true) {
+	    item = new Text();
+	    item.setText("No items in your Smart Cart.");
+	    item.setX(30);
+	    item.setY(75);
+	    item.setFill(Color.BLUE);
+	    item.setFont(Font.font("Arial", FontPosture.REGULAR, 6));
+
+	    total += oldPd.getPrice();
+	    if (oldPd != null) {
+		item.setText(String.format("Product: %s, Quantity: %s, Price: %.2f\n", oldPd.getProductName(),
+			totalQuantity, oldPd.getPrice()));
+	    }
+	    itemList.getChildren().add(item);
+	    firstTime = false;
 	}
 
 	double totalAmount = total;
@@ -206,18 +227,6 @@ public class Receipt extends StorePrinterFx {
 
 	/* tell the caller that this page is part of the printed document */
 	return receiptNode;
-    }
-
-    /**
-     * @param forestgreen
-     * @param lime
-     * @param i
-     * @param j
-     * @return
-     */
-    private Paint linearGradient(Color forestgreen, Color lime, int i, int j) {
-	// TODO Auto-generated method stub
-	return null;
     }
 
     public void printReceipt() {
