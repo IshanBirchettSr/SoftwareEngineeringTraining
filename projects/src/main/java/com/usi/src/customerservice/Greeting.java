@@ -751,14 +751,17 @@ public class Greeting extends Application {
 	descBox.setPrefSize(375, 200);
 
 	String descString = String.format("Description: %s", inProd.getDescription());
-	TextArea desc = new TextArea(descString);
-	desc.setWrapText(true);
-	desc.setStyle("-fx-background-color: bisque;");
+	Text desc = new Text(descString);
+	desc.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
+
+	String ingredString = String.format("\n\nIngredients: %s", inProd.getIngredient());
+	Text ingred = new Text(ingredString);
+	ingred.setFont(Font.font("Lucinda Sans", FontWeight.NORMAL, FontPosture.REGULAR, 14));
+	ingred.setFill(Color.BLACK);
 	descBox.setAlignment(Pos.TOP_LEFT);
 	descBox.setPadding(new Insets(5));
 	descBox.getChildren().add(desc);
-	String ingredString = String.format("\n\nIngredients: %s", inProd.getIngredient());
-	desc.appendText(ingredString);
+	descBox.getChildren().add(ingred);
 
 	// Borders
 	BorderWidths bs = new BorderWidths(1, 1, 1, 1);
@@ -809,15 +812,15 @@ public class Greeting extends Application {
 	// Product Name.
 	String prNameString = String.format("Product Name: %s", inProd.getProductName());
 	Text prName = new Text(prNameString);
-
+	prName.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
 	// Brand Name
 	String brNameString = String.format("Brand Name: %s", inProd.getBrandName());
 	Text brName = new Text(brNameString);
-
+	brName.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
 	// Price
 	String priceString = String.format("Price: %.2f", inProd.getPrice());
 	Text price = new Text(priceString);
-	price.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 16));
+	price.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
 	// Unit of Measure
 	String uomString = String.format("Unit of Measure: %s", inProd.getUnitOfMeasureEnum().toString());
 	Text uom = new Text(uomString);
