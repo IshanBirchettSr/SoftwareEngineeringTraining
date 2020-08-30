@@ -119,9 +119,11 @@ public class StoreConstants {
     /*
      * New Member Profile Photos
      */
-    public static final String MEMBERSHIP_PROFILE_IMAGE = "file:///" + APP_HOME + "/images/profile_%s.png";
+    public static final String MEMBERSHIP_PROFILE_IMAGE = "./images/profile_images/profile_%s.png";
+    public static final String NEW_MEMBERSHIP_PROFILE_IMAGE = "file:///" + APP_HOME
+	    + "/images/profile_images/profile_%s.png";
     public static final String MEMBERSHIP_DEFAULT_PROFILE_IMAGE = "file:///" + APP_HOME
-	    + "/images/profile_images/smile4camera1.png";
+	    + "/images/profile_images/smile4camera2.png";
 
     /*
      * Please keep deptNames in alphabetical order

@@ -4,7 +4,8 @@
 			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
 		</layout>
 	</appender>
-	<root level="info">
+	<logger name="com.github.sarxos.webcam" level="warn" />
+	<root level="warn">
 		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>

@@ -160,7 +160,7 @@ public class BookDept extends Department {
 		// iFileName,oldFilename.equals(iFileName));
 		continue;
 	    }
-	    System.out.println(iFileName);
+	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
 
 	    // Image View
@@ -178,7 +178,7 @@ public class BookDept extends Department {
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
+		    // System.out.printf("Image Click on %s\n", pV.getId());
 		    Product pd2 = bookProducts.get(pKey);
 		    Greeting.prodDetails(pd2, "books");
 

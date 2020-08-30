@@ -8,6 +8,7 @@
  */
 package customerservice;
 
+import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +20,7 @@ import javax.imageio.ImageIO;
 
 import com.github.sarxos.webcam.Webcam;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import util.StoreConstants;
 import util.YesNoInput;
@@ -240,11 +242,17 @@ public class MembershipSignUp {
 	this.phoneNumber = phoneNumber;
     }
 
-    public ImageView takePhoto() {
+    public Image takePhoto() {
 	Webcam webcam = Webcam.getDefault();
+	webcam.setViewSize(new Dimension(176, 144));
 	boolean camOpen = webcam.open();
-	ImageView iv = null;
+	Image iv = null;
 	if (camOpen == true) {
+	    try {
+		Thread.sleep(6000);
+	    } catch (InterruptedException e1) {
+		e1.printStackTrace();
+	    }
 	    BufferedImage bi = webcam.getImage();
 	    String pImage = null;
 	    try {
@@ -253,14 +261,24 @@ public class MembershipSignUp {
 		} else {
 		    System.out.printf("Phonenumber: %s\n", phoneNumber);
 		}
+
 		pImage = String.format(StoreConstants.MEMBERSHIP_PROFILE_IMAGE, phoneNumber);
-		System.out.printf("Filename and path: %s", pImage);
+		System.out.printf("Filename and path: %s\n", pImage);
+		// pImage = "profile_5083333556.png";
+		String newImage = String.format(StoreConstants.NEW_MEMBERSHIP_PROFILE_IMAGE, phoneNumber);
+
+		if (new File(newImage).exists() == true) {
+		    File fp = new File(newImage);
+		    fp.delete();
+		}
+
 		ImageIO.write(bi, "PNG", new File(pImage));
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
 	    webcam.close();
-	    iv = new ImageView(pImage);
+	    String newImage = String.format(StoreConstants.NEW_MEMBERSHIP_PROFILE_IMAGE, phoneNumber);
+	    iv = new Image(newImage);
 	}
 
 	return iv;

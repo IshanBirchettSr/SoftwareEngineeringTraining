@@ -75,6 +75,7 @@ public class Greeting extends Application {
     static Scene paymentScene = null;
     private static ImageView camPhotoView = null;
     Stage newWindow = null;
+    Stage newWindowMembership = null;
 
     /**
      * @return the parentStage
@@ -389,7 +390,6 @@ public class Greeting extends Application {
     }
 
     private void newMembership() {
-	Stage newWindow = null;
 
 	String wcl = String.format("%s Membership Sign Up", StoreConstants.STORE_NAME);
 	Text membershipTxt = new Text(wcl);
@@ -507,41 +507,74 @@ public class Greeting extends Application {
 	cameraButton.setAlignment(Pos.CENTER);
 	cameraButton.setAlignment(Pos.CENTER);
 	Image defaultImage = new Image(StoreConstants.MEMBERSHIP_DEFAULT_PROFILE_IMAGE);
-	defaultImage = null;
+	// defaultImage = null;
 	camPhotoView = new ImageView(defaultImage);
 	camPhotoView.setImage(defaultImage);
-	camPhotoView.maxWidth(50);
-	// camPhotoView.maxHeight(50);
+	camPhotoView.setFitWidth(176);
+	camPhotoView.setFitHeight(144);
+
 	EventHandler<ActionEvent> takePhotoEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		camPhotoView = newMemberCard.takePhoto();
+		Image pImage = newMemberCard.takePhoto();
+		camPhotoView.setImage(pImage);
 	    }
 	};
 
 	cameraButton.setOnAction(takePhotoEvent);
 	TextArea pText = new TextArea();
-	HBox photoPane = new HBox(10, pText, camPhotoView);
+	String photoIns = String.format(
+		"Press the \"Take Picture\" button below (3 second delay).  If you don't like your photo click again until you like it. \n\nPress \"Save\" button to complete the Sign Up process.  Your card will arrive in 5 - 10 Business days. "
+			+ " Meanwhile use your phone number.\nWelcome to the %s Family.",
+		StoreConstants.STORE_NAME, StoreConstants.TODAYS_MEMBER_DISCOUNT);
+	pText.setText(photoIns);
+	pText.setWrapText(true);
+	HBox viewPane = new HBox(camPhotoView);
+	viewPane.setStyle("-fx-background-color: black;");
+	viewPane.setAlignment(Pos.CENTER_LEFT);
+	HBox photoPane = new HBox(10, pText, viewPane);
+	photoPane.setAlignment(Pos.CENTER);
+	photoPane.setStyle("-fx-background-color: black;");
 	Button cancelButton = new Button("Cancel");
-	HBox photoButtons = new HBox(10, cameraButton, cancelButton);
+	EventHandler<ActionEvent> cancelEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		newWindowMembership.close();
+	    }
+	};
+	cancelButton.setOnAction(cancelEvent);
+
+	Button saveButton = new Button("Save");
+	EventHandler<ActionEvent> saveEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		// This is when we will write out the new member data.
+		newWindowMembership.close();
+	    }
+	};
+
+	saveButton.setOnAction(saveEvent);
+	HBox photoButtons = new HBox(20, cameraButton, cancelButton);
 	photoButtons.setAlignment(Pos.CENTER);
+
+	HBox saveBox = new HBox(20, saveButton);
+	saveBox.setAlignment(Pos.CENTER);
 
 	memSignUp.getChildren().add(photoPane);
 	memSignUp.getChildren().add(photoButtons);
+	memSignUp.getChildren().add(saveBox);
 	Scene signUpScene = new Scene(memSignUp, 450, 600);
-	newWindow = new Stage();
-	newWindow.setScene(signUpScene);
+	newWindowMembership = new Stage();
+	newWindowMembership.setScene(signUpScene);
 
 	// Specifies the modality for new window.
-	newWindow.initModality(Modality.WINDOW_MODAL);
+	newWindowMembership.initModality(Modality.WINDOW_MODAL);
 
 	// Specifies the owner Window (parent) for new window
-	newWindow.initOwner(parentStage);
+	newWindowMembership.initOwner(parentStage);
 
 	// Set position of second window, related to primary window.
-	newWindow.setX(parentStage.getX() + 25);
-	newWindow.setY(parentStage.getY() + 20);
+	newWindowMembership.setX(parentStage.getX() + 25);
+	newWindowMembership.setY(parentStage.getY() + 20);
 
-	newWindow.show();
+	newWindowMembership.show();
     }
 
     /**
