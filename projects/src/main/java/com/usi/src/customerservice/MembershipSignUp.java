@@ -21,7 +21,8 @@ import javax.imageio.ImageIO;
 import com.github.sarxos.webcam.Webcam;
 
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import util.StoreConstants;
 import util.YesNoInput;
 
@@ -238,7 +239,6 @@ public class MembershipSignUp {
      * @param mobilenumber the phoneNumber to set
      */
     public void setPhoneNumber(String phoneNumber) {
-	System.out.printf("Phone Number Entered %s\n", phoneNumber);
 	this.phoneNumber = phoneNumber;
     }
 
@@ -247,24 +247,21 @@ public class MembershipSignUp {
 	webcam.setViewSize(new Dimension(176, 144));
 	boolean camOpen = webcam.open();
 	Image iv = null;
-	if (camOpen == true) {
-	    try {
-		Thread.sleep(6000);
-	    } catch (InterruptedException e1) {
-		e1.printStackTrace();
-	    }
+	if (camOpen == true && phoneNumber != null) {
+
+	    System.out.println("Smile...");
+	    String ssound = StoreConstants.CAMERA_CLICK_SOUND;
+	    Media sound = new Media(ssound);
+	    MediaPlayer mediaPlayer = new MediaPlayer(sound);
+	    mediaPlayer.setAutoPlay(true);
+	    // mediaPlayer.play();
+	    System.out.println("Done");
+
 	    BufferedImage bi = webcam.getImage();
 	    String pImage = null;
 	    try {
-		if (phoneNumber == null) {
-		    System.out.println("Phone Number NULL");
-		} else {
-		    System.out.printf("Phonenumber: %s\n", phoneNumber);
-		}
 
 		pImage = String.format(StoreConstants.MEMBERSHIP_PROFILE_IMAGE, phoneNumber);
-		System.out.printf("Filename and path: %s\n", pImage);
-		// pImage = "profile_5083333556.png";
 		String newImage = String.format(StoreConstants.NEW_MEMBERSHIP_PROFILE_IMAGE, phoneNumber);
 
 		if (new File(newImage).exists() == true) {
@@ -276,11 +273,11 @@ public class MembershipSignUp {
 	    } catch (IOException e) {
 		e.printStackTrace();
 	    }
-	    webcam.close();
+
 	    String newImage = String.format(StoreConstants.NEW_MEMBERSHIP_PROFILE_IMAGE, phoneNumber);
 	    iv = new Image(newImage);
 	}
-
+	webcam.close();
 	return iv;
 
     }

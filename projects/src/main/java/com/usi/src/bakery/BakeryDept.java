@@ -212,7 +212,7 @@ public class BakeryDept extends Department {
 		// iFileName,oldFilename.equals(iFileName));
 		continue;
 	    }
-	    System.out.println(iFileName);
+	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
 
 	    // Image View
@@ -232,7 +232,7 @@ public class BakeryDept extends Department {
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
 		public void handle(MouseEvent e) {
-		    System.out.printf("Image Click on %s\n", pV.getId());
+		    // System.out.printf("Image Click on %s\n", pV.getId());
 		    Greeting.prodDetails(pd, "bakery");
 		}
 	    };
@@ -250,7 +250,7 @@ public class BakeryDept extends Department {
 		pLabel.setAlignment(Pos.CENTER);
 		columnIndex = 0;
 		rowIndex += 1;
-		System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
+		// System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
 
 		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
 		if (rowIndex == 0) {
@@ -258,10 +258,10 @@ public class BakeryDept extends Department {
 		} else {
 		    rowIndex += 1;
 		}
-		System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
+		// System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
 		oProdName = pd.getProductName();
 	    }
-	    System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
+	    // System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
 	    pGrid.add(pV, columnIndex, rowIndex);
 	    if (columnIndex < 5) {
 		columnIndex++;

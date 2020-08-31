@@ -124,6 +124,7 @@ public class StoreConstants {
 	    + "/images/profile_images/profile_%s.png";
     public static final String MEMBERSHIP_DEFAULT_PROFILE_IMAGE = "file:///" + APP_HOME
 	    + "/images/profile_images/smile4camera2.png";
+    public static final String CAMERA_CLICK_SOUND = "file:///" + APP_HOME + "/images/camera_click.mp3";
 
     /*
      * Please keep deptNames in alphabetical order

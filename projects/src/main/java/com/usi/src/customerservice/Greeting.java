@@ -516,7 +516,11 @@ public class Greeting extends Application {
 	EventHandler<ActionEvent> takePhotoEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
 		Image pImage = newMemberCard.takePhoto();
-		camPhotoView.setImage(pImage);
+		if (pImage == null) {
+		    camPhotoView.setImage(defaultImage);
+		} else {
+		    camPhotoView.setImage(pImage);
+		}
 	    }
 	};
 
@@ -529,6 +533,8 @@ public class Greeting extends Application {
 	pText.setText(photoIns);
 	pText.setWrapText(true);
 	HBox viewPane = new HBox(camPhotoView);
+	viewPane.setPadding(new Insets(0, 10, 0, 0));
+
 	viewPane.setStyle("-fx-background-color: black;");
 	viewPane.setAlignment(Pos.CENTER_LEFT);
 	HBox photoPane = new HBox(10, pText, viewPane);
@@ -733,6 +739,7 @@ public class Greeting extends Application {
 	String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, dept, inProd.getBrandName(),
 		inProd.getProductName());
 	String iVideoName = String.format(StoreConstants.PRODUCT_VIDEO, dept, bNameCat, pNameCat);
+	System.out.printf("%s\n%s\n", iFileName, iVideoName);
 	// Image View
 	Image pImage = new Image(iFileName);
 	ImageView pV = new ImageView();
@@ -894,7 +901,7 @@ public class Greeting extends Application {
 
 	VBox dPane = new VBox(pTopPane, pBottomPane, pButtons);
 	dPane.setStyle("-fx-background-color: gray;");
-	Scene pScene = new Scene(dPane, 600, 500);
+	Scene pScene = new Scene(dPane, 600, 550);
 
 	newWindow.setTitle(String.format("%s- Details", inProd.getProductName()));
 	newWindow.setScene(pScene);
