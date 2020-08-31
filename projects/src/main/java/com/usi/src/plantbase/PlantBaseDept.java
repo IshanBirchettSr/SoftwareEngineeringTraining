@@ -219,7 +219,7 @@ public class PlantBaseDept extends Department {
 		// iFileName,oldFilename.equals(iFileName));
 		continue;
 	    }
-	    System.out.println(iFileName);
+	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
 
 	    // Image View
@@ -257,7 +257,7 @@ public class PlantBaseDept extends Department {
 		pLabel.setAlignment(Pos.CENTER);
 		columnIndex = 0;
 		rowIndex += 1;
-		System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
+		// System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
 
 		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
 		if (rowIndex == 0) {
@@ -265,10 +265,10 @@ public class PlantBaseDept extends Department {
 		} else {
 		    rowIndex += 1;
 		}
-		System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
+		// System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
 		oProdName = pd.getProductName();
 	    }
-	    System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
+	    // System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
 	    pGrid.add(pV, columnIndex, rowIndex);
 
 	    if (columnIndex < 5) {
