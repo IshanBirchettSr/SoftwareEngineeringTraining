@@ -109,6 +109,7 @@ public class StoreConstants {
     public static final String TOILETRIESDEPT = "file:///" + APP_HOME + "/images/Toiletry_Dept.png";
     public static final String TOYSDEPT = "file:///" + APP_HOME + "/images/Toys_Dept.png";
     public static final String TUPPERWAREDEPT = "file:///" + APP_HOME + "/images/Tupperware_Dept.png";
+    public static final String CASH_REGISTER = "file:///" + APP_HOME + "/images/Cashregister.png";
     /*
      * Product Image
      */

@@ -39,6 +39,7 @@ public class Receipt extends StorePrinterFx {
     List<Product> prods = null;
     paymentType payType = null;
     String valueEntered = null;
+    double money = 0;
 
     /**
      * Constructor
@@ -99,12 +100,12 @@ public class Receipt extends StorePrinterFx {
 	Text sText = new Text(sTextString);
 	sText.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 15));
 	sText.setStroke(Color.BLACK);
-	sText.setStyle("-fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, green 0%, lime 50%);");
+	sText.setStyle("-fx-fill: linear-gradient(to right, red, orange , yellow, lime, purple);");
 	sText.setX(30);
 	sText.setStrokeWidth(1);
 	sText.setY(50);
 	HBox sBox = new HBox(sText);
-	sBox.setAlignment(Pos.TOP_CENTER);
+	sBox.setAlignment(Pos.CENTER);
 
 	String st = ("Receipt");
 	Text str = new Text(st);
@@ -168,7 +169,7 @@ public class Receipt extends StorePrinterFx {
 			    totalQuantity, cPd.getPrice());
 		    item = new Text(listItem);
 		    item.setX(30);
-		    item.setY(75);
+		    item.setY(200);
 		    item.setFill(Color.BLUE);
 		    item.setFont(Font.font("Arial", FontPosture.REGULAR, 6));
 		    itemList.getChildren().add(item);
@@ -184,7 +185,7 @@ public class Receipt extends StorePrinterFx {
 	    item = new Text();
 	    item.setText("No items in your Smart Cart.");
 	    item.setX(30);
-	    item.setY(75);
+	    item.setY(200);
 	    item.setFill(Color.BLUE);
 	    item.setFont(Font.font("Arial", FontPosture.REGULAR, 6));
 
@@ -204,6 +205,8 @@ public class Receipt extends StorePrinterFx {
 	totalToday.setX(30);
 	totalToday.setY(250);
 	itemList.getChildren().add(totalToday);
+
+	isThereChange(total, money);
 
 	String thankYouMessage = String.format("%s %s thank you for your purchase today!",
 		cust.getmCard().getFirstName(), cust.getmCard().getLastName());
@@ -262,6 +265,25 @@ public class Receipt extends StorePrinterFx {
 
     public void setProdList(List<Product> prodList) {
 	prods = prodList;
+    }
+
+    public static double isThereChange(double total, double money) {
+
+	double change = 0.0f;
+	change = money - total;
+
+	if (change > 0)
+	    ;
+	{
+	    System.out.printf("Your change is: %4.2f\n", change);
+	}
+	if (change < 0) {
+	    System.out.printf("You still owe: %2.2f\n", change);
+	} else {
+	    System.out.printf("Thank you for purchase. No change: %2.2f, Have a great day!\n", change);
+	}
+	return change;
+
     }
 
 }
