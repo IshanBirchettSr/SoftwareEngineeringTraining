@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -45,6 +46,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import smartcart.Receipt;
 import smartcart.StoreCheckOut;
 import util.DataCsvLoad;
 import util.Department;
@@ -928,10 +930,10 @@ public class Greeting extends Application {
 	welcomeTxt.setText(pKey);
 	welcomeTxt.setX(50.00);
 	welcomeTxt.setY(80.00);
-	welcomeTxt.setFill(Color.BLUE);
+	welcomeTxt.setFill(Color.WHITE);
 	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
 	HBox pg = new HBox(20, welcomeTxt);
-	pg.setAlignment(Pos.TOP_CENTER);
+	pg.setAlignment(Pos.CENTER);
 
 	String cashierImage = StoreConstants.COVID_CASHIER;
 
@@ -1032,6 +1034,7 @@ public class Greeting extends Application {
 	    public void handle(ActionEvent e) {
 		VBox cBox = addCashPaymentInput(paymentType.CASH);
 		ccBox.getChildren().add(cBox);
+
 	    }
 
 	};
@@ -1057,6 +1060,7 @@ public class Greeting extends Application {
 	HBox swipeBox = new HBox(swipe);
 	swipeBox.setAlignment(Pos.BOTTOM_CENTER);
 	ccBox.getChildren().add(swipeBox);
+	ccBox.setStyle("-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #dc143c, #32cd32);");
 	HBox payButtons = new HBox(10, visa, mc, ebt, cash);
 	payButtons.setAlignment(Pos.BOTTOM_CENTER);
 	payButtons.setSpacing(30);
@@ -1064,7 +1068,6 @@ public class Greeting extends Application {
 	payButtons.setAlignment(Pos.BOTTOM_CENTER);
 
 	ccBox.getChildren().add(payButtons);
-
 	paymentScene = new Scene(ccBox, 500, 550);
 
 	// Need to configure way to link running total to this method
@@ -1120,6 +1123,7 @@ public class Greeting extends Application {
 	payNode.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
+		doYouHaveChangePopUpWindow();
 		StoreCheckOut checkoutLane01 = new StoreCheckOut();
 		checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
 		newWindowPopup.close();
@@ -1194,6 +1198,7 @@ public class Greeting extends Application {
 	payNode.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
+		doYouHaveChangePopUpWindow();
 		StoreCheckOut checkoutLane01 = new StoreCheckOut();
 		checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
 		newWindowPopup.close();
@@ -1225,6 +1230,79 @@ public class Greeting extends Application {
 	cashBox.getChildren().add(cashInfo);
 	cashBox.getChildren().add(payNode);
 	return cashBox;
+    }
+
+    public static void doYouHaveChangePopUpWindow() {
+
+	Image cashRegister = new Image(StoreConstants.CASH_REGISTER);
+	ImageView cr = new ImageView();
+	cr.setImage(cashRegister);
+	cr.setFitWidth(500);
+	cr.setPreserveRatio(true);
+	cr.setSmooth(true);
+	cr.setCache(true);
+	VBox crBox = new VBox(cr);
+	crBox.setAlignment(Pos.CENTER);
+
+	Stage newWindow = new Stage();
+
+	Label cents = new Label("Your Change is %.2f/n");
+	cents.setMinWidth(500);
+	cents.setAlignment(Pos.CENTER);
+	cents.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	cents.setStyle("-fx-background-color: lightblue");
+	VBox changeBox = new VBox(crBox, cents);
+	changeBox.setAlignment(Pos.CENTER);
+
+	String play = ("Thank you for shopping today!!\n Would you like your receipt on paper or emailed to you?");
+	Text playTxt = new Text(play);
+	playTxt.setText(play);
+	playTxt.setX(50.00);
+	playTxt.setY(80.00);
+	playTxt.setFill(Color.BLACK);
+	playTxt.autosize();
+	playTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	VBox scriptBox = new VBox(playTxt);
+	scriptBox.setAlignment(Pos.CENTER);
+
+	Button printReciept = new Button("print");
+	EventHandler<ActionEvent> printTransaction = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		newWindowPopup.close();
+	    }
+	};
+
+	printReciept.setOnAction(printTransaction);
+
+	Button emailReciept = new Button("email");
+	EventHandler<ActionEvent> emailTransaction = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		newWindowPopup.close();
+	    }
+	};
+
+	emailReciept.setOnAction(emailTransaction);
+
+	HBox chooseButtons = new HBox(printReciept, emailReciept);
+	chooseButtons.setAlignment(Pos.BOTTOM_CENTER);
+
+	VBox choose = new VBox(changeBox, scriptBox, chooseButtons);
+	choose.setStyle("-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, gray, lightblue);");
+	choose.setAlignment(Pos.CENTER);
+	Scene chooseScene = new Scene(choose, 600, 650);
+
+	// Need to configure way to link running total to this method
+	newWindow.setTitle(String.format("Would you like your Receipt printed or emailed to you today?"));
+	newWindow.setScene(chooseScene);
+
+	// Specifies the modality for new window.
+	newWindow.initModality(Modality.WINDOW_MODAL);
+
+	// Specifies the owner Window (parent) for new window
+	newWindow.initOwner(parentStage);
+	newWindow.setResizable(false);
+
+	newWindow.show();
     }
 
     private static void viewCart() {
