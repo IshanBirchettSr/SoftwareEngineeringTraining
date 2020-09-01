@@ -3,6 +3,6 @@
 Purpose Driven Life , Books , OUNCES , UUID , 1 , NA , Rick Warren , 3 , 12.99 , NA , paper , 100 , inspirational book
 The 5 Love Languages , Books , OUNCES , UUID , 1 , NA , Gary Chapman , 5 , 19.99 , NA , paper , 150 , inspirational book
 The Case of Faith , Books , OUNCES , UUID , 1 , NA , Lee Strobel , 5 , 11.99 , NA , paper , 150 , inspirational book
-Desiring God , Books , OUNCES , UUID , 1 , NA , John Piper , 5 , 13.99 , NA , paper , 300 , inspirational book
 God at Work , Books , OUNCES , UUID , 1 , NA , Ken Costa   , 3 , 21.99 , NA , paper , 150 , inspirational book
 Battlefield of the Mind , Books , OUNCES , UUID , 1 , NA , Joyce Meyer , 4 , 23.99 , NA , paper , 150 , devotional
+Desiring God, Books, OUNCES, UUID, 1, NA, John Piper, 5, 13.99, NA, paper, 300, Inspirational Book
