@@ -804,7 +804,7 @@ public class Greeting extends Application {
 	descBox.getChildren().add(ingred);
 
 	// Borders
-	BorderWidths bs = new BorderWidths(1, 1, 1, 1);
+	BorderWidths bs = new BorderWidths(2, 2, 2, 2);
 	Color bColor = Color.GRAY;
 
 	descBox.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
