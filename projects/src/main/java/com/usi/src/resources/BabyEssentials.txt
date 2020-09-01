@@ -1,6 +1,6 @@
 /*BabyEssentials.txt
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-Diapers , Baby_Essentials , POUNDS , UUID , 128, Size 6 , Huggies Movers, 3 , 17.99 , WHITE , Cotton , 100 , fits 25-30lb baby
+Diapers , Baby_Essentials , POUNDS , UUID , 128, Size 6 , Huggies Movers, 3 , 17.99 , WHITE , Cotton Polyurethane polypropylene polyethylene and colorants, 100 , fits 25-30lb baby
 Diapers , Baby_Essentials , POUNDS , UUID , 20 , Size 2 , Pampers Baby Dry , 1.2 , 7.99 , WHITE , Cotton , 150 ,fits 12-18lb baby
 Formula , Baby_Essentials , OUNCES , UUID , 1 , NA , Enfamil , 27.4 , 37.99 , WHITE , powder , 300 ,sensitive tummy
 Formula , Baby_Essentials , OUNCES , UUID , 1 , NA , Gerber , 12 , 18.99 , WHITE , powder , 150 , regluar
@@ -11,6 +11,6 @@ Baby Wipes , Baby_Essentials , OUNCES , UUID , 856 , Combo pack , HuggiesPak , 1
 Baby Food , Baby_Essentials , OUNCES , UUID , 2 , Stage 1 , Gerber Peach , 2 , 3.99 , ORANGE , peach , 150 ,babies 1st foods
 Baby Food , Baby_Essentials , OUNCES , UUID , 4 , Stage 2 , Gerber Apple , 4 , 4.99 , BEIGE , apple , 150 ,babies 1st foods
 Baby Food , Baby_Essentials , OUNCES , UUID , 2 , Stage 3 ,Gerber Beech Nut Banana, 2 , 2.99 , BEIGE , banana , 150 , toddlers first
-Baby Food , Baby_Essentials , OUNCES , UUID , 2 , Stage 3 , Gerber Apple Blueberry , 6 , 3.99 , BLUE , blueberry , 150 , toddlers first
+Baby Food , Baby_Essentials , OUNCES , UUID , 2 , Stage 3 , Gerber Apple Blueberry , 6 , 3.99 , BLUE , APPLES BLUEBERRIES VITAMIN C (ASCORBIC ACID) VITAMIN E (ALPHA TOCOPHERYL ACETATE) CITRIC ACID , 150 , toddlers first
 Bath Pod , Baby_Essentials , OUNCES , UUID , 2 , Stage 3 , Fisher Price , NA , 23.99 , BLUE , NA, 150 , bath item
 Car Seat , Baby_Essentials , POUNDS , UUID , 2 , NA , Fisher Price , NA , 63.99 , BLACK , NA, 50 , car seat
