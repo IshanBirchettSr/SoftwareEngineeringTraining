@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -104,9 +105,19 @@ public class Receipt extends StorePrinterFx {
     public VBox printNode() {
 	prods = cust.getListOfProds();
 
+	Image StoreIcon = new Image(StoreConstants.SC_ICON_FULL);
+	ImageView si = new ImageView();
+	si.setFitWidth(25);
+	si.setImage(StoreIcon);
+	si.setPreserveRatio(true);
+	si.setSmooth(true);
+	si.setCache(true);
+	HBox sp = new HBox(si);
+	sp.setAlignment(Pos.TOP_CENTER);
+
 	String sTextString = String.format("%s", StoreConstants.STORE_NAME);
 	Text sText = new Text(sTextString);
-	sText.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 15));
+	sText.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 20));
 	sText.setStroke(Color.BLACK);
 	sText.setStyle("-fx-fill: linear-gradient(to right, red, orange , yellow, lime, purple);");
 	sText.setX(30);
@@ -115,9 +126,27 @@ public class Receipt extends StorePrinterFx {
 	HBox sBox = new HBox(sText);
 	sBox.setAlignment(Pos.CENTER);
 
+	Line line = new Line();
+	line.setStartX(100.0f);
+	line.setStartY(150.0f);
+	line.setEndX(500.0f);
+	line.setEndY(150.0f);
+	line.setStrokeWidth(1);
+	line.setStroke(Color.BLACK);
+	line.getStrokeDashArray().addAll(2d);
+
+	Line line1 = new Line();
+	line1.setStartX(100.0f);
+	line1.setStartY(150.0f);
+	line1.setEndX(500.0f);
+	line1.setEndY(150.0f);
+	line1.setStrokeWidth(1);
+	line1.setStroke(Color.BLACK);
+	line1.getStrokeDashArray().addAll(2d);
+
 	String st = ("Receipt");
 	Text str = new Text(st);
-	str.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 8));
+	str.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 10));
 	str.setFill(Color.BLACK);
 	str.setX(30);
 	str.setY(50);
@@ -129,16 +158,6 @@ public class Receipt extends StorePrinterFx {
 	ssd.setFont(Font.font("Arial", FontPosture.REGULAR, 3));
 	HBox date = new HBox(ssd);
 	date.setAlignment(Pos.BASELINE_LEFT);
-
-	Image StoreIcon = new Image(StoreConstants.SC_ICON_FULL);
-	ImageView si = new ImageView();
-	si.setFitWidth(25);
-	si.setImage(StoreIcon);
-	si.setPreserveRatio(true);
-	si.setSmooth(true);
-	si.setCache(true);
-	HBox sp = new HBox(si);
-	sp.setAlignment(Pos.TOP_CENTER);
 
 	VBox itemList = new VBox(2);
 
@@ -173,13 +192,13 @@ public class Receipt extends StorePrinterFx {
 		// System.out.printf("Else %b\n", firstTime);
 		if (firstTime == true) {
 
-		    String listItem = String.format("Product: %s, Quantity: %s, Price: %.2f\n", cPd.getProductName(),
-			    totalQuantity, cPd.getPrice());
+		    String listItem = String.format(" Quantity: %s	, Product: %s		, Price: %.2f\n",
+			    totalQuantity, cPd.getProductName(), cPd.getPrice());
 		    item = new Text(listItem);
 		    item.setX(30);
 		    item.setY(200);
 		    item.setFill(Color.BLUE);
-		    item.setFont(Font.font("Arial", FontPosture.REGULAR, 6));
+		    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
 		    itemList.getChildren().add(item);
 		    itemList.setAlignment(Pos.BASELINE_LEFT);
 		    total += cPd.getPrice();
@@ -199,8 +218,8 @@ public class Receipt extends StorePrinterFx {
 
 	    total += oldPd.getPrice();
 	    if (oldPd != null) {
-		item.setText(String.format("Product: %s, Quantity: %s, Price: %.2f\n", oldPd.getProductName(),
-			totalQuantity, oldPd.getPrice()));
+		item.setText(String.format("Quantity: %s	, Product: %s		,  Price: %.2f\n",
+			totalQuantity, oldPd.getProductName(), oldPd.getPrice()));
 	    }
 	    itemList.getChildren().add(item);
 	    firstTime = false;
@@ -209,7 +228,7 @@ public class Receipt extends StorePrinterFx {
 	double totalAmount = total;
 	String tt = String.format("Your total today is $%.2f", totalAmount);
 	Text totalToday = new Text(tt);
-	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
+	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	totalToday.setX(30);
 	totalToday.setY(250);
 	itemList.getChildren().add(totalToday);
@@ -243,7 +262,7 @@ public class Receipt extends StorePrinterFx {
 	HBox tBox = new HBox(tText);
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
-	VBox receiptNode = new VBox(5, sBox, r, date, sp, itemList, thankYouBox, tBox);
+	VBox receiptNode = new VBox(5, sp, sBox, line, r, date, itemList, line1, thankYouBox, tBox);
 
 	/* tell the caller that this page is part of the printed document */
 	return receiptNode;
