@@ -38,8 +38,8 @@ public class Receipt extends StorePrinterFx {
     String member = membershipId;
     List<Product> prods = null;
     paymentType payType = null;
-    String valueEntered = null;
-    double money = 0;
+    double valueEnteredCash = 0.00f;
+    String valueEnteredCard = null;
 
     /**
      * Constructor
@@ -80,15 +80,23 @@ public class Receipt extends StorePrinterFx {
     /**
      * @return the valueEntered
      */
-    protected String getValueEntered() {
-	return valueEntered;
+    protected double getValueEnteredCash() {
+	return valueEnteredCash;
+    }
+
+    protected String getValueEnteredCard() {
+	return valueEnteredCard;
     }
 
     /**
-     * @param valueEntered the valueEntered to set
+     * @param money the valueEntered to set
      */
-    protected void setValueEntered(String valueEntered) {
-	this.valueEntered = valueEntered;
+    protected void setValueEnteredCard(String money) {
+	this.valueEnteredCard = money;
+    }
+
+    protected void setValueEnteredCash(double money) {
+	this.valueEnteredCash = money;
     }
 
     private static int counter = 0;
@@ -206,8 +214,6 @@ public class Receipt extends StorePrinterFx {
 	totalToday.setY(250);
 	itemList.getChildren().add(totalToday);
 
-	isThereChange(total, money);
-
 	String thankYouMessage = String.format("%s %s thank you for your purchase today!",
 		cust.getmCard().getFirstName(), cust.getmCard().getLastName());
 	Text thankYouText = new Text(thankYouMessage);
@@ -218,7 +224,18 @@ public class Receipt extends StorePrinterFx {
 	HBox thankYouBox = new HBox(thankYouText);
 	thankYouBox.setAlignment(Pos.BASELINE_LEFT);
 
-	String tTextString = String.format("Thank you for shopping at the %s today!", StoreConstants.STORE_NAME);
+	String tTextString = null;
+	double ct = isThereChange(total, valueEnteredCash);
+	double cct = isThereChange(total, valueEnteredCard);
+
+	if (ct >= 0.00f) {
+	    tTextString = String.format("Thank you for shopping at the %s today! Your change is %.2f",
+		    StoreConstants.STORE_NAME, ct);
+	} else if (cct == 0.00f) {
+	    tTextString = String.format("Thank you for shopping at the %s today! Your purchase of %.2f is approved.",
+		    StoreConstants.STORE_NAME, total);
+	}
+
 	Text tText = new Text(tTextString);
 	tText.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
 	totalToday.setX(30);
@@ -270,18 +287,18 @@ public class Receipt extends StorePrinterFx {
     public static double isThereChange(double total, double money) {
 
 	double change = 0.0f;
+	System.out.printf("total %.2f money %.2f", total, money);
 	change = money - total;
 
-	if (change > 0)
-	    ;
-	{
-	    System.out.printf("Your change is: %4.2f\n", change);
-	}
-	if (change < 0) {
-	    System.out.printf("You still owe: %2.2f\n", change);
-	} else {
-	    System.out.printf("Thank you for purchase. No change: %2.2f, Have a great day!\n", change);
-	}
+	return change;
+
+    }
+
+    public static double isThereChange(double total, String card) {
+
+	double change = 0.0f;
+	System.out.printf("total %.2f money %.2f", total, change);
+
 	return change;
 
     }
