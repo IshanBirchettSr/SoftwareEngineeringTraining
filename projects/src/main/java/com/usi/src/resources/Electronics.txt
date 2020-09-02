@@ -1,5 +1,6 @@
 /*Electronics
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
+Touch Screen Laptop, Electronics , POUNDS, UUID, 1, 15.6 Touch-Screen Laptop,HP , 5, 587.99, RED, Dr. Dre Hardware, 10, 2.2GHZ 4GB 1 TB WIN 10
 Ipad , Electronics , POUNDS , UUID , 1 , 10.2 inch screen , Apple , 1.06 , 279.00 , GRAY , Metal , 500 , 32 GB Memory/0 GB Ram/7th Genereation
 Ipad , Electronics , OUNCES , UUID , 1 , 10.5 inch screen , Apple2 , 28.16 , 469.00 , GOLD , Metal , 350 , 64 GB Memory/0 GB Ram 
 Ipad , Electronics , POUNDS , UUID , 1 , 10.2 inch screen , Apple3 , 1.06 , 379.00 , WHITE , Steel ,  50 , 128 GB/0 GB Ram/ 7th Generation
