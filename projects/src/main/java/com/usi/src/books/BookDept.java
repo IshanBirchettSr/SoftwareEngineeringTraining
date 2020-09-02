@@ -160,7 +160,7 @@ public class BookDept extends Department {
 		// iFileName,oldFilename.equals(iFileName));
 		continue;
 	    }
-	    System.out.println(iFileName);
+	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
 
 	    // Image View
