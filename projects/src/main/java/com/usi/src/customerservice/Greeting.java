@@ -799,9 +799,9 @@ public class Greeting extends Application {
 	desc.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
 
 	String ingredString = String.format("\n\nIngredients: %s", inProd.getIngredient());
-	Text ingred = new Text(ingredString);
+	TextArea ingred = new TextArea(ingredString);
 	ingred.setFont(Font.font("Lucinda Sans", FontWeight.NORMAL, FontPosture.REGULAR, 14));
-	ingred.setFill(Color.BLACK);
+	ingred.setWrapText(true);
 	descBox.setAlignment(Pos.TOP_LEFT);
 	descBox.setPadding(new Insets(5));
 	descBox.getChildren().add(desc);
