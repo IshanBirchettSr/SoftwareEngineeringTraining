@@ -245,10 +245,10 @@ public class Receipt extends StorePrinterFx {
 
 	double totalAmount = total;
 	String tt = String.format("Your total today is $%.2f", totalAmount);
-	Text totalToday = new Text(tt);
-	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
-	totalToday.setX(30);
-	totalToday.setY(250);
+	Text subtotalToday = new Text(tt);
+	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	subtotalToday.setX(30);
+	subtotalToday.setY(250);
 
 	TilePane adt = new TilePane();
 
@@ -264,9 +264,9 @@ public class Receipt extends StorePrinterFx {
 	addTax.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	addTax.setX(30);
 	addTax.setY(250);
-	adt.getChildren().add(addTax);
+	;
 
-	VBox taxpane = new VBox(5, amountTendered, addTax);
+	VBox taxpane = new VBox(5, amountTendered);
 	adt.getChildren().add(taxpane);
 	adt.setAlignment(Pos.BASELINE_RIGHT);
 
@@ -274,9 +274,9 @@ public class Receipt extends StorePrinterFx {
 		cust.getmCard().getFirstName(), cust.getmCard().getLastName());
 	Text thankYouText = new Text(thankYouMessage);
 	thankYouText.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
-	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
-	totalToday.setX(30);
-	totalToday.setY(300);
+	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
+	subtotalToday.setX(30);
+	subtotalToday.setY(300);
 	HBox thankYouBox = new HBox(thankYouText);
 	thankYouBox.setAlignment(Pos.BASELINE_LEFT);
 
@@ -301,13 +301,14 @@ public class Receipt extends StorePrinterFx {
 	}
 
 	Text tText = new Text(tTextString);
-	tText.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
-	totalToday.setX(30);
-	totalToday.setY(300);
+	tText.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	subtotalToday.setX(30);
+	subtotalToday.setY(300);
 	HBox tBox = new HBox(tText);
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
-	VBox receiptNode = new VBox(5, sp, sBox, line, r, tp, line1, totalToday, adt, thankYouBox, tBox, date);
+	VBox receiptNode = new VBox(5, sp, sBox, line, r, tp, line1, subtotalToday, addTax, adt, thankYouBox, tBox,
+		date);
 
 	/* tell the caller that this page is part of the printed document */
 	return receiptNode;
