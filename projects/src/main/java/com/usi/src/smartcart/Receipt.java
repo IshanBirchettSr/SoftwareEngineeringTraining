@@ -366,11 +366,11 @@ public class Receipt extends StorePrinterFx {
 	prods = prodList;
     }
 
-    public static double isThereChange(double addTaxToTotal, double money) {
+    public static double isThereChange(double total, double money) {
 
 	double change = 0.0f;
-	System.out.printf("total %.2f money %.2f", addTaxToTotal, money);
-	if (addTaxToTotal >= money) {
+	System.out.printf("total %.2f money %.2f", total, money);
+	if (total >= money) {
 	    String.format("Thank you for shopping at the %s today! Your change is %.2f", StoreConstants.STORE_NAME,
 		    change);
 	} else {
@@ -378,19 +378,19 @@ public class Receipt extends StorePrinterFx {
 		    money);
 	}
 
-	change = money - addTaxToTotal;
+	change = money - total;
 
 	return change;
 
     }
 
-    public static double isThereChange(double addTaxToTotal, String card) {
+    public static double isThereChange(double total, String card) {
 
 	double change = 0.0f;
-	System.out.printf("total %.2f money %.2f", addTaxToTotal, change);
-	if (addTaxToTotal >= 0.00f) {
+	System.out.printf("total %.2f money %.2f", total, change);
+	if (total >= 0.00f) {
 	    String.format("Thank you for shopping at the %s today! Your purchase of %.2f has been approved",
-		    StoreConstants.STORE_NAME, addTaxToTotal);
+		    StoreConstants.STORE_NAME, total);
 
 	}
 
