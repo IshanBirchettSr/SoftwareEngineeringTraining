@@ -182,7 +182,7 @@ public class Receipt extends StorePrinterFx {
 		    item.setFont(Font.font("Arial", FontPosture.REGULAR, 6));
 		    itemList.getChildren().add(item);
 		    itemList.setAlignment(Pos.BASELINE_LEFT);
-		    total += cPd.getPrice();
+		    total += (totalQuantity * oldPd.getPrice());
 		    totalQuantity = 1;
 		    oldPn = cPd.getProductName();
 		    oldPd = cPd;
@@ -287,7 +287,7 @@ public class Receipt extends StorePrinterFx {
     public static double isThereChange(double total, double money) {
 
 	double change = 0.0f;
-	System.out.printf("total %.2f money %.2f", total, money);
+	System.out.printf("Cash: total %.2f money %.2f\n", total, money);
 	change = money - total;
 
 	return change;
@@ -297,7 +297,7 @@ public class Receipt extends StorePrinterFx {
     public static double isThereChange(double total, String card) {
 
 	double change = 0.0f;
-	System.out.printf("total %.2f money %.2f", total, change);
+	System.out.printf("Card: total %.2f money %.2f\n", total, change);
 
 	return change;
 
