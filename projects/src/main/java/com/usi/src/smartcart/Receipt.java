@@ -13,9 +13,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -155,11 +155,22 @@ public class Receipt extends StorePrinterFx {
 
 	String sd = String.format("%s", new Date());
 	Text ssd = new Text(sd);
-	ssd.setFont(Font.font("Arial", FontPosture.REGULAR, 3));
+	ssd.setFont(Font.font("Arial", FontPosture.REGULAR, 5));
 	HBox date = new HBox(ssd);
-	date.setAlignment(Pos.BASELINE_LEFT);
+	date.setAlignment(Pos.BOTTOM_CENTER);
 
-	VBox itemList = new VBox(2);
+	String quantity = ("Quantity");
+	String description = ("Description");
+	String price = ("Price");
+	Text tile = new Text(quantity);
+	tile.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	Text tile2 = new Text(description);
+	tile2.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	Text tile3 = new Text(price);
+	tile3.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	HBox tiles = new HBox(40, tile, tile2, tile3);
+
+	// VBox itemList = new VBox(2);
 
 	List<Product> pList = cust.getCart().getProductList();
 	int totalQuantity = 1;
@@ -168,6 +179,12 @@ public class Receipt extends StorePrinterFx {
 	String oldPn = "no name";
 	Product oldPd = null;
 	Text item = null;
+	TilePane tp = new TilePane();
+	tp.getChildren().add(tiles);
+	tp.setAlignment(Pos.BASELINE_CENTER);
+//	tp.setVgap(8);
+	tp.setHgap(5);
+	tp.setMaxWidth(10);
 
 	if (pList == null) {
 	    System.out.println("pList is null\n");
@@ -192,15 +209,15 @@ public class Receipt extends StorePrinterFx {
 		// System.out.printf("Else %b\n", firstTime);
 		if (firstTime == true) {
 
-		    String listItem = String.format(" Quantity: %s	, Product: %s		, Price: %.2f\n",
+		    String listItem = String.format("Qty: %s     	 Product: %s    	  Price: %.2f\n",
 			    totalQuantity, cPd.getProductName(), cPd.getPrice());
 		    item = new Text(listItem);
 		    item.setX(30);
-		    item.setY(200);
-		    item.setFill(Color.BLUE);
+		    item.setY(30);
+		    item.setFill(Color.BLACK);
 		    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
-		    itemList.getChildren().add(item);
-		    itemList.setAlignment(Pos.BASELINE_LEFT);
+		    tp.getChildren().add(item);
+		    tp.setAlignment(Pos.BASELINE_LEFT);
 		    total += cPd.getPrice();
 		    totalQuantity = 1;
 		    oldPn = cPd.getProductName();
@@ -210,18 +227,19 @@ public class Receipt extends StorePrinterFx {
 	}
 	if (firstTime == true) {
 	    item = new Text();
-	    item.setText("No items in your Smart Cart.");
 	    item.setX(30);
-	    item.setY(200);
+	    item.setY(30);
 	    item.setFill(Color.BLUE);
-	    item.setFont(Font.font("Arial", FontPosture.REGULAR, 6));
+	    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
 
 	    total += oldPd.getPrice();
 	    if (oldPd != null) {
-		item.setText(String.format("Quantity: %s	, Product: %s		,  Price: %.2f\n",
-			totalQuantity, oldPd.getProductName(), oldPd.getPrice()));
+		item.setText(String.format("Qty: %s     	 Product: %s     	 Price: %.2f\n", totalQuantity,
+			oldPd.getProductName(), oldPd.getPrice()));
 	    }
-	    itemList.getChildren().add(item);
+
+	    tp.getChildren().add(item);
+	    tp.setAlignment(Pos.BASELINE_LEFT);
 	    firstTime = false;
 	}
 
@@ -231,12 +249,31 @@ public class Receipt extends StorePrinterFx {
 	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	totalToday.setX(30);
 	totalToday.setY(250);
-	itemList.getChildren().add(totalToday);
+
+	TilePane adt = new TilePane();
+
+	String at = String.format("Amount Tendered: $%.2f", getValueEnteredCash());
+	Text amountTendered = new Text(at);
+	amountTendered.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	amountTendered.setX(30);
+	amountTendered.setY(250);
+
+	double tax = 6.3;
+	String add = String.format("Tax: $%.2f", tax);
+	Text addTax = new Text(add);
+	addTax.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	addTax.setX(30);
+	addTax.setY(250);
+	adt.getChildren().add(addTax);
+
+	VBox taxpane = new VBox(5, amountTendered, addTax);
+	adt.getChildren().add(taxpane);
+	adt.setAlignment(Pos.BASELINE_RIGHT);
 
 	String thankYouMessage = String.format("%s %s thank you for your purchase today!",
 		cust.getmCard().getFirstName(), cust.getmCard().getLastName());
 	Text thankYouText = new Text(thankYouMessage);
-	thankYouText.setFont(Font.font("Arial", FontPosture.REGULAR, 5));
+	thankYouText.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
 	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
 	totalToday.setX(30);
 	totalToday.setY(300);
@@ -250,9 +287,17 @@ public class Receipt extends StorePrinterFx {
 	if (ct >= 0.00f) {
 	    tTextString = String.format("Thank you for shopping at the %s today! Your change is %.2f",
 		    StoreConstants.STORE_NAME, ct);
-	} else if (cct == 0.00f) {
-	    tTextString = String.format("Thank you for shopping at the %s today! Your purchase of %.2f is approved.",
+	} else {
+	    tTextString = String.format("Thank you for shopping at the %s today! You still owe %.2f",
+		    StoreConstants.STORE_NAME, ct);
+	}
+	if (cct >= 0.00f) {
+	    tTextString = String.format(
+		    "Thank you for shopping at the %s today! Your purchase for %.2f has been approved",
 		    StoreConstants.STORE_NAME, total);
+	} else {
+	    tTextString = String.format("Thank you for shopping at the %s today! You still owe %.2f",
+		    StoreConstants.STORE_NAME, ct);
 	}
 
 	Text tText = new Text(tTextString);
@@ -262,7 +307,7 @@ public class Receipt extends StorePrinterFx {
 	HBox tBox = new HBox(tText);
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
-	VBox receiptNode = new VBox(5, sp, sBox, line, r, date, itemList, line1, thankYouBox, tBox);
+	VBox receiptNode = new VBox(5, sp, sBox, line, r, tp, line1, totalToday, adt, thankYouBox, tBox, date);
 
 	/* tell the caller that this page is part of the printed document */
 	return receiptNode;
@@ -307,6 +352,14 @@ public class Receipt extends StorePrinterFx {
 
 	double change = 0.0f;
 	System.out.printf("total %.2f money %.2f", total, money);
+	if (total >= money) {
+	    String.format("Thank you for shopping at the %s today! Your change is %.2f", StoreConstants.STORE_NAME,
+		    change);
+	} else {
+	    String.format("Thank you for shopping at the %s today! You still owe %.2f", StoreConstants.STORE_NAME,
+		    money);
+	}
+
 	change = money - total;
 
 	return change;
@@ -317,6 +370,11 @@ public class Receipt extends StorePrinterFx {
 
 	double change = 0.0f;
 	System.out.printf("total %.2f money %.2f", total, change);
+	if (total >= 0.00f) {
+	    String.format("Thank you for shopping at the %s today! Your purchase of %.2f has been approved",
+		    StoreConstants.STORE_NAME, total);
+
+	}
 
 	return change;
 
