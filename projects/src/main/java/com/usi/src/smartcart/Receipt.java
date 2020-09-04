@@ -172,11 +172,11 @@ public class Receipt extends StorePrinterFx {
 	String description = ("Description");
 	String price = ("Price");
 	Text tile = new Text(quantity);
-	tile.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	tile.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	Text tile2 = new Text(description);
-	tile2.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	tile2.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	Text tile3 = new Text(price);
-	tile3.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	tile3.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	HBox tiles = new HBox(40, tile, tile2, tile3);
 
 	// VBox itemList = new VBox(2);
@@ -224,7 +224,7 @@ public class Receipt extends StorePrinterFx {
 		    item.setX(30);
 		    item.setY(30);
 		    item.setFill(Color.BLACK);
-		    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 10));
+		    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
 		    tp.getChildren().add(item);
 		    tp.setAlignment(Pos.BASELINE_LEFT);
 		    total += cPd.getPrice();
@@ -239,7 +239,7 @@ public class Receipt extends StorePrinterFx {
 	    item.setX(30);
 	    item.setY(30);
 	    item.setFill(Color.BLUE);
-	    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 10));
+	    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
 
 	    total += oldPd.getPrice();
 	    if (oldPd != null) {
