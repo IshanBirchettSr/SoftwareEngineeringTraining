@@ -1265,8 +1265,8 @@ public class Greeting extends Application {
 			StoreConstants.STORE_NAME, ct);
 	    }
 	} else {
-	    tTextString = String.format("Thank you your %s has been charged %.2f for shopping at the $%.2f", pt.name(),
-		    total);
+	    tTextString = String.format("Thank you your %s has been charged %.2f for shopping at the %s", pt.name(),
+		    total, StoreConstants.STORE_NAME);
 	}
 
 	Label cents = new Label(tTextString);

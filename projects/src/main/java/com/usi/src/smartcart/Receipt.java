@@ -251,15 +251,16 @@ public class Receipt extends StorePrinterFx {
 	    tp.setAlignment(Pos.BASELINE_LEFT);
 	    firstTime = false;
 	}
-      
+
 	double tax = 0.063;
-  double subtotalAmount = total;
+	double subtotalAmount = total;
 	double taxAmount = total * tax;
-	double totalAmount = taxAmount + total;
-  String sbt = String.format("SubTotal: $%.2f", subtotalAmount);
+	double totalAmount = taxAmount + subtotalAmount;
+	String sbt = String.format("SubTotal: $%.2f", subtotalAmount);
 	String tt = String.format("Your total today is $%.2f", totalAmount);
-  subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
-  Text subtotalToday = new Text(sbt);
+	Text subtotalToday = new Text(sbt);
+	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+
 	subtotalToday.setX(30);
 	subtotalToday.setY(250);
 	Text totalToday = new Text(tt);
@@ -281,8 +282,7 @@ public class Receipt extends StorePrinterFx {
 	addTax.setX(30);
 	addTax.setY(250);
 
-	Double addTaxToTotal = (subtotalAmount + tax);
-	String AmountDue = String.format("Your total today is $%.2f", addTaxToTotal);
+	String AmountDue = String.format("Your total today is $%.2f", totalAmount);
 	Text ad = new Text(AmountDue);
 	ad.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	ad.setX(30);
