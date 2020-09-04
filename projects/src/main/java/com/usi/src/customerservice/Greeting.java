@@ -78,8 +78,6 @@ public class Greeting extends Application {
     private static ImageView camPhotoView = null;
     Stage newWindow = null;
     Stage newWindowMembership = null;
-    static double money = 0.00f;
-    static String card = null;
 
     /**
      * @return the parentStage
@@ -799,9 +797,9 @@ public class Greeting extends Application {
 	desc.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
 
 	String ingredString = String.format("\n\nIngredients: %s", inProd.getIngredient());
-	TextArea ingred = new TextArea(ingredString);
+	Text ingred = new Text(ingredString);
 	ingred.setFont(Font.font("Lucinda Sans", FontWeight.NORMAL, FontPosture.REGULAR, 14));
-	ingred.setWrapText(true);
+	ingred.setFill(Color.BLACK);
 	descBox.setAlignment(Pos.TOP_LEFT);
 	descBox.setPadding(new Insets(5));
 	descBox.getChildren().add(desc);
@@ -906,7 +904,8 @@ public class Greeting extends Application {
 	VBox dPane = new VBox(pTopPane, pBottomPane, pButtons);
 	dPane.setStyle("-fx-background-color: gray;");
 	Scene pScene = new Scene(dPane, 600, 550);
-
+	pScene.getStylesheets().add(StoreConstants.STYLE1);
+	pScene.getStylesheets().add("rcorners");
 	newWindow.setTitle(String.format("%s- Details", inProd.getProductName()));
 	newWindow.setScene(pScene);
 
@@ -1102,12 +1101,10 @@ public class Greeting extends Application {
 	    public void changed(ObservableValue<? extends String> arg0, String oldValue, String newValue) {
 		if (!newValue.matches("\\d{0,16}([\\.]\\d{0,4})?")) {
 		    cardNumberTxt.setText(newValue);
-		    card = (cardNumberTxt.getText());
 		}
 		// Lookup membership card using phone number
 		if (newValue.length() == 16) {
 		    cardNumberTxt.setText(newValue);
-		    card = (cardNumberTxt.getText());
 
 		}
 	    }
@@ -1127,9 +1124,8 @@ public class Greeting extends Application {
 	payNode.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		doYouHaveChangePopUpWindow(card);
+		doYouHaveChangePopUpWindow();
 		StoreCheckOut checkoutLane01 = new StoreCheckOut();
-		card = (cardNumberTxt.getText());
 		checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
 		newWindowPopup.close();
 	    }
@@ -1151,7 +1147,6 @@ public class Greeting extends Application {
 	    public void handle(ActionEvent e) {
 		newWindowPopup.close();
 	    }
-
 	};
 
 	cancel.setOnAction(cancelTransaction);
@@ -1175,23 +1170,18 @@ public class Greeting extends Application {
 	cashTxt.setPromptText("Please enter cash amount here");
 	cashTxt.setFocusTraversable(true);
 	cashTxt.requestFocus();
-	cashTxt.setOnKeyPressed(
+	cashTxt.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
-		new EventHandler<KeyEvent>() {
-		    public void handle(KeyEvent ke) {
-
-			if (ke.getCode().equals(KeyCode.ENTER) && ke.getText().length() > 0) {
-			    System.out.printf("Cash Value Entered: %s\n", cashTxt.getText());
-
-			    money = Double.parseDouble(cashTxt.getText());
-
-			    StoreCheckOut checkoutLane01 = new StoreCheckOut();
-			    checkoutLane01.checkoutCustomer(currentCustomer, pt, money);
-			    newWindowPopup.close();
-			}
-		    }
-
-		});
+	    @Override
+	    public void handle(KeyEvent ke) {
+		if (ke.getCode().equals(KeyCode.ENTER) && ke.getText().length() > 0) {
+		    System.out.printf("Cash Value Entered: %s\n", cashTxt.getText());
+		    StoreCheckOut checkoutLane01 = new StoreCheckOut();
+		    checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
+		    newWindowPopup.close();
+		}
+	    }
+	});
 
 	System.out.printf("Cash Value: %s\n", cashTxt.getText());
 
@@ -1209,7 +1199,7 @@ public class Greeting extends Application {
 	payNode.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		doYouHaveChangePopUpWindow(money);
+		doYouHaveChangePopUpWindow();
 		StoreCheckOut checkoutLane01 = new StoreCheckOut();
 		checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
 		newWindowPopup.close();
@@ -1243,7 +1233,7 @@ public class Greeting extends Application {
 	return cashBox;
     }
 
-    public static void doYouHaveChangePopUpWindow(double money) {
+    public static void doYouHaveChangePopUpWindow() {
 
 	Image cashRegister = new Image(StoreConstants.CASH_REGISTER);
 	ImageView cr = new ImageView();
@@ -1256,21 +1246,11 @@ public class Greeting extends Application {
 	crBox.setAlignment(Pos.CENTER);
 
 	Stage newWindow = new Stage();
-	double total = currentCustomer.cartTotal();
-	String tTextString = null;
-	double ct = Receipt.isThereChange(total, money);
-	if (ct >= 0.00f) {
-	    tTextString = String.format("Thank you for shopping at the %s today! Your change is %.2f",
-		    StoreConstants.STORE_NAME, ct);
-	} else {
-	    tTextString = String.format("Thank you for shopping at the %s today! You still owe %.2f",
-		    StoreConstants.STORE_NAME, ct);
-	}
 
-	Label cents = new Label(tTextString);
+	Label cents = new Label("Your Change is %.2f/n");
 	cents.setMinWidth(500);
 	cents.setAlignment(Pos.CENTER);
-	cents.setFont(Font.font("Verdana", FontPosture.REGULAR, 12));
+	cents.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
 	cents.setStyle("-fx-background-color: lightblue");
 	VBox changeBox = new VBox(crBox, cents);
 	changeBox.setAlignment(Pos.CENTER);
@@ -1289,7 +1269,6 @@ public class Greeting extends Application {
 	Button printReciept = new Button("print");
 	EventHandler<ActionEvent> printTransaction = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-
 		newWindowPopup.close();
 	    }
 	};
@@ -1325,86 +1304,6 @@ public class Greeting extends Application {
 	newWindow.setResizable(false);
 
 	newWindow.show();
-    }
-
-    public static void doYouHaveChangePopUpWindow(String card) {
-
-	Image cashRegister = new Image(StoreConstants.CASH_REGISTER);
-	ImageView cr = new ImageView();
-	cr.setImage(cashRegister);
-	cr.setFitWidth(500);
-	cr.setPreserveRatio(true);
-	cr.setSmooth(true);
-	cr.setCache(true);
-	VBox crBox = new VBox(cr);
-	crBox.setAlignment(Pos.CENTER);
-
-	Stage newWindow = new Stage();
-	double total = currentCustomer.cartTotal();
-	String tTextString = null;
-	double cct = Receipt.isThereChange(total, card);
-	if (cct == 0.00f) {
-	    tTextString = String.format("Thank you for shopping at the %s today! Your payment of %.2f is approved",
-		    StoreConstants.STORE_NAME, total);
-
-	    Label cents = new Label(tTextString);
-	    cents.setMinWidth(500);
-	    cents.setAlignment(Pos.CENTER);
-	    cents.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 10));
-	    cents.setStyle("-fx-background-color: lightblue");
-	    VBox changeBox = new VBox(crBox, cents);
-	    changeBox.setAlignment(Pos.CENTER);
-
-	    String play = ("Thank you for shopping today!!\n Would you like your receipt on paper or emailed to you?");
-	    Text playTxt = new Text(play);
-	    playTxt.setText(play);
-	    playTxt.setX(50.00);
-	    playTxt.setY(80.00);
-	    playTxt.setFill(Color.BLACK);
-	    playTxt.autosize();
-	    playTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-	    VBox scriptBox = new VBox(playTxt);
-	    scriptBox.setAlignment(Pos.CENTER);
-
-	    Button printReciept = new Button("print");
-	    EventHandler<ActionEvent> printTransaction = new EventHandler<ActionEvent>() {
-		public void handle(ActionEvent e) {
-		    newWindowPopup.close();
-		}
-	    };
-
-	    printReciept.setOnAction(printTransaction);
-
-	    Button emailReciept = new Button("email");
-	    EventHandler<ActionEvent> emailTransaction = new EventHandler<ActionEvent>() {
-		public void handle(ActionEvent e) {
-		    newWindowPopup.close();
-		}
-	    };
-
-	    emailReciept.setOnAction(emailTransaction);
-
-	    HBox chooseButtons = new HBox(printReciept, emailReciept);
-	    chooseButtons.setAlignment(Pos.BOTTOM_CENTER);
-
-	    VBox choose = new VBox(changeBox, scriptBox, chooseButtons);
-	    choose.setStyle("-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, gray, lightblue);");
-	    choose.setAlignment(Pos.CENTER);
-	    Scene chooseScene = new Scene(choose, 600, 650);
-
-	    // Need to configure way to link running total to this method
-	    newWindow.setTitle(String.format("Would you like your Receipt printed or emailed to you today?"));
-	    newWindow.setScene(chooseScene);
-
-	    // Specifies the modality for new window.
-	    newWindow.initModality(Modality.WINDOW_MODAL);
-
-	    // Specifies the owner Window (parent) for new window
-	    newWindow.initOwner(parentStage);
-	    newWindow.setResizable(false);
-
-	    newWindow.show();
-	}
     }
 
     private static void viewCart() {
