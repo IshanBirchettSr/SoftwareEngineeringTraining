@@ -14,7 +14,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -1172,16 +1171,16 @@ public class Greeting extends Application {
 	cashTxt.requestFocus();
 	cashTxt.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
-	    @Override
-	    public void handle(KeyEvent ke) {
-		if (ke.getCode().equals(KeyCode.ENTER) && ke.getText().length() > 0) {
-		    System.out.printf("Cash Value Entered: %s\n", cashTxt.getText());
-		    StoreCheckOut checkoutLane01 = new StoreCheckOut();
-		    checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
-		    newWindowPopup.close();
-		}
-	    }
-	});
+			if (ke.getCode().equals(KeyCode.ENTER) && ke.getText().length() > 0) {
+			    System.out.printf("Cash Value Entered: %s\n", cashTxt.getText());
+
+			    money = Double.parseDouble(cashTxt.getText());
+
+			    newWindowPopup.close();
+			}
+		    }
+
+		});
 
 	System.out.printf("Cash Value: %s\n", cashTxt.getText());
 
@@ -1199,7 +1198,7 @@ public class Greeting extends Application {
 	payNode.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		doYouHaveChangePopUpWindow();
+		doYouHaveChangePopUpWindow(money, pt);
 		StoreCheckOut checkoutLane01 = new StoreCheckOut();
 		checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
 		newWindowPopup.close();
@@ -1233,7 +1232,8 @@ public class Greeting extends Application {
 	return cashBox;
     }
 
-    public static void doYouHaveChangePopUpWindow() {
+
+    public static void doYouHaveChangePopUpWindow(double money, paymentType pt) {
 
 	Image cashRegister = new Image(StoreConstants.CASH_REGISTER);
 	ImageView cr = new ImageView();
@@ -1246,6 +1246,21 @@ public class Greeting extends Application {
 	crBox.setAlignment(Pos.CENTER);
 
 	Stage newWindow = new Stage();
+	double total = currentCustomer.cartTotal();
+	String tTextString = null;
+	if (pt == paymentType.CASH) {
+	    double ct = Receipt.isThereChange(total, money);
+	    if (ct >= 0.00f) {
+		tTextString = String.format("Thank you for shopping at the %s today! Your change is %.2f",
+			StoreConstants.STORE_NAME, ct);
+	    } else {
+		tTextString = String.format("Thank you for shopping at the %s today! You still owe %.2f",
+			StoreConstants.STORE_NAME, ct);
+	    }
+	} else {
+	    tTextString = String.format("Thank you your %s has been charged %.2f for shopping at the %s", pt.name(),
+		    total, StoreConstants.STORE_NAME);
+	}
 
 	Label cents = new Label("Your Change is %.2f/n");
 	cents.setMinWidth(500);
@@ -1269,6 +1284,8 @@ public class Greeting extends Application {
 	Button printReciept = new Button("print");
 	EventHandler<ActionEvent> printTransaction = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
+		StoreCheckOut checkoutLane01 = new StoreCheckOut();
+		checkoutLane01.checkoutCustomer(currentCustomer, pt, money);
 		newWindowPopup.close();
 	    }
 	};
