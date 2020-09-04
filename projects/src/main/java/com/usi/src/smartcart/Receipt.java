@@ -109,29 +109,27 @@ public class Receipt extends StorePrinterFx {
 
 	Image StoreIcon = new Image(StoreConstants.SC_ICON_FULL);
 	ImageView si = new ImageView();
-	si.setFitWidth(25);
+	si.setFitWidth(35);
 	si.setImage(StoreIcon);
 	si.setPreserveRatio(true);
 	si.setSmooth(true);
 	si.setCache(true);
-	HBox sp = new HBox(si);
-	sp.setAlignment(Pos.TOP_CENTER);
 
 	String sTextString = String.format("%s", StoreConstants.STORE_NAME);
 	Text sText = new Text(sTextString);
-	sText.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 20));
+	sText.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 25));
 	sText.setStroke(Color.BLACK);
 	sText.setStyle("-fx-fill: linear-gradient(to right, red, orange , yellow, lime, purple);");
 	sText.setX(30);
 	sText.setStrokeWidth(1);
 	sText.setY(50);
-	HBox sBox = new HBox(sText);
+	HBox sBox = new HBox(5, sText, si);
 	sBox.setAlignment(Pos.CENTER);
 
 	Line line = new Line();
 	line.setStartX(100.0f);
 	line.setStartY(150.0f);
-	line.setEndX(500.0f);
+	line.setEndX(700.0f);
 	line.setEndY(150.0f);
 	line.setStrokeWidth(1);
 	line.setStroke(Color.BLACK);
@@ -140,15 +138,24 @@ public class Receipt extends StorePrinterFx {
 	Line line1 = new Line();
 	line1.setStartX(100.0f);
 	line1.setStartY(150.0f);
-	line1.setEndX(500.0f);
+	line1.setEndX(700.0f);
 	line1.setEndY(150.0f);
 	line1.setStrokeWidth(1);
 	line1.setStroke(Color.BLACK);
 	line1.getStrokeDashArray().addAll(2d);
 
+	Line line2 = new Line();
+	line2.setStartX(100.0f);
+	line2.setStartY(150.0f);
+	line2.setEndX(200.0f);
+	line2.setEndY(150.0f);
+	line2.setStrokeWidth(1);
+	line2.setStroke(Color.BLACK);
+	line2.getStrokeDashArray().addAll(2d);
+
 	String st = ("Receipt");
 	Text str = new Text(st);
-	str.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 10));
+	str.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
 	str.setFill(Color.BLACK);
 	str.setX(30);
 	str.setY(50);
@@ -244,11 +251,17 @@ public class Receipt extends StorePrinterFx {
 	    tp.setAlignment(Pos.BASELINE_LEFT);
 	    firstTime = false;
 	}
-
+      
 	double tax = 0.063;
+  double subtotalAmount = total;
 	double taxAmount = total * tax;
 	double totalAmount = taxAmount + total;
+  String sbt = String.format("SubTotal: $%.2f", subtotalAmount);
 	String tt = String.format("Your total today is $%.2f", totalAmount);
+  subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+  Text subtotalToday = new Text(sbt);
+	subtotalToday.setX(30);
+	subtotalToday.setY(250);
 	Text totalToday = new Text(tt);
 	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	totalToday.setX(30);
@@ -258,28 +271,37 @@ public class Receipt extends StorePrinterFx {
 
 	String at = String.format("Amount Tendered: $%.2f", getValueEnteredCash());
 	Text amountTendered = new Text(at);
-	amountTendered.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	amountTendered.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	amountTendered.setX(30);
 	amountTendered.setY(250);
 
 	String add = String.format("Tax: $%.2f", taxAmount);
 	Text addTax = new Text(add);
-	addTax.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	addTax.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	addTax.setX(30);
 	addTax.setY(250);
-	adt.getChildren().add(addTax);
 
-	VBox taxpane = new VBox(5, amountTendered, addTax);
+	Double addTaxToTotal = (subtotalAmount + tax);
+	String AmountDue = String.format("Your total today is $%.2f", addTaxToTotal);
+	Text ad = new Text(AmountDue);
+	ad.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	ad.setX(30);
+	ad.setY(250);
+
+	VBox align = new VBox(subtotalToday, addTax, line2, ad);
+	align.setAlignment(Pos.CENTER_RIGHT);
+
+	VBox taxpane = new VBox(5, amountTendered);
 	adt.getChildren().add(taxpane);
 	adt.setAlignment(Pos.BASELINE_RIGHT);
 
 	String thankYouMessage = String.format("%s %s thank you for your purchase today!",
 		cust.getmCard().getFirstName(), cust.getmCard().getLastName());
 	Text thankYouText = new Text(thankYouMessage);
-	thankYouText.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
-	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
-	totalToday.setX(30);
-	totalToday.setY(300);
+	thankYouText.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	subtotalToday.setX(30);
+	subtotalToday.setY(300);
 	HBox thankYouBox = new HBox(thankYouText);
 	thankYouBox.setAlignment(Pos.BASELINE_LEFT);
 
@@ -304,13 +326,13 @@ public class Receipt extends StorePrinterFx {
 	}
 
 	Text tText = new Text(tTextString);
-	tText.setFont(Font.font("Arial", FontPosture.REGULAR, 7));
-	totalToday.setX(30);
-	totalToday.setY(300);
+	tText.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	subtotalToday.setX(30);
+	subtotalToday.setY(300);
 	HBox tBox = new HBox(tText);
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
-	VBox receiptNode = new VBox(5, sp, sBox, line, r, tp, line1, totalToday, adt, thankYouBox, tBox, date);
+	VBox receiptNode = new VBox(5, sBox, line, r, tp, line1, align, adt, thankYouBox, tBox, date);
 
 	/* tell the caller that this page is part of the printed document */
 	return receiptNode;
