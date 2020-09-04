@@ -112,8 +112,6 @@ public class Receipt extends StorePrinterFx {
 	si.setPreserveRatio(true);
 	si.setSmooth(true);
 	si.setCache(true);
-	HBox sp = new HBox(si);
-	sp.setAlignment(Pos.TOP_CENTER);
 
 	String sTextString = String.format("%s", StoreConstants.STORE_NAME);
 	Text sText = new Text(sTextString);
@@ -123,7 +121,7 @@ public class Receipt extends StorePrinterFx {
 	sText.setX(30);
 	sText.setStrokeWidth(1);
 	sText.setY(50);
-	HBox sBox = new HBox(sText);
+	HBox sBox = new HBox(5, sText, si);
 	sBox.setAlignment(Pos.CENTER);
 
 	Line line = new Line();
@@ -325,7 +323,7 @@ public class Receipt extends StorePrinterFx {
 	HBox tBox = new HBox(tText);
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
-	VBox receiptNode = new VBox(5, sp, sBox, line, r, tp, line1, align, adt, thankYouBox, tBox, date);
+	VBox receiptNode = new VBox(5, sBox, line, r, tp, line1, align, adt, thankYouBox, tBox, date);
 
 	/* tell the caller that this page is part of the printed document */
 	return receiptNode;
