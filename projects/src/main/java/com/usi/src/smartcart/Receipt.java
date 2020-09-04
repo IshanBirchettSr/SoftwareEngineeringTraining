@@ -94,10 +94,12 @@ public class Receipt extends StorePrinterFx {
      */
     protected void setValueEnteredCard(String money) {
 	this.valueEnteredCard = money;
+
     }
 
     protected void setValueEnteredCash(double money) {
 	this.valueEnteredCash = money;
+	System.out.printf("Amount tendered: %.2f\n", money);
     }
 
     private static int counter = 0;
@@ -225,7 +227,7 @@ public class Receipt extends StorePrinterFx {
 		    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
 		    tp.getChildren().add(item);
 		    tp.setAlignment(Pos.BASELINE_LEFT);
-		    total += cPd.getPrice();
+		    total += (totalQuantity * oldPd.getPrice());
 		    totalQuantity = 1;
 		    oldPn = cPd.getProductName();
 		    oldPd = cPd;
@@ -238,8 +240,8 @@ public class Receipt extends StorePrinterFx {
 	    item.setY(30);
 	    item.setFill(Color.BLUE);
 	    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
-
-	    total += oldPd.getPrice();
+	    total += (totalQuantity * oldPd.getPrice());
+	    // total += oldPd.getPrice();
 	    if (oldPd != null) {
 		item.setText(String.format("Qty: %s     	 Product: %s     	 Price: %.2f\n", totalQuantity,
 			oldPd.getProductName(), oldPd.getPrice()));
@@ -249,13 +251,21 @@ public class Receipt extends StorePrinterFx {
 	    tp.setAlignment(Pos.BASELINE_LEFT);
 	    firstTime = false;
 	}
-
-	double subtotalAmount = total;
-	String tt = String.format("SubTotal: $%.2f", subtotalAmount);
-	Text subtotalToday = new Text(tt);
-	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+      
+	double tax = 0.063;
+  double subtotalAmount = total;
+	double taxAmount = total * tax;
+	double totalAmount = taxAmount + total;
+  String sbt = String.format("SubTotal: $%.2f", subtotalAmount);
+	String tt = String.format("Your total today is $%.2f", totalAmount);
+  subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+  Text subtotalToday = new Text(sbt);
 	subtotalToday.setX(30);
 	subtotalToday.setY(250);
+	Text totalToday = new Text(tt);
+	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	totalToday.setX(30);
+	totalToday.setY(250);
 
 	TilePane adt = new TilePane();
 
@@ -265,8 +275,7 @@ public class Receipt extends StorePrinterFx {
 	amountTendered.setX(30);
 	amountTendered.setY(250);
 
-	double tax = 6.3;
-	String add = String.format("Tax: $%.2f", tax);
+	String add = String.format("Tax: $%.2f", taxAmount);
 	Text addTax = new Text(add);
 	addTax.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	addTax.setX(30);
@@ -367,7 +376,7 @@ public class Receipt extends StorePrinterFx {
     public static double isThereChange(double total, double money) {
 
 	double change = 0.0f;
-	System.out.printf("total %.2f money %.2f", total, money);
+	System.out.printf("Change: total %.2f money %.2f\n", total, money);
 	if (total >= money) {
 	    String.format("Thank you for shopping at the %s today! Your change is %.2f", StoreConstants.STORE_NAME,
 		    change);
@@ -385,7 +394,7 @@ public class Receipt extends StorePrinterFx {
     public static double isThereChange(double total, String card) {
 
 	double change = 0.0f;
-	System.out.printf("total %.2f money %.2f", total, change);
+	System.out.printf("Card ID %s\n", card);
 	if (total >= 0.00f) {
 	    String.format("Thank you for shopping at the %s today! Your purchase of %.2f has been approved",
 		    StoreConstants.STORE_NAME, total);
