@@ -21,13 +21,13 @@ public class StoreCheckOut extends Receipt {
 
     }
 
-    public boolean checkoutCustomer(Customer cust, paymentType pt, double money) {
+    public boolean checkoutCustomer(Customer cust, paymentType pt, double money, double moneyTendered) {
 	// Get list of productions
 	List<Product> custProdList = cust.getListOfProds();
 	// send to print
 	setProdList(custProdList);
 	setCust(cust);
-	setValueEnteredCash(money);
+	setValueEnteredCash(moneyTendered);
 	setPayType(pt);
 	printReceipt();
 	return true;

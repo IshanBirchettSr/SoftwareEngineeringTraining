@@ -9,7 +9,6 @@ import java.util.Properties;
 
 import customerservice.Customer;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -39,8 +38,9 @@ public class Receipt extends StorePrinterFx {
     String member = membershipId;
     List<Product> prods = null;
     paymentType payType = null;
-    double valueEnteredCash = 0.00f;
-    String valueEnteredCard = null;
+    static double valueEnteredCash = 0.00f;
+    static double totalTendered = 0.0f;
+    static String valueEnteredCard = null;
 
     /**
      * Constructor
@@ -81,28 +81,29 @@ public class Receipt extends StorePrinterFx {
     /**
      * @return the valueEntered
      */
-    protected double getValueEnteredCash() {
+    static protected double getValueEnteredCash() {
 	return valueEnteredCash;
     }
 
-    protected String getValueEnteredCard() {
+    static protected String getValueEnteredCard() {
 	return valueEnteredCard;
     }
 
     /**
      * @param money the valueEntered to set
      */
+    @SuppressWarnings("static-access")
     protected void setValueEnteredCard(String money) {
-	this.valueEnteredCard = money;
+	this.valueEnteredCard += money;
 
     }
 
+    @SuppressWarnings("static-access")
     protected void setValueEnteredCash(double money) {
 	this.valueEnteredCash = money;
-	System.out.printf("Amount tendered: %.2f\n", money);
+	this.setTotalTendered(money);
+	// System.out.printf("Amount tendered so far: %.2f\n", totalTendered);
     }
-
-    private static int counter = 0;
 
     public VBox printNode() {
 	prods = cust.getListOfProds();
@@ -270,7 +271,7 @@ public class Receipt extends StorePrinterFx {
 
 	TilePane adt = new TilePane();
 
-	String at = String.format("Amount Tendered: $%.2f", getValueEnteredCash());
+	String at = String.format("Amount Tendered: $%.2f", getTotalTendered());
 	Text amountTendered = new Text(at);
 	amountTendered.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	amountTendered.setX(30);
@@ -338,6 +339,20 @@ public class Receipt extends StorePrinterFx {
 	return receiptNode;
     }
 
+    /**
+     * @return the totalTendered
+     */
+    static private double getTotalTendered() {
+	return totalTendered;
+    }
+
+    /**
+     * @param totalTendered the totalTendered to set
+     */
+    private void setTotalTendered(double amount) {
+	totalTendered += amount;
+    }
+
     public void printReceipt() {
 	print(printNode());
     }
@@ -376,16 +391,16 @@ public class Receipt extends StorePrinterFx {
     public static double isThereChange(double total, double money) {
 
 	double change = 0.0f;
-	System.out.printf("Change: total %.2f money %.2f\n", total, money);
-	if (total >= money) {
-	    String.format("Thank you for shopping at the %s today! Your change is %.2f", StoreConstants.STORE_NAME,
-		    change);
-	} else {
-	    String.format("Thank you for shopping at the %s today! You still owe %.2f", StoreConstants.STORE_NAME,
-		    money);
-	}
-
 	change = money - total;
+
+	// System.out.printf("Change: total %.2f money %.2f\n", total, money);
+	if (change >= 0) {
+	    System.out.printf("Thank you for shopping at the %s today! Your change is %.2f\n",
+		    StoreConstants.STORE_NAME, change);
+	} else {
+	    System.out.printf("Thank you for shopping at the %s today! You still owe %.2f\n", StoreConstants.STORE_NAME,
+		    change);
+	}
 
 	return change;
 

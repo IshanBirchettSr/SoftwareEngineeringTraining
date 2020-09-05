@@ -75,8 +75,10 @@ public class Greeting extends Application {
     private static TextField cardNumberTxt = null;
     static Scene paymentScene = null;
     private static ImageView camPhotoView = null;
-    Stage newWindow = null;
+    static Stage newWindow = null;
     Stage newWindowMembership = null;
+    static double money = 0.0;
+    static double change = 0.0;
 
     /**
      * @return the parentStage
@@ -115,7 +117,7 @@ public class Greeting extends Application {
 	if (parentStage == null) {
 	    launch(args);
 	} else {
-	    parentStage.setScene(scene);
+	    // parentStage.setScene(scene);
 	}
 
 	return currentCustomer;
@@ -683,9 +685,10 @@ public class Greeting extends Application {
 
 	EventHandler<ActionEvent> cEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		paymentPreference();
+
 		// resetParentStage();
-		parentStage.setScene(scene);
+		parentStage.close();
+		paymentPreference();
 
 	    }
 
@@ -718,11 +721,11 @@ public class Greeting extends Application {
 	return pHBox;
 
     }
-
-    static private void resetParentStage() {
-	phoneNumTxt.setVisible(false);
-	phoneNumberLbl.setVisible(false);
-    }
+//
+//    static private void resetParentStage() {
+//	phoneNumTxt.setVisible(false);
+//	phoneNumberLbl.setVisible(false);
+//    }
 
     public static void prodDetails(Product inProd, String dept) {
 
@@ -740,7 +743,7 @@ public class Greeting extends Application {
 	String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, dept, inProd.getBrandName(),
 		inProd.getProductName());
 	String iVideoName = String.format(StoreConstants.PRODUCT_VIDEO, dept, bNameCat, pNameCat);
-	System.out.printf("%s\n%s\n", iFileName, iVideoName);
+	// System.out.printf("%s\n%s\n", iFileName, iVideoName);
 	// Image View
 	Image pImage = new Image(iFileName);
 	ImageView pV = new ImageView();
@@ -923,9 +926,13 @@ public class Greeting extends Application {
     }
 
     public static void paymentPreference() {
-
-	String pKey = String.format("Your total today is $%.2f\nHow would you like to pay for your purchase?",
-		currentCustomer.cartTotal());
+	double total = 0.00;
+	if (Math.abs(change) > 0) {
+	    total = Math.abs(change);
+	} else {
+	    total = currentCustomer.cartTotal();
+	}
+	String pKey = String.format("Your total today is $%.2f\nHow would you like to pay for your purchase?", total);
 	Text welcomeTxt = new Text(pKey);
 	welcomeTxt.setText(pKey);
 	welcomeTxt.setX(50.00);
@@ -1041,19 +1048,6 @@ public class Greeting extends Application {
 
 	cash.setOnAction(cashEvent);
 
-//	HBox payNode = new HBox();
-//	Button payButton = new Button("PAY");
-//	payNode.getChildren().add(payButton);
-//	payNode.setAlignment(Pos.BOTTOM_CENTER);
-//	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
-//	    public void handle(ActionEvent e) {
-//		StoreCheckOut checkoutLane01 = new StoreCheckOut();
-//		checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
-//
-//	    }
-//	};
-//	payButton.setOnAction(payEvent);
-
 	Stage newWindow = new Stage();
 
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
@@ -1123,9 +1117,7 @@ public class Greeting extends Application {
 	payNode.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		doYouHaveChangePopUpWindow();
-		StoreCheckOut checkoutLane01 = new StoreCheckOut();
-		checkoutLane01.checkoutCustomer(currentCustomer, pt, cardNumberTxt.getText());
+		doYouHaveChangePopUpWindow(Double.parseDouble(cardNumberTxt.getText()), pt);
 		newWindowPopup.close();
 	    }
 	};
@@ -1159,7 +1151,7 @@ public class Greeting extends Application {
     }
 
     private static VBox addCashPaymentInput(paymentType pt) {
-	Label cashLbl = new Label("Please Enter Cash Amount Tendered Number:");
+	Label cashLbl = new Label("Please tender CASH amount:");
 	cashLbl.setMinWidth(100);
 	cashLbl.setAlignment(Pos.BOTTOM_RIGHT);
 	// Create the Actor text field
@@ -1169,25 +1161,24 @@ public class Greeting extends Application {
 	cashTxt.setPromptText("Please enter cash amount here");
 	cashTxt.setFocusTraversable(true);
 	cashTxt.requestFocus();
-	cashTxt.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
-			if (ke.getCode().equals(KeyCode.ENTER) && ke.getText().length() > 0) {
-			    System.out.printf("Cash Value Entered: %s\n", cashTxt.getText());
+	EventHandler<KeyEvent> cashKeyEvent = new EventHandler<KeyEvent>() {
 
-			    money = Double.parseDouble(cashTxt.getText());
-
-			    newWindowPopup.close();
-			}
-		    }
-
-		});
-
-	System.out.printf("Cash Value: %s\n", cashTxt.getText());
+	    public void handle(KeyEvent ke) {
+		if (ke.getCode().equals(KeyCode.ENTER) && ke.getText().length() > 0) {
+		    // System.out.printf("Cash Value Entered: %s\n", cashTxt.getText());
+		    money = Double.parseDouble(cashTxt.getText());
+		}
+	    }
+	};
+	cashTxt.setOnKeyPressed(cashKeyEvent);
+	// System.out.printf("Cash Value: %.2f\n", money);
 
 	Image payI = new Image(StoreConstants.SC_ICON_PAY);
 	ImageView pi = new ImageView();
 	pi.setImage(payI);
 	pi.setFitWidth(20);
+	pi.setFitHeight(30);
 	pi.setPreserveRatio(true);
 	pi.setSmooth(true);
 	pi.setCache(true);
@@ -1198,10 +1189,12 @@ public class Greeting extends Application {
 	payNode.setAlignment(Pos.BOTTOM_CENTER);
 	EventHandler<ActionEvent> payEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		doYouHaveChangePopUpWindow(money, pt);
-		StoreCheckOut checkoutLane01 = new StoreCheckOut();
-		checkoutLane01.checkoutCustomer(currentCustomer, pt, cashTxt.getText());
+		money = Double.parseDouble(cashTxt.getText());
+		currentCustomer.setAmountPaid(money);
 		newWindowPopup.close();
+		// newWindow.close();
+		doYouHaveChangePopUpWindow(money, pt);
+
 	    }
 	};
 	payButton.setOnAction(payEvent);
@@ -1232,8 +1225,7 @@ public class Greeting extends Application {
 	return cashBox;
     }
 
-
-    public static void doYouHaveChangePopUpWindow(double money, paymentType pt) {
+    public static void doYouHaveChangePopUpWindow(double valueEntered, paymentType pt) {
 
 	Image cashRegister = new Image(StoreConstants.CASH_REGISTER);
 	ImageView cr = new ImageView();
@@ -1245,24 +1237,53 @@ public class Greeting extends Application {
 	VBox crBox = new VBox(cr);
 	crBox.setAlignment(Pos.CENTER);
 
-	Stage newWindow = new Stage();
-	double total = currentCustomer.cartTotal();
+	newWindow = new Stage();
+	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
+	double total = 0.0;
+	if (Math.abs(change) > 0) {
+	    total = Math.abs(change);
+	} else {
+	    total = currentCustomer.cartTotal();
+	}
+	VBox choose = new VBox();
+	@SuppressWarnings("unused")
 	String tTextString = null;
 	if (pt == paymentType.CASH) {
-	    double ct = Receipt.isThereChange(total, money);
+	    double ct = Receipt.isThereChange(total, valueEntered);
 	    if (ct >= 0.00f) {
-		tTextString = String.format("Thank you for shopping at the %s today! Your change is %.2f",
+		tTextString = String.format("Thank you for shopping at the %s today! Your change is %.2f\n",
 			StoreConstants.STORE_NAME, ct);
 	    } else {
-		tTextString = String.format("Thank you for shopping at the %s today! You still owe %.2f",
+		tTextString = String.format("Thank you for shopping at the %s today! You still owe %.2f\n",
 			StoreConstants.STORE_NAME, ct);
 	    }
 	} else {
 	    tTextString = String.format("Thank you your %s has been charged %.2f for shopping at the %s", pt.name(),
 		    total, StoreConstants.STORE_NAME);
 	}
+	change = Receipt.isThereChange(total, money);
+	String balance = String.format("Pay Balance->$%.2f", change);
 
-	Label cents = new Label("Your Change is %.2f/n");
+	Button payBalance = new Button(balance);
+	EventHandler<ActionEvent> balanceEvent = new EventHandler<ActionEvent>() {
+	    public void handle(ActionEvent e) {
+		newWindow.close();
+		paymentPreference();
+	    }
+	};
+	payBalance.setOnAction(balanceEvent);
+
+	String lblChange = null;
+
+	if (change >= 0) {
+	    lblChange = String.format("Your Change is %.2f", change);
+	} else {
+	    lblChange = String.format("Please pay remaining balance of %.2f.", change);
+	    choose.getChildren().add(payBalance);
+	    total = change;
+
+	}
+	Label cents = new Label(lblChange);
 	cents.setMinWidth(500);
 	cents.setAlignment(Pos.CENTER);
 	cents.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
@@ -1270,7 +1291,7 @@ public class Greeting extends Application {
 	VBox changeBox = new VBox(crBox, cents);
 	changeBox.setAlignment(Pos.CENTER);
 
-	String play = ("Thank you for shopping today!!\n Would you like your receipt on paper or emailed to you?");
+	String play = ("Thank you for shopping today!!\nWould you like your receipt on paper or emailed to you?\n");
 	Text playTxt = new Text(play);
 	playTxt.setText(play);
 	playTxt.setX(50.00);
@@ -1285,32 +1306,38 @@ public class Greeting extends Application {
 	EventHandler<ActionEvent> printTransaction = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
 		StoreCheckOut checkoutLane01 = new StoreCheckOut();
-		checkoutLane01.checkoutCustomer(currentCustomer, pt, money);
-		newWindowPopup.close();
+		checkoutLane01.checkoutCustomer(currentCustomer, pt, valueEntered, currentCustomer.getAmountPaid());
+		newWindow.close();
 	    }
 	};
 
 	printReciept.setOnAction(printTransaction);
 
-	Button emailReciept = new Button("email");
+	Button emailReceipt = new Button("email");
 	EventHandler<ActionEvent> emailTransaction = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
-		newWindowPopup.close();
+		newWindow.close();
 	    }
 	};
+	emailReceipt.setOnAction(emailTransaction);
 
-	emailReciept.setOnAction(emailTransaction);
-
-	HBox chooseButtons = new HBox(printReciept, emailReciept);
+	HBox chooseButtons = new HBox(20, printReciept, emailReceipt);
 	chooseButtons.setAlignment(Pos.BOTTOM_CENTER);
 
-	VBox choose = new VBox(changeBox, scriptBox, chooseButtons);
+	choose.getChildren().add(changeBox);
+	choose.getChildren().add(chooseButtons);
+	choose.getChildren().add(scriptBox);
+
 	choose.setStyle("-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, gray, lightblue);");
 	choose.setAlignment(Pos.CENTER);
 	Scene chooseScene = new Scene(choose, 600, 650);
 
 	// Need to configure way to link running total to this method
-	newWindow.setTitle(String.format("Would you like your Receipt printed or emailed to you today?"));
+	if (total >= 0) {
+	    newWindow.setTitle(String.format("Total: $%.2f", total));
+	} else {
+	    newWindow.setTitle(String.format("Balance Due: $%.2f", total));
+	}
 	newWindow.setScene(chooseScene);
 
 	// Specifies the modality for new window.
@@ -1421,7 +1448,7 @@ public class Greeting extends Application {
 	VBox paneViewCart = new VBox(20, vcp, sp, cBox);
 	paneViewCart.setPadding(new Insets(10));
 
-	Scene viewCartScene = new Scene(paneViewCart, 450, 600);
+	Scene viewCartScene = new Scene(paneViewCart, 450, 625);
 
 	// New window (Stage)
 	String priceTitle = String.format("Smart Cart Total $%.2f", currentCustomer.cart.getRunningTotal());

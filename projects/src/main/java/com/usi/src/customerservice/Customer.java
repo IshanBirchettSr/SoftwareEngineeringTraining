@@ -14,6 +14,14 @@ public class Customer {
     ShoppingCart cart = null;
     List<Department> dList = null;
     MembershipSignUp mCard = null;
+    static private double amountPaid = 0.0;
+
+    /**
+     * @return the amountPaid
+     */
+    public double getAmountPaid() {
+	return amountPaid;
+    }
 
     /**
      * @return the cart
@@ -61,6 +69,12 @@ public class Customer {
 
     public double cartTotal() {
 	return cart.getRunningTotal();
+    }
+
+    public void setAmountPaid(double ap) {
+	System.out.printf("Current Amount: %.2f\n", amountPaid);
+	amountPaid += ap;
+	System.out.printf("After Amount: %.2f\n", amountPaid);
     }
 
     /**
