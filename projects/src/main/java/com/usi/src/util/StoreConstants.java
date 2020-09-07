@@ -8,8 +8,11 @@ public class StoreConstants {
     public static final String APP_HOME = "C:/usi-git/SoftwareEngineeringTraining/projects/src/main/java/com/usi";
 
     // Membership Daily Discount
-    public static final int TODAYS_MEMBER_DISCOUNT = 5;
-    public static final int AARP_DISCOUNT = 3;
+    public static final double TODAYS_MEMBER_DISCOUNT = 0.05;
+    public static final double AARP_DISCOUNT = 0.03;
+
+    // State Sales Tax
+    public static final double STATE_SALES_TAX = 0.063;
 
     // USI Product Key Unique Identifier Formatter
     // The following format string consist of the following parameters:

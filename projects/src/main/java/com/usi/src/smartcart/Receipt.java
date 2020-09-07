@@ -165,7 +165,7 @@ public class Receipt extends StorePrinterFx {
 
 	String sd = String.format("%s", new Date());
 	Text ssd = new Text(sd);
-	ssd.setFont(Font.font("Arial", FontPosture.REGULAR, 5));
+	ssd.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	HBox date = new HBox(ssd);
 	date.setAlignment(Pos.BOTTOM_CENTER);
 
@@ -184,7 +184,7 @@ public class Receipt extends StorePrinterFx {
 
 	List<Product> pList = cust.getCart().getProductList();
 	int totalQuantity = 1;
-	double total = 0;
+	double total = cust.getCart().getGrandTotal();
 	boolean firstTime = true;
 	String oldPn = "no name";
 	Product oldPd = null;
@@ -253,10 +253,9 @@ public class Receipt extends StorePrinterFx {
 	    firstTime = false;
 	}
 
-	double tax = 0.063;
-	double subtotalAmount = total;
-	double taxAmount = total * tax;
-	double totalAmount = taxAmount + subtotalAmount;
+	double subtotalAmount = cust.getCart().getSubTotal();
+	double taxAmount = cust.getCart().getTaxesTotal();
+	double totalAmount = cust.getCart().getGrandTotal();
 	String sbt = String.format("SubTotal: $%.2f", subtotalAmount);
 	String tt = String.format("Your total today is $%.2f", totalAmount);
 	Text subtotalToday = new Text(sbt);
@@ -289,10 +288,22 @@ public class Receipt extends StorePrinterFx {
 	ad.setX(30);
 	ad.setY(250);
 
-	VBox align = new VBox(subtotalToday, addTax, line2, ad);
+	String savings = String.format("Total savings today is $%.2f", cust.getCart().getTotalSavings());
+	Text totalSavings = new Text(savings);
+	totalSavings.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	totalSavings.setX(30);
+	totalSavings.setY(250);
+
+	String change = String.format("Your change due is $%.2f", getTotalTendered() - cust.getCart().getGrandTotal());
+	Text changeDue = new Text(change);
+	changeDue.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	changeDue.setX(30);
+	changeDue.setY(250);
+
+	VBox align = new VBox(subtotalToday, addTax, line2, ad, totalSavings);
 	align.setAlignment(Pos.CENTER_RIGHT);
 
-	VBox taxpane = new VBox(5, amountTendered);
+	VBox taxpane = new VBox(5, amountTendered, changeDue);
 	adt.getChildren().add(taxpane);
 	adt.setAlignment(Pos.BASELINE_RIGHT);
 
@@ -310,17 +321,10 @@ public class Receipt extends StorePrinterFx {
 	double ct = isThereChange(total, valueEnteredCash);
 	double cct = isThereChange(total, valueEnteredCard);
 
-	if (ct >= 0.00f) {
-	    tTextString = String.format("Thank you for shopping at the %s today! Your change is %.2f",
-		    StoreConstants.STORE_NAME, ct);
-	} else {
-	    tTextString = String.format("Thank you for shopping at the %s today! You still owe %.2f",
-		    StoreConstants.STORE_NAME, ct);
-	}
 	if (cct >= 0.00f) {
 	    tTextString = String.format(
 		    "Thank you for shopping at the %s today! Your purchase for %.2f has been approved",
-		    StoreConstants.STORE_NAME, total);
+		    StoreConstants.STORE_NAME, totalAmount);
 	} else {
 	    tTextString = String.format("Thank you for shopping at the %s today! You still owe %.2f",
 		    StoreConstants.STORE_NAME, ct);
@@ -333,7 +337,7 @@ public class Receipt extends StorePrinterFx {
 	HBox tBox = new HBox(tText);
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
-	VBox receiptNode = new VBox(5, sBox, line, r, tp, line1, align, adt, thankYouBox, tBox, date);
+	VBox receiptNode = new VBox(5, sBox, line, r, tp, line1, align, adt, thankYouBox, date);
 
 	/* tell the caller that this page is part of the printed document */
 	return receiptNode;
@@ -394,13 +398,13 @@ public class Receipt extends StorePrinterFx {
 	change = money - total;
 
 	// System.out.printf("Change: total %.2f money %.2f\n", total, money);
-	if (change >= 0) {
-	    System.out.printf("Thank you for shopping at the %s today! Your change is %.2f\n",
-		    StoreConstants.STORE_NAME, change);
-	} else {
-	    System.out.printf("Thank you for shopping at the %s today! You still owe %.2f\n", StoreConstants.STORE_NAME,
-		    change);
-	}
+//	if (change >= 0) {
+//	    System.out.printf("Thank you for shopping at the %s today! Your change is %.2f\n",
+//		    StoreConstants.STORE_NAME, change);
+//	} else {
+//	    System.out.printf("Thank you for shopping at the %s today! You still owe %.2f\n", StoreConstants.STORE_NAME,
+//		    change);
+//	}
 
 	return change;
 

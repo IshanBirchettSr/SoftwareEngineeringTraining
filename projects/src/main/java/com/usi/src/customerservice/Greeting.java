@@ -79,6 +79,8 @@ public class Greeting extends Application {
     Stage newWindowMembership = null;
     static double money = 0.0;
     static double change = 0.0;
+    static double total = 0.0;
+    static boolean applied = false;
 
     /**
      * @return the parentStage
@@ -274,13 +276,13 @@ public class Greeting extends Application {
 	Label mDate = new Label(membershipDate);
 	mDate.setAlignment(Pos.CENTER);
 
-	String mString = String.format("Membership Discount: %d%%", StoreConstants.TODAYS_MEMBER_DISCOUNT);
+	String mString = String.format("Membership Discount: %.2f%%", StoreConstants.TODAYS_MEMBER_DISCOUNT);
 	Label mDiscount = new Label(mString);
 
 	VBox memSignUp = new VBox(5, iv, mDate, mDiscount);
 
 	if (mCard2.isAarpMember()) {
-	    String mAarpM = String.format("AARP Discount: %d%%", StoreConstants.AARP_DISCOUNT);
+	    String mAarpM = String.format("AARP Discount: %.2f%%", StoreConstants.AARP_DISCOUNT);
 	    Label mAarp = new Label(mAarpM);
 
 	    memSignUp.getChildren().add(mAarp);
@@ -688,6 +690,7 @@ public class Greeting extends Application {
 
 		// resetParentStage();
 		parentStage.close();
+		currentCustomer.cart.setGrandTotal(total);
 		paymentPreference();
 
 	    }
@@ -926,13 +929,27 @@ public class Greeting extends Application {
     }
 
     public static void paymentPreference() {
-	double total = 0.00;
-	if (Math.abs(change) > 0) {
+
+	if (change < 0) {
 	    total = Math.abs(change);
 	} else {
 	    total = currentCustomer.cartTotal();
 	}
-	String pKey = String.format("Your total today is $%.2f\nHow would you like to pay for your purchase?", total);
+	if (applied == false) {
+	    // total - aarp membership discount
+	    if (currentCustomer.mCard.isAarpMember() == true) {
+		total = total - currentCustomer.cart.getAarpDiscount();
+	    }
+	    // total - membership discount
+	    if (currentCustomer.mCard != null) {
+		total = total - currentCustomer.cart.getMembershipDiscount();
+	    }
+
+	    // total + taxes (after all discounts have applied.
+	    total = (total + currentCustomer.cart.getTaxesTotal());
+	    applied = true;
+	}
+	String pKey = String.format("Total $%.2f", total);
 	Text welcomeTxt = new Text(pKey);
 	welcomeTxt.setText(pKey);
 	welcomeTxt.setX(50.00);
@@ -1226,7 +1243,6 @@ public class Greeting extends Application {
     }
 
     public static void doYouHaveChangePopUpWindow(double valueEntered, paymentType pt) {
-
 	Image cashRegister = new Image(StoreConstants.CASH_REGISTER);
 	ImageView cr = new ImageView();
 	cr.setImage(cashRegister);
@@ -1239,12 +1255,11 @@ public class Greeting extends Application {
 
 	newWindow = new Stage();
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
-	double total = 0.0;
+
 	if (Math.abs(change) > 0) {
 	    total = Math.abs(change);
-	} else {
-	    total = currentCustomer.cartTotal();
 	}
+
 	VBox choose = new VBox();
 	@SuppressWarnings("unused")
 	String tTextString = null;
@@ -1265,6 +1280,7 @@ public class Greeting extends Application {
 	String balance = String.format("Pay Balance->$%.2f", change);
 
 	Button payBalance = new Button(balance);
+	payBalance.setStyle("-fx-background-color: red");
 	EventHandler<ActionEvent> balanceEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
 		newWindow.close();

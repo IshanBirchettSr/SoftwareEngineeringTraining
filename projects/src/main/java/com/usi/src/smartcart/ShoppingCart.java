@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import util.Product;
+import util.StoreConstants;
 
 /**
  * @author ibirc and Allma M. Johnson
@@ -20,6 +21,53 @@ import util.Product;
 public class ShoppingCart {
 
     private List<Product> scProds;
+    private double aarpDiscount = 0.00;
+    private double membershipDiscount = 0.0;
+    private double taxesTotal = 0.0;
+
+    private double grandTotal = 0.0;
+    private double subTotal = 0.0;
+
+    /**
+     * @return the grandTotal
+     */
+    public double getGrandTotal() {
+	double savings = (getAarpDiscount() + getMembershipDiscount());
+	grandTotal = ((getRunningTotal() - savings) + getTaxesTotal());
+	return grandTotal;
+    }
+
+    /**
+     * @param grandTotal the grandTotal to set
+     */
+    public void setGrandTotal(double grandTotal) {
+	this.grandTotal = grandTotal;
+    }
+
+    /**
+     * @return the aarpDiscount
+     */
+    public double getAarpDiscount() {
+	aarpDiscount = (getRunningTotal() * StoreConstants.AARP_DISCOUNT);
+	return aarpDiscount;
+    }
+
+    /**
+     * @return the membershipDiscount
+     */
+    public double getMembershipDiscount() {
+	membershipDiscount = (getRunningTotal() * StoreConstants.TODAYS_MEMBER_DISCOUNT);
+	return membershipDiscount;
+    }
+
+    /**
+     * @return the taxesTotal
+     */
+    public double getTaxesTotal() {
+	double savings = (getAarpDiscount() + getMembershipDiscount());
+	taxesTotal = ((getRunningTotal() - savings) * StoreConstants.STATE_SALES_TAX);
+	return taxesTotal;
+    }
 
     /**
      * 
@@ -30,6 +78,15 @@ public class ShoppingCart {
 
     public void addProduct(Product storeProduct) {
 	scProds.add(storeProduct);
+    }
+
+    /**
+     * @return the getSubTotal
+     */
+    public double getSubTotal() {
+	double savings = (getAarpDiscount() + getMembershipDiscount());
+	subTotal = getRunningTotal() - savings;
+	return subTotal;
     }
 
     public List<Product> getProductList() {
@@ -62,5 +119,13 @@ public class ShoppingCart {
 
 	}
 
+    }
+
+    /**
+     * @return
+     */
+    public double getTotalSavings() {
+	double savings = (getAarpDiscount() + getMembershipDiscount());
+	return savings;
     }
 }
