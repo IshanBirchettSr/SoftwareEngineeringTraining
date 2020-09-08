@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -797,18 +798,39 @@ public class Greeting extends Application {
 	descBox.setStyle("-fx-background-color: cadetblue;");
 	descBox.setPrefSize(375, 200);
 
-	String descString = String.format("Description: %s", inProd.getDescription());
-	Text desc = new Text(descString);
-	desc.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
+	Label deslblCharacter = new Label("Description ");
+	deslblCharacter.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
+	deslblCharacter.setMinWidth(100);
+	deslblCharacter.setAlignment(Pos.TOP_LEFT);
 
-	String ingredString = String.format("\n\nIngredients: %s", inProd.getIngredient());
-	Text ingred = new Text(ingredString);
-	ingred.setFont(Font.font("Lucinda Sans", FontWeight.NORMAL, FontPosture.REGULAR, 14));
-	ingred.setFill(Color.BLACK);
+	deslblCharacter.setFont(Font.font("Lucinda Sans", FontWeight.NORMAL, FontPosture.REGULAR, 14));
+	deslblCharacter.setTextFill(Color.BLACK);
+	TextArea desText = new TextArea(inProd.getDescription());
+	desText.setMaxWidth(375);
+	desText.setWrapText(true);
+	ScrollPane dp = new ScrollPane(desText);
+
+	// Ingredients VBox with label and scroll bar
+	VBox ingredBox = new VBox();
+	ingredBox.setStyle("-fx-background-color: cadetblue;");
+	ingredBox.setPrefSize(375, 200);
+	Label lblCharacter = new Label("Ingrediants ");
+	lblCharacter.setMinWidth(100);
+	lblCharacter.setAlignment(Pos.TOP_LEFT);
+	lblCharacter.setFont(Font.font("Lucinda Sans", FontWeight.NORMAL, FontPosture.REGULAR, 14));
+	lblCharacter.setTextFill(Color.BLACK);
+	TextArea IText = new TextArea(inProd.getIngredient());
+	IText.setMaxWidth(375);
+	IText.setWrapText(true);
+	ScrollPane sp = new ScrollPane(IText);
 	descBox.setAlignment(Pos.TOP_LEFT);
 	descBox.setPadding(new Insets(5));
-	descBox.getChildren().add(desc);
-	descBox.getChildren().add(ingred);
+	descBox.getChildren().add(deslblCharacter);
+	descBox.getChildren().add(dp);
+	descBox.getChildren().add(lblCharacter);
+	descBox.getChildren().add(sp);
+
+	// create label vbox for descrip
 
 	// Borders
 	BorderWidths bs = new BorderWidths(2, 2, 2, 2);
