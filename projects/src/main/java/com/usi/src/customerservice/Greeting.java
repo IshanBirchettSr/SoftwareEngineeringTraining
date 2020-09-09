@@ -1,9 +1,14 @@
 package customerservice;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
+import javax.print.DocFlavor.URL;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -56,7 +61,7 @@ import util.YesNoInput;
 
 public class Greeting extends Application {
     static Label phoneNumberLbl = null;
-    private static TextField phoneNumTxt = null;
+    private TextField phoneNumTxt = null;
     static HBox panePhoneNum = null;
     private static HBox pHBox = null;
     private VBox primaryPane = null;
@@ -102,7 +107,7 @@ public class Greeting extends Application {
 
     public void loadCardRecords() {
 	DataCsvLoad loadMembershipRecords = new DataCsvLoad();
-	loadMembershipRecords.loadData(StoreConstants.MEMBERSHIPCARD_TRUCK);
+	loadMembershipRecords.loadData(StoreConstants.MEMBERSHIPCARD_RECORDS);
 	membershipRecords = loadMembershipRecords.getRecords();
 
     }
@@ -242,16 +247,27 @@ public class Greeting extends Application {
 		if (newValue.length() == 10) {
 		    mCard = membershipCards.get(newValue);
 		    if (mCard != null) {
+			if (currentCustomer != null) {
+			    currentCustomer = new Customer();
+			    money = 0.0;
+			    change = 0.00f;
+			    total = 0.0;
+			    applied = false;
+			    currentCustomer.getCart().resetShoppingCart();
+			    currentCustomer.resetAmountPaid();
+			}
 			currentCustomer.setmCard(mCard);
 			displayMemCard(mCard);
 		    }
 		}
 	    }
 	});
-
+	primaryPane.getChildren().remove(panePhoneNum);
+	total = 0.0;
 	panePhoneNum = new HBox(20, phoneNumberLbl, phoneNumTxt);
 	panePhoneNum.setPadding(new Insets(10));
 	primaryPane.getChildren().add(panePhoneNum);
+
     }
 
     /**
@@ -557,6 +573,7 @@ public class Greeting extends Application {
 	EventHandler<ActionEvent> saveEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
 		// This is when we will write out the new member data.
+		// myNewMethods(newMemberCard);
 		newWindowMembership.close();
 	    }
 	};
@@ -777,8 +794,8 @@ public class Greeting extends Application {
 	Button closeButton = new Button("Close");
 	closeButton.setAlignment(Pos.CENTER);
 	// New window (Stage)
-	Stage newWindow = new Stage();
-	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
+	Stage newWindowProd = new Stage();
+	newWindowProd.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
 
 	Button Buy = new Button("Add to cart");
 	EventHandler<ActionEvent> addToCartEvent = new EventHandler<ActionEvent>() {
@@ -787,7 +804,7 @@ public class Greeting extends Application {
 		if (mPlayer != null) {
 		    mPlayer.stop();
 		}
-		newWindow.close();
+		newWindowProd.close();
 	    }
 	};
 	Buy.setOnAction(addToCartEvent);
@@ -843,7 +860,7 @@ public class Greeting extends Application {
 		if (mPlayer != null) {
 		    mPlayer.stop();
 		}
-		newWindow.close();
+		newWindowProd.close();
 	    }
 	};
 	closeButton.setOnAction(closeEvent);
@@ -909,22 +926,23 @@ public class Greeting extends Application {
 	VBox dPane = new VBox(pTopPane, pBottomPane, pButtons);
 	dPane.setStyle("-fx-background-color: gray;");
 	Scene pScene = new Scene(dPane, 600, 550);
-	pScene.getStylesheets().add(StoreConstants.STYLE1);
-	pScene.getStylesheets().add("rcorners");
-	newWindow.setTitle(String.format("%s- Details", inProd.getProductName()));
-	newWindow.setScene(pScene);
+	// URL css = new URL(StoreConstants.STYLE1);
+	// pScene.getStylesheets().add(css.getClass().getResource(StoreConstants.STYLE1).toExternalForm());
+	// pScene.getStylesheets().add("rcorners");
+	newWindowProd.setTitle(String.format("%s- Details", inProd.getProductName()));
+	newWindowProd.setScene(pScene);
 
 	// Specifies the modality for new window.
-	newWindow.initModality(Modality.WINDOW_MODAL);
+	newWindowProd.initModality(Modality.WINDOW_MODAL);
 
 	// Specifies the owner Window (parent) for new window
-	newWindow.initOwner(parentStage);
-	newWindow.setResizable(false);
+	newWindowProd.initOwner(parentStage);
+	newWindowProd.setResizable(false);
 
 	// Set position of second window, related to primary window.
-	newWindow.setX(parentStage.getX() + 85);
-	newWindow.setY(parentStage.getY() + 50);
-	newWindow.show();
+	newWindowProd.setX(parentStage.getX() + 85);
+	newWindowProd.setY(parentStage.getY() + 50);
+	newWindowProd.show();
 
     }
 
@@ -1064,8 +1082,12 @@ public class Greeting extends Application {
 	};
 
 	cash.setOnAction(cashEvent);
-
-	Stage newWindow = new Stage();
+	if (newWindow == null) {
+	    newWindow = new Stage();
+	} else {
+	    newWindow.close();
+	    newWindow = new Stage();
+	}
 
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
 	HBox swipeBox = new HBox(swipe);
@@ -1253,7 +1275,7 @@ public class Greeting extends Application {
 	VBox crBox = new VBox(cr);
 	crBox.setAlignment(Pos.CENTER);
 
-	newWindow = new Stage();
+	// newWindow = new Stage();
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
 
 	if (Math.abs(change) > 0) {
@@ -1265,7 +1287,7 @@ public class Greeting extends Application {
 	String tTextString = null;
 	if (pt == paymentType.CASH) {
 	    double ct = Receipt.isThereChange(total, valueEntered);
-	    if (ct >= 0.00f) {
+	    if (ct >= 0.00) {
 		tTextString = String.format("Thank you for shopping at the %s today! Your change is %.2f\n",
 			StoreConstants.STORE_NAME, ct);
 	    } else {
@@ -1290,14 +1312,21 @@ public class Greeting extends Application {
 	payBalance.setOnAction(balanceEvent);
 
 	String lblChange = null;
-
-	if (change >= 0) {
+	MathContext mc = new MathContext(2, RoundingMode.HALF_UP);
+	BigDecimal bd = new BigDecimal(change, mc);
+	System.out.printf("Before %.8f and After %.8f\n", change, bd.round(mc).doubleValue());
+	change = bd.doubleValue();
+	if (change > 0.00) {
 	    lblChange = String.format("Your Change is %.2f", change);
 	} else {
-	    lblChange = String.format("Please pay remaining balance of %.2f.", change);
-	    choose.getChildren().add(payBalance);
+	    if (change < 0.00) {
+		lblChange = String.format("Please pay remaining balance of %.2f.", change);
+		choose.getChildren().add(payBalance);
+	    } else {
+		lblChange = "Thank you for exact change.";
+	    }
 	    total = change;
-
+	    System.out.printf("Change [%.9f]\n", total);
 	}
 	Label cents = new Label(lblChange);
 	cents.setMinWidth(500);
@@ -1323,7 +1352,10 @@ public class Greeting extends Application {
 	    public void handle(ActionEvent e) {
 		StoreCheckOut checkoutLane01 = new StoreCheckOut();
 		checkoutLane01.checkoutCustomer(currentCustomer, pt, valueEntered, currentCustomer.getAmountPaid());
-		newWindow.close();
+		newWindow.setScene(scene);
+		newWindow.setTitle("Greeting");
+		panePhoneNum.setVisible(false);
+		newWindow.show();
 	    }
 	};
 
@@ -1355,12 +1387,6 @@ public class Greeting extends Application {
 	    newWindow.setTitle(String.format("Balance Due: $%.2f", total));
 	}
 	newWindow.setScene(chooseScene);
-
-	// Specifies the modality for new window.
-	newWindow.initModality(Modality.WINDOW_MODAL);
-
-	// Specifies the owner Window (parent) for new window
-	newWindow.initOwner(parentStage);
 	newWindow.setResizable(false);
 
 	newWindow.show();
@@ -1439,7 +1465,7 @@ public class Greeting extends Application {
 	    firstTime = false;
 	}
 	sp.setContent(spv);
-	Stage newWindow = new Stage();
+	// Stage newWindow = new Stage();
 	Button closeButton = new Button("Close");
 	EventHandler<ActionEvent> closeEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
@@ -1471,7 +1497,7 @@ public class Greeting extends Application {
 	newWindow.setTitle(priceTitle);
 	newWindow.setScene(viewCartScene);
 	newWindow.getIcons().add(new Image(StoreConstants.SC_ICON_FULL));
-
+	newWindow.hide();
 	// Specifies the modality for new window.
 	newWindow.initModality(Modality.WINDOW_MODAL);
 

@@ -46,7 +46,6 @@ public class StoreConstants {
     public static final String LINEN_TRUCK = APP_HOME + "/src/resources/Linen.txt";
     public static final String LUGGAGE_TRUCK = APP_HOME + "/src/resources/Luggage.txt";
     public static final String MEAT_TRUCK = APP_HOME + "/src/resources/Meat.txt";
-    public static final String MEMBERSHIPCARD_TRUCK = APP_HOME + "/src/resources/MembershipCard.txt";
     public static final String PANTRY_TRUCK = APP_HOME + "/src/resources/Pantry.txt";
     public static final String PETCARE_TRUCK = APP_HOME + "/src/resources/Petcare.txt";
     public static final String PHARMACY_TRUCK = APP_HOME + "/src/resources/Pharmacy.txt";
@@ -59,7 +58,7 @@ public class StoreConstants {
     public static final String TOILETRIES_TRUCK = APP_HOME + "/src/resources/Toiletries.txt";
     public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
     public static final String TUPPERWARE_TRUCK = APP_HOME + "/src/resources/Tupperware.txt";
-    public static final String STYLE1 = "file:///" + APP_HOME + "/src/resources/style1.css";
+    public static final String STYLE1 = "file:///" + APP_HOME + "/src/resources/style.css";
 
     /*
      * Department Images
@@ -130,6 +129,8 @@ public class StoreConstants {
     public static final String MEMBERSHIP_DEFAULT_PROFILE_IMAGE = "file:///" + APP_HOME
 	    + "/images/profile_images/smile4camera2.png";
     public static final String CAMERA_CLICK_SOUND = "file:///" + APP_HOME + "/images/camera_click.mp3";
+    public static final String MEMBERSHIPCARD_RECORDS = APP_HOME + "/src/resources/MembershipCard.txt";
+    public static final String MEMBERSHIPCARD_RECORD_FORMATTER = "%s, %c, %s....";
 
     /*
      * Please keep deptNames in alphabetical order
