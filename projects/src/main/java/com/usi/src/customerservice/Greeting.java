@@ -1,6 +1,9 @@
 package customerservice;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
@@ -574,7 +577,30 @@ public class Greeting extends Application {
 	EventHandler<ActionEvent> saveEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
 		// This is when we will write out the new member data.
-		// myNewMethods(newMemberCard);
+//		newMemberCard(newMemberCard);
+//		BufferedWriter bw = null;
+//		FileWriter fw = null;
+//
+//		try {
+//
+//		    String content = "newMemberCard";
+//		    fw = new FileWriter("StoreConstants.MEMBERSHIPCARD_RECORD_FORMATTER", true);
+//		    bw = new BufferedWriter(fw);
+//		    bw.write(content);
+//
+//		} catch (IOException ex) {
+//		    System.err.format("IOException: %s%n", e);
+//		} finally {
+//		    try {
+//			if (bw != null)
+//			    bw.close();
+//
+//			if (fw != null)
+//			    fw.close();
+//		    } catch (IOException ex) {
+//			System.err.format("IOException: %s%n", ex);
+//		    }
+//		}
 		newWindowMembership.close();
 	    }
 	};
@@ -604,6 +630,14 @@ public class Greeting extends Application {
 	newWindowMembership.setY(parentStage.getY() + 20);
 
 	newWindowMembership.show();
+    }
+
+    /**
+     * @param newMemberCard
+     */
+    protected void newMemberCard(MembershipSignUp newMemberCard) {
+	// TODO Auto-generated method stub
+
     }
 
     /**
