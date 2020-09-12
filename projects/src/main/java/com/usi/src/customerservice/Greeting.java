@@ -848,13 +848,11 @@ public class Greeting extends Application {
 	VBox descBox = new VBox();
 	descBox.setStyle("-fx-background-color: cadetblue;");
 	descBox.setPrefSize(375, 200);
-
 	Label deslblCharacter = new Label("Description ");
 	deslblCharacter.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
 	deslblCharacter.setMinWidth(100);
 	deslblCharacter.setAlignment(Pos.TOP_LEFT);
-
-	deslblCharacter.setFont(Font.font("Lucinda Sans", FontWeight.NORMAL, FontPosture.REGULAR, 14));
+	deslblCharacter.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
 	deslblCharacter.setTextFill(Color.BLACK);
 	TextArea desText = new TextArea(inProd.getDescription());
 	desText.setMaxWidth(375);
@@ -868,7 +866,7 @@ public class Greeting extends Application {
 	Label lblCharacter = new Label("Ingrediants ");
 	lblCharacter.setMinWidth(100);
 	lblCharacter.setAlignment(Pos.TOP_LEFT);
-	lblCharacter.setFont(Font.font("Lucinda Sans", FontWeight.NORMAL, FontPosture.REGULAR, 14));
+	lblCharacter.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.REGULAR, 14));
 	lblCharacter.setTextFill(Color.BLACK);
 	TextArea IText = new TextArea(inProd.getIngredient());
 	IText.setMaxWidth(375);
