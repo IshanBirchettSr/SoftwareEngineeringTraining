@@ -158,7 +158,7 @@ public class AutomotiveDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(125);
+	    pV.setFitHeight(100);
 	    // pV.setFitHeight(65);
 	    pV.setId(pKey);
 	    pV.setImage(pImage);
@@ -221,7 +221,7 @@ public class AutomotiveDept extends Department {
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 	VBox aVBox = new VBox(10, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 400, 650);
+	Scene aScene = new Scene(aVBox, 500, 650);
 	return aScene;
     }
 }

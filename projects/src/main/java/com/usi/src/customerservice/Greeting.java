@@ -875,6 +875,7 @@ public class Greeting extends Application {
 	// Image View
 	Image pImage = new Image(iFileName);
 	ImageView pV = new ImageView();
+	pV.setFitHeight(200);
 	pV.setFitWidth(225);
 	// pV.setFitHeight(200);
 	// pV.setId(inProd.get );
@@ -1035,9 +1036,10 @@ public class Greeting extends Application {
 
 	// Media Player Branding Box
 	VBox mp = new VBox(pV);
+	mp.setPrefSize(225, 200);
 
 	mp.setStyle("-fx-background-color: white;");
-	mp.setAlignment(Pos.CENTER_LEFT);
+	mp.setAlignment(Pos.CENTER);
 	mp.setBorder(new Border(new BorderStroke(bColor, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, bs)));
 	mp.setFillWidth(true);
 	HBox pTopPane = new HBox(mp, iDetailPane);

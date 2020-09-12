@@ -287,7 +287,7 @@ public class MembershipSignUp {
      * @param cDate
      */
     public void setDateOfMembership(Calendar cDate) {
-	SimpleDateFormat fmt = new SimpleDateFormat("MM-dd-yyyy");
+	SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yyyy");
 	fmt.setCalendar(cDate);
 	String dateFormatted = fmt.format(cDate.getTime());
 	Date date = null;
