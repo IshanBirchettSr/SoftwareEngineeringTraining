@@ -108,7 +108,7 @@ public class CleaningSuppliesDept extends Department {
 
     @Override
     public Scene getScene() {
-	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.CLEANING_SUPPLIES);
+	String sString = String.format("Clean-Up with our %s needs!", StoreConstants.deptNames.CLEANING_SUPPLIES);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
@@ -182,9 +182,11 @@ public class CleaningSuppliesDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
-		if (pd.getProductName().contains("Tire")) {
+		pLabel.setTextFill(Color.YELLOW);
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:darkblue;");
+		if (pd.getProductName().contains("Cleaning")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
+
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");

@@ -117,12 +117,12 @@ public class ClothesDept extends Department {
 
     @Override
     public Scene getScene() {
-	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.CLOTHES);
+	String sString = String.format("The Coolest %s!", StoreConstants.deptNames.CLOTHES);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
-	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	slogan.setFont(Font.font("Comic Sans", FontWeight.BOLD, FontPosture.REGULAR, 24));
 	ImageView iv = new ImageView();
 	iv.setImage(ClothesImage);
 	iv.setFitWidth(400);
@@ -131,8 +131,8 @@ public class ClothesDept extends Department {
 	iv.setCache(true);
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
-	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
+	instructions.setFont(Font.font("Comic Sans", FontWeight.BOLD, FontPosture.ITALIC, 16));
+	instructions.setStyle("-fx-background-color:null");
 	VBox ap = new VBox(15, slogan, iv, instructions);
 	ap.setAlignment(Pos.CENTER);
 
@@ -189,9 +189,10 @@ public class ClothesDept extends Department {
 	    pV.setOnMouseClicked(iEvent);
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
-		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
-		if (pd.getProductName().contains("Tire")) {
+		pLabel.setFont(Font.font("Comic Sans", FontWeight.BOLD, FontPosture.ITALIC, 30));
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:purple;");
+		pLabel.setTextFill(Color.GOLD);
+		if (pd.getProductName().contains("Clothes")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
 		} else {
