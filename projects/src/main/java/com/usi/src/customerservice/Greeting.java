@@ -141,7 +141,7 @@ public class Greeting extends Application {
 	    parentStage = primaryStage;
 	}
 
-	String wcl = String.format("Welcome to %s", StoreConstants.STORE_NAME);
+	String wcl = String.format("\nWelcome to %s", StoreConstants.STORE_NAME);
 	Text welcomeTxt = new Text(wcl);
 	welcomeTxt.setText(wcl);
 	welcomeTxt.setX(50.00);

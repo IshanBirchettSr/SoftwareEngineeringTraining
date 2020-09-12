@@ -45,13 +45,13 @@ public class StorePrinterFx extends NodePrinter {
 	PrinterJob job = PrinterJob.createPrinterJob();
 
 	if (job != null) {
-	    if (job.showPrintDialog(null) == true) {
-		boolean success = super.print(job, true, node);
-		// boolean success = job.printPage(node);
-		if (success) {
-		    job.endJob();
-		}
+	    // if (job.showPrintDialog(null) == true) {
+	    boolean success = super.print(job, true, node);
+	    // boolean success = job.printPage(node);
+	    if (success) {
+		job.endJob();
 	    }
+	    // }
 	}
     }
 }

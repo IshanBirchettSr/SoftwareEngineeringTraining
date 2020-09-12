@@ -11,6 +11,7 @@ package util;
 import javafx.print.PageLayout;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Transform;
@@ -141,7 +142,11 @@ public class NodePrinter {
      * @return a rectangle in the world coordinate system that defines the area of
      *         the contents of the node to print.
      */
-    public Rectangle getPrintRectangle() {
+    private Rectangle getPrintRectangle() {
+	if (printRectangle == null) {
+	    printRectangle = new Rectangle(1000, 200, null);
+	    printRectangle.setStroke(Color.BLACK);
+	}
 	return printRectangle;
     }
 
