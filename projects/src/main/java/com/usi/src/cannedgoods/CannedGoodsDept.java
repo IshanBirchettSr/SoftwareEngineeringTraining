@@ -56,7 +56,7 @@ public class CannedGoodsDept extends Department {
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
 
-	// Automotive Product Load
+	// CannedGoods Product Load
 	cannedGoodsProducts = new HashMap<String, CannedGoodsProd>();
 	loadProducts();
     }
@@ -116,12 +116,12 @@ public class CannedGoodsDept extends Department {
 
     @Override
     public Scene getScene() {
-	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.CANNED_GOODS);
+	String sString = String.format("Our %s Are The Best Deal!", StoreConstants.deptNames.CANNED_GOODS);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
-	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	slogan.setFont(Font.font("Rockwell", FontPosture.REGULAR, 18));
 	Image cannedgoodsImage = new Image(StoreConstants.CANNEDGOODSDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(cannedgoodsImage);
@@ -131,7 +131,7 @@ public class CannedGoodsDept extends Department {
 	iv.setCache(true);
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
-	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
+	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 15));
 	instructions.setStyle("-fx-background-color:lightblue");
 	VBox ap = new VBox(15, slogan, iv, instructions);
 	ap.setAlignment(Pos.CENTER);
@@ -142,7 +142,6 @@ public class CannedGoodsDept extends Department {
 	pGrid.setPadding(iSet);
 	String oProdName = "NoProd";
 	Set<String> aProductKeys = cannedGoodsProducts.keySet();
-	// You must sort the Set of keys
 	List<String> list = new ArrayList<>(aProductKeys);
 	Collections.sort(list);
 
@@ -189,7 +188,7 @@ public class CannedGoodsDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
+		pLabel.setStyle("-fx-border-color:red; -fx-background-color:yellow;");
 		if (pd.getProductName().contains("Can")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
