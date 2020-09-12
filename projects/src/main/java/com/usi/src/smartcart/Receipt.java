@@ -130,7 +130,7 @@ public class Receipt extends StorePrinterFx {
 	Line line = new Line();
 	line.setStartX(100.0f);
 	line.setStartY(150.0f);
-	line.setEndX(700.0f);
+	line.setEndX(600.0f);
 	line.setEndY(150.0f);
 	line.setStrokeWidth(1);
 	line.setStroke(Color.BLACK);
@@ -139,7 +139,7 @@ public class Receipt extends StorePrinterFx {
 	Line line1 = new Line();
 	line1.setStartX(100.0f);
 	line1.setStartY(150.0f);
-	line1.setEndX(700.0f);
+	line1.setEndX(600.0f);
 	line1.setEndY(150.0f);
 	line1.setStrokeWidth(1);
 	line1.setStroke(Color.BLACK);
@@ -338,6 +338,7 @@ public class Receipt extends StorePrinterFx {
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
 	VBox receiptNode = new VBox(5, sBox, line, r, tp, line1, align, adt, thankYouBox, date);
+	receiptNode.setPrefSize(600, 650);
 	totalTendered = 0.0;
 	/* tell the caller that this page is part of the printed document */
 	return receiptNode;

@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class NodePrinter {
 
-    private static final double SCREEN_TO_PRINT_DPI = 72d / 96d;
+    private static final double SCREEN_TO_PRINT_DPI = 100d / 96d;
 
     private double scale = 1.0f;
 
@@ -144,7 +144,7 @@ public class NodePrinter {
      */
     private Rectangle getPrintRectangle() {
 	if (printRectangle == null) {
-	    printRectangle = new Rectangle(1000, 200, null);
+	    printRectangle = new Rectangle(600, 800, null);
 	    printRectangle.setStroke(Color.BLACK);
 	}
 	return printRectangle;
