@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.imageio.ImageIO;
@@ -282,4 +283,21 @@ public class MembershipSignUp {
 
     }
 
+    /**
+     * @param cDate
+     */
+    public void setDateOfMembership(Calendar cDate) {
+	SimpleDateFormat fmt = new SimpleDateFormat("MM-dd-yyyy");
+	fmt.setCalendar(cDate);
+	String dateFormatted = fmt.format(cDate.getTime());
+	Date date = null;
+	try {
+	    date = fmt.parse(dateFormatted);
+	} catch (ParseException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+	setDateOfMembership(date);
+
+    }
 }

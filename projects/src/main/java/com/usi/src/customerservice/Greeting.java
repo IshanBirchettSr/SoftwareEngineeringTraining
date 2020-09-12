@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -434,7 +436,14 @@ public class Greeting extends Application {
 	TextField fNTextField = new TextField();
 	fNTextField.setPromptText("Please enter first name: ");
 	HBox firstNameBox = new HBox(fNText, fNTextField);
-	newMemberCard.setFirstName(fNTextField.toString());
+	fNTextField.textProperty().addListener(new ChangeListener<String>() {
+
+	    @Override
+	    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		newMemberCard.setFirstName(fNTextField.getText());
+	    }
+
+	});
 
 	HBox gp = new HBox(20, membershipTxt);
 	gp.setAlignment(Pos.CENTER);
@@ -446,7 +455,14 @@ public class Greeting extends Application {
 	TextField mITextField = new TextField();
 	mITextField.setPromptText("Please enter middle initial: ");
 	HBox middleInitialBox = new HBox(mIText, mITextField);
-	newMemberCard.setmInitial(mITextField.toString().charAt(0));
+	mITextField.textProperty().addListener(new ChangeListener<String>() {
+
+	    @Override
+	    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		newMemberCard.setmInitial((char) mITextField.getText().getBytes().clone()[0]);
+	    }
+
+	});
 
 	// last name
 	Text lNText = new Text("Last Name: ");
@@ -454,7 +470,14 @@ public class Greeting extends Application {
 	TextField lNTextField = new TextField();
 	lNTextField.setPromptText("Please enter last name: ");
 	HBox lastNameBox = new HBox(lNText, lNTextField);
-	newMemberCard.setLastName(lNTextField.toString());
+	lNTextField.textProperty().addListener(new ChangeListener<String>() {
+
+	    @Override
+	    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		newMemberCard.setLastName(lNTextField.getText());
+	    }
+
+	});
 
 	// email address
 	Text eAText = new Text("Email Address: ");
@@ -462,7 +485,14 @@ public class Greeting extends Application {
 	TextField eATextField = new TextField();
 	eATextField.setPromptText("Please enter email address: ");
 	HBox emailAddressBox = new HBox(eAText, eATextField);
-	newMemberCard.setEmailAddress(eATextField.toString());
+	eATextField.textProperty().addListener(new ChangeListener<String>() {
+
+	    @Override
+	    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		newMemberCard.setEmailAddress(eATextField.getText());
+	    }
+
+	});
 
 	// street
 	Text sText = new Text("Street: ");
@@ -470,7 +500,14 @@ public class Greeting extends Application {
 	TextField sTextField = new TextField();
 	sTextField.setPromptText("Please enter street: ");
 	HBox streetBox = new HBox(sText, sTextField);
-	newMemberCard.setStreetAddress(sTextField.toString());
+	sTextField.textProperty().addListener(new ChangeListener<String>() {
+
+	    @Override
+	    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		newMemberCard.setStreetAddress(sTextField.getText());
+	    }
+
+	});
 
 	// city
 	Text cText = new Text("City: ");
@@ -478,7 +515,14 @@ public class Greeting extends Application {
 	TextField cTextField = new TextField();
 	cTextField.setPromptText("Please enter city: ");
 	HBox cityBox = new HBox(cText, cTextField);
-	newMemberCard.setCity(cTextField.toString());
+	cTextField.textProperty().addListener(new ChangeListener<String>() {
+
+	    @Override
+	    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		newMemberCard.setCity(cTextField.getText());
+	    }
+
+	});
 
 	// state
 	Text stateText = new Text("State: ");
@@ -486,7 +530,14 @@ public class Greeting extends Application {
 	TextField stateTextField = new TextField();
 	stateTextField.setPromptText("Please enter state: ");
 	HBox stateBox = new HBox(stateText, stateTextField);
-	newMemberCard.setState(stateTextField.toString());
+	stateTextField.textProperty().addListener(new ChangeListener<String>() {
+
+	    @Override
+	    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		newMemberCard.setState(stateTextField.getText());
+	    }
+
+	});
 
 	// postal code
 	Text pCText = new Text("Postal Code: ");
@@ -494,7 +545,14 @@ public class Greeting extends Application {
 	TextField pCTextField = new TextField();
 	pCTextField.setPromptText("Please enter postal code: ");
 	HBox postalCodeBox = new HBox(pCText, pCTextField);
-	newMemberCard.setPostalCode(pCTextField.toString());
+	pCTextField.textProperty().addListener(new ChangeListener<String>() {
+
+	    @Override
+	    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+		newMemberCard.setPostalCode(pCTextField.getText());
+	    }
+
+	});
 
 	// phone number
 	Text pNText = new Text("Phone Number: ");
@@ -525,8 +583,8 @@ public class Greeting extends Application {
 	newMemberCard.setAarpMember(AarpMem);
 	VBox memSignUp = new VBox(gp, firstNameBox, middleInitialBox, lastNameBox, emailAddressBox, streetBox, cityBox,
 		stateBox, postalCodeBox, phoneNumberBox, AarpTextBox);
-
-	newMemberCard.setDateOfMembership(new Date());
+	Calendar cDate = Calendar.getInstance();
+	newMemberCard.setDateOfMembership(cDate);
 
 	Button cameraButton = new Button("Take Picture");
 	cameraButton.setAlignment(Pos.CENTER);
@@ -577,30 +635,7 @@ public class Greeting extends Application {
 	EventHandler<ActionEvent> saveEvent = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
 		// This is when we will write out the new member data.
-//		newMemberCard(newMemberCard);
-//		BufferedWriter bw = null;
-//		FileWriter fw = null;
-//
-//		try {
-//
-//		    String content = "newMemberCard";
-//		    fw = new FileWriter("StoreConstants.MEMBERSHIPCARD_RECORD_FORMATTER", true);
-//		    bw = new BufferedWriter(fw);
-//		    bw.write(content);
-//
-//		} catch (IOException ex) {
-//		    System.err.format("IOException: %s%n", e);
-//		} finally {
-//		    try {
-//			if (bw != null)
-//			    bw.close();
-//
-//			if (fw != null)
-//			    fw.close();
-//		    } catch (IOException ex) {
-//			System.err.format("IOException: %s%n", ex);
-//		    }
-//		}
+		membershipRecord(newMemberCard);
 		newWindowMembership.close();
 	    }
 	};
@@ -630,6 +665,44 @@ public class Greeting extends Application {
 	newWindowMembership.setY(parentStage.getY() + 20);
 
 	newWindowMembership.show();
+    }
+
+    public void membershipRecord(MembershipSignUp newMemberCard) {
+
+	BufferedWriter bw = null;
+	FileWriter fw = null;
+	// First name, Middle Initial, Last Name, email address, street, city, state,
+	// zipcode, phone number, aarp membership, Membership Date
+	SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yyyy");
+	String dateFormatted = fmt.format(newMemberCard.getDateOfMembership());
+	String formattedRecord = String.format(StoreConstants.MEMBERSHIPCARD_RECORD_FORMATTER,
+		newMemberCard.getFirstName().toString(), newMemberCard.getmInitial(),
+		newMemberCard.getLastName().toString(), newMemberCard.getEmailAddress().toString(),
+		newMemberCard.getStreetAddress().toString(), newMemberCard.getCity().toString(),
+		newMemberCard.getState().toString(), newMemberCard.getPostalCode().toString(),
+		newMemberCard.getPhoneNumber().toString(), (newMemberCard.isAarpMember() == true ? "Yes" : "No"),
+		dateFormatted);
+	try {
+
+	    fw = new FileWriter(StoreConstants.MEMBERSHIPCARD_RECORDS, true);
+	    bw = new BufferedWriter(fw);
+	    bw.write(formattedRecord);
+	    bw.close();
+	    System.out.println(formattedRecord);
+	} catch (IOException ex) {
+	    System.err.format("IOException: %s", ex);
+	} finally {
+	    try {
+		if (bw != null)
+		    bw.close();
+
+		if (fw != null)
+		    fw.close();
+	    } catch (IOException ex) {
+		System.err.format("IOException: %s", ex);
+	    }
+	}
+
     }
 
     /**

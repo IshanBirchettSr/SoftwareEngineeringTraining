@@ -130,7 +130,7 @@ public class StoreConstants {
 	    + "/images/profile_images/smile4camera2.png";
     public static final String CAMERA_CLICK_SOUND = "file:///" + APP_HOME + "/images/camera_click.mp3";
     public static final String MEMBERSHIPCARD_RECORDS = APP_HOME + "/src/resources/MembershipCard.txt";
-    public static final String MEMBERSHIPCARD_RECORD_FORMATTER = "%s, %c, %s, %s, %s, %s, %s, %s, %s, %s, %s";
+    public static final String MEMBERSHIPCARD_RECORD_FORMATTER = "\n%s, %c, %s, %s, %s, %s, %s, %s, %s, %s, %s";
 
     /*
      * Please keep deptNames in alphabetical order
