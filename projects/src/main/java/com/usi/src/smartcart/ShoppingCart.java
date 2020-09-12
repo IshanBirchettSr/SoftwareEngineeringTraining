@@ -121,6 +121,15 @@ public class ShoppingCart {
 
     }
 
+    public void resetShoppingCart() {
+	aarpDiscount = 0.00;
+	membershipDiscount = 0.0;
+	taxesTotal = 0.0;
+
+	grandTotal = 0.0;
+	subTotal = 0.0;
+    }
+
     /**
      * @return
      */

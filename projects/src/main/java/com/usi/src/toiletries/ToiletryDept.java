@@ -142,7 +142,7 @@ public class ToiletryDept extends Department {
 	Image toiletriesImage = new Image(StoreConstants.TOILETRIESDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(toiletriesImage);
-	iv.setFitWidth(400);
+	iv.setFitWidth(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);

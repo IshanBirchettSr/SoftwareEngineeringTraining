@@ -23,6 +23,10 @@ public class Customer {
 	return amountPaid;
     }
 
+    public void resetAmountPaid() {
+	amountPaid = 0.0;
+    }
+
     /**
      * @return the cart
      */
