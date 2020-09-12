@@ -20,7 +20,7 @@ import javafx.scene.transform.Scale;
  * @author ibirc
  *
  */
-public class StorePrinterFx {
+public class StorePrinterFx extends NodePrinter {
 
     /**
      * 
@@ -46,7 +46,8 @@ public class StorePrinterFx {
 
 	if (job != null) {
 	    if (job.showPrintDialog(null) == true) {
-		boolean success = job.printPage(node);
+		boolean success = super.print(job, true, node);
+		// boolean success = job.printPage(node);
 		if (success) {
 		    job.endJob();
 		}
