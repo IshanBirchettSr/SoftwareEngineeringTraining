@@ -39,7 +39,7 @@ public class CannedGoodsDept extends Department {
     String deptName = StoreConstants.deptNames.CANNED_GOODS.name();
     List<String> cannedGoodsRecords = null;
     HashMap<Integer, String> keyMap = null;
-    // HashMap<K, V> to hold AutomotiveProd objects.
+    // HashMap<K, V> to hold CannedGoodsProd objects.
     HashMap<String, CannedGoodsProd> cannedGoodsProducts;
 
     /**
@@ -132,7 +132,7 @@ public class CannedGoodsDept extends Department {
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 15));
-	instructions.setStyle("-fx-background-color:lightblue");
+	instructions.setStyle("-fx-background-color:lightgoldenrodyellow");
 	VBox ap = new VBox(15, slogan, iv, instructions);
 	ap.setAlignment(Pos.CENTER);
 
@@ -233,7 +233,7 @@ public class CannedGoodsDept extends Department {
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 	VBox aVBox = new VBox(10, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 400, 650);
+	Scene aScene = new Scene(aVBox, 500, 650);
 	return aScene;
     }
 }

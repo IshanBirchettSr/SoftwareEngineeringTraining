@@ -130,7 +130,7 @@ public class DairyDept extends Department {
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
+	instructions.setStyle("-fx-background-color:lightgoldenrodyellow");
 	VBox ap = new VBox(15, slogan, iv, instructions);
 	ap.setAlignment(Pos.CENTER);
 
@@ -187,10 +187,11 @@ public class DairyDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:lightblue;");
+		pLabel.setStyle("-fx-border-color:darkslateblue; -fx-background-color:firebrick;");
+		pLabel.setTextFill(Color.ANTIQUEWHITE);
 		if (pd.getProductName().contains("Dairy")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:lightblue;");
+		    pLabel.setStyle("-fx-border-color:darkslateblue; -fx-background-color:firebrick;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
@@ -232,7 +233,7 @@ public class DairyDept extends Department {
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 	VBox aVBox = new VBox(15, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 400, 650);
+	Scene aScene = new Scene(aVBox, 500, 650);
 	return aScene;
     }
 }

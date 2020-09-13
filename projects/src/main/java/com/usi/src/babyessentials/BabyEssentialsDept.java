@@ -144,47 +144,6 @@ public class BabyEssentialsDept extends Department {
 
 	VBox eBox = new VBox(20, eg, iv);
 
-	String goIn = String.format("Would you like to shop for your baby's essentials?");
-	Text shopTxt = new Text(goIn);
-	shopTxt.setText(goIn);
-	shopTxt.setX(50.00);
-	shopTxt.setY(80.00);
-	shopTxt.setFill(Color.BLUE);
-	shopTxt.setFont(Font.font("Arial", FontPosture.REGULAR, 22));
-
-	Label comeIn = new Label(goIn);
-	comeIn.setAlignment(Pos.BOTTOM_CENTER);
-
-	Button Enter = new Button("YES!");
-	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-
-		System.out.println("Welcome!");
-
-	    }
-
-	};
-	Enter.setOnAction(yesEvent);
-
-	Button noIDoNot = new Button("Next Department Please");
-	Enter.setAlignment(Pos.BOTTOM_CENTER);
-	noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
-	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-		System.out.println("No");
-
-	    }
-	};
-
-	noIDoNot.setOnAction(noEvent);
-
-	HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
-	paneCharacter.setPadding(new Insets(10));
-	// Add the Character and Actor panes to a VBox
-	VBox el = new VBox(10, eg, paneCharacter);
-	el.setAlignment(Pos.CENTER);
-	eBox.getChildren().add(paneCharacter);
-
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
@@ -243,10 +202,10 @@ public class BabyEssentialsDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		pLabel.setStyle("-fx-border-color:blue; -fx-background-color:pink;");
 		if (pd.getProductName().contains("Baby")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		    pLabel.setStyle("-fx-border-color:pink; -fx-background-color:skyblue;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
@@ -284,7 +243,7 @@ public class BabyEssentialsDept extends Department {
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 
 	VBox eVBox = new VBox(20, epr, sp, dButtons);
-	Scene eScene = new Scene(eVBox, 600, 650);
+	Scene eScene = new Scene(eVBox, 500, 650);
 
 	return eScene;
     }

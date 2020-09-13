@@ -234,7 +234,7 @@ public class BeddingDept extends Department {
 	    dButtons.setSpacing(30);
 	    dButtons.setPadding(new Insets(15, 0, 15, 0));
 	    VBox aVBox = new VBox(10, bp, sp, dButtons);
-	    Scene beddScene = new Scene(aVBox, 400, 650);
+	    Scene beddScene = new Scene(aVBox, 500, 650);
 	    return beddScene;
 	}
     }

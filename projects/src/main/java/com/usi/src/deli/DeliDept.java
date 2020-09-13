@@ -118,7 +118,7 @@ public class DeliDept extends Department {
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
-	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	slogan.setFont(Font.font("Times New Roman", FontPosture.REGULAR, 20));
 	Image deliImage = new Image(StoreConstants.DELIDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(deliImage);
@@ -128,8 +128,8 @@ public class DeliDept extends Department {
 	iv.setCache(true);
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
-	instructions.setFont(Font.font("Veranda", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
+	instructions.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.ITALIC, 16));
+	instructions.setStyle("-fx-background-color:lightgoldenrodyellow");
 	VBox ap = new VBox(15, slogan, iv, instructions);
 	ap.setAlignment(Pos.CENTER);
 
@@ -185,11 +185,11 @@ public class DeliDept extends Department {
 	    pV.setOnMouseClicked(iEvent);
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
-		pLabel.setFont(Font.font("Veranda", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:lightblue;");
-		if (pd.getProductName().contains("Tire")) {
+		pLabel.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.ITALIC, 30));
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:indianred;");
+		if (pd.getProductName().contains("Deli")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:lightblue;");
+		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:indianred;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
@@ -231,7 +231,7 @@ public class DeliDept extends Department {
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 	VBox aVBox = new VBox(10, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 400, 650);
+	Scene aScene = new Scene(aVBox, 500, 650);
 	return aScene;
     }
 }
