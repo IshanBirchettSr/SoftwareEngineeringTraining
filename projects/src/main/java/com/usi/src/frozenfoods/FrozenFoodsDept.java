@@ -133,7 +133,7 @@ public class FrozenFoodsDept extends Department {
 	Image frozenFoodImage = new Image(StoreConstants.FROZENFOODSDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(frozenFoodImage);
-	iv.setFitWidth(300);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -142,42 +142,9 @@ public class FrozenFoodsDept extends Department {
 
 	VBox ffBox = new VBox(20, ffg, iv);
 
-	Label comeIn = new Label("Would you like to shop the Frozen Food's Department?");
-	comeIn.setAlignment(Pos.CENTER);
-	comeIn.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 13));
-	comeIn.setStyle("-fx-background-color:lightblue");
-
-	comeIn.setAlignment(Pos.CENTER);
-
-	Button Enter = new Button("YES!");
-	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-
-		System.out.println("Welcome!");
-
-	    }
-	};
-	Enter.setOnAction(yesEvent);
-
-	Button noIDoNot = new Button("Next Department Please");
-	Enter.setAlignment(Pos.BOTTOM_CENTER);
-	noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
-	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-		System.out.println("No");
-
-	    }
-	};
-
-	noIDoNot.setOnAction(noEvent);
-
-	HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
-	paneCharacter.setPadding(new Insets(10));
 	// Add the Character and Actor panes to a VBox
-	VBox ffl = new VBox(10, ffp, paneCharacter);
+	VBox ffl = new VBox(10, ffp);
 	ffl.setAlignment(Pos.CENTER);
-
-	ffBox.getChildren().add(paneCharacter);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
@@ -285,7 +252,7 @@ public class FrozenFoodsDept extends Department {
 
 	VBox fVBox = new VBox(20, fpr, sp, dButtons);
 
-	Scene ffScene = new Scene(fVBox, 600, 575);
+	Scene ffScene = new Scene(fVBox, 500, 650);
 
 	return ffScene;
     }
