@@ -574,7 +574,7 @@ public class Greeting extends Application {
 	HBox phoneNumberBox = new HBox(pNText, pNTextField);
 
 	// Aarp
-	Text AarpText = new Text("Are you an AARP Mmeber?: ");
+	Text AarpText = new Text("Are you an AARP Member?: ");
 
 	TextField AarpTextField = new TextField();
 	AarpTextField.setPromptText("Yes/No: ");

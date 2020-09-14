@@ -41,7 +41,6 @@ public class ClothesDept extends Department {
     HashMap<Integer, String> keyMap = null;
     // HashMap<K, V> to hold ClothesProd objects.
     HashMap<String, ClothesProd> clothesProducts;
-    private Image ClothesImage;
 
     /**
      * Constructor
@@ -123,9 +122,11 @@ public class ClothesDept extends Department {
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Comic Sans", FontWeight.BOLD, FontPosture.REGULAR, 24));
+	Image ClothesImage = new Image(StoreConstants.CLOTHESDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(ClothesImage);
 	iv.setFitWidth(400);
+	iv.setFitHeight(300);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -171,7 +172,6 @@ public class ClothesDept extends Department {
 	    pV.setId(pKey);
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
-
 	    pV.setSmooth(true);
 	    pV.setCache(true);
 	    String clothesToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
@@ -236,7 +236,7 @@ public class ClothesDept extends Department {
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 	VBox aVBox = new VBox(10, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 400, 650);
+	Scene aScene = new Scene(aVBox, 500, 650);
 	return aScene;
     }
 }
