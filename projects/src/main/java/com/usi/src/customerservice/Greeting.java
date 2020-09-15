@@ -1622,6 +1622,7 @@ public class Greeting extends Application {
 	Scene viewCartScene = new Scene(paneViewCart, 450, 625);
 
 	// New window (Stage)
+	newWindow = new Stage();
 	String priceTitle = String.format("Smart Cart Total $%.2f", currentCustomer.cart.getRunningTotal());
 	newWindow.setTitle(priceTitle);
 	newWindow.setScene(viewCartScene);
