@@ -244,7 +244,7 @@ public class BeveragesDept extends Department {
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 	VBox aVBox = new VBox(10, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 400, 650);
+	Scene aScene = new Scene(aVBox, 500, 650);
 	return aScene;
     }
 }

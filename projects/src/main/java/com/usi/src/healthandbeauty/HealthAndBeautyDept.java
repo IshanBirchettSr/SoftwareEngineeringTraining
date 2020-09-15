@@ -151,46 +151,9 @@ public class HealthAndBeautyDept extends Department {
 
 	VBox hbBox = new VBox(20, hbg, iv);
 
-	String goIn = String.format("Would you like to shop the Health and Beauty Department?");
-	Text shopTxt = new Text(goIn);
-	shopTxt.setText(goIn);
-	shopTxt.setX(50.00);
-	shopTxt.setY(80.00);
-	shopTxt.setFill(Color.BLUE);
-	shopTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
-
-	Label comeIn = new Label(goIn);
-	comeIn.setAlignment(Pos.BOTTOM_CENTER);
-
-	Button Enter = new Button("YES!");
-	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-
-		System.out.println("Welcome!");
-
-	    }
-	};
-	Enter.setOnAction(yesEvent);
-
-	Button noIDoNot = new Button("Next Department Please");
-	Enter.setAlignment(Pos.BOTTOM_CENTER);
-	noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
-	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-		System.out.println("No");
-
-	    }
-	};
-
-	noIDoNot.setOnAction(noEvent);
-
-	HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
-	paneCharacter.setPadding(new Insets(10));
 	// Add the Character and Actor panes to a VBox
-	VBox fl = new VBox(10, hbp, paneCharacter);
+	VBox fl = new VBox(10, hbp);
 	fl.setAlignment(Pos.CENTER);
-
-	hbBox.getChildren().add(paneCharacter);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
@@ -299,7 +262,7 @@ public class HealthAndBeautyDept extends Department {
 
 	VBox hbVBox = new VBox(20, hbpr, sp, dButtons);
 
-	Scene hbScene = new Scene(hbVBox, 600, 575);
+	Scene hbScene = new Scene(hbVBox, 500, 650);
 	return hbScene;
     }
 }

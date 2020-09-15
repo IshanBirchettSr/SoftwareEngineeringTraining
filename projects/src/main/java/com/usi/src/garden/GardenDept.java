@@ -141,7 +141,7 @@ public class GardenDept extends Department {
 	Image gardenImage = new Image(StoreConstants.GARDENDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(gardenImage);
-	iv.setFitWidth(300);
+	iv.setFitWidth(400);
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
@@ -150,46 +150,9 @@ public class GardenDept extends Department {
 
 	VBox gBox = new VBox(20, gg, iv);
 
-	String goIn = String.format("Would you like to shop the Garden Department?");
-	Text shopTxt = new Text(goIn);
-	shopTxt.setText(goIn);
-	shopTxt.setX(50.00);
-	shopTxt.setY(80.00);
-	shopTxt.setFill(Color.BLUE);
-	shopTxt.setFont(Font.font("Rockwell", FontPosture.REGULAR, 20));
-
-	Label comeIn = new Label(goIn);
-	comeIn.setAlignment(Pos.BOTTOM_CENTER);
-
-	Button Enter = new Button("YES!");
-	EventHandler<ActionEvent> yesEvent = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-
-		System.out.println("Welcome!");
-
-	    }
-	};
-	Enter.setOnAction(yesEvent);
-
-	Button noIDoNot = new Button("Next Department Please");
-	Enter.setAlignment(Pos.BOTTOM_CENTER);
-	noIDoNot.setAlignment(Pos.BOTTOM_CENTER);
-	EventHandler<ActionEvent> noEvent = new EventHandler<ActionEvent>() {
-	    public void handle(ActionEvent e) {
-		System.out.println("No");
-
-	    }
-	};
-
-	noIDoNot.setOnAction(noEvent);
-
-	HBox paneCharacter = new HBox(20, comeIn, Enter, noIDoNot);
-	paneCharacter.setPadding(new Insets(10));
 	// Add the Character and Actor panes to a VBox
-	VBox gl = new VBox(10, gp, paneCharacter);
+	VBox gl = new VBox(10, gp);
 	gl.setAlignment(Pos.CENTER);
-
-	gBox.getChildren().add(paneCharacter);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
@@ -298,7 +261,7 @@ public class GardenDept extends Department {
 
 	VBox gVBox = new VBox(20, gpr, sp, dButtons);
 
-	Scene gScene = new Scene(gVBox, 600, 575);
+	Scene gScene = new Scene(gVBox, 500, 650);
 
 	return gScene;
     }
