@@ -9,6 +9,9 @@
 package util;
 
 import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
+import javafx.print.Printer;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
@@ -53,8 +56,11 @@ public class NodePrinter {
 	Window window = node.getScene() != null ? node.getScene().getWindow() : null;
 
 	if (!showPrintDialog || job.showPrintDialog(window)) {
-
-	    PageLayout pageLayout = job.getJobSettings().getPageLayout();
+	    Printer printer = Printer.getDefaultPrinter();
+	    PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT,
+		    Printer.MarginType.DEFAULT);
+	    // PageLayout pageLayout = job.getJobSettings().getPageLayout();
+	    // job.getJobSettings().setPageRanges(pages);
 	    double pageWidth = pageLayout.getPrintableWidth();
 	    double pageHeight = pageLayout.getPrintableHeight();
 
@@ -62,8 +68,10 @@ public class NodePrinter {
 
 	    double printRectX = this.printRectangle.getX();
 	    double printRectY = this.printRectangle.getY();
-	    double printRectWith = this.printRectangle.getWidth();
+	    double printRectWidth = this.printRectangle.getWidth();
 	    double printRectHeight = this.printRectangle.getHeight();
+	    System.out.printf("X = %.2f, Y = %.2f, Width = %.2f, Height = %.2f\n", printRectX, printRectY,
+		    printRectWidth, printRectHeight);
 
 	    // the following is suboptimal in many ways but needed for the sake of
 	    // demonstration.
@@ -80,14 +88,16 @@ public class NodePrinter {
 	    Node oldClip = node.getClip();
 	    List<Transform> oldTransforms = new ArrayList<>(node.getTransforms());
 	    // set the printingRectangle bounds as clip
-	    node.setClip(new javafx.scene.shape.Rectangle(printRectX, printRectY, printRectWith, printRectHeight));
+	    node.setClip(new javafx.scene.shape.Rectangle(printRectX, printRectY, printRectWidth, printRectHeight));
 
 	    int columns = printInfo.getColumnCount();
 	    int rows = printInfo.getRowCount();
+	    System.out.printf("Columns: %d, Rows: %d\n", columns, rows);
 
 	    // by adjusting the scale, you can force the contents to be printed one page for
 	    // example
 	    double localScale = printInfo.getScale();
+	    System.out.printf("Localscale: %.2f\n", localScale);
 
 	    node.getTransforms().add(new Scale(localScale, localScale));
 	    // move to 0,0
@@ -144,7 +154,7 @@ public class NodePrinter {
      */
     private Rectangle getPrintRectangle() {
 	if (printRectangle == null) {
-	    printRectangle = new Rectangle(600, 800, null);
+	    printRectangle = new Rectangle(1000, 2400, null);
 	    printRectangle.setStroke(Color.BLACK);
 	}
 	return printRectangle;

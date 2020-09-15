@@ -36,6 +36,7 @@ public class StorePrinterFx extends NodePrinter {
      */
     public void print(final Node node) {
 	Printer printer = Printer.getDefaultPrinter();
+	super.setScale(1);
 	PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT,
 		Printer.MarginType.DEFAULT);
 	double scaleX = pageLayout.getPrintableWidth() / node.getBoundsInParent().getWidth();

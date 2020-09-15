@@ -338,7 +338,7 @@ public class Receipt extends StorePrinterFx {
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
 	VBox receiptNode = new VBox(5, sBox, line, r, tp, line1, align, adt, thankYouBox, date);
-	receiptNode.setPrefSize(600, 650);
+	receiptNode.setPrefSize(800, 1200);
 	totalTendered = 0.0;
 	/* tell the caller that this page is part of the printed document */
 	return receiptNode;
