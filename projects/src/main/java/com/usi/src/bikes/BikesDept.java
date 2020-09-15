@@ -135,7 +135,7 @@ public class BikesDept extends Department {
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
+	instructions.setStyle("-fx-background-color:lawngreen");
 	VBox ap = new VBox(15, slogan, iv, instructions);
 	ap.setAlignment(Pos.CENTER);
 
@@ -193,7 +193,7 @@ public class BikesDept extends Department {
 		pLabel.setStyle("-fx-border-color:black; -fx-background-color:burlywood;");
 		if (pd.getProductName().contains("Bike")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
+		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:burlywood;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
@@ -235,7 +235,7 @@ public class BikesDept extends Department {
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 	VBox aVBox = new VBox(10, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 400, 650);
+	Scene aScene = new Scene(aVBox, 500, 650);
 	return aScene;
     }
 }
