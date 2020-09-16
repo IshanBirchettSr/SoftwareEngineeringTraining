@@ -1,5 +1,6 @@
 package pantry;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -174,9 +175,18 @@ public class PantryDept extends Department {
 		// System.out.printf("%s==%s, %b\n", oldFilename,
 		// iFileName,oldFilename.equals(iFileName));
 		continue;
+
 	    }
 	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
+
+	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "Pantry",
+		    pd.getBrandName(), pd.getProductName());
+	    File fExist = new File(ftest);
+
+	    if (fExist.exists() == false) {
+		continue;
+	    }
 
 	    // Image View
 	    Image pImage = new Image(iFileName);
