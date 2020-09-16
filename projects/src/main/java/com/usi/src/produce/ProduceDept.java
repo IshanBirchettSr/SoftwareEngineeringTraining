@@ -8,6 +8,7 @@
  */
 package produce;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -186,6 +187,14 @@ public class ProduceDept extends Department {
 	    }
 	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
+
+	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "Produce",
+		    pd.getBrandName(), pd.getProductName());
+	    File fExist = new File(ftest);
+
+	    if (fExist.exists() == false) {
+		continue;
+	    }
 
 	    // Image View
 	    Image pImage = new Image(iFileName);

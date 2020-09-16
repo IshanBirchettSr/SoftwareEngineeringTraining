@@ -421,8 +421,8 @@ public class Greeting extends Application {
 	String wcl = String.format("%s Membership Sign Up", StoreConstants.STORE_NAME);
 	Text membershipTxt = new Text(wcl);
 	membershipTxt.setText(wcl);
-	membershipTxt.setX(50.00);
-	membershipTxt.setY(80.00);
+	membershipTxt.setX(60.00);
+	membershipTxt.setY(40.00);
 	membershipTxt.setFill(Color.BLUE);
 
 	membershipTxt.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.REGULAR, 14));
@@ -637,6 +637,7 @@ public class Greeting extends Application {
 		// This is when we will write out the new member data.
 		membershipRecord(newMemberCard);
 		newWindowMembership.close();
+		displayDepts();
 	    }
 	};
 
