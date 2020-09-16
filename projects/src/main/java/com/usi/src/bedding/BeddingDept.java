@@ -17,11 +17,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -126,6 +128,11 @@ public class BeddingDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+
+	// DropShadow ds = new DropShadow(5, Color.BLUE);
+	// iv.setEffect(ds);
+	String style_inner = "-fx-border-color: red;" + "-fx-border-width: 1;" + "-fx-border-style: dotted;";
+	iv.setStyle(style_inner);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);

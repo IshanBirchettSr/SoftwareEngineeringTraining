@@ -1,5 +1,6 @@
 package automotive;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -108,6 +109,7 @@ public class AutomotiveDept extends Department {
 	return pList;
     }
 
+    @SuppressWarnings("unused")
     @Override
     public Scene getScene() {
 
@@ -154,9 +156,17 @@ public class AutomotiveDept extends Department {
 		continue;
 	    }
 	    oldFilename = iFileName;
+	    // USE THIS CODE --- Check to see if image exist
+	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "auto",
+		    pd.getBrandName(), pd.getProductName());
+	    File fExist = new File(ftest);
 
+	    if (fExist.exists() == false) {
+		continue;
+	    }
 	    // Image View
 	    Image pImage = new Image(iFileName);
+
 	    ImageView pV = new ImageView();
 	    pV.setFitHeight(100);
 	    // pV.setFitHeight(65);

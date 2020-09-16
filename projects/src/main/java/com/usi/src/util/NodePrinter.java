@@ -28,8 +28,8 @@ import java.util.List;
  * Prints any given area of a node to multiple pages
  */
 public class NodePrinter {
-
-    private static final double SCREEN_TO_PRINT_DPI = 100d / 96d;
+    // private static final double SCREEN_TO_PRINT_DPI = 100d / 96d;
+    private static final double SCREEN_TO_PRINT_DPI = 72d / 96d;
 
     private double scale = 1.0f;
 
@@ -57,10 +57,7 @@ public class NodePrinter {
 
 	if (!showPrintDialog || job.showPrintDialog(window)) {
 	    Printer printer = Printer.getDefaultPrinter();
-	    PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT,
-		    Printer.MarginType.DEFAULT);
-	    // PageLayout pageLayout = job.getJobSettings().getPageLayout();
-	    // job.getJobSettings().setPageRanges(pages);
+	    PageLayout pageLayout = job.getJobSettings().getPageLayout();
 	    double pageWidth = pageLayout.getPrintableWidth();
 	    double pageHeight = pageLayout.getPrintableHeight();
 
@@ -154,7 +151,7 @@ public class NodePrinter {
      */
     private Rectangle getPrintRectangle() {
 	if (printRectangle == null) {
-	    printRectangle = new Rectangle(1000, 2400, null);
+	    printRectangle = new Rectangle(500, 650, null);
 	    printRectangle.setStroke(Color.BLACK);
 	}
 	return printRectangle;
