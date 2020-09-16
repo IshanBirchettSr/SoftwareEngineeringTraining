@@ -203,14 +203,14 @@ public class Receipt extends StorePrinterFx {
 
 	for (Product cPd : pList) {
 	    if (oldPn.equals("no name") == true) {
-		oldPn = cPd.getProductName();
+		oldPn = cPd.getBrandName();
 		oldPd = cPd;
 		firstTime = true;
 		// System.out.println("No Name Hit\n");
 		continue;
 	    }
 
-	    if (oldPn.equals(cPd.getProductName()) == true) {
+	    if (oldPn.equals(cPd.getBrandName()) == true) {
 		totalQuantity++;
 		oldPd = cPd;
 		continue;
@@ -220,7 +220,7 @@ public class Receipt extends StorePrinterFx {
 		if (firstTime == true) {
 
 		    String listItem = String.format("Qty: %s     	 Product: %s    	  Price: %.2f\n",
-			    totalQuantity, cPd.getProductName(), cPd.getPrice());
+			    totalQuantity, cPd.getBrandName(), cPd.getPrice());
 		    item = new Text(listItem);
 		    item.setX(30);
 		    item.setY(30);
@@ -230,7 +230,7 @@ public class Receipt extends StorePrinterFx {
 		    tp.setAlignment(Pos.BASELINE_LEFT);
 		    total += (totalQuantity * oldPd.getPrice());
 		    totalQuantity = 1;
-		    oldPn = cPd.getProductName();
+		    oldPn = cPd.getBrandName();
 		    oldPd = cPd;
 		}
 	    }
@@ -245,7 +245,7 @@ public class Receipt extends StorePrinterFx {
 	    // total += oldPd.getPrice();
 	    if (oldPd != null) {
 		item.setText(String.format("Qty: %s     	 Product: %s     	 Price: %.2f\n", totalQuantity,
-			oldPd.getProductName(), oldPd.getPrice()));
+			oldPd.getBrandName(), oldPd.getPrice()));
 	    }
 
 	    tp.getChildren().add(item);

@@ -1,5 +1,6 @@
 package fragrance;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,11 +17,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -123,6 +126,8 @@ public class FragranceDept extends Department {
 	HBox fg = new HBox(20, welcomeTxt);
 	fg.setAlignment(Pos.TOP_CENTER);
 
+	String style_inner = "-fx-border-color: pink;" + "-fx-border-width: 10;";
+
 	Image fragranceImage = new Image(StoreConstants.FRAGRANCEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(fragranceImage);
@@ -130,20 +135,22 @@ public class FragranceDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox fp = new HBox(iv);
+
+	StackPane fPane = new StackPane(iv);
+	fPane.setStyle(style_inner);
+	fPane.setEffect(new DropShadow(20, Color.BLACK));
+	HBox fp = new HBox(20, fPane);
 	fp.setAlignment(Pos.CENTER);
 
-	VBox fBox = new VBox(20, fg, iv);
+	VBox fBox = new VBox(20, fg, fp);
 
 	// Add the Character and Actor panes to a VBox
-	VBox fl = new VBox(10, fp);
-	fl.setAlignment(Pos.CENTER);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox fpr = new VBox(15, fBox, fl, iv, instructions);
+	VBox fpr = new VBox(15, fBox, instructions);
 	fpr.setAlignment(Pos.CENTER);
 
 	// Product Grid
@@ -174,10 +181,18 @@ public class FragranceDept extends Department {
 	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
 
+	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "fragrance",
+		    pd.getBrandName(), pd.getProductName());
+	    File fExist = new File(ftest);
+
+	    if (fExist.exists() == false) {
+		continue;
+	    }
+
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(125);
+	    pV.setFitHeight(100);
 	    // pV.setFitHeight(65);
 	    pV.setId(pKey);
 	    pV.setImage(pImage);

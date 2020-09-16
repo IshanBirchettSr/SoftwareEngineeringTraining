@@ -3,6 +3,7 @@
  */
 package furniture;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -19,11 +20,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -130,6 +133,9 @@ public class FurnitureDept extends Department {
 	HBox furg = new HBox(20, welcomeTxt);
 	furg.setAlignment(Pos.TOP_CENTER);
 
+	String style_inner = "-fx-border-color: tan;" + "-fx-border-width: 5;"
+		+ "-fx-border-style: segments(10, 15, 15, 15)  line-cap round ;";
+
 	Image furnitureImage = new Image(StoreConstants.FURNITUREDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(furnitureImage);
@@ -137,20 +143,20 @@ public class FurnitureDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox furp = new HBox(iv);
+	StackPane ivPane = new StackPane(iv);
+	ivPane.setStyle(style_inner);
+	ivPane.setEffect(new DropShadow(20, Color.CHOCOLATE));
+	HBox furp = new HBox(ivPane);
 	furp.setAlignment(Pos.CENTER);
 
-	VBox furBox = new VBox(20, furg, iv);
-
-	// Add the Character and Actor panes to a VBox
-	VBox fl = new VBox(10, furp);
-	fl.setAlignment(Pos.CENTER);
+	VBox furBox = new VBox(20, furg, furp);
+	furBox.setAlignment(Pos.CENTER);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox furpr = new VBox(15, furBox, iv, instructions);
+	VBox furpr = new VBox(15, furBox, instructions);
 	furpr.setAlignment(Pos.CENTER);
 
 	GridPane pGrid = new GridPane();
@@ -180,10 +186,19 @@ public class FurnitureDept extends Department {
 	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
 
+	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "furniture",
+		    pd.getBrandName(), pd.getProductName());
+	    File fExist = new File(ftest);
+
+	    if (fExist.exists() == false) {
+		continue;
+	    }
+
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(125);
+	    pV.setFitHeight(200);
+	    pV.setFitWidth(200);
 	    // pV.setFitHeight(65);
 	    pV.setId(pKey);
 	    pV.setImage(pImage);
@@ -205,7 +220,7 @@ public class FurnitureDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:tan;");
 		if (pd.getProductName().contains("sofa")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
