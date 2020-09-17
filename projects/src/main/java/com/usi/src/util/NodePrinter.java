@@ -9,12 +9,9 @@
 package util;
 
 import javafx.print.PageLayout;
-import javafx.print.PageOrientation;
-import javafx.print.Paper;
 import javafx.print.Printer;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Scale;
 import javafx.scene.transform.Transform;
@@ -28,7 +25,6 @@ import java.util.List;
  * Prints any given area of a node to multiple pages
  */
 public class NodePrinter {
-    // private static final double SCREEN_TO_PRINT_DPI = 100d / 96d;
     private static final double SCREEN_TO_PRINT_DPI = 72d / 96d;
 
     private double scale = 1.0f;
@@ -56,10 +52,10 @@ public class NodePrinter {
 	Window window = node.getScene() != null ? node.getScene().getWindow() : null;
 
 	if (!showPrintDialog || job.showPrintDialog(window)) {
-	    Printer printer = Printer.getDefaultPrinter();
 	    PageLayout pageLayout = job.getJobSettings().getPageLayout();
 	    double pageWidth = pageLayout.getPrintableWidth();
 	    double pageHeight = pageLayout.getPrintableHeight();
+	    System.out.printf("This is the printable width: %.2f and Height %.2f\n", pageWidth, pageHeight);
 
 	    PrintInfo printInfo = getPrintInfo(pageLayout);
 
@@ -84,12 +80,14 @@ public class NodePrinter {
 	    // store old transformations and clip of the node
 	    Node oldClip = node.getClip();
 	    List<Transform> oldTransforms = new ArrayList<>(node.getTransforms());
+	    System.out.printf("Number of Node Transforms: %d\n", oldTransforms.size());
+
 	    // set the printingRectangle bounds as clip
 	    node.setClip(new javafx.scene.shape.Rectangle(printRectX, printRectY, printRectWidth, printRectHeight));
 
 	    int columns = printInfo.getColumnCount();
 	    int rows = printInfo.getRowCount();
-	    System.out.printf("Columns: %d, Rows: %d\n", columns, rows);
+	    System.out.printf("Print Info Columns: %d, Rows: %d\n", columns, rows);
 
 	    // by adjusting the scale, you can force the contents to be printed one page for
 	    // example
@@ -109,9 +107,11 @@ public class NodePrinter {
 	    boolean success = true;
 	    for (int row = 0; row < rows; row++) {
 		for (int col = 0; col < columns; col++) {
+		    System.out.printf("Row: %d Col: %d\n", row, col);
 		    gridTransform.setX(-col * pageWidth / localScale);
 		    gridTransform.setY(-row * pageHeight / localScale);
-
+		    System.out.printf("Grid Transform X = %.2f and Y = %.2f\n", gridTransform.getX(),
+			    gridTransform.getY());
 		    success &= job.printPage(pageLayout, node);
 		}
 	    }
@@ -149,11 +149,7 @@ public class NodePrinter {
      * @return a rectangle in the world coordinate system that defines the area of
      *         the contents of the node to print.
      */
-    private Rectangle getPrintRectangle() {
-	if (printRectangle == null) {
-	    printRectangle = new Rectangle(500, 650, null);
-	    printRectangle.setStroke(Color.BLACK);
-	}
+    public Rectangle getPrintRectangle() {
 	return printRectangle;
     }
 
@@ -186,12 +182,14 @@ public class NodePrinter {
 
 	final Rectangle printRect = getPrintRectangle();
 	final double width = printRect.getWidth() * localScale;
-	final double height = printRect.getHeight() * localScale;
+	final double height = (printRect.getHeight() * localScale);
+	System.out.printf("Rectangle scaled width %.2f and height %.2f\n", width, height);
 
 	// calculate how many pages we need dependent on the size of the content and the
 	// page.
 	int cCount = (int) Math.ceil((width) / contentWidth);
 	int rCount = (int) Math.ceil((height) / contentHeight);
+	System.out.printf("Column count %d and Row count %d\n", cCount, rCount);
 
 	return new PrintInfo(localScale, rCount, cCount);
     }
