@@ -20,11 +20,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -130,7 +133,7 @@ public class HousewaresDept extends Department {
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
 	welcomeTxt.setY(80.00);
-	welcomeTxt.setFill(Color.BLUE);
+	welcomeTxt.setFill(Color.BROWN);
 	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
 	HBox hwg = new HBox(20, welcomeTxt);
 	hwg.setAlignment(Pos.TOP_CENTER);
@@ -142,20 +145,20 @@ public class HousewaresDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox hwp = new HBox(iv);
+	StackPane ivPane = new StackPane(iv);
+	ivPane.setEffect(new DropShadow(50, Color.CHOCOLATE));
+	HBox hwp = new HBox(ivPane);
 	hwp.setAlignment(Pos.CENTER);
 
-	VBox hwBox = new VBox(20, hwg, iv);
+	VBox hwBox = new VBox(20, hwg, hwp);
 
 	// Add the Character and Actor panes to a VBox
-	VBox hwl = new VBox(10, hwp);
-	hwl.setAlignment(Pos.CENTER);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
-	VBox hwpr = new VBox(15, hwBox, iv, instructions);
+	instructions.setStyle("-fx-background-color:darkGoldenRod");
+	VBox hwpr = new VBox(15, hwBox, instructions);
 	hwpr.setAlignment(Pos.CENTER);
 
 	GridPane pGrid = new GridPane();
@@ -218,7 +221,7 @@ public class HousewaresDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:darkGoldenRod;");
 		if (pd.getProductName().contains("Ipad")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");

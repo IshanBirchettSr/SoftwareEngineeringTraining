@@ -17,11 +17,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -123,6 +125,7 @@ public class LuggageDept extends Department {
 	HBox lug = new HBox(20, welcomeTxt);
 	lug.setAlignment(Pos.TOP_CENTER);
 
+	String border = "-fx-border-color:DarkSlateGray;" + "-fx-border-width:5;" + "-fx-border-style: dotted;";
 	Image luggageImage = new Image(StoreConstants.LUGGAGEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(luggageImage);
@@ -130,20 +133,21 @@ public class LuggageDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox lup = new HBox(iv);
+	StackPane ivPane = new StackPane(iv);
+	ivPane.setStyle(border);
+	ivPane.setEffect(new DropShadow(25, Color.MEDIUMSLATEBLUE));
+	HBox lup = new HBox(ivPane);
 	lup.setAlignment(Pos.CENTER);
 
-	VBox lugBox = new VBox(20, lug, iv);
+	VBox lugBox = new VBox(20, lug, lup);
 
 	// Add the Character and Actor panes to a VBox
-	VBox el = new VBox(10, lup);
-	el.setAlignment(Pos.CENTER);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox lugpr = new VBox(15, lugBox, iv, instructions);
+	VBox lugpr = new VBox(15, lugBox, instructions);
 	lugpr.setAlignment(Pos.CENTER);
 
 	GridPane pGrid = new GridPane();

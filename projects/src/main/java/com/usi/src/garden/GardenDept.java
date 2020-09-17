@@ -25,11 +25,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -139,6 +141,8 @@ public class GardenDept extends Department {
 	HBox gg = new HBox(20, welcomeTxt);
 	gg.setAlignment(Pos.TOP_CENTER);
 
+	String style_inner = "-fx-border-color: darkgreen;" + "-fx-border-width: 5;";
+
 	Image gardenImage = new Image(StoreConstants.GARDENDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(gardenImage);
@@ -146,20 +150,19 @@ public class GardenDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox gp = new HBox(iv);
+	StackPane ivPane = new StackPane(iv);
+	ivPane.setStyle(style_inner);
+	ivPane.setEffect(new DropShadow(20, Color.CHARTREUSE));
+	HBox gp = new HBox(ivPane);
 	gp.setAlignment(Pos.CENTER);
 
-	VBox gBox = new VBox(20, gg, iv);
-
-	// Add the Character and Actor panes to a VBox
-	VBox gl = new VBox(10, gp);
-	gl.setAlignment(Pos.CENTER);
+	VBox gBox = new VBox(20, gg, gp);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox gpr = new VBox(15, gBox, iv, instructions);
+	VBox gpr = new VBox(15, gBox, instructions);
 	gpr.setAlignment(Pos.CENTER);
 
 	GridPane pGrid = new GridPane();
