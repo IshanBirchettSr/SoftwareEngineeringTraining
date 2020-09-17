@@ -131,7 +131,7 @@ public class ProduceDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Avocados? Oh my! Welcome to the Produce Department!");
+	String imageKey = String.format("YES, Avocados! Welcome to the Produce Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);

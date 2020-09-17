@@ -116,7 +116,7 @@ public class PetcareDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Wolf!, Meow!, Chirp-Chirp!, Welcome to the Petcare Department!");
+	String imageKey = String.format("Welcome to the Petcare Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);

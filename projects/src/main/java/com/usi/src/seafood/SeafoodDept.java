@@ -129,7 +129,7 @@ public class SeafoodDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Welcome to the freshest Seafood Department in the land!");
+	String imageKey = String.format("Welcome to our fresh Seafood Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
