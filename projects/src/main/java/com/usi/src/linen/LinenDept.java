@@ -20,11 +20,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -126,6 +128,8 @@ public class LinenDept extends Department {
 	HBox lg = new HBox(20, welcomeTxt);
 	lg.setAlignment(Pos.TOP_CENTER);
 
+	String border = "-fx-border-color: HoneyDew;" + "-fx-border-width:10;";
+
 	Image linenImage = new Image(StoreConstants.LINENDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(linenImage);
@@ -133,20 +137,21 @@ public class LinenDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox lp = new HBox(iv);
+	StackPane ivPane = new StackPane(iv);
+	ivPane.setStyle(border);
+	ivPane.setEffect(new DropShadow(50, Color.BLACK));
+	HBox lp = new HBox(ivPane);
 	lp.setAlignment(Pos.CENTER);
 
-	VBox lBox = new VBox(20, lg, iv);
+	VBox lBox = new VBox(20, lg, lp);
 
 	// Add the Character and Actor panes to a VBox
-	VBox el = new VBox(10, lp);
-	el.setAlignment(Pos.CENTER);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
-	VBox lpr = new VBox(15, lBox, iv, instructions);
+	instructions.setStyle("-fx-background-color:lavender");
+	VBox lpr = new VBox(15, lBox, instructions);
 	lpr.setAlignment(Pos.CENTER);
 
 	GridPane pGrid = new GridPane();
@@ -205,7 +210,7 @@ public class LinenDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:lavender;");
 		if (pd.getProductName().contains("pillow case")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");

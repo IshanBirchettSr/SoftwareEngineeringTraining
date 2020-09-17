@@ -25,11 +25,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -140,6 +142,8 @@ public class MeatDept extends Department {
 	HBox mg = new HBox(20, welcomeTxt);
 	mg.setAlignment(Pos.TOP_CENTER);
 
+	String border = "-fx-border-color:FireBrick;" + "-fx-border-width:15;"
+		+ "-fx-border-style: segments(10, 15, 15, 15) line-cap round;";
 	Image meatImage = new Image(StoreConstants.MEATDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(meatImage);
@@ -147,20 +151,21 @@ public class MeatDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox mp = new HBox(iv);
+	StackPane ivPane = new StackPane(iv);
+	ivPane.setStyle(border);
+	ivPane.setEffect(new DropShadow(20, Color.BLACK));
+	HBox mp = new HBox(ivPane);
 	mp.setAlignment(Pos.CENTER);
 
-	VBox mBox = new VBox(20, mg, iv);
+	VBox mBox = new VBox(20, mg, mp);
 
 	// Add the Character and Actor panes to a VBox
-	VBox ml = new VBox(10, mp);
-	ml.setAlignment(Pos.CENTER);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox mpr = new VBox(15, mBox, iv, instructions);
+	VBox mpr = new VBox(15, mBox, instructions);
 	mpr.setAlignment(Pos.CENTER);
 
 	GridPane pGrid = new GridPane();

@@ -1,5 +1,7 @@
 package util;
 
+import javafx.scene.layout.Background;
+
 public class StoreConstants {
     // Software Development Company Name
     public static final String SDCN = "USI ";
@@ -85,10 +87,12 @@ public class StoreConstants {
     public static final String BIKESDEPT = "file:///" + APP_HOME + "/images/Bikes_Dept.png";
     public static final String BOOKSDEPT = "file:///" + APP_HOME + "/images/Books_Dept.png";
     public static final String CANNEDGOODSDEPT = "file:///" + APP_HOME + "/images/Cannedgoods_Dept.png";
+    public static final String CAUTION = "file:///" + APP_HOME + "/images/CautionTape.png";
     public static final String CLEANINGSUPPLIESDEPT = "file:///" + APP_HOME + "/images/CleaningSupplies_Dept.png";
     public static final String CLOTHESDEPT = "file:///" + APP_HOME + "/images/Clothes_Dept.png";
     public static final String DAIRYDEPT = "file:///" + APP_HOME + "/images/Dairy_Dept.png";
     public static final String DELIDEPT = "file:///" + APP_HOME + "/images/Deli_Dept.png";
+    public static final String DEPTCLOSED = "file:///" + APP_HOME + "/images/DepartmentClosed.png";
     public static final String ELECTRONICSDEPT = "file:///" + APP_HOME + "/images/Electronics_Dept.png";
     public static final String FRAGRANCEDEPT = "file:///" + APP_HOME + "/images/Fragrance_Dept.png";
     public static final String FROZENFOODSDEPT = "file:///" + APP_HOME + "/images/Frozenfoods_Dept.png";
