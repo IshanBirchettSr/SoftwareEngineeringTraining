@@ -20,11 +20,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -141,20 +144,18 @@ public class HairCareDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox hp = new HBox(iv);
+	StackPane ivPane = new StackPane(iv);
+	ivPane.setEffect(new DropShadow(20, Color.BLACK));
+	HBox hp = new HBox(ivPane);
 	hp.setAlignment(Pos.CENTER);
 
-	VBox hBox = new VBox(20, hg, iv);
-
-	// Add the Character and Actor panes to a VBox
-	VBox hl = new VBox(10, hp);
-	hl.setAlignment(Pos.CENTER);
+	VBox hBox = new VBox(20, hg, hp);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox hpr = new VBox(15, hBox, iv, instructions);
+	VBox hpr = new VBox(15, hBox, instructions);
 	hpr.setAlignment(Pos.CENTER);
 
 	GridPane pGrid = new GridPane();
