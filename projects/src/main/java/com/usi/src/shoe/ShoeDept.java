@@ -125,8 +125,8 @@ public class ShoeDept extends Department {
 
     @Override
     public Scene getScene() {
-
-	String imageKey = String.format("Got Shoes? Welcome to the Shoe Department!");
+      
+	String imageKey = String.format("Welcome to our fabalous Shoe Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);

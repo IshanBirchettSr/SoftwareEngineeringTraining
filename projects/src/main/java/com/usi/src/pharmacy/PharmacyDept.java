@@ -129,7 +129,7 @@ public class PharmacyDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Aches and pains you say? Welcome to the Pharmacy Department!");
+	String imageKey = String.format("Aches and pains? Welcome to the Pharmacy Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);

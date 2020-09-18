@@ -121,7 +121,7 @@ public class ToysDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Welcome to the Toys Department where the Superhero can shine in YOU!");
+	String imageKey = String.format("Need a Superhero? Welcome to the Toys Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);

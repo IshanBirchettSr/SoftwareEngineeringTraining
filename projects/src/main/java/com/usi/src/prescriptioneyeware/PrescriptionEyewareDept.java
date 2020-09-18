@@ -117,7 +117,7 @@ public class PrescriptionEyewareDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Welcome to the Prescription Eyeware Department! Walk-in's are welcomed!");
+	String imageKey = String.format("Welcome to the Prescription Eyeware Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
