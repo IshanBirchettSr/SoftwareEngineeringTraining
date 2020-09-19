@@ -196,10 +196,10 @@ public class BeddingDept extends Department {
 		if (oProdName.equals(pd.getProductName()) != true) {
 		    Label pLabel = new Label();
 		    pLabel.setFont(Font.font("Lucinda Sans)", FontWeight.SEMI_BOLD, FontPosture.ITALIC, 30));
-		    pLabel.setStyle("-fx-border-color:blue; -fx-background-color:pink;");
+		    pLabel.setStyle("-fx-border-color:midnightblue; -fx-background-color:lightblue;");
 		    if (pd.getProductName().contains("Pillow")) {
 			pLabel.setText(pd.getProductName() + " Aisle");
-			pLabel.setStyle("-fx-border-color:blue; -fx-background-color:pink;");
+			pLabel.setStyle("-fx-border-color:midnightblue; -fx-background-color:lightblue;");
 		    } else {
 			pLabel.setText(pd.getProductName() + " Shelve");
 		    }
