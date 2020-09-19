@@ -46,16 +46,12 @@ public class DairyDept extends Department {
      */
     public DairyDept() {
 	super.setDeptName(deptName);
-// Record Load
+	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.DAIRY_TRUCK);
 	dairyRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(dairyRecords);
 	keyMap = new HashMap<Integer, String>();
-// System.out.printf("%s Department open with %d records\n", deptName,
-// dairyRecords.size());  }
-
-	// Dairy Product Load
 	dairyProducts = new HashMap<String, DairyProd>();
 	loadProducts();
     }

@@ -24,11 +24,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -77,7 +79,6 @@ public class BakeryDept extends Department {
 		    // System.out.println(prodKey);
 		    bakeryProducts.put(prodKey + i, bp);
 		}
-		// bakeryProducts.put(prodKey, bp);
 
 	    }
 	}
@@ -120,16 +121,13 @@ public class BakeryDept extends Department {
 
     @Override
     public Scene getScene() {
-	String imageKey = String.format("Welcome to the Bakery!");
-	Text welcomeTxt = new Text(imageKey);
-	welcomeTxt.setText(imageKey);
-	welcomeTxt.setX(50.00);
-	welcomeTxt.setY(80.00);
-	welcomeTxt.setFill(Color.BLUE);
-	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-	HBox eg = new HBox(20, welcomeTxt);
-	eg.setAlignment(Pos.TOP_CENTER);
 
+	String sString = String.format(" Welcome to the %s!", StoreConstants.deptNames.BAKERY);
+	Label slogan = new Label();
+	slogan.setText(sString);
+	slogan.setAlignment(Pos.CENTER);
+	slogan.setTextFill(Color.BLUE);
+	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
 	Image bakeryImage = new Image(StoreConstants.BAKERYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(bakeryImage);
@@ -137,23 +135,18 @@ public class BakeryDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox bed = new HBox(20, iv);
-	bed.setAlignment(Pos.CENTER);
-
-	VBox eBox = new VBox(20, bed, iv);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox epr = new VBox(15, eBox, iv, instructions);
-	epr.setAlignment(Pos.CENTER);
+	VBox bpr = new VBox(15, slogan, iv, instructions);
+	bpr.setAlignment(Pos.CENTER);
 
 	// Product Grid
 	GridPane pGrid = new GridPane();
 	Insets iSet = new Insets(0, 30, 10, 10);
 	pGrid.setPadding(iSet);
-
 	String oProdName = "NoProd";
 	Set<String> eProductKeys = bakeryProducts.keySet();
 	// You must sort the Set of keys
@@ -245,7 +238,7 @@ public class BakeryDept extends Department {
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 
-	VBox eVBox = new VBox(20, epr, sp, dButtons);
+	VBox eVBox = new VBox(20, bpr, sp, dButtons);
 	Scene eScene = new Scene(eVBox, 500, 650);
 
 	return eScene;
