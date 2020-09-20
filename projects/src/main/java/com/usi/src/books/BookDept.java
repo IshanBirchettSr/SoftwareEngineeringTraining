@@ -196,7 +196,7 @@ public class BookDept extends Department {
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
-		pLabel.setAlignment(Pos.CENTER_RIGHT);
+		pLabel.setAlignment(Pos.CENTER);
 		columnIndex = 0;
 		rowIndex += 1;
 		// System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
@@ -233,7 +233,7 @@ public class BookDept extends Department {
 	dButtons.setAlignment(Pos.CENTER);
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
-	VBox aVBox = new VBox(5, ap, sp, dButtons);
+	VBox aVBox = new VBox(20, ap, sp, dButtons);
 	Scene aScene = new Scene(aVBox, 500, 650);
 	return aScene;
     }
