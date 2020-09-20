@@ -122,7 +122,7 @@ public class BabyEssentialsDept extends Department {
 
     @Override
     public Scene getScene() {
-	String imageKey = String.format("Welcome to Baby Essentials!");
+	String imageKey = String.format("Welcome to Baby Essentials!", StoreConstants.deptNames.BABY_ESSENTIALS);
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -155,7 +155,6 @@ public class BabyEssentialsDept extends Department {
 	GridPane pGrid = new GridPane();
 	Insets iSet = new Insets(0, 30, 10, 10);
 	pGrid.setPadding(iSet);
-
 	String oProdName = "NoProd";
 	Set<String> eProductKeys = babyEssentialsProducts.keySet();
 	// You must sort the Set of keys

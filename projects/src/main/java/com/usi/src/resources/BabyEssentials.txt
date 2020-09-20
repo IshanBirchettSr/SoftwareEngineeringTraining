@@ -17,5 +17,5 @@ Bath Pod , Baby_Essentials , OUNCES , UUID , 2 , Stage 3 , Fisher Price , NA , 2
 Bath Pod , Baby_Essentials , OUNCES , UUID , 1 , NA , MotherCare , NA , 32.99 , PINK , NA, 10 , bath item
 Bath Pod , Baby_Essentials , OUNCES , UUID , 1 , NA , BloomingLotus , NA , 32.99 , PINK , NA , 10 , bath item
 Car Seat , Baby_Essentials , POUNDS , UUID , 2 , NA , Fisher Price , NA , 63.99 , BLACK , NA, 50 , car seat
-Car Seat , Baby_Essentials , POUNDS , UUID , 1 , NA , 4EverGraco , NA , 239.99 , Black , NA , 5 , car seat
-Car Seat , Baby_Essentials , POUNDS , UUID , 1 , NA , Chicco , NA , 299.99 , Black , NA , 6 , car seat
+Car Seat , Baby_Essentials , POUNDS , UUID , 1 , NA , 4EverGraco , NA , 239.99 , BLACK , NA , 5 , car seat
+Car Seat , Baby_Essentials , POUNDS , UUID , 1 , NA , Chicco , NA , 299.99 , BLACK , NA , 6 , car seat
