@@ -689,7 +689,7 @@ public class Greeting extends Application {
 	    bw = new BufferedWriter(fw);
 	    bw.write(formattedRecord);
 	    bw.close();
-	    System.out.println(formattedRecord);
+	    // System.out.println(formattedRecord);
 	} catch (IOException ex) {
 	    System.err.format("IOException: %s", ex);
 	} finally {
@@ -1444,7 +1444,8 @@ public class Greeting extends Application {
 	String lblChange = null;
 	MathContext mc = new MathContext(2, RoundingMode.HALF_UP);
 	BigDecimal bd = new BigDecimal(change, mc);
-	System.out.printf("Before %.8f and After %.8f\n", change, bd.round(mc).doubleValue());
+	// System.out.printf("Before %.8f and After %.8f\n", change,
+	// bd.round(mc).doubleValue());
 	change = bd.doubleValue();
 	if (change > 0.00) {
 	    lblChange = String.format("Your Change is %.2f", change);
@@ -1456,7 +1457,7 @@ public class Greeting extends Application {
 		lblChange = "Thank you for exact change.";
 	    }
 	    total = change;
-	    System.out.printf("Change [%.9f]\n", total);
+	    // System.out.printf("Change [%.9f]\n", total);
 	}
 	Label cents = new Label(lblChange);
 	cents.setMinWidth(500);

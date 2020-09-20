@@ -43,22 +43,18 @@ public class StorePrinterFx extends NodePrinter {
 	nodeBound = node.getBoundsInLocal();
 
 	Printer printer = Printer.getDefaultPrinter();
-	super.setScale(1);
+
 	super.setPrintRectangle(getPrintRectangle());
 	PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT,
 		Printer.MarginType.DEFAULT);
 	double scaleX = pageLayout.getPrintableWidth() / node.getBoundsInLocal().getWidth();
 	double scaleY = pageLayout.getPrintableHeight() / node.getBoundsInLocal().getHeight();
 	node.getTransforms().add(new Scale(scaleX, scaleY));
-	System.out.printf("Node BoundsInLocal width %.2f and height %.2f\n", node.getBoundsInLocal().getWidth(),
-		node.getBoundsInLocal().getHeight());
 	System.out.printf("Page Transform Scale X = %.2f, Y = %.2f\n", scaleX, scaleY);
-
+	super.setScale(1);
 	PrinterJob job = PrinterJob.createPrinterJob();
-
 	if (job != null) {
-	    boolean success = super.print(job, true, node);
-	    // boolean success = job.printPage(node);
+	    boolean success = print(job, true, node);
 	    if (success) {
 		job.endJob();
 	    } else {
@@ -69,9 +65,7 @@ public class StorePrinterFx extends NodePrinter {
 
     public Rectangle getPrintRectangle() {
 	if (printRectangle == null) {
-	    printRectangle = new Rectangle(504, 684, null);
-	    System.out.printf("Node Bounds: width: %.2f and height %.2f\n", nodeBound.getWidth(),
-		    nodeBound.getHeight());
+	    printRectangle = new Rectangle(nodeBound.getWidth(), nodeBound.getHeight(), null);
 	    printRectangle.setStroke(Color.BLACK);
 	}
 	return printRectangle;

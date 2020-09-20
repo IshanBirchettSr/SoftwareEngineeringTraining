@@ -9,7 +9,6 @@
 package util;
 
 import javafx.print.PageLayout;
-import javafx.print.Printer;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
@@ -48,51 +47,31 @@ public class NodePrinter {
      */
     public boolean print(PrinterJob job, boolean showPrintDialog, Node node) {
 
-	// bring up the print dialog in which the user can choose the printer etc.
 	Window window = node.getScene() != null ? node.getScene().getWindow() : null;
 
 	if (!showPrintDialog || job.showPrintDialog(window)) {
 	    PageLayout pageLayout = job.getJobSettings().getPageLayout();
 	    double pageWidth = pageLayout.getPrintableWidth();
 	    double pageHeight = pageLayout.getPrintableHeight();
-	    System.out.printf("This is the printable width: %.2f and Height %.2f\n", pageWidth, pageHeight);
-
 	    PrintInfo printInfo = getPrintInfo(pageLayout);
-
+	    printRectangle = getPrintRectangle();
 	    double printRectX = this.printRectangle.getX();
 	    double printRectY = this.printRectangle.getY();
 	    double printRectWidth = this.printRectangle.getWidth();
 	    double printRectHeight = this.printRectangle.getHeight();
-	    System.out.printf("X = %.2f, Y = %.2f, Width = %.2f, Height = %.2f\n", printRectX, printRectY,
-		    printRectWidth, printRectHeight);
 
-	    // the following is suboptimal in many ways but needed for the sake of
-	    // demonstration.
-	    // there need to be transformations made on the node so we store them and
-	    // restore them later.
-	    // this is bad when the node is embedded somewhere in the scene graph because
-	    // the size changes
-	    // will trigger updates and at least lead to "flickering".
-	    // in a real world application there should be another way to construct a node
-	    // object
-	    // specifically for printing.
-
-	    // store old transformations and clip of the node
 	    Node oldClip = node.getClip();
 	    List<Transform> oldTransforms = new ArrayList<>(node.getTransforms());
-	    System.out.printf("Number of Node Transforms: %d\n", oldTransforms.size());
 
 	    // set the printingRectangle bounds as clip
 	    node.setClip(new javafx.scene.shape.Rectangle(printRectX, printRectY, printRectWidth, printRectHeight));
 
 	    int columns = printInfo.getColumnCount();
 	    int rows = printInfo.getRowCount();
-	    System.out.printf("Print Info Columns: %d, Rows: %d\n", columns, rows);
 
 	    // by adjusting the scale, you can force the contents to be printed one page for
 	    // example
 	    double localScale = printInfo.getScale();
-	    System.out.printf("Localscale: %.2f\n", localScale);
 
 	    node.getTransforms().add(new Scale(localScale, localScale));
 	    // move to 0,0
@@ -101,17 +80,15 @@ public class NodePrinter {
 	    // the transform that moves the node to fit the current printed page in the grid
 	    Translate gridTransform = new Translate();
 	    node.getTransforms().add(gridTransform);
-
 	    // for each page, move the node into position by adjusting the transform
 	    // and call the print page method of the PrinterJob
 	    boolean success = true;
 	    for (int row = 0; row < rows; row++) {
+		success &= job.printPage(pageLayout, node);
 		for (int col = 0; col < columns; col++) {
-		    System.out.printf("Row: %d Col: %d\n", row, col);
+
 		    gridTransform.setX(-col * pageWidth / localScale);
 		    gridTransform.setY(-row * pageHeight / localScale);
-		    System.out.printf("Grid Transform X = %.2f and Y = %.2f\n", gridTransform.getX(),
-			    gridTransform.getY());
 		    success &= job.printPage(pageLayout, node);
 		}
 	    }
@@ -182,15 +159,12 @@ public class NodePrinter {
 
 	final Rectangle printRect = getPrintRectangle();
 	final double width = printRect.getWidth() * localScale;
-	final double height = (printRect.getHeight() * localScale);
-	System.out.printf("Rectangle scaled width %.2f and height %.2f\n", width, height);
+	final double height = printRect.getHeight() * localScale;
 
 	// calculate how many pages we need dependent on the size of the content and the
 	// page.
 	int cCount = (int) Math.ceil((width) / contentWidth);
 	int rCount = (int) Math.ceil((height) / contentHeight);
-	System.out.printf("Column count %d and Row count %d\n", cCount, rCount);
-
 	return new PrintInfo(localScale, rCount, cCount);
     }
 

@@ -9,7 +9,6 @@ import java.util.Properties;
 
 import customerservice.Customer;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -106,7 +105,7 @@ public class Receipt extends StorePrinterFx {
 	// System.out.printf("Amount tendered so far: %.2f\n", totalTendered);
     }
 
-    public Group printNode() {
+    public VBox printNode() {
 	prods = cust.getListOfProds();
 
 	Image StoreIcon = new Image(StoreConstants.SC_ICON_FULL);
@@ -119,7 +118,7 @@ public class Receipt extends StorePrinterFx {
 
 	String sTextString = String.format("%s", StoreConstants.STORE_NAME);
 	Text sText = new Text(sTextString);
-	sText.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 25));
+	sText.setFont(Font.font("Tahoma", FontWeight.BOLD, FontPosture.REGULAR, 14));
 	sText.setStroke(Color.BLACK);
 	sText.setStyle("-fx-fill: linear-gradient(to right, red, orange , yellow, lime, purple);");
 	sText.setX(30);
@@ -157,7 +156,7 @@ public class Receipt extends StorePrinterFx {
 
 	String st = ("Receipt");
 	Text str = new Text(st);
-	str.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
+	str.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.REGULAR, 12));
 	str.setFill(Color.BLACK);
 	str.setX(30);
 	str.setY(50);
@@ -166,7 +165,7 @@ public class Receipt extends StorePrinterFx {
 
 	String sd = String.format("%s", new Date());
 	Text ssd = new Text(sd);
-	ssd.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	ssd.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	HBox date = new HBox(ssd);
 	date.setAlignment(Pos.BOTTOM_CENTER);
 
@@ -195,11 +194,11 @@ public class Receipt extends StorePrinterFx {
 	tp.setAlignment(Pos.BASELINE_CENTER);
 //	tp.setVgap(8);
 	tp.setHgap(5);
+	tp.setPrefColumns(20);
 	tp.setMaxWidth(10);
 
 	if (pList == null) {
 	    System.out.println("pList is null\n");
-
 	}
 
 	for (Product cPd : pList) {
@@ -207,7 +206,6 @@ public class Receipt extends StorePrinterFx {
 		oldPn = cPd.getBrandName();
 		oldPd = cPd;
 		firstTime = true;
-		// System.out.println("No Name Hit\n");
 		continue;
 	    }
 
@@ -215,18 +213,15 @@ public class Receipt extends StorePrinterFx {
 		totalQuantity++;
 		oldPd = cPd;
 		continue;
-
 	    } else {
-		// System.out.printf("Else %b\n", firstTime);
 		if (firstTime == true) {
-
 		    String listItem = String.format("Qty: %s     	 Product: %s    	  Price: %.2f\n",
 			    totalQuantity, cPd.getBrandName(), cPd.getPrice());
 		    item = new Text(listItem);
-		    item.setX(30);
-		    item.setY(30);
+		    item.setX(10);
+		    item.setY(10);
 		    item.setFill(Color.BLACK);
-		    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
+		    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 6));
 		    tp.getChildren().add(item);
 		    tp.setAlignment(Pos.BASELINE_LEFT);
 		    total += (totalQuantity * oldPd.getPrice());
@@ -241,7 +236,7 @@ public class Receipt extends StorePrinterFx {
 	    item.setX(30);
 	    item.setY(30);
 	    item.setFill(Color.BLUE);
-	    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
+	    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 6));
 	    total += (totalQuantity * oldPd.getPrice());
 	    // total += oldPd.getPrice();
 	    if (oldPd != null) {
@@ -260,7 +255,7 @@ public class Receipt extends StorePrinterFx {
 	String sbt = String.format("SubTotal: $%.2f", subtotalAmount);
 	String tt = String.format("Your total today is $%.2f", totalAmount);
 	Text subtotalToday = new Text(sbt);
-	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 
 	subtotalToday.setX(30);
 	subtotalToday.setY(250);
@@ -273,31 +268,31 @@ public class Receipt extends StorePrinterFx {
 
 	String at = String.format("Amount Tendered: $%.2f", getTotalTendered());
 	Text amountTendered = new Text(at);
-	amountTendered.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	amountTendered.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	amountTendered.setX(30);
 	amountTendered.setY(250);
 
 	String add = String.format("Tax: $%.2f", taxAmount);
 	Text addTax = new Text(add);
-	addTax.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	addTax.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	addTax.setX(30);
 	addTax.setY(250);
 
 	String AmountDue = String.format("Your total today is $%.2f", totalAmount);
 	Text ad = new Text(AmountDue);
-	ad.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	ad.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	ad.setX(30);
 	ad.setY(250);
 
 	String savings = String.format("Total savings today is $%.2f", cust.getCart().getTotalSavings());
 	Text totalSavings = new Text(savings);
-	totalSavings.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	totalSavings.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	totalSavings.setX(30);
 	totalSavings.setY(250);
 
 	String change = String.format("Your change due is $%.2f", getTotalTendered() - cust.getCart().getGrandTotal());
 	Text changeDue = new Text(change);
-	changeDue.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	changeDue.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	changeDue.setX(30);
 	changeDue.setY(250);
 
@@ -311,8 +306,8 @@ public class Receipt extends StorePrinterFx {
 	String thankYouMessage = String.format("%s %s thank you for your purchase today!",
 		cust.getmCard().getFirstName(), cust.getmCard().getLastName());
 	Text thankYouText = new Text(thankYouMessage);
-	thankYouText.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
-	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	thankYouText.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	subtotalToday.setX(30);
 	subtotalToday.setY(300);
 	HBox thankYouBox = new HBox(thankYouText);
@@ -339,15 +334,13 @@ public class Receipt extends StorePrinterFx {
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
 	VBox receiptNode = new VBox(5, sBox, line, r, tp, line1, align, adt, thankYouBox, date);
-	double localWidth = receiptNode.getBoundsInLocal().getWidth();
-	double localHeight = receiptNode.getBoundsInLocal().getHeight();
-	System.out.printf("Receipt Bounds width %.2f and Height %.2f\n", localWidth, localHeight);
-	// receiptNode.setMaxSize(504, 684);
+	// VBox receiptNode = new VBox(tp);
+//	double localWidth = receiptNode.getBoundsInLocal().getWidth();
+//	double localHeight = receiptNode.getBoundsInLocal().getHeight();
+//	//System.out.printf("Receipt Bounds width %.2f and Height %.2f\n", localWidth, localHeight);
+	receiptNode.setMaxSize(504, 800);
 	totalTendered = 0.0;
-	Group rGroup = new Group();
-	rGroup.getChildren().add(receiptNode);
-	/* tell the caller that this page is part of the printed document */
-	return rGroup;
+	return receiptNode;
     }
 
     /**
