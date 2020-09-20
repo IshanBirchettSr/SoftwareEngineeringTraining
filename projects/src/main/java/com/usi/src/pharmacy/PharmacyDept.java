@@ -129,7 +129,7 @@ public class PharmacyDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Aches and pains you say? Welcome to the Pharmacy Department!");
+	String imageKey = String.format("Aches and pains? Welcome to the Pharmacy Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -197,7 +197,7 @@ public class PharmacyDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(200);
+	    pV.setFitHeight(100);
 	    // pV.setFitHeight(65);
 	    pV.setId(pKey);
 	    pV.setImage(pImage);

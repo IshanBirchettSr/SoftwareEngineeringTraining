@@ -121,7 +121,7 @@ public class ToysDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Welcome to the Toys Department where the Superhero can shine in YOU!");
+	String imageKey = String.format("Need a Superhero? Welcome to the Toys Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -189,7 +189,7 @@ public class ToysDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(200);
+	    pV.setFitHeight(100);
 	    // pV.setFitHeight(65);
 	    pV.setId(pKey);
 	    pV.setImage(pImage);

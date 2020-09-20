@@ -125,8 +125,8 @@ public class ShoeDept extends Department {
 
     @Override
     public Scene getScene() {
-
-	String imageKey = String.format("Welcome to the Shoe Department! We have Shoes to fit your style!");
+      
+	String imageKey = String.format("Welcome to our fabalous Shoe Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -194,7 +194,7 @@ public class ShoeDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(200);
+	    pV.setFitHeight(100);
 	    // pV.setFitHeight(65);
 	    pV.setId(pKey);
 	    pV.setImage(pImage);

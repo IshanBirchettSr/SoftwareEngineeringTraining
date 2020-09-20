@@ -122,7 +122,7 @@ public class PantryDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Ohh look, SNACKS! Welcome to the Pantry Department!");
+	String imageKey = String.format("Yay, SNACKS! Welcome to the Pantry Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -191,7 +191,7 @@ public class PantryDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(200);
+	    pV.setFitHeight(100);
 	    // pV.setFitHeight(65);
 	    pV.setId(pKey);
 	    pV.setImage(pImage);

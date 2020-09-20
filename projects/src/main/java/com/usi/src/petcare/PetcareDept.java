@@ -116,7 +116,7 @@ public class PetcareDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Wolf!, Meow!, Chirp-Chirp!, Welcome to the Petcare Department!");
+	String imageKey = String.format("Welcome to the Petcare Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -184,7 +184,7 @@ public class PetcareDept extends Department {
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
-	    pV.setFitHeight(200);
+	    pV.setFitHeight(100);
 	    // pV.setFitHeight(65);
 	    pV.setId(pKey);
 	    pV.setImage(pImage);
