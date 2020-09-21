@@ -1495,6 +1495,11 @@ public class Greeting extends Application {
 	Button emailReceipt = new Button("email");
 	EventHandler<ActionEvent> emailTransaction = new EventHandler<ActionEvent>() {
 	    public void handle(ActionEvent e) {
+		StoreCheckOut checkoutLane01 = new StoreCheckOut();
+		checkoutLane01.checkoutCustomer2(currentCustomer, pt, valueEntered, currentCustomer.getAmountPaid());
+		newWindow.setScene(scene);
+		newWindow.setTitle("Greeting");
+		panePhoneNum.setVisible(false);
 		newWindow.close();
 	    }
 	};

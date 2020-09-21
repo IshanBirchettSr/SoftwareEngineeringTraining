@@ -44,4 +44,16 @@ public class StoreCheckOut extends Receipt {
 	printReceipt();
 	return true;
     }
+
+    public boolean checkoutCustomer2(Customer cust, paymentType pt, double money, double moneyTendered) {
+	// Get list of productions
+	List<Product> custProdList = cust.getListOfProds();
+	// send to print
+	setProdList(custProdList);
+	setCust(cust);
+	setValueEnteredCash(moneyTendered);
+	setPayType(pt);
+	emailReceipt();
+	return true;
+    }
 }

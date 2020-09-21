@@ -7,7 +7,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+
 import customerservice.Customer;
+import customerservice.MembershipSignUp;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -362,22 +378,79 @@ public class Receipt extends StorePrinterFx {
     }
 
     public static void emailReceipt() {
-	// Prototype
-	String key = "membershipId";
-	String value = "member's email";
+	MembershipSignUp mem = new MembershipSignUp();
+
+	String to = mem.getEmailAddress();
+
+	// Sender's email ID needs to be mentioned
+	String from = "superstore0502@gmail.com";
+
+	// Assuming you are sending email from localhost
+	String host = "localhost";
+
+	// Get system properties
+	// Properties properties = System.getProperties();
+
+	// Setup mail server
+	// properties.setProperty("mail.smtp.host", host);
+
 	Properties properties = new Properties();
-	properties.put(key, value);
+	properties.put(from, to);
 	properties.put("mail.smtp.auth", true);
 	properties.put("mail.smtp.starttls.enable", true);
 	properties.put("mail.smtp.host", "smtp.gmail.com");
-	properties.put("mail.smtp.port", "587");
+	properties.put("mail.smtp.port", "465");
+	properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
-	// String MyAccountEmail = "superstore0502@gmail.com";
-	// String password = "superstore0502";
+	// Get the default Session object.
+	// Session session = Session.getDefaultInstance(properties);
+	String username = "superstore0502@gmail.com";
+	String password = "superstore0502";
+	Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+	    protected PasswordAuthentication getPasswordAuthentication() {
+		return new PasswordAuthentication(username, password);
+	    }
+	});
 
-	System.out.printf("Your reciept will be emailed to you. Thank you for shopping at the %s\\n today!",
-		StoreConstants.STORE_NAME);
+	try {
+	    // Create a default MimeMessage object.
+	    MimeMessage message = new MimeMessage(session);
 
+	    // Set From: header field of the header.
+	    message.setFrom(new InternetAddress(from));
+
+	    // Set To: header field of the header.
+	    message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+	    // Set Subject: header field
+	    message.setSubject("USI Superstore Receipt");
+
+	    // Now set the actual message
+	    message.setText("Thank you for shopping at USI Super Store");
+
+	    BodyPart messageBodyPart = new MimeBodyPart();
+
+	    messageBodyPart.setText("Thank you for shopping at USI Super Store");
+
+	    Multipart multipart = new MimeMultipart();
+
+	    messageBodyPart = new MimeBodyPart();
+	    String filename = "file:///C:/Users/chich/OneDrive/Documents/11.pdf";
+	    DataSource source = new FileDataSource(filename);
+	    messageBodyPart.setDataHandler(new DataHandler(source));
+	    messageBodyPart.setFileName(filename);
+	    multipart.addBodyPart(messageBodyPart);
+
+	    message.setContent(multipart);
+
+	    // Send messages
+//	    Transport transport = session.getTransport("smtp");
+//	    transport.connect("smtp.gmail.com", 587, "superstore0502", password);
+	    Transport.send(message);
+	    System.out.println("Sent message successfully....");
+	} catch (MessagingException mex) {
+	    mex.printStackTrace();
+	}
     }
 
     public static void member() {
