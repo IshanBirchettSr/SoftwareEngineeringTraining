@@ -35,6 +35,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -259,6 +261,25 @@ public class ElectronicsDept extends Department {
 	    } else {
 		rowIndex += 2;
 		columnIndex = 0;
+	    }
+	    if (oProdName.equals(pd.getProductName()) != false) {
+
+		Image map = new Image(StoreConstants.CAUTION);
+		ImagePattern pattern = new ImagePattern(map, 20, 20, 40, 40, false);
+		Image DeptClosed = new Image(StoreConstants.DEPTCLOSED);
+		ImageView iv2 = new ImageView();
+		iv2.setImage(DeptClosed);
+		iv2.setFitWidth(500);
+		iv2.setFitHeight(200);
+		iv2.setPreserveRatio(true);
+		iv2.setSmooth(true);
+		iv2.setCache(true);
+		Rectangle rect = new Rectangle(600, 250, 600, 200);
+		rect.setFill(pattern);
+		// HBox ivPane = new HBox(iv2);
+		HBox rectBox = new HBox(10, rect);
+		rectBox.setAlignment(Pos.CENTER);
+
 	    }
 
 	}
