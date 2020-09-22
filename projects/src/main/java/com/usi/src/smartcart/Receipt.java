@@ -146,20 +146,18 @@ public class Receipt extends StorePrinterFx {
 	Line line = new Line();
 	line.setStartX(100.0f);
 	line.setStartY(150.0f);
-	line.setEndX(504.0f);
+	line.setEndX(650.0f);
 	line.setEndY(150.0f);
-	line.setStrokeWidth(1);
+	line.setStrokeWidth(0.5);
 	line.setStroke(Color.BLACK);
-	line.getStrokeDashArray().addAll(2d);
 
 	Line line1 = new Line();
 	line1.setStartX(100.0f);
 	line1.setStartY(150.0f);
-	line1.setEndX(504.0f);
+	line1.setEndX(650.0f);
 	line1.setEndY(150.0f);
-	line1.setStrokeWidth(1);
+	line1.setStrokeWidth(0.5);
 	line1.setStroke(Color.BLACK);
-	line1.getStrokeDashArray().addAll(2d);
 
 	Line line2 = new Line();
 	line2.setStartX(100.0f);
@@ -169,6 +167,15 @@ public class Receipt extends StorePrinterFx {
 	line2.setStrokeWidth(1);
 	line2.setStroke(Color.BLACK);
 	line2.getStrokeDashArray().addAll(2d);
+
+	Line line3 = new Line();
+	line3.setStartX(100.0f);
+	line3.setStartY(150.0f);
+	line3.setEndX(200.0f);
+	line3.setEndY(150.0f);
+	line3.setStrokeWidth(1);
+	line3.setStroke(Color.BLACK);
+	line3.getStrokeDashArray().addAll(2d);
 
 	String st = ("Receipt");
 	Text str = new Text(st);
@@ -195,6 +202,7 @@ public class Receipt extends StorePrinterFx {
 	Text tile3 = new Text(price);
 	tile3.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	HBox tiles = new HBox(40, tile, tile2, tile3);
+	tiles.setAlignment(Pos.CENTER);
 
 	// VBox itemList = new VBox(2);
 
@@ -315,7 +323,7 @@ public class Receipt extends StorePrinterFx {
 	VBox align = new VBox(subtotalToday, addTax, line2, ad, totalSavings);
 	align.setAlignment(Pos.CENTER_RIGHT);
 
-	VBox taxpane = new VBox(5, amountTendered, changeDue);
+	VBox taxpane = new VBox(5, amountTendered, line3, changeDue);
 	adt.getChildren().add(taxpane);
 	adt.setAlignment(Pos.BASELINE_RIGHT);
 
