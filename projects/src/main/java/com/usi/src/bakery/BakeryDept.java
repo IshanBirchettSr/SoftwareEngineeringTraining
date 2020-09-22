@@ -21,11 +21,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -123,6 +125,9 @@ public class BakeryDept extends Department {
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
 	Image bakeryImage = new Image(StoreConstants.BAKERYDEPT);
+	
+	String style_inner = "-fx-border-color: pink;" + "-fx-border-width: 10;";
+	
 	ImageView iv = new ImageView();
 	iv.setImage(bakeryImage);
 	iv.setFitWidth(400);
@@ -130,6 +135,14 @@ public class BakeryDept extends Department {
 	iv.setSmooth(true);
 	iv.setCache(true);
 
+	StackPane fPane = new StackPane(iv);
+	fPane.setStyle(style_inner);
+	fPane.setEffect(new DropShadow(20, Color.BLACK));
+	HBox fp = new HBox(20, fPane);
+	fp.setAlignment(Pos.CENTER);
+
+	
+	
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
