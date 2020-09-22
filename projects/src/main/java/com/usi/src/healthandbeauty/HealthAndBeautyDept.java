@@ -169,15 +169,18 @@ public class HealthAndBeautyDept extends Department {
 	Image DeptClosed = new Image(StoreConstants.DEPTCLOSED);
 	ImageView iv2 = new ImageView();
 	iv2.setImage(DeptClosed);
-	iv2.setFitWidth(500);
+	iv2.setFitWidth(300);
 	iv2.setFitHeight(200);
 	iv2.setPreserveRatio(true);
 	iv2.setSmooth(true);
 	iv2.setCache(true);
 	Rectangle rect = new Rectangle(600, 250, 600, 200);
 	rect.setFill(pattern);
-	// HBox ivPane = new HBox(iv2);
-	HBox rectBox = new HBox(10, rect);
+	HBox ivPane = new HBox(iv2);
+	ivPane.setAlignment(Pos.CENTER);
+	StackPane rectPane = new StackPane(rect);
+	rectPane.getChildren().add(ivPane);
+	HBox rectBox = new HBox(10, rectPane);
 	rectBox.setAlignment(Pos.CENTER);
 
 	HBox dButtons = Greeting.getBottonDeptButtons();

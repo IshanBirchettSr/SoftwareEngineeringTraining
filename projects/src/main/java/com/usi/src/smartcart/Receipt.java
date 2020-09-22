@@ -8,7 +8,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+
 import customerservice.Customer;
+import customerservice.MembershipSignUp;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
@@ -132,29 +148,36 @@ public class Receipt extends StorePrinterFx {
 	Line line = new Line();
 	line.setStartX(100.0f);
 	line.setStartY(150.0f);
-	line.setEndX(504.0f);
+	line.setEndX(650.0f);
 	line.setEndY(150.0f);
-	line.setStrokeWidth(1);
+	line.setStrokeWidth(0.5);
 	line.setStroke(Color.BLACK);
-	line.getStrokeDashArray().addAll(2d);
 
 	Line line1 = new Line();
 	line1.setStartX(100.0f);
 	line1.setStartY(150.0f);
-	line1.setEndX(504.0f);
+	line1.setEndX(650.0f);
 	line1.setEndY(150.0f);
-	line1.setStrokeWidth(1);
+	line1.setStrokeWidth(0.5);
 	line1.setStroke(Color.BLACK);
-	line1.getStrokeDashArray().addAll(2d);
 
 	Line line2 = new Line();
 	line2.setStartX(100.0f);
 	line2.setStartY(150.0f);
-	line2.setEndX(200.0f);
+	line2.setEndX(300.0f);
 	line2.setEndY(150.0f);
 	line2.setStrokeWidth(1);
 	line2.setStroke(Color.BLACK);
 	line2.getStrokeDashArray().addAll(2d);
+
+	Line line3 = new Line();
+	line3.setStartX(100.0f);
+	line3.setStartY(150.0f);
+	line3.setEndX(300.0f);
+	line3.setEndY(150.0f);
+	line3.setStrokeWidth(1);
+	line3.setStroke(Color.BLACK);
+	line3.getStrokeDashArray().addAll(2d);
 
 	String st = ("Receipt");
 	Text str = new Text(st);
@@ -181,6 +204,7 @@ public class Receipt extends StorePrinterFx {
 	Text tile3 = new Text(price);
 	tile3.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 	HBox tiles = new HBox(40, tile, tile2, tile3);
+	tiles.setAlignment(Pos.CENTER);
 
 	// VBox itemList = new VBox(2);
 
@@ -223,7 +247,7 @@ public class Receipt extends StorePrinterFx {
 		    item.setX(10);
 		    item.setY(10);
 		    item.setFill(Color.BLACK);
-		    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 6));
+		    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
 		    tp.getChildren().add(item);
 		    tp.setAlignment(Pos.BASELINE_LEFT);
 		    total += (totalQuantity * oldPd.getPrice());
@@ -252,7 +276,7 @@ public class Receipt extends StorePrinterFx {
 	    item.setX(30);
 	    item.setY(30);
 	    item.setFill(Color.BLUE);
-	    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 6));
+	    item.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
 	    total += (totalQuantity * oldPd.getPrice());
 	    // total += oldPd.getPrice();
 	    if (oldPd != null) {
@@ -271,59 +295,60 @@ public class Receipt extends StorePrinterFx {
 	String sbt = String.format("SubTotal: $%.2f", subtotalAmount);
 	String tt = String.format("Your total today is $%.2f", totalAmount);
 	Text subtotalToday = new Text(sbt);
-	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 
 	subtotalToday.setX(30);
 	subtotalToday.setY(250);
 	Text totalToday = new Text(tt);
-	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	totalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	totalToday.setX(30);
 	totalToday.setY(250);
 
 	TilePane adt = new TilePane();
 
-	String at = String.format("Amount Tendered: $%.2f", getTotalTendered());
+	String at = String.format("Cash                      TENDER: $%.2f", getTotalTendered());
 	Text amountTendered = new Text(at);
-	amountTendered.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	amountTendered.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	amountTendered.setX(30);
 	amountTendered.setY(250);
 
 	String add = String.format("Tax: $%.2f", taxAmount);
 	Text addTax = new Text(add);
-	addTax.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	addTax.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	addTax.setX(30);
 	addTax.setY(250);
 
-	String AmountDue = String.format("Your total today is $%.2f", totalAmount);
+	String AmountDue = String.format("TOTAL                      $%.2f", totalAmount);
 	Text ad = new Text(AmountDue);
-	ad.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	ad.setFont(Font.font("Arial", FontPosture.REGULAR, 12));
 	ad.setX(30);
 	ad.setY(250);
 
 	String savings = String.format("Total savings today is $%.2f", cust.getCart().getTotalSavings());
 	Text totalSavings = new Text(savings);
-	totalSavings.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	totalSavings.setFont(Font.font("Arial", FontPosture.REGULAR, 12));
 	totalSavings.setX(30);
 	totalSavings.setY(250);
 
-	String change = String.format("Your change due is $%.2f", getTotalTendered() - cust.getCart().getGrandTotal());
+	String change = String.format("Cash                      CHANGE $%.2f",
+		getTotalTendered() - cust.getCart().getGrandTotal());
 	Text changeDue = new Text(change);
-	changeDue.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	changeDue.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	changeDue.setX(30);
 	changeDue.setY(250);
 
-	VBox align = new VBox(subtotalToday, addTax, line2, ad, totalSavings);
-	align.setAlignment(Pos.CENTER_RIGHT);
+	VBox taxpane = new VBox(5, amountTendered, line3, changeDue);
+	taxpane.setAlignment(Pos.CENTER_RIGHT);
 
-	VBox taxpane = new VBox(5, amountTendered, changeDue);
-	adt.getChildren().add(taxpane);
-	adt.setAlignment(Pos.BASELINE_RIGHT);
+	VBox align = new VBox(subtotalToday, addTax, line2, ad);
+	align.getChildren().add(taxpane);
+	align.setAlignment(Pos.CENTER_RIGHT);
 
 	String thankYouMessage = String.format("%s %s thank you for your purchase today!",
 		cust.getmCard().getFirstName(), cust.getmCard().getLastName());
 	Text thankYouText = new Text(thankYouMessage);
-	thankYouText.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
-	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	thankYouText.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
+	subtotalToday.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	subtotalToday.setX(30);
 	subtotalToday.setY(300);
 	HBox thankYouBox = new HBox(thankYouText);
@@ -343,13 +368,13 @@ public class Receipt extends StorePrinterFx {
 	}
 
 	Text tText = new Text(tTextString);
-	tText.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
+	tText.setFont(Font.font("Arial", FontPosture.REGULAR, 10));
 	subtotalToday.setX(30);
 	subtotalToday.setY(300);
 	HBox tBox = new HBox(tText);
 	tBox.setAlignment(Pos.BASELINE_LEFT);
 
-	VBox receiptNode = new VBox(5, sBox, line, r, tp, line1, align, adt, thankYouBox, date);
+	VBox receiptNode = new VBox(5, sBox, line, r, tp, line1, align, adt, thankYouBox, totalSavings, date);
 	// VBox receiptNode = new VBox(tp);
 //	double localWidth = receiptNode.getBoundsInLocal().getWidth();
 //	double localHeight = receiptNode.getBoundsInLocal().getHeight();
@@ -382,22 +407,79 @@ public class Receipt extends StorePrinterFx {
     }
 
     public static void emailReceipt() {
-	// Prototype
-	String key = "membershipId";
-	String value = "member's email";
+	MembershipSignUp mem = new MembershipSignUp();
+
+	String to = mem.getEmailAddress();
+
+	// Sender's email ID needs to be mentioned
+	String from = "superstore0502@gmail.com";
+
+	// Assuming you are sending email from localhost
+	String host = "localhost";
+
+	// Get system properties
+	// Properties properties = System.getProperties();
+
+	// Setup mail server
+	// properties.setProperty("mail.smtp.host", host);
+
 	Properties properties = new Properties();
-	properties.put(key, value);
+	properties.put(from, to);
 	properties.put("mail.smtp.auth", true);
 	properties.put("mail.smtp.starttls.enable", true);
 	properties.put("mail.smtp.host", "smtp.gmail.com");
-	properties.put("mail.smtp.port", "587");
+	properties.put("mail.smtp.port", "465");
+	properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
-	// String MyAccountEmail = "superstore0502@gmail.com";
-	// String password = "superstore0502";
+	// Get the default Session object.
+	// Session session = Session.getDefaultInstance(properties);
+	String username = "superstore0502@gmail.com";
+	String password = "superstore0502";
+	Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+	    protected PasswordAuthentication getPasswordAuthentication() {
+		return new PasswordAuthentication(username, password);
+	    }
+	});
 
-	System.out.printf("Your reciept will be emailed to you. Thank you for shopping at the %s\\n today!",
-		StoreConstants.STORE_NAME);
+	try {
+	    // Create a default MimeMessage object.
+	    MimeMessage message = new MimeMessage(session);
 
+	    // Set From: header field of the header.
+	    message.setFrom(new InternetAddress(from));
+
+	    // Set To: header field of the header.
+	    message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+	    // Set Subject: header field
+	    message.setSubject("USI Superstore Receipt");
+
+	    // Now set the actual message
+	    message.setText("Thank you for shopping at USI Super Store");
+
+	    BodyPart messageBodyPart = new MimeBodyPart();
+
+	    messageBodyPart.setText("Thank you for shopping at USI Super Store");
+
+	    Multipart multipart = new MimeMultipart();
+
+	    messageBodyPart = new MimeBodyPart();
+	    String filename = "file:///C:/Users/chich/OneDrive/Documents/11.pdf";
+	    DataSource source = new FileDataSource(filename);
+	    messageBodyPart.setDataHandler(new DataHandler(source));
+	    messageBodyPart.setFileName(filename);
+	    multipart.addBodyPart(messageBodyPart);
+
+	    message.setContent(multipart);
+
+	    // Send messages
+//	    Transport transport = session.getTransport("smtp");
+//	    transport.connect("smtp.gmail.com", 587, "superstore0502", password);
+	    Transport.send(message);
+	    System.out.println("Sent message successfully....");
+	} catch (MessagingException mex) {
+	    mex.printStackTrace();
+	}
     }
 
     public static void member() {
