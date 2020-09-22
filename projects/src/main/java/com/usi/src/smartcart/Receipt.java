@@ -3,12 +3,14 @@
  */
 package smartcart;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
 import customerservice.Customer;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -105,9 +107,9 @@ public class Receipt extends StorePrinterFx {
 	// System.out.printf("Amount tendered so far: %.2f\n", totalTendered);
     }
 
-    public VBox printNode() {
+    public List<Node> printNode() {
 	prods = cust.getListOfProds();
-
+	List<Node> pageNodes = new ArrayList<Node>();
 	Image StoreIcon = new Image(StoreConstants.SC_ICON_FULL);
 	ImageView si = new ImageView();
 	si.setFitWidth(35);
@@ -200,7 +202,7 @@ public class Receipt extends StorePrinterFx {
 	if (pList == null) {
 	    System.out.println("pList is null\n");
 	}
-
+	int totalEntries = 0;
 	for (Product cPd : pList) {
 	    if (oldPn.equals("no name") == true) {
 		oldPn = cPd.getBrandName();
@@ -228,6 +230,20 @@ public class Receipt extends StorePrinterFx {
 		    totalQuantity = 1;
 		    oldPn = cPd.getBrandName();
 		    oldPd = cPd;
+		    totalEntries++;
+
+		    if ((tp.getChildren().size() % 5) == 0) {
+			VBox page = new VBox(5, sBox, line, r, tp);
+			page.setMaxSize(504, 800);
+			System.out.printf("Pages %d, items %d\n", pageNodes.size(), tp.getChildren().size());
+			String pageId = String.format("Page: %d", pageNodes.size());
+			page.setId(pageId);
+			pageNodes.add(page);
+
+			System.out.printf("Pages %d, items %d\n", pageNodes.size(), tp.getChildren().size());
+		    } else {
+			System.out.printf("Total Entries so far: %d\n", tp.getChildren().size());
+		    }
 		}
 	    }
 	}
@@ -340,7 +356,11 @@ public class Receipt extends StorePrinterFx {
 //	//System.out.printf("Receipt Bounds width %.2f and Height %.2f\n", localWidth, localHeight);
 	receiptNode.setMaxSize(504, 800);
 	totalTendered = 0.0;
-	return receiptNode;
+	String pageId = String.format("Page: %d", pageNodes.size());
+	receiptNode.setId(pageId);
+	pageNodes.add(receiptNode);
+	System.out.printf("Last Page %d, items %d\n", pageNodes.size(), tp.getChildren().size());
+	return pageNodes;
     }
 
     /**
@@ -413,7 +433,7 @@ public class Receipt extends StorePrinterFx {
     public static double isThereChange(double total, String card) {
 
 	double change = 0.0f;
-	System.out.printf("Card ID %s\n", card);
+	// System.out.printf("Card ID %s\n", card);
 	if (total >= 0.00f) {
 	    String.format("Thank you for shopping at the %s today! Your purchase of %.2f has been approved",
 		    StoreConstants.STORE_NAME, total);

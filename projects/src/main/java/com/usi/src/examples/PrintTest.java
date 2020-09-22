@@ -59,10 +59,10 @@ public class PrintTest extends Application {
     private void print(final ActionEvent actionEvent) {
 	printer.setScale(1);
 	printer.setPrintRectangle(getPrintRectangle());
-	boolean success = printer.print(job, true, getNodeToPrint());
-	if (success) {
-	    job.endJob();
-	}
+	// boolean success = printer.print(job, true, getNodeToPrint());
+//	if (success) {
+//	    job.endJob();
+//	}
     }
 
     private Rectangle getPrintRectangle() {
