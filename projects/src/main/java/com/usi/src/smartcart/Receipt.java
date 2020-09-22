@@ -302,7 +302,7 @@ public class Receipt extends StorePrinterFx {
 	addTax.setX(30);
 	addTax.setY(250);
 
-	String AmountDue = String.format("TOTAL                    $%.2f", totalAmount);
+	String AmountDue = String.format("TOTAL                      $%.2f", totalAmount);
 	Text ad = new Text(AmountDue);
 	ad.setFont(Font.font("Arial", FontPosture.REGULAR, 12));
 	ad.setX(30);
