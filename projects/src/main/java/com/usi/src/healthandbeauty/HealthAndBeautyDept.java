@@ -165,15 +165,6 @@ public class HealthAndBeautyDept extends Department {
 
 	Image map = new Image(StoreConstants.CAUTION);
 	ImagePattern pattern = new ImagePattern(map, 20, 20, 40, 40, false);
-//
-//	Image caution = new Image(StoreConstants.DEPTCLOSED);
-//	ImageView cau = new ImageView();
-//	cau.setImage(caution);
-//	cau.setFitWidth(500);
-//	cau.setPreserveRatio(true);
-//	cau.setSmooth(true);
-//	cau.setCache(true);
-//	VBox cauBox = new VBox(cau);
 
 	Image DeptClosed = new Image(StoreConstants.DEPTCLOSED);
 	ImageView iv2 = new ImageView();
