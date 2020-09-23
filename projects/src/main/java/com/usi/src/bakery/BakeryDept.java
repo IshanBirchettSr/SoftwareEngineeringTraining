@@ -21,11 +21,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -122,6 +124,13 @@ public class BakeryDept extends Department {
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	// Create individual VBoxes
+	VBox sloBox = new VBox(slogan);
+	sloBox.setAlignment(Pos.CENTER);
+
+	// this is the code for the CSS Style
+	String style_inner = "-fx-border-color: pink;" + "-fx-border-width: 10;";
+
 	Image bakeryImage = new Image(StoreConstants.BAKERYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(bakeryImage);
@@ -129,12 +138,23 @@ public class BakeryDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+	// Create stackpane to hold image view
+	StackPane fPane = new StackPane(iv);
+	fPane.setStyle(style_inner);
+	fPane.setEffect(new DropShadow(20, Color.BLACK));
+	HBox spBox = new HBox(fPane);
+	spBox.setAlignment(Pos.CENTER);
+	VBox alignBox = new VBox(20, sloBox, spBox);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox bpr = new VBox(15, slogan, iv, instructions);
+	// Create individual VBoxes
+	VBox instrBox = new VBox(instructions);
+	instrBox.setAlignment(Pos.CENTER);
+
+	VBox bpr = new VBox(15, alignBox, instrBox);
 	bpr.setAlignment(Pos.CENTER);
 
 	// Product Grid
