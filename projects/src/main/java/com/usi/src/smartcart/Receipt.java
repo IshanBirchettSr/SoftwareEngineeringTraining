@@ -3,6 +3,7 @@
  */
 package smartcart;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -402,17 +403,21 @@ public class Receipt extends StorePrinterFx {
 	totalTendered += amount;
     }
 
-    public void printReceipt() {
+    public void generateReceipt() {
 	print(printNode());
     }
 
     public static void emailReceipt() {
 	MembershipSignUp mem = new MembershipSignUp();
 
-	String to = mem.getEmailAddress();
+	final String username = "superstore0502@gmail.com";
+	final String password = "superstore0502";
 
 	// Sender's email ID needs to be mentioned
-	String from = "superstore0502@gmail.com";
+	String fromEmail = "superstore0502@gmail.com";
+
+	// Recipient's email ID needs to be mentioned.
+	String toEmail = mem.getEmailAddress();
 
 	// Assuming you are sending email from localhost
 	String host = "localhost";
@@ -424,61 +429,54 @@ public class Receipt extends StorePrinterFx {
 	// properties.setProperty("mail.smtp.host", host);
 
 	Properties properties = new Properties();
-	properties.put(from, to);
+	// properties.put(from, to);
 	properties.put("mail.smtp.auth", true);
 	properties.put("mail.smtp.starttls.enable", true);
 	properties.put("mail.smtp.host", "smtp.gmail.com");
-	properties.put("mail.smtp.port", "465");
-	properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+	properties.put("mail.smtp.port", "587");
+	// properties.put("mail.smtp.socketFactory.class",
+	// "javax.net.ssl.SSLSocketFactory");
 
 	// Get the default Session object.
 	// Session session = Session.getDefaultInstance(properties);
-	String username = "superstore0502@gmail.com";
-	String password = "superstore0502";
+
 	Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 	    protected PasswordAuthentication getPasswordAuthentication() {
 		return new PasswordAuthentication(username, password);
 	    }
 	});
-
+	// Start our mail message
+	MimeMessage msg = new MimeMessage(session);
 	try {
-	    // Create a default MimeMessage object.
-	    MimeMessage message = new MimeMessage(session);
+	    msg.setFrom(new InternetAddress(fromEmail));
+	    msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
+	    msg.setSubject("USI SUPER STORE RECIEPT");
 
-	    // Set From: header field of the header.
-	    message.setFrom(new InternetAddress(from));
+	    Multipart emailContent = new MimeMultipart();
 
-	    // Set To: header field of the header.
-	    message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+	    // Text body part
+	    MimeBodyPart textBodyPart = new MimeBodyPart();
+	    textBodyPart.setText("Thank you for shopping at the USI Super Store Today! Attached is your reciept.");
 
-	    // Set Subject: header field
-	    message.setSubject("USI Superstore Receipt");
+	    // Attached body part
+	    MimeBodyPart pdfAttachment = new MimeBodyPart();
+	    pdfAttachment
+		    .attachFile("/usi-git/SoftwareEngineeringTraining/projects/src/main/java/com/usi/emailReceipt.pdf");
 
-	    // Now set the actual message
-	    message.setText("Thank you for shopping at USI Super Store");
+	    // Attach body parts
+	    emailContent.addBodyPart(textBodyPart);
+	    emailContent.addBodyPart(pdfAttachment);
 
-	    BodyPart messageBodyPart = new MimeBodyPart();
+	    // Attach multipart to message
+	    msg.setContent(emailContent);
 
-	    messageBodyPart.setText("Thank you for shopping at USI Super Store");
-
-	    Multipart multipart = new MimeMultipart();
-
-	    messageBodyPart = new MimeBodyPart();
-	    String filename = "file:///C:/Users/chich/OneDrive/Documents/11.pdf";
-	    DataSource source = new FileDataSource(filename);
-	    messageBodyPart.setDataHandler(new DataHandler(source));
-	    messageBodyPart.setFileName(filename);
-	    multipart.addBodyPart(messageBodyPart);
-
-	    message.setContent(multipart);
-
-	    // Send messages
-//	    Transport transport = session.getTransport("smtp");
-//	    transport.connect("smtp.gmail.com", 587, "superstore0502", password);
-	    Transport.send(message);
+	    Transport.send(msg);
 	    System.out.println("Sent message successfully....");
-	} catch (MessagingException mex) {
-	    mex.printStackTrace();
+	} catch (MessagingException e) {
+	    e.printStackTrace();
+	} catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
 	}
     }
 
