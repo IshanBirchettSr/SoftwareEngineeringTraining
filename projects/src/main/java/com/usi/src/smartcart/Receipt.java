@@ -52,7 +52,7 @@ import util.StorePrinterFx;
 
 public class Receipt extends StorePrinterFx {
 
-    Customer cust = new Customer();
+    static Customer cust = new Customer();
     private String membershipId;
     String member = membershipId;
     List<Product> prods = null;
@@ -408,18 +408,19 @@ public class Receipt extends StorePrinterFx {
     }
 
     public static void emailReceipt() {
-	MembershipSignUp mem = new MembershipSignUp();
+	// MembershipSignUp mem = new MembershipSignUp();
 
-	final String username = "superstore0502@gmail.com";
-	final String password = "superstore0502";
+	final String mustard = String.format("%s@%s", "superstore0502", "gmail.com");
+	final String hotdog = "x1y2*axx3b";
 
 	// Sender's email ID needs to be mentioned
 	String fromEmail = "superstore0502@gmail.com";
 
 	// Recipient's email ID needs to be mentioned.
-	String toEmail = mem.getEmailAddress();
-
+	String toEmail = cust.getmCard().getEmailAddress();
+	System.out.println(toEmail);
 	// Assuming you are sending email from localhost
+
 	String host = "localhost";
 
 	// Get system properties
@@ -442,7 +443,7 @@ public class Receipt extends StorePrinterFx {
 
 	Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 	    protected PasswordAuthentication getPasswordAuthentication() {
-		return new PasswordAuthentication(username, password);
+		return new PasswordAuthentication(mustard, hotdog);
 	    }
 	});
 	// Start our mail message
