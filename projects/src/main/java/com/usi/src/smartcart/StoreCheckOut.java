@@ -29,7 +29,7 @@ public class StoreCheckOut extends Receipt {
 	setCust(cust);
 	setValueEnteredCash(moneyTendered);
 	setPayType(pt);
-	printReceipt();
+	generateReceipt();
 	return true;
     }
 
@@ -41,7 +41,7 @@ public class StoreCheckOut extends Receipt {
 	setCust(cust);
 	setValueEnteredCard(card);
 	setPayType(pt);
-	printReceipt();
+	generateReceipt();
 	return true;
     }
 
@@ -53,6 +53,7 @@ public class StoreCheckOut extends Receipt {
 	setCust(cust);
 	setValueEnteredCash(moneyTendered);
 	setPayType(pt);
+	generateReceipt();
 	emailReceipt();
 	return true;
     }

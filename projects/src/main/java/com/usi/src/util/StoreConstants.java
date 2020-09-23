@@ -21,6 +21,11 @@ public class StoreConstants {
     // Product Name + Unique Bar Code
     public static final String PROD_KEY_FORMATTER = "%s-%s";
     /*
+     * //emailPDFs
+     * 
+     */
+    public static final String EMAILPDF = "file:///" + APP_HOME + "/emailReceipt.pdf";
+    /*
      * Truck Constants for importing department records Please keep Department
      * Records in alphabetical order
      */
