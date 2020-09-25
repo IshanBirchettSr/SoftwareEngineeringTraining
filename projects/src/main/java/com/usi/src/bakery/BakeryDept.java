@@ -132,9 +132,7 @@ public class BakeryDept extends Department {
 	String style_inner = "-fx-border-color: pink;" + "-fx-border-width: 10;";
 
 	Image bakeryImage = new Image(StoreConstants.BAKERYDEPT);
-	
-	String style_inner = "-fx-border-color: pink;" + "-fx-border-width: 10;";
-	
+
 	ImageView iv = new ImageView();
 	iv.setImage(bakeryImage);
 	iv.setFitWidth(400);
@@ -149,14 +147,6 @@ public class BakeryDept extends Department {
 	spBox.setAlignment(Pos.CENTER);
 	VBox alignBox = new VBox(20, sloBox, spBox);
 
-	StackPane fPane = new StackPane(iv);
-	fPane.setStyle(style_inner);
-	fPane.setEffect(new DropShadow(20, Color.BLACK));
-	HBox fp = new HBox(20, fPane);
-	fp.setAlignment(Pos.CENTER);
-
-	
-	
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
