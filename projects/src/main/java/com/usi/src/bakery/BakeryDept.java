@@ -132,7 +132,6 @@ public class BakeryDept extends Department {
 	String style_inner = "-fx-border-color: lightcoral;" + "-fx-border-width: 10;";
 
 	Image bakeryImage = new Image(StoreConstants.BAKERYDEPT);
-
 	ImageView iv = new ImageView();
 	iv.setImage(bakeryImage);
 	iv.setFitWidth(400);
