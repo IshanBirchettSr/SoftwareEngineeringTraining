@@ -165,6 +165,11 @@ public class BikesDept extends Department {
 	    }
 	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
+	    
+	    
+	    
+	    
+	    
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
