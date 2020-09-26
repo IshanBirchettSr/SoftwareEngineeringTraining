@@ -52,11 +52,8 @@ public class NodePrinter {
 
 	if (!showPrintDialog || job.showPrintDialog(window)) {
 	    boolean success = true;
-	    System.out.printf("PageNodes %d\n", pageNodes.size());
-
 	    for (int i = 0; i < pageNodes.size(); i++) {
 		PageLayout pageLayout = job.getJobSettings().getPageLayout();
-		System.out.printf("Node #%s\n", pageNodes.get(i).getId());
 		success &= job.printPage(pageLayout, pageNodes.get(i));
 //		
 //		double pageWidth = pageLayout.getPrintableWidth();
