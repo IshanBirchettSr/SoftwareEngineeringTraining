@@ -14,11 +14,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -122,6 +124,13 @@ public class BookDept extends Department {
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	// create individual VBoxes
+	VBox sloBox = new VBox(slogan);
+	sloBox.setAlignment(Pos.CENTER);
+
+	// this is the code for the CSS Style
+	String style_inner = "-fx-border-color: teal;"  + "-fx-border-width: 6;";
+
 	Image bookImage = new Image(StoreConstants.BOOKSDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(bookImage);
@@ -129,12 +138,26 @@ public class BookDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+
+	// Create stackpane to hold image view
+
+	StackPane fPane = new StackPane(iv);
+	fPane.setStyle(style_inner);
+	fPane.setEffect(new DropShadow(30, Color.GOLDENROD));
+	HBox spBox = new HBox(fPane);
+	spBox.setAlignment(Pos.CENTER);
+	VBox alignBox = new VBox(20, sloBox, spBox);
+
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Veranda", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:null");
-	VBox ap = new VBox(15, slogan, iv, instructions);
-	ap.setAlignment(Pos.CENTER);
+	instructions.setStyle("-fx-background-color:navajowhite");
+	// Create individual VBoxes
+	VBox instrBox = new VBox(instructions);
+	instrBox.setAlignment(Pos.CENTER);
+
+	VBox bpr = new VBox(15, alignBox, instrBox);
+	bpr.setAlignment(Pos.CENTER);
 
 	// Product Grid
 	GridPane pGrid = new GridPane();
@@ -149,7 +172,6 @@ public class BookDept extends Department {
 	int rowIndex = 0;
 	int columnIndex = 0;
 	String oldFilename = "Firstfile";
-
 	for (String pKey : list) {
 	    Product pd = bookProducts.get(pKey);
 
@@ -171,6 +193,7 @@ public class BookDept extends Department {
 	    pV.setId(pKey);
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
+
 	    pV.setSmooth(true);
 	    pV.setCache(true);
 	    String booksToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
@@ -188,11 +211,11 @@ public class BookDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Veranda", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setTextFill(Color.DARKBLUE);
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:tan;");
+		pLabel.setTextFill(Color.BLACK);
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:teal;");
 		if (pd.getProductName().contains("Love")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
+		    pLabel.setStyle("-fx-border-color:black; dotted; -fx-background-color:teal;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
@@ -212,7 +235,6 @@ public class BookDept extends Department {
 	    }
 	    // System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
 	    pGrid.add(pV, columnIndex, rowIndex);
-
 	    if (columnIndex < 5) {
 		columnIndex++;
 	    } else {
@@ -233,8 +255,8 @@ public class BookDept extends Department {
 	dButtons.setAlignment(Pos.CENTER);
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
-	VBox aVBox = new VBox(20, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 500, 650);
-	return aScene;
+	VBox eVBox = new VBox(20, bpr, sp, dButtons);
+	Scene eScene = new Scene(eVBox, 500, 650);
+	return eScene;
     }
 }
