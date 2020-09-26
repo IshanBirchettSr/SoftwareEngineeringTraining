@@ -177,6 +177,15 @@ public class BabyEssentialsDept extends Department {
 	    }
 	    oldFilename = iFileName;
 
+	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "baby_essentials",
+		    pd.getBrandName(), pd.getProductName());
+	    File fExist = new File(ftest);
+
+	    if (fExist.exists() == false) {
+		continue;
+
+	    }
+
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();

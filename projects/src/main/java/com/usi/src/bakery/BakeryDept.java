@@ -122,14 +122,14 @@ public class BakeryDept extends Department {
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
-	slogan.setTextFill(Color.BLUE);
-	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	slogan.setTextFill(Color.BLACK);
+	slogan.setFont(Font.font("Veranda,", FontPosture.ITALIC, 24));
 	// Create individual VBoxes
 	VBox sloBox = new VBox(slogan);
 	sloBox.setAlignment(Pos.CENTER);
 
 	// this is the code for the CSS Style
-	String style_inner = "-fx-border-color: pink;" + "-fx-border-width: 10;";
+	String style_inner = "-fx-border-color: lightcoral;" + "-fx-border-width: 10;";
 
 	Image bakeryImage = new Image(StoreConstants.BAKERYDEPT);
 
@@ -139,18 +139,20 @@ public class BakeryDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+
 	// Create stackpane to hold image view
+
 	StackPane fPane = new StackPane(iv);
 	fPane.setStyle(style_inner);
-	fPane.setEffect(new DropShadow(20, Color.BLACK));
+	fPane.setEffect(new DropShadow(25, Color.BLACK));
 	HBox spBox = new HBox(fPane);
 	spBox.setAlignment(Pos.CENTER);
 	VBox alignBox = new VBox(20, sloBox, spBox);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
-	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
+	instructions.setFont(Font.font("Veranda", FontWeight.BOLD, FontPosture.ITALIC, 16));
+	instructions.setStyle("-fx-background-color:mistyrose");
 	// Create individual VBoxes
 	VBox instrBox = new VBox(instructions);
 	instrBox.setAlignment(Pos.CENTER);
@@ -208,11 +210,11 @@ public class BakeryDept extends Department {
 	    pV.setOnMouseClicked(iEvent);
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
-		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:midnightblue; -fx-background-color:lightslategray;");
+		pLabel.setFont(Font.font("Veranda", FontWeight.BOLD, FontPosture.ITALIC, 30));
+		pLabel.setStyle("-fx-border-color:midnightblue; -fx-background-color:lightcoral;");
 		if (pd.getProductName().contains("Bread")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:midnightblue; -fx-background-color:lightslategray;");
+		    pLabel.setStyle("-fx-border-color:midnightblue; -fx-background-color:lightcoral;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
