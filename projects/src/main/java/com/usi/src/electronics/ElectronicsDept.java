@@ -202,7 +202,7 @@ public class ElectronicsDept extends Department {
 	    Rectangle rect = new Rectangle(600, 250, 600, 200);
 	    rect.setFill(pattern);
 	    // HBox ivPane = new HBox(iv2);
-	    rectBox = new VBox(rect);
+	    rectBox = new VBox(eBox, instructions, rect);
 	    rectBox.setAlignment(Pos.CENTER);
 
 	} else {
@@ -303,7 +303,8 @@ public class ElectronicsDept extends Department {
 
 	if (list.size() == 0) {
 
-	    eVBox = rectBox;
+	    eVBox = new VBox(20, epr, rectBox, dButtons);
+	    eVBox.setAlignment(Pos.CENTER);
 
 	} else {
 	    eVBox = new VBox(20, epr, sp, dButtons);
