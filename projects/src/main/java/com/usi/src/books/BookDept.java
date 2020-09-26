@@ -55,9 +55,9 @@ public class BookDept extends Department {
 	bookRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(bookRecords);
 	keyMap = new HashMap<Integer, String>();
+
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// bookRecords.size());
-
 	// Book Product Load
 	bookProducts = new HashMap<String, BookProd>();
 	loadProducts();

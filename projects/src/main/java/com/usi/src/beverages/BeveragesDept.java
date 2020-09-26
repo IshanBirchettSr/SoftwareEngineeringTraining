@@ -172,11 +172,10 @@ public class BeveragesDept extends Department {
 	    }
 	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
-
 	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "beverages",
 		    pd.getBrandName(), pd.getProductName());
 	    File fExist = new File(ftest);
-
+    
 	    if (fExist.exists() == false) {
 		continue;
 	    }
