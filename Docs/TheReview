@@ -1,0 +1,31 @@
+A class is BlueprintA -- 1 more bedroom.
+
+House1Bedroom
+
+A object is likened to Building built using the blueprint.
+
+class House  {
+enum color = WHITE;
+
+}
+
+class House1bedroom extends House {
+
+	public void add1BedRoom() {
+
+	}
+}
+class House2bedroom extends House1Bedroom {
+
+	public void add2ndRoom() {
+
+	}
+}
+	
+House1bedroom house1 = new House1room();
+House2bedroom house2 = new House2bedroom();
+House house3 = new House();
+House house4 = new House();
+
+house1 = 1af4d 
+house2 = 124ab2 
