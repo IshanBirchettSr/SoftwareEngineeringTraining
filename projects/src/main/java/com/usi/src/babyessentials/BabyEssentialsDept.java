@@ -177,7 +177,7 @@ public class BabyEssentialsDept extends Department {
 	    }
 	    oldFilename = iFileName;
 
-	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "baby_essentials",
+	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "babyessentials",
 		    pd.getBrandName(), pd.getProductName());
 	    File fExist = new File(ftest);
 
