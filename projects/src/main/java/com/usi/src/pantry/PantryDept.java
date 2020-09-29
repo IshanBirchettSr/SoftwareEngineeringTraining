@@ -17,11 +17,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -122,7 +124,7 @@ public class PantryDept extends Department {
     @Override
     public Scene getScene() {
 
-	String imageKey = String.format("Yay, SNACKS! Welcome to the Pantry Department!");
+	String imageKey = String.format("SNACKS! Welcome to the Pantry Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
 	welcomeTxt.setX(50.00);
@@ -132,6 +134,8 @@ public class PantryDept extends Department {
 	HBox eg = new HBox(20, welcomeTxt);
 	eg.setAlignment(Pos.TOP_CENTER);
 
+	String style_inner = "-fx-border-color: gray;" + "-fx-border-width: 10;";
+
 	Image pantryImage = new Image(StoreConstants.PANTRYDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(pantryImage);
@@ -139,16 +143,20 @@ public class PantryDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox ep = new HBox(20, iv);
-	ep.setAlignment(Pos.CENTER);
+	StackPane ivPane = new StackPane(iv);
+	ivPane.setStyle(style_inner);
+	ivPane.setEffect(new DropShadow(20, Color.BLACK));
 
-	VBox eBox = new VBox(20, eg, iv);
+	HBox pp = new HBox(20, ivPane);
+	pp.setAlignment(Pos.CENTER);
+
+	// Add the Character and Actor panes to a VBox
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox epr = new VBox(15, eBox, iv, instructions);
+	VBox epr = new VBox(15, eg, pp, instructions);
 	epr.setAlignment(Pos.CENTER);
 
 	// Product Grid
