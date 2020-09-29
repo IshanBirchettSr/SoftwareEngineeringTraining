@@ -130,9 +130,9 @@ public class BeddingDept extends Department {
 	iv.setSmooth(true);
 	iv.setCache(true);
 
-	// DropShadow ds = new DropShadow(5, Color.BLUE);
+	// DropShadow ds = new DropShadow(5, Color.ALICEBLUE);
 	// iv.setEffect(ds);
-	String style_inner = "-fx-border-color: red;" + "-fx-border-width: 1;" + "-fx-border-style: dotted;";
+	String style_inner = "-fx-border-color: cornsilk;" + "-fx-border-width: 1;" + "-fx-border-style: line;";
 	iv.setStyle(style_inner);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
