@@ -185,104 +185,108 @@ public class ElectronicsDept extends Department {
 	int rowIndex = 0;
 	int columnIndex = 0;
 	String oldFilename = "Firstfile";
+	VBox rectBox = null;
 
-	for (String pKey : list) {
-	    Product pd = electronicsProducts.get(pKey);
+	if (list.size() == 0) {
 
-	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "electronics", pd.getBrandName(),
-		    pd.getProductName());
-	    if (oldFilename.equals(iFileName)) {
-		// System.out.printf("%s==%s, %b\n", oldFilename,
-		// iFileName,oldFilename.equals(iFileName));
-		continue;
-	    }
-	    // System.out.println(iFileName);
-	    oldFilename = iFileName;
+	    Image map = new Image(StoreConstants.CAUTION);
+	    ImagePattern pattern = new ImagePattern(map, 20, 20, 40, 40, false);
+	    Image DeptClosed = new Image(StoreConstants.DEPTCLOSED);
+	    ImageView iv2 = new ImageView();
+	    iv2.setImage(DeptClosed);
+	    iv2.setFitWidth(500);
+	    iv2.setFitHeight(200);
+	    iv2.setPreserveRatio(true);
+	    iv2.setSmooth(true);
+	    iv2.setCache(true);
+	    Rectangle rect = new Rectangle(600, 250, 600, 200);
+	    rect.setFill(pattern);
+	    // HBox ivPane = new HBox(iv2);
+	    rectBox = new VBox(eBox, instructions, rect);
+	    rectBox.setAlignment(Pos.CENTER);
 
-	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "electronics",
-		    pd.getBrandName(), pd.getProductName());
-	    File fExist = new File(ftest);
+	} else {
 
-	    if (fExist.exists() == false) {
-		continue;
-	    }
+	    for (String pKey : list) {
+		Product pd = electronicsProducts.get(pKey);
 
-	    // Image View
-	    Image pImage = new Image(iFileName);
-	    ImageView pV = new ImageView();
-	    pV.setFitHeight(100);
-	    // pV.setFitHeight(65);
-	    pV.setId(pKey);
-	    pV.setImage(pImage);
-	    pV.setPreserveRatio(true);
-
-	    pV.setSmooth(true);
-	    pV.setCache(true);
-	    String electronicToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
-		    pd.getPrice());
-	    Tooltip.install(pV, new Tooltip(electronicToolTip));
-
-	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
-		public void handle(MouseEvent e) {
-		    Product pd2 = electronicsProducts.get(pKey);
-		    Greeting.prodDetails(pd2, "electronics");
+		String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "electronics", pd.getBrandName(),
+			pd.getProductName());
+		if (oldFilename.equals(iFileName)) {
+		    // System.out.printf("%s==%s, %b\n", oldFilename,
+		    // iFileName,oldFilename.equals(iFileName));
+		    continue;
 		}
-	    };
-	    pV.setOnMouseClicked(iEvent);
-	    if (oProdName.equals(pd.getProductName()) != true) {
-		Label pLabel = new Label();
-		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-		if (pd.getProductName().contains("Ipad")) {
-		    pLabel.setText(pd.getProductName() + " Aisle");
+		// System.out.println(iFileName);
+		oldFilename = iFileName;
+
+		String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "electronics",
+			pd.getBrandName(), pd.getProductName());
+		File fExist = new File(ftest);
+
+		if (fExist.exists() == false) {
+		    continue;
+		}
+
+		// Image View
+		Image pImage = new Image(iFileName);
+		ImageView pV = new ImageView();
+		pV.setFitHeight(100);
+		// pV.setFitHeight(65);
+		pV.setId(pKey);
+		pV.setImage(pImage);
+		pV.setPreserveRatio(true);
+
+		pV.setSmooth(true);
+		pV.setCache(true);
+		String electronicToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(),
+			pd.getPrice());
+		Tooltip.install(pV, new Tooltip(electronicToolTip));
+
+		EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
+		    public void handle(MouseEvent e) {
+			Product pd2 = electronicsProducts.get(pKey);
+			Greeting.prodDetails(pd2, "electronics");
+		    }
+		};
+		pV.setOnMouseClicked(iEvent);
+		if (oProdName.equals(pd.getProductName()) != true) {
+		    Label pLabel = new Label();
+		    pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
 		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
-		} else {
-		    pLabel.setText(pd.getProductName() + " Shelve");
-		}
-		pLabel.setAlignment(Pos.CENTER);
-		columnIndex = 0;
-		rowIndex += 1;
-		// System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
-
-		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
-		if (rowIndex == 0) {
-		    rowIndex = 1;
-		} else {
+		    if (pd.getProductName().contains("Ipad")) {
+			pLabel.setText(pd.getProductName() + " Aisle");
+			pLabel.setStyle("-fx-border-color:black; -fx-background-color:gray;");
+		    } else {
+			pLabel.setText(pd.getProductName() + " Shelve");
+		    }
+		    pLabel.setAlignment(Pos.CENTER);
+		    columnIndex = 0;
 		    rowIndex += 1;
+		    // System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
+
+		    pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
+		    if (rowIndex == 0) {
+			rowIndex = 1;
+		    } else {
+			rowIndex += 1;
+		    }
+		    // System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
+		    oProdName = pd.getProductName();
 		}
-		// System.out.printf("%s vs %s\n", oProdName, pd.getProductName());
-		oProdName = pd.getProductName();
-	    }
-	    // System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
-	    pGrid.add(pV, columnIndex, rowIndex);
+		// System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
+		pGrid.add(pV, columnIndex, rowIndex);
 
-	    if (columnIndex < 5) {
-		columnIndex++;
-	    } else {
-		rowIndex += 2;
-		columnIndex = 0;
-	    }
-	    if (oProdName.equals(pd.getProductName()) != false) {
-
-		Image map = new Image(StoreConstants.CAUTION);
-		ImagePattern pattern = new ImagePattern(map, 20, 20, 40, 40, false);
-		Image DeptClosed = new Image(StoreConstants.DEPTCLOSED);
-		ImageView iv2 = new ImageView();
-		iv2.setImage(DeptClosed);
-		iv2.setFitWidth(500);
-		iv2.setFitHeight(200);
-		iv2.setPreserveRatio(true);
-		iv2.setSmooth(true);
-		iv2.setCache(true);
-		Rectangle rect = new Rectangle(600, 250, 600, 200);
-		rect.setFill(pattern);
-		// HBox ivPane = new HBox(iv2);
-		HBox rectBox = new HBox(10, rect);
-		rectBox.setAlignment(Pos.CENTER);
+		if (columnIndex < 5) {
+		    columnIndex++;
+		} else {
+		    rowIndex += 2;
+		    columnIndex = 0;
+		}
 
 	    }
-
 	}
+
 	// ap.getChildren().add(pGrid);
 	pGrid.setHgap(20);
 	pGrid.setVgap(40);
@@ -295,8 +299,16 @@ public class ElectronicsDept extends Department {
 	dButtons.setAlignment(Pos.CENTER);
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
+	VBox eVBox = null;
 
-	VBox eVBox = new VBox(20, epr, sp, dButtons);
+	if (list.size() == 0) {
+
+	    eVBox = new VBox(20, epr, rectBox, dButtons);
+	    eVBox.setAlignment(Pos.CENTER);
+
+	} else {
+	    eVBox = new VBox(20, epr, sp, dButtons);
+	}
 
 	Scene eScene = new Scene(eVBox, 500, 650);
 
