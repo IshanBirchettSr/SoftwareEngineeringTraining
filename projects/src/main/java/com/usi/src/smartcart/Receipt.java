@@ -422,12 +422,12 @@ public class Receipt extends StorePrinterFx {
 	final String mustard = String.format("%s@%s", "superstore0502", "gmail.com");
 	final String hotdog = "x1y2*axx3b";
 
-	// Sender's email ID needs to be mentioned
-	String fromEmail = "superstore0502@gmail.com";
-
 	// Recipient's email ID needs to be mentioned.
 	String toEmail = cust.getmCard().getEmailAddress();
-	String host = "localhost";
+
+	//
+	System.out.println(toEmail);
+	// Assuming you are sending email from localhost
 
 	// Get system properties
 	// Properties properties = System.getProperties();
@@ -455,7 +455,7 @@ public class Receipt extends StorePrinterFx {
 	// Start our mail message
 	MimeMessage msg = new MimeMessage(session);
 	try {
-	    msg.setFrom(new InternetAddress(fromEmail));
+	    msg.setFrom(new InternetAddress(mustard));
 	    msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
 	    msg.setSubject("USI SUPER STORE RECIEPT");
 
