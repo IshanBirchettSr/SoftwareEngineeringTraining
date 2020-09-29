@@ -23,11 +23,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -91,7 +93,6 @@ public class BeveragesDept extends Department {
     public void listProducts() {
 	String aKey = null;
 	Set<String> beverageProductKeys = beveragesProducts.keySet();
-
 	int i = 1;
 	for (String pKey : beverageProductKeys) {
 	    Product pd = beveragesProducts.get(pKey);
@@ -124,13 +125,22 @@ public class BeveragesDept extends Department {
 
     @Override
     public Scene getScene() {
-
 	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.BEVERAGES);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
-	slogan.setTextFill(Color.BLUE);
+	slogan.setTextFill(Color.BLACK);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	VBox sloBox = new VBox(slogan);
+	sloBox.setAlignment(Pos.CENTER);
+
+	// this is the code for the CSS Style
+
+	String style_custom = "-fx-custom-dashed-border:" + "-fx-border-color: blue;" + "-fx-border-width: 5;"
+		+ "-fx-border-style: segments(10, 15, 15, 15)  line-cap round ;";
+	{
+
+	}
 	Image autoImage = new Image(StoreConstants.BEVERAGESDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(autoImage);
@@ -138,13 +148,24 @@ public class BeveragesDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+	// Create stackpane to hold image view
+
+	StackPane fPane = new StackPane(iv);
+	fPane.setStyle(style_custom);
+	fPane.setEffect(new DropShadow(35, Color.BLACK));
+	HBox spBox = new HBox(fPane);
+	spBox.setAlignment(Pos.CENTER);
+	VBox alignBox = new VBox(20, sloBox, spBox);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
-	VBox ap = new VBox(15, slogan, iv, instructions);
-	ap.setAlignment(Pos.CENTER);
+	instructions.setStyle("-fx-background-color:lightgoldenrodyellow");
+	VBox instrBox = new VBox(instructions);
+	instrBox.setAlignment(Pos.CENTER);
+
+	VBox bpr = new VBox(15, alignBox, instrBox);
+	bpr.setAlignment(Pos.CENTER);
 
 	// Product Grid
 	GridPane pGrid = new GridPane();
@@ -175,7 +196,7 @@ public class BeveragesDept extends Department {
 	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "beverages",
 		    pd.getBrandName(), pd.getProductName());
 	    File fExist = new File(ftest);
-    
+
 	    if (fExist.exists() == false) {
 		continue;
 	    }
@@ -206,10 +227,10 @@ public class BeveragesDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:chartreuse");
 		if (pd.getProductName().contains("Water")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
+		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:chartreuse;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
@@ -250,7 +271,7 @@ public class BeveragesDept extends Department {
 	dButtons.setAlignment(Pos.CENTER);
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
-	VBox aVBox = new VBox(10, ap, sp, dButtons);
+	VBox aVBox = new VBox(10, bpr, sp, dButtons);
 	Scene aScene = new Scene(aVBox, 500, 650);
 	return aScene;
     }
