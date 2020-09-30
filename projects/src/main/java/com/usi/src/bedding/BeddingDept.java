@@ -121,7 +121,13 @@ public class BeddingDept extends Department {
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
-	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	slogan.setFont(Font.font("Lucinda Sans", FontPosture.REGULAR, 22));
+	VBox sloBox = new VBox(slogan);
+	sloBox.setAlignment(Pos.CENTER);
+
+	// this is the code for the CSS Style
+	String style_inner = "-fx-border-color: seashell;" + "-fx-border-width: 8;";
+
 	Image beddingImage = new Image(StoreConstants.BEDDINGDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(beddingImage);
@@ -130,17 +136,24 @@ public class BeddingDept extends Department {
 	iv.setSmooth(true);
 	iv.setCache(true);
 
-	// DropShadow ds = new DropShadow(5, Color.ALICEBLUE);
-	// iv.setEffect(ds);
-	String style_inner = "-fx-border-color: cornsilk;" + "-fx-border-width: 1;" + "-fx-border-style: line;";
-	iv.setStyle(style_inner);
+	// Create stackpane to hold image view
+
+	StackPane fPane = new StackPane(iv);
+	fPane.setStyle(style_inner);
+	fPane.setEffect(new DropShadow(40, Color.DARKBLUE));
+	HBox spBox = new HBox(fPane);
+	spBox.setAlignment(Pos.CENTER);
+	VBox alignBox = new VBox(20, sloBox, spBox);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
-	instructions.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
-	VBox bp = new VBox(15, slogan, iv, instructions);
-	bp.setAlignment(Pos.CENTER);
+	instructions.setFont(Font.font("Lucinda Sans", FontWeight.BOLD, FontPosture.ITALIC, 16));
+	instructions.setStyle("-fx-background-color:seashell");
+	VBox instrBox = new VBox(instructions);
+	instrBox.setAlignment(Pos.CENTER);
+
+	VBox bpr = new VBox(15, alignBox, instrBox);
+	bpr.setAlignment(Pos.CENTER);
 
 	// Product Grid
 	GridPane pGrid = new GridPane();
@@ -202,11 +215,13 @@ public class BeddingDept extends Department {
 		pV.setOnMouseClicked(iEvent);
 		if (oProdName.equals(pd.getProductName()) != true) {
 		    Label pLabel = new Label();
-		    pLabel.setFont(Font.font("Lucinda Sans)", FontWeight.SEMI_BOLD, FontPosture.ITALIC, 30));
-		    pLabel.setStyle("-fx-border-color:midnightblue; -fx-background-color:lightblue;");
+		    pLabel.setFont(Font.font("Lucinda Sans)", FontWeight.SEMI_BOLD, FontPosture.ITALIC, 2586));
+		    pLabel.setStyle(
+			    "-fx-border-color:midnightblue; -fx-border-width: 3; -fx-background-color:lavender;");
 		    if (pd.getProductName().contains("Pillow")) {
 			pLabel.setText(pd.getProductName() + " Aisle");
-			pLabel.setStyle("-fx-border-color:midnightblue; -fx-background-color:lightblue;");
+			pLabel.setStyle(
+				"-fx-border-color:midnightblue; -fx-border-width: 3; -fx-background-color:lavender;");
 		    } else {
 			pLabel.setText(pd.getProductName() + " Shelve");
 		    }
@@ -247,7 +262,8 @@ public class BeddingDept extends Department {
 	    dButtons.setAlignment(Pos.CENTER);
 	    dButtons.setSpacing(30);
 	    dButtons.setPadding(new Insets(15, 0, 15, 0));
-	    VBox aVBox = new VBox(10, bp, sp, dButtons);
+
+	    VBox aVBox = new VBox(20, bpr, sp, dButtons);
 	    Scene beddScene = new Scene(aVBox, 500, 650);
 	    return beddScene;
 	}
