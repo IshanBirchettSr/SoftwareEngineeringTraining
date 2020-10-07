@@ -156,7 +156,6 @@ public class BookDept extends Department {
 	// Create individual VBoxes
 	VBox instrBox = new VBox(instructions);
 	instrBox.setAlignment(Pos.CENTER);
-
 	VBox bpr = new VBox(15, alignBox, instrBox);
 	bpr.setAlignment(Pos.CENTER);
 
@@ -166,6 +165,7 @@ public class BookDept extends Department {
 	pGrid.setPadding(iSet);
 	String oProdName = "NoProd";
 	Set<String> aProductKeys = bookProducts.keySet();
+
 	// You must sort the Set of keys
 	List<String> list = new ArrayList<>(aProductKeys);
 	Collections.sort(list);

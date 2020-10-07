@@ -15,11 +15,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -119,6 +121,13 @@ public class AutomotiveDept extends Department {
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	// create individual VBoxes
+	VBox sloBox = new VBox(slogan);
+	sloBox.setAlignment(Pos.CENTER);
+
+	// this is the code for the CSS Style
+	String style_inner = "-fx-border-color: blue;" + "-fx-border-width: 6;";
+
 	Image autoImage = new Image(StoreConstants.AUTOMOTIVEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(autoImage);
@@ -126,11 +135,20 @@ public class AutomotiveDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+	// Create stackpane to hold image view
+
+	StackPane fPane = new StackPane(iv);
+	fPane.setStyle(style_inner);
+	fPane.setEffect(new DropShadow(50, Color.GOLDENROD));
+	HBox spBox = new HBox(fPane);
+	spBox.setAlignment(Pos.CENTER);
+	VBox alignBox = new VBox(20, sloBox, spBox);
+
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
-	VBox ap = new VBox(15, slogan, iv, instructions);
+	instructions.setStyle("-fx-background-color:cyan");
+	VBox ap = new VBox(15, slogan, alignBox, instructions);
 	ap.setAlignment(Pos.CENTER);
 
 	// Product Grid
@@ -190,10 +208,10 @@ public class AutomotiveDept extends Department {
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
 		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
+		pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow");
 		if (pd.getProductName().contains("Tire")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
+		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:yellow;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
