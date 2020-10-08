@@ -15,11 +15,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -56,7 +58,6 @@ public class CannedGoodsDept extends Department {
 	keyMap = new HashMap<Integer, String>();
 	// System.out.printf("%s Department open with %d records\n", deptName,
 	// autoRecords.size());
-
 	// CannedGoods Product Load
 	cannedGoodsProducts = new HashMap<String, CannedGoodsProd>();
 	loadProducts();
@@ -121,8 +122,14 @@ public class CannedGoodsDept extends Department {
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
-	slogan.setTextFill(Color.BLUE);
+	slogan.setTextFill(Color.BLACK);
 	slogan.setFont(Font.font("Rockwell", FontPosture.REGULAR, 18));
+	// Create individual VBoxes
+	VBox sloBox = new VBox(slogan);
+	sloBox.setAlignment(Pos.CENTER);
+
+	// this is the code for the CSS Style
+	String style_inner = "-fx-border-color: red;" + "-fx-border-style: dashed;" + "-fx-border-width: 10;";
 	Image cannedgoodsImage = new Image(StoreConstants.CANNEDGOODSDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(cannedgoodsImage);
@@ -130,12 +137,26 @@ public class CannedGoodsDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+
+	// Create stackpane to hold image view
+
+	StackPane fPane = new StackPane(iv);
+	fPane.setStyle(style_inner);
+	fPane.setEffect(new DropShadow(25, Color.GOLD));
+	HBox spBox = new HBox(fPane);
+	spBox.setAlignment(Pos.CENTER);
+	VBox alignBox = new VBox(20, sloBox, spBox);
+
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 15));
 	instructions.setStyle("-fx-background-color:lightgoldenrodyellow");
-	VBox ap = new VBox(15, slogan, iv, instructions);
-	ap.setAlignment(Pos.CENTER);
+	// Create individual VBoxes
+	VBox instrBox = new VBox(instructions);
+	instrBox.setAlignment(Pos.CENTER);
+
+	VBox bpr = new VBox(15, alignBox, instrBox);
+	bpr.setAlignment(Pos.CENTER);
 
 	// Product Grid
 	GridPane pGrid = new GridPane();
@@ -196,11 +217,12 @@ public class CannedGoodsDept extends Department {
 	    pV.setOnMouseClicked(iEvent);
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
-		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:red; -fx-background-color:yellow;");
+		pLabel.setFont(Font.font("Rockwell", FontWeight.SEMI_BOLD, FontPosture.ITALIC, 30));
+		pLabel.setStyle("-fx-border-color:red;" + "-fx-border-style:dashed;" + "-fx-border-width: 3;"
+			+ "-fx-background-color:gold;");
 		if (pd.getProductName().contains("Can")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:orange;");
+		    pLabel.setStyle("-fx-border-color:darkblue; -fx-background-color:gold;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
@@ -241,8 +263,8 @@ public class CannedGoodsDept extends Department {
 	dButtons.setAlignment(Pos.CENTER);
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
-	VBox aVBox = new VBox(10, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 500, 650);
-	return aScene;
+	VBox eVBox = new VBox(10, bpr, sp, dButtons);
+	Scene eScene = new Scene(eVBox, 500, 650);
+	return eScene;
     }
 }

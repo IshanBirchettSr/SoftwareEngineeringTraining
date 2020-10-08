@@ -2,26 +2,28 @@
  * 
  */
 package bikes;
-
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-
 import customerservice.Greeting;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.effect.DropShadow;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -41,7 +43,6 @@ public class BikesDept extends Department {
     String deptName = StoreConstants.deptNames.BIKES.name();
     List<String> bikesRecords = null;
     HashMap<Integer, String> keyMap = null;
-    // HashMap<K, V> to hold BikesProd objects.
     HashMap<String, BikesProd> bikesProducts;
 
     /**
@@ -49,27 +50,20 @@ public class BikesDept extends Department {
      */
     public BikesDept() {
 	super.setDeptName(deptName);
-	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.BIKES_TRUCK);
 	bikesRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(bikesRecords);
 	keyMap = new HashMap<Integer, String>();
-	// System.out.printf("%s Department open with %d records\n", deptName,
-	// bikes.size());
-
-	// Bikes Product Load
 	bikesProducts = new HashMap<String, BikesProd>();
 	loadProducts();
     }
 
     @Override
     protected void loadProducts() {
-	// Load products
 	for (String record : bikesRecords) {
 	    BikesProd bkp = new BikesProd();
 	    boolean recordToProductSuccessful = bkp.recordToProduct(record);
-
 	    if (recordToProductSuccessful == true) {
 		String prodKey = ProdKeyGen.genKey(bkp);
 		int howMany = bkp.getNumUnitsInstock();
@@ -77,27 +71,26 @@ public class BikesDept extends Department {
 		    // System.out.println(prodKey);
 		    bikesProducts.put(prodKey + i, bkp);
 		}
-	    }
-	}
-    }
+	   }
+     }
+   }
 
     @Override
     public void listProducts() {
 	String aKey = null;
 	Set<String> bikeProductKeys = bikesProducts.keySet();
-
-	// int totalProducts = bikeProductKeys.size();
+	
 	int i = 1;
 	for (String pKey : bikeProductKeys) {
 	    Product pd = bikesProducts.get(pKey);
 	    if (aKey != pKey) {
-		System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
+			System.out.printf("%d: %s %s\t%.2f\n", i, pd.getBrandName(), pd.getProductName(), pd.getPrice());
 	    }
 	    aKey = pKey;
 	    keyMap.put(i, pKey);
 	    i++;
 	}
-    }
+  }
 
     public List<Product> getProds(int index, int qauntity) {
 	ArrayList<Product> pdList = new ArrayList<Product>();
@@ -125,6 +118,14 @@ public class BikesDept extends Department {
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+	
+	// Create individual VBoxes
+	VBox sloBox = new VBox(slogan);
+	sloBox.setAlignment(Pos.CENTER);
+	
+	// this is the code for the CSS Style
+	String style_inner = "-fx-border-color: brown;" + "-fx-border-width: 15;";
+	
 	Image autoImage = new Image(StoreConstants.BIKESDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(autoImage);
@@ -132,12 +133,28 @@ public class BikesDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+	
+	// Create stackpane to hold image view
+
+	StackPane fPane = new StackPane(iv);
+	fPane.setStyle(style_inner);
+	fPane.setEffect(new DropShadow(40, Color.BROWN));
+	HBox spBox = new HBox(fPane);
+	spBox.setAlignment(Pos.CENTER);
+	VBox alignBox = new VBox(20, sloBox, spBox);
+	
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
-	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lawngreen");
-	VBox ap = new VBox(15, slogan, iv, instructions);
-	ap.setAlignment(Pos.CENTER);
+	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD,FontPosture.ITALIC, 16));
+	instructions.setStyle("-fx-background-color:gainsboro");
+	
+	
+	// Create individual VBoxes
+	VBox instrBox = new VBox(instructions);
+	instrBox.setAlignment(Pos.CENTER);
+
+	VBox bpr = new VBox(15, alignBox, instrBox);
+	bpr.setAlignment(Pos.CENTER);
 
 	// Product Grid
 	GridPane pGrid = new GridPane();
@@ -152,32 +169,41 @@ public class BikesDept extends Department {
 	int rowIndex = 0;
 	int columnIndex = 0;
 	String oldFilename = "Firstfile";
-
 	for (String pKey : list) {
 	    Product pd = bikesProducts.get(pKey);
 
 	    String iFileName = String.format(StoreConstants.PRODUCT_IMAGE, "bikes", pd.getBrandName(),
 		    pd.getProductName());
 	    if (oldFilename.equals(iFileName)) {
-		// System.out.printf("%s==%s, %b\n", oldFilename,
-		// iFileName,oldFilename.equals(iFileName));
+			// System.out.printf("%s==%s, %b\n", oldFilename,
+			// iFileName,oldFilename.equals(iFileName));
 		continue;
 	    }
 	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
-	      
+	    
+	     String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "bikes",
+		    pd.getBrandName(), pd.getProductName());
+	    File fExist = new File(ftest);
+
+	    if (fExist.exists() == false) {
+		continue;
+	    }
+	    
+	     
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
 	    pV.setFitHeight(125);
 	    // pV.setFitHeight(65);
-	    pV.setId(pKey);
+	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
 
 	    pV.setSmooth(true);
 	    pV.setCache(true);
-	    String bikesToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
+	    String bikesToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), 
+	    	pd.getPrice());
 	    Tooltip.install(pV, new Tooltip(bikesToolTip));
 
 	    EventHandler<MouseEvent> iEvent = new EventHandler<MouseEvent>() {
@@ -235,7 +261,7 @@ public class BikesDept extends Department {
 	dButtons.setAlignment(Pos.CENTER);
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
-	VBox aVBox = new VBox(10, ap, sp, dButtons);
+	VBox aVBox = new VBox(10, bpr, sp, dButtons);
 	Scene aScene = new Scene(aVBox, 500, 650);
 	return aScene;
     }

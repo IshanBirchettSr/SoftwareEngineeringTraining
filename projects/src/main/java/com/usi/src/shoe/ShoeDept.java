@@ -20,11 +20,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -125,7 +127,7 @@ public class ShoeDept extends Department {
 
     @Override
     public Scene getScene() {
-      
+
 	String imageKey = String.format("Welcome to our fabalous Shoe Department!");
 	Text welcomeTxt = new Text(imageKey);
 	welcomeTxt.setText(imageKey);
@@ -136,6 +138,8 @@ public class ShoeDept extends Department {
 	HBox eg = new HBox(15, welcomeTxt);
 	eg.setAlignment(Pos.TOP_CENTER);
 
+	String style_inner = "-fx-border-color: gray;" + "-fx-border-width: 10;";
+
 	Image shoeImage = new Image(StoreConstants.SHOEDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(shoeImage);
@@ -143,16 +147,18 @@ public class ShoeDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox ep = new HBox(20, iv);
-	ep.setAlignment(Pos.CENTER);
+	StackPane ivPane = new StackPane(iv);
+	ivPane.setStyle(style_inner);
+	ivPane.setEffect(new DropShadow(20, Color.BLACK));
 
-	VBox eBox = new VBox(20, eg, iv);
+	HBox ep = new HBox(20, ivPane);
+	ep.setAlignment(Pos.CENTER);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:lightblue");
-	VBox epr = new VBox(15, eBox, iv, instructions);
+	VBox epr = new VBox(15, eg, ep, instructions);
 	epr.setAlignment(Pos.CENTER);
 
 	// Product Grid

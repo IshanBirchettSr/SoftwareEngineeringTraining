@@ -130,7 +130,7 @@ public class BookDept extends Department {
 	sloBox.setAlignment(Pos.CENTER);
 
 	// this is the code for the CSS Style
-	String style_inner = "-fx-border-color: teal;"  + "-fx-border-width: 6;";
+	String style_inner = "-fx-border-color: teal;" + "-fx-border-width: 6;";
 
 	Image bookImage = new Image(StoreConstants.BOOKSDEPT);
 	ImageView iv = new ImageView();
@@ -224,16 +224,16 @@ public class BookDept extends Department {
 		pLabel.setStyle("-fx-border-color:black; -fx-background-color:teal;");
 		if (pd.getProductName().contains("Love")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:black; dotted; -fx-background-color:teal;");
+		    pLabel.setStyle("-fx-border-color:black; -fx-background-color:teal;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
 		}
-		pLabel.setAlignment(Pos.CENTER);
+		pLabel.setAlignment(Pos.BASELINE_LEFT);
 		columnIndex = 0;
 		rowIndex += 1;
 		// System.out.printf("Label: Column: %d, Row: %d\n", columnIndex, rowIndex);
 
-		pGrid.add(pLabel, columnIndex + 10, rowIndex, 10, 1);
+		pGrid.add(pLabel, columnIndex, rowIndex, 10, 1);
 		if (rowIndex == 0) {
 		    rowIndex = 1;
 		} else {

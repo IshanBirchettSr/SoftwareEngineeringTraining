@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -207,7 +208,7 @@ public class Receipt extends StorePrinterFx {
 	Label tile3 = new Label(price);
 	tile3.setFont(Font.font("Arial", FontPosture.REGULAR, 8));
 
-	HBox tiles = new HBox(40, tile, tile2, tile3);
+	HBox tiles = new HBox(100, tile, tile2, tile3);
 	tiles.setAlignment(Pos.CENTER_LEFT);
 
 	// VBox itemList = new VBox(2);
@@ -223,8 +224,8 @@ public class Receipt extends StorePrinterFx {
 	tp.getChildren().add(tiles);
 	tp.setAlignment(Pos.CENTER_LEFT);
 	// tp.setVgap(10);
-	tp.setHgap(40);
-	tp.setPrefColumns(20);
+	// tp.setHgap(40);
+	tp.setPrefColumns(40);
 	tp.setMaxWidth(20);
 
 	if (pList == null) {
@@ -251,17 +252,17 @@ public class Receipt extends StorePrinterFx {
 		continue;
 	    } else {
 		if (firstTime == true) {
-		    String qntyItem = String.format("Qty: %d", totalQuantity);
+		    String qntyItem = String.format("Qty: %d", totalQuantity).trim();
 		    Label qItem = new Label(qntyItem);
 		    qItem.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
 		    qItem.setAlignment(Pos.CENTER_LEFT);
 
-		    String prodItem = String.format("Product: %s", cPd.getBrandName());
+		    String prodItem = String.format("Product: %s", cPd.getBrandName()).trim();
 		    Label pItem = new Label(prodItem);
 		    pItem.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
 		    pItem.setAlignment(Pos.CENTER_LEFT);
 
-		    String priceItem = String.format("Price: %.2f", cPd.getPrice());
+		    String priceItem = String.format("Price: %.2f", cPd.getPrice()).trim();
 		    Label pcItem = new Label(priceItem);
 		    pcItem.setAlignment(Pos.CENTER_LEFT);
 		    pcItem.setFont(Font.font("Sans Seriff", FontPosture.REGULAR, 8));
@@ -417,23 +418,24 @@ public class Receipt extends StorePrinterFx {
 	print(printNode());
     }
 
+    public static void TransactionNumber() {
+	Random transaction = new Random();
+	int number;
+
+	for (int counter = 1; counter <= 100; counter++) {
+	    number = 1 + transaction.nextInt(100);
+	}
+    }
+
     public static void emailReceipt() {
 
 	final String mustard = String.format("%s@%s", "superstore0502", "gmail.com");
 	final String hotdog = "x1y2*axx3b";
 
-	// Sender's email ID needs to be mentioned
-	String fromEmail = "superstore0502@gmail.com";
-
 	// Recipient's email ID needs to be mentioned.
 	String toEmail = cust.getmCard().getEmailAddress();
-	String host = "localhost";
 
-	// Get system properties
-	// Properties properties = System.getProperties();
-
-	// Setup mail server
-	// properties.setProperty("mail.smtp.host", host);
+	System.out.println(toEmail);
 
 	Properties properties = new Properties();
 	// properties.put(from, to);
@@ -441,11 +443,6 @@ public class Receipt extends StorePrinterFx {
 	properties.put("mail.smtp.starttls.enable", true);
 	properties.put("mail.smtp.host", "smtp.gmail.com");
 	properties.put("mail.smtp.port", "587");
-	// properties.put("mail.smtp.socketFactory.class",
-	// "javax.net.ssl.SSLSocketFactory");
-
-	// Get the default Session object.
-	// Session session = Session.getDefaultInstance(properties);
 
 	Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 	    protected PasswordAuthentication getPasswordAuthentication() {
@@ -455,7 +452,7 @@ public class Receipt extends StorePrinterFx {
 	// Start our mail message
 	MimeMessage msg = new MimeMessage(session);
 	try {
-	    msg.setFrom(new InternetAddress(fromEmail));
+	    msg.setFrom(new InternetAddress(mustard));
 	    msg.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
 	    msg.setSubject("USI SUPER STORE RECIEPT");
 
