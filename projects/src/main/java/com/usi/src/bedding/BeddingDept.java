@@ -120,6 +120,7 @@ public class BeddingDept extends Department {
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
+
 	slogan.setTextFill(Color.BLUEVIOLET);
 	slogan.setFont(Font.font("Veranda", FontPosture.ITALIC, 20));
 	// create individual VBoxes
@@ -128,6 +129,7 @@ public class BeddingDept extends Department {
 
 	// this is the code for the CSS
 	String style_inner = "-fx-border-color: steelblue;" + "-fx-border-width: 10;";
+
 
 	Image beddingImage = new Image(StoreConstants.BEDDINGDEPT);
 	ImageView iv = new ImageView();
@@ -138,15 +140,18 @@ public class BeddingDept extends Department {
 	iv.setCache(true);
 	// Create stackpane to hold image view
 
+
 	StackPane fPane = new StackPane(iv);
 	fPane.setStyle(style_inner);
 	fPane.setEffect(new DropShadow(30, Color.BLUEVIOLET));
+
 	HBox spBox = new HBox(fPane);
 	spBox.setAlignment(Pos.CENTER);
 	VBox alignBox = new VBox(20, sloBox, spBox);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
+
 	instructions.setFont(Font.font("Verdana", FontWeight.BOLD, FontPosture.ITALIC, 16));
 	instructions.setStyle("-fx-background-color:cornsilk");
 
@@ -245,6 +250,7 @@ public class BeddingDept extends Department {
 		rowIndex += 2;
 		columnIndex = 0;
 	    }
+
 
 	}
 	// ap.getChildren().add(pGrid);
