@@ -1,12 +1,10 @@
 package deli;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-
 import customerservice.Greeting;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -41,7 +39,6 @@ public class DeliDept extends Department {
     String deptName = StoreConstants.deptNames.DELI.name();
     List<String> deliRecords = null;
     HashMap<Integer, String> keyMap = null;
-    // HashMap<K, V> to hold DeliProd objects.
     HashMap<String, DeliProd> deliProducts;
 
     /**
@@ -49,16 +46,11 @@ public class DeliDept extends Department {
      */
     public DeliDept() {
 	super.setDeptName(deptName);
-	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 	unLoadTrucks.loadData(StoreConstants.DELI_TRUCK);
 	deliRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(deliRecords);
 	keyMap = new HashMap<Integer, String>();
-	// System.out.printf("%s Department open with %d records\n", deptName,
-	// deliRecords.size());
-
-	// Deli Product Load
 	deliProducts = new HashMap<String, DeliProd>();
 	loadProducts();
     }
@@ -116,12 +108,20 @@ public class DeliDept extends Department {
 
     @Override
     public Scene getScene() {
+
 	String sString = String.format("We have all your %s needs!", StoreConstants.deptNames.DELI);
 	Label slogan = new Label();
 	slogan.setText(sString);
 	slogan.setAlignment(Pos.CENTER);
 	slogan.setTextFill(Color.BLUE);
 	slogan.setFont(Font.font("Times New Roman", FontPosture.REGULAR, 20));
+	// Create individual VBoxes
+	VBox sloBox = new VBox(slogan);
+	sloBox.setAlignment(Pos.CENTER);
+
+	// this is the code for the CSS Style
+	String style_inner = "-fx-border-color: khaki;" + "-fx-border-width: 10;";
+
 	Image deliImage = new Image(StoreConstants.DELIDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(deliImage);
@@ -129,12 +129,27 @@ public class DeliDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
+
+	// Create stackpane to hold image view
+
+	StackPane fPane = new StackPane(iv);
+	fPane.setStyle(style_inner);
+	fPane.setEffect(new DropShadow(25, Color.BROWN));
+	HBox spBox = new HBox(fPane);
+	spBox.setAlignment(Pos.CENTER);
+	VBox alignBox = new VBox(20, sloBox, spBox);
+
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
 	instructions.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightgoldenrodyellow");
-	VBox ap = new VBox(15, slogan, iv, instructions);
-	ap.setAlignment(Pos.CENTER);
+	instructions.setStyle("-fx-background-color:floralwhite");
+
+	// Create individual VBoxes
+	VBox instrBox = new VBox(instructions);
+	instrBox.setAlignment(Pos.CENTER);
+
+	VBox bpr = new VBox(15, alignBox, instrBox);
+	bpr.setAlignment(Pos.CENTER);
 
 	// Product Grid
 	GridPane pGrid = new GridPane();
@@ -149,7 +164,6 @@ public class DeliDept extends Department {
 	int rowIndex = 0;
 	int columnIndex = 0;
 	String oldFilename = "Firstfile";
-
 	for (String pKey : list) {
 	    Product pd = deliProducts.get(pKey);
 
@@ -163,24 +177,15 @@ public class DeliDept extends Department {
 	    // System.out.println(iFileName);
 	    oldFilename = iFileName;
 
-	    String ftest = String.format(StoreConstants.APP_HOME + "/images/%s_prod_%s_%s.png", "deli",
-		    pd.getBrandName(), pd.getProductName());
-	    File fExist = new File(ftest);
-
-	    if (fExist.exists() == false) {
-		continue;
-	    }
-	    
-	    
-	    
 	    // Image View
 	    Image pImage = new Image(iFileName);
 	    ImageView pV = new ImageView();
 	    pV.setFitHeight(125);
 	    // pV.setFitHeight(65);
-	    pV.setId(pKey);
+	    pV.setId(pd.getBrandName() + "-" + pd.getProductName());
 	    pV.setImage(pImage);
 	    pV.setPreserveRatio(true);
+
 	    pV.setSmooth(true);
 	    pV.setCache(true);
 	    String deliToolTip = String.format("%s - %s $%.2f", pd.getProductName(), pd.getBrandName(), pd.getPrice());
@@ -221,7 +226,6 @@ public class DeliDept extends Department {
 	    }
 	    // System.out.printf("C-%d, R-%d\n", columnIndex, rowIndex);
 	    pGrid.add(pV, columnIndex, rowIndex);
-
 	    if (columnIndex < 5) {
 		columnIndex++;
 	    } else {
@@ -242,8 +246,10 @@ public class DeliDept extends Department {
 	dButtons.setAlignment(Pos.CENTER);
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
-	VBox aVBox = new VBox(10, ap, sp, dButtons);
-	Scene aScene = new Scene(aVBox, 500, 650);
-	return aScene;
+
+	VBox eVBox = new VBox(10, bpr, sp, dButtons);
+	Scene eScene = new Scene(eVBox, 500, 650);
+
+	return eScene;
     }
 }
