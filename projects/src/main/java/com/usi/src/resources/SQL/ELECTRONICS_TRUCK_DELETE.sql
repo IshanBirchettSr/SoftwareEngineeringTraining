@@ -1,0 +1,5 @@
+select * from ELECTRONICS;
+describe membership;
+select  PRODUCT_NAME, UNIT_OF_MEASURE, BRAND_NAME, PRICE, LAST_NAME from ELECTRONICS E, MEMBERSHIP M where TRIM(UNIT_OF_MEASURE) like "%POU%" AND TRIM(BRAND_NAME) like "%HP%" AND TRIM(LAST_NAME) like "%Bir%";
+select  * from ELECTRONICS where UNIT_OF_MEASURE like "%UNC%";
+DELETE from ELECTRONICS where TRIM(PRODUCT_NAME) = "Apple";
