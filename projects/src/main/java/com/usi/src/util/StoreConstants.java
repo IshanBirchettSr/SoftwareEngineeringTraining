@@ -66,7 +66,9 @@ public class StoreConstants {
     public static final String TOYS_TRUCK = APP_HOME + "/src/resources/Toys.txt";
     public static final String TUPPERWARE_TRUCK = APP_HOME + "/src/resources/Tupperware.txt";
     public static final String STYLE1 = "file:///" + APP_HOME + "/src/resources/style.css";
-
+    public static final String DB_URL = "jdbc:mysql://localhost:3306/superstore?allowPublicKeyRetrieval=true&useSSL=false";
+    public static final String THING1 = "admin";
+    public static final String THING2 = "SuperStore1!1";
     /*
      * Department Images
      * 

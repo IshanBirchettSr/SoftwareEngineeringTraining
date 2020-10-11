@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="libs/webcam-capture-0.3.12.jar"/>
 	<classpathentry kind="lib" path="libs/activation.jar"/>
 	<classpathentry kind="lib" path="libs/mail.jar"/>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.49-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

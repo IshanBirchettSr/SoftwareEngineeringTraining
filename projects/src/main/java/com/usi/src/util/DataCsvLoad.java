@@ -15,8 +15,15 @@ import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author ibirc
@@ -56,6 +63,44 @@ public class DataCsvLoad extends DataLoad {
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
+    }
+
+    public void loadDbRecords(String tablename) {
+	String url = StoreConstants.DB_URL;
+	String asde9q = StoreConstants.THING1;
+	String d834j3 = StoreConstants.THING2;
+
+	String query = "SELECT * FROM " + tablename;
+
+	try (Connection con = DriverManager.getConnection(url, asde9q, d834j3);
+		PreparedStatement pst = con.prepareStatement(query)) {
+
+	    ResultSet rs = pst.executeQuery();
+	    while (rs.next()) {
+		String field1 = rs.getString(1);
+		String field2 = rs.getString(2);
+		String field3 = rs.getString(3);
+		String field4 = rs.getString(4);
+		String field5 = rs.getString(5);
+		String field6 = rs.getString(6);
+		String field7 = rs.getString(7);
+		String field8 = rs.getString(8);
+		String field9 = rs.getString(9);
+		String field10 = rs.getString(10);
+		String field11 = rs.getString(11);
+		String field12 = rs.getString(12);
+		String field13 = rs.getString(13);
+		String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, %s, %s", field1, field2, field3, field4,
+			field5, field6, field7, field8, field9, field10, field11, field12, field13);
+		// System.out.println(line);
+		records.add(line);
+	    }
+	} catch (SQLException ex) {
+
+	    Logger lgr = Logger.getLogger(DataCsvLoad.class.getName());
+	    lgr.log(Level.SEVERE, ex.getMessage(), ex);
+	}
+
     }
 
     public List<String> getRecords() {

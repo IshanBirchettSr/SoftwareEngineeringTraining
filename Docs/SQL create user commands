@@ -1,0 +1,5 @@
+mysql> CREATE USER 'admin'@'localhost' IDENTIFIED BY 'SuperStore1!1';
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
+Query OK, 0 rows affected (0.01 sec)

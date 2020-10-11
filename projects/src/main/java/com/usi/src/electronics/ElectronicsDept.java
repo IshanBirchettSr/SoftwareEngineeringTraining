@@ -65,7 +65,7 @@ public class ElectronicsDept extends Department {
 	super.setDeptName(deptName);
 // Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.ELECTRONICS_TRUCK);
+	unLoadTrucks.loadDbRecords("ELECTRONICS");
 	electronicsRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(electronicsRecords);
 // System.out.printf("%s Department open with %d records\n", deptName,
