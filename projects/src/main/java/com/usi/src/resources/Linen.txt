@@ -2,7 +2,7 @@
 /* Linen.txt
 /* ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock, Description
 /* Linen/Pillow Cases 
-Pillow Cases, Linen, NA, UUID, 4, Queen, Gustave,  NA, 8.99 , WHITE, NA, 5, Cotton Twin Pack Pillow Cases
+Pillow Cases, Linen, NA, UUID, 4, Queen, Gustave,  NA, 8.99, WHITE, NA, 5, Cotton Twin Pack Pillow Cases
 Pillow Cases, Linen, NA, UUID, 6, Queen, Gustave, NA, 8.99, BLACK, NA, 4, Cotton Twin Pack Pillow Cases
 Pillow Cases, Linen, NA, UUID, 2, Queen, Gustave, NA, 8.99, GRAY, NA, 9, Cotton Twin Pack Pillow Cases
 Pillow Cases, Linen, NA, UUID, 4, Queen, Gustave, NA, 8.99, COFFEE, NA, 4, Cotton Twin Pack Pillow Cases

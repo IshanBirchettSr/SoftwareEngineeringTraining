@@ -2,10 +2,10 @@
 /*Meat.txt
 /*ProductNAme, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock,Description
 /*Meat/Steak
-Ribeye Steak, Meat, NA, UUID, 4, NA, Maple Block Meat Company, POUND, 14.95, NA, NA, 7, grilling, broiling
-Bone in Ribeye Steak, Meat, NA, UUID, 3, NA, Maple Block Meat Company, POUND, 18.95, NA, NA, 6, grilling, broiling
-Porterhouse Steak, Meat, NA, UUID, 4, NA, Maple Block Meat Company, POUND, 21.95, NA, NA, 5, grilling, broiling
-Filet Mignon, Meat, NA, UUID, 7, NA, Maple Block Meat Company, PPOUND, 18.95, NA, NA, 7, center cut, grilling, broiling
-Lam Chop Steak, Meat, NA, UUID, 8, NA, Maple Block Meat Company, POUND, 12.95, NA, NA, 6, hand cut, grilling, broiling
-T-Bone Steak, Meat, NA, UUID, 4, NA, Maple Block Meat Company, POUND, 15.99, NA, NA, 3, grilling, broiling
-Prime Rib, Meat, NA, UUID, 6, NA, Maple Block Meat Company, POUND, 20.95, NA, NA, 8, hand cut, grilling, broiling
+Ribeye Steak, Meat, NA, UUID, 4, NA, Maple Block Meat Company, POUND, 14.95, NA, NA, 7, grilling AND broiling
+Bone in Ribeye Steak, Meat, NA, UUID, 3, NA, Maple Block Meat Company, POUND, 18.95, NA, NA, 6, grilling AND broiling
+Porterhouse Steak, Meat, NA, UUID, 4, NA, Maple Block Meat Company, POUND, 21.95, NA, NA, 5, grilling AND broiling
+Filet Mignon, Meat, NA, UUID, 7, NA, Maple Block Meat Company, POUND, 18.95, NA, NA, 7, center cut steak good for grilling AND broiling
+Lam Chop Steak, Meat, NA, UUID, 8, NA, Maple Block Meat Company, POUND, 12.95, NA, NA, 6, hand cut steak good for grilling AND broiling
+T-Bone Steak, Meat, NA, UUID, 4, NA, Maple Block Meat Company, POUND, 15.99, NA, NA, 3, grilling AND broiling
+Prime Rib, Meat, NA, UUID, 6, NA, Maple Block Meat Company, POUND, 20.95, NA, NA, 8, hand cut steak good for grilling AND broiling
