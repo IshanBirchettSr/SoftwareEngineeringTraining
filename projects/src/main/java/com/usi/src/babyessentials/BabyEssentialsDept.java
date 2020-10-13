@@ -25,11 +25,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -130,8 +132,12 @@ public class BabyEssentialsDept extends Department {
 	welcomeTxt.setY(80.00);
 	welcomeTxt.setFill(Color.BLUE);
 	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-	HBox eg = new HBox(20, welcomeTxt);
-	eg.setAlignment(Pos.TOP_CENTER);
+
+	HBox furg = new HBox(20, welcomeTxt);
+	furg.setAlignment(Pos.TOP_CENTER);
+
+	String style_inner = "-fx-border-color: skyblue;" + "-fx-border-width: 6;"
+		+ "-fx-border-style: segments(10, 15, 15, 15)  line-cap round ;";
 
 	Image babyessentialsImage = new Image(StoreConstants.BABYESSENTIALSDEPT);
 	ImageView iv = new ImageView();
@@ -140,17 +146,21 @@ public class BabyEssentialsDept extends Department {
 	iv.setPreserveRatio(true);
 	iv.setSmooth(true);
 	iv.setCache(true);
-	HBox bed = new HBox(20, iv);
-	bed.setAlignment(Pos.CENTER);
+	StackPane ivPane = new StackPane(iv);
+	ivPane.setStyle(style_inner);
+	ivPane.setEffect(new DropShadow(20, Color.DEEPPINK));
+	HBox furp = new HBox(ivPane);
+	furp.setAlignment(Pos.CENTER);
 
-	VBox eBox = new VBox(20, eg, iv);
+	VBox furBox = new VBox(20, furg, furp);
+	furBox.setAlignment(Pos.CENTER);
 
 	Label instructions = new Label("Hover mouse over image for Brand, Product and Price Info.");
 	instructions.setAlignment(Pos.CENTER);
-	instructions.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 16));
-	instructions.setStyle("-fx-background-color:lightblue");
-	VBox epr = new VBox(15, eBox, iv, instructions);
-	epr.setAlignment(Pos.CENTER);
+	instructions.setFont(Font.font("Veranda", FontWeight.BOLD, FontPosture.ITALIC, 14));
+	instructions.setStyle("-fx-background-color:lightyellow");
+	VBox furpr = new VBox(15, furBox, instructions);
+	furpr.setAlignment(Pos.CENTER);
 
 	// Product Grid
 	GridPane pGrid = new GridPane();
@@ -210,13 +220,14 @@ public class BabyEssentialsDept extends Department {
 	    pV.setOnMouseClicked(iEvent);
 	    if (oProdName.equals(pd.getProductName()) != true) {
 		Label pLabel = new Label();
-		pLabel.setFont(Font.font("Rockwell", FontWeight.BOLD, FontPosture.ITALIC, 30));
-		pLabel.setStyle("-fx-border-color:blue; -fx-background-color:pink;");
+		pLabel.setFont(Font.font("Veranda", FontWeight.BOLD, FontPosture.ITALIC, 30));
+		pLabel.setStyle("-fx-border-color:skyblue; - fx-border-width:4; -fx-background-color:pink;");
 		if (pd.getProductName().contains("Baby")) {
 		    pLabel.setText(pd.getProductName() + " Aisle");
-		    pLabel.setStyle("-fx-border-color:pink; -fx-background-color:skyblue;");
+		    pLabel.setStyle("-fx-border-color:skyblue;-fx-border-width:4; -fx-background-color:pink;");
 		} else {
 		    pLabel.setText(pd.getProductName() + " Shelve");
+		    pLabel.setStyle("-fx-border-color:skyblue; -fx-background-color:pink;");
 		}
 		pLabel.setAlignment(Pos.CENTER);
 		columnIndex = 0;
@@ -251,9 +262,11 @@ public class BabyEssentialsDept extends Department {
 	dButtons.setSpacing(30);
 	dButtons.setPadding(new Insets(15, 0, 15, 0));
 
-	VBox eVBox = new VBox(20, epr, sp, dButtons);
-	Scene eScene = new Scene(eVBox, 500, 650);
+	VBox furVBox = new VBox(20, furpr, sp, dButtons);
 
-	return eScene;
+	Scene furScene = new Scene(furVBox, 500, 650);
+
+	return furScene;
+
     }
 }
