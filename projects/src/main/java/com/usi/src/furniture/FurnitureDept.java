@@ -130,6 +130,7 @@ public class FurnitureDept extends Department {
 	welcomeTxt.setY(80.00);
 	welcomeTxt.setFill(Color.BLUE);
 	welcomeTxt.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
+
 	HBox furg = new HBox(20, welcomeTxt);
 	furg.setAlignment(Pos.TOP_CENTER);
 

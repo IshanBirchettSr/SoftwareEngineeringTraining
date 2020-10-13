@@ -164,6 +164,7 @@ public class CannedGoodsDept extends Department {
 	pGrid.setPadding(iSet);
 	String oProdName = "NoProd";
 	Set<String> aProductKeys = cannedGoodsProducts.keySet();
+
 	List<String> list = new ArrayList<>(aProductKeys);
 	Collections.sort(list);
 
