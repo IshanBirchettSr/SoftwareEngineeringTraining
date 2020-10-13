@@ -50,7 +50,7 @@ public class LuggageDept extends Department {
 
 // Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.LUGGAGE_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	luggageRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(luggageRecords);
 	keyMap = new HashMap<Integer, String>();

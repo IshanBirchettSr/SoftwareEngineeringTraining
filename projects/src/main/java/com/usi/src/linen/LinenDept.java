@@ -56,7 +56,7 @@ public class LinenDept extends Department {
 	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
 
-	unLoadTrucks.loadData(StoreConstants.LINEN_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	linenRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(linenRecords);
 	keyMap = new HashMap<Integer, String>();

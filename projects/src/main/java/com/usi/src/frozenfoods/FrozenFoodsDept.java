@@ -56,7 +56,7 @@ public class FrozenFoodsDept extends Department {
     public FrozenFoodsDept() {
 	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.FROZEN_FOODS_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	frozenFoodsRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(frozenFoodsRecords);
 	keyMap = new HashMap<Integer, String>();

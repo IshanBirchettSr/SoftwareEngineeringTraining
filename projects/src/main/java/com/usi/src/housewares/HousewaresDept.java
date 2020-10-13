@@ -59,7 +59,7 @@ public class HousewaresDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.HOUSEWARES_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	housewaresRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(housewaresRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,

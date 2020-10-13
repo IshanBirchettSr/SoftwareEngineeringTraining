@@ -58,7 +58,7 @@ public class HairCareDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.HAIR_CARE_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	haircareRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(haircareRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,

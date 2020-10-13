@@ -62,7 +62,7 @@ public class MeatDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.MEAT_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	meatRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(meatRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
