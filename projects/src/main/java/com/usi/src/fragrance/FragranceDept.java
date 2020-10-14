@@ -50,7 +50,7 @@ public class FragranceDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.FRAGRANCE_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	fragranceRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(fragranceRecords);
 	keyMap = new HashMap<Integer, String>();

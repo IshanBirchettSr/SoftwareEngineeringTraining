@@ -56,7 +56,7 @@ public class FurnitureDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.FURNITURE_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	furnitureRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(furnitureRecords);
 	keyMap = new HashMap<Integer, String>();

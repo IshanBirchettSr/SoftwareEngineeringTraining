@@ -63,7 +63,7 @@ public class GardenDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.GARDEN_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	gardenRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(gardenRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
