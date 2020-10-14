@@ -55,7 +55,7 @@ public class BakeryDept extends Department {
     public BakeryDept() {
 	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.BAKERY_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	bakeryRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(bakeryRecords);
 	keyMap = new HashMap<Integer, String>();
