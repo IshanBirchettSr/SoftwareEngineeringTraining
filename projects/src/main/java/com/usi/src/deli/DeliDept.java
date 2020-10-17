@@ -47,7 +47,7 @@ public class DeliDept extends Department {
     public DeliDept() {
 	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.DELI_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	deliRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(deliRecords);
 	keyMap = new HashMap<Integer, String>();
