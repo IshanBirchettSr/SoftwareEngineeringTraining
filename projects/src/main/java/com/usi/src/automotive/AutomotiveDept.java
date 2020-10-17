@@ -34,7 +34,7 @@ import util.Product;
 import util.StoreConstants;
 
 /**
- * @author Allma M. Johnson and ibirc
+ * @author Allma M. Johnson and ibirc and REarnest
  *
  */
 public class AutomotiveDept extends Department {
@@ -51,7 +51,7 @@ public class AutomotiveDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.AUTOMOTIVE_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	autoRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(autoRecords);
 	keyMap = new HashMap<Integer, String>();
