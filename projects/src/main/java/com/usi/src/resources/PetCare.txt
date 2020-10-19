@@ -1,6 +1,6 @@
 /*Petcare
 /*ProductName , Department , UnitOfMeasure , Barcode , Quantity , Size , Brand , Weight , Price , Color , Ingredient , NumUnitsInstock , Description
-Cat Food , Petcare , POUNDS , UUID , 1 , regular , Purina , 2 , 3.99 , NA , fish , 100 , fish, chicken and veal flavor catfood
+Cat Food , Petcare , POUNDS , UUID , 1 , regular , Purina , 2 , 3.99 , NA , fish , 100 , fish chicken and veal flavor catfood
 Cat Food Cans , Petcare , POUNDS , UUID , 20 , variety , Friskies , 3 , 17.99 , NA , seafood , 150 , seafood variety individual cans
 Dog Food , Petcare , POUNDS , UUID , 1 , large , Pedigree , 5 , 18.99 , NA , beef , 150 , for senior dogs
 Dog Food , Petcare , POUNDS , UUID , 1 , NA , Purina , 7 , 27.99 , NA , meat , 300 , chicken and cheese flavor
