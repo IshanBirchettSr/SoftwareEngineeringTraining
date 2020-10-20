@@ -14,14 +14,11 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-
 import customerservice.Greeting;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
@@ -62,7 +59,7 @@ public class BabyEssentialsDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.BABY_ESSENTIALS_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	babyEssentialsRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(babyEssentialsRecords);
 	keyMap = new HashMap<Integer, String>();

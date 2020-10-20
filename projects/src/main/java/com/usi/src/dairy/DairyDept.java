@@ -51,7 +51,7 @@ public class DairyDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.DAIRY_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	dairyRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(dairyRecords);
 	keyMap = new HashMap<Integer, String>();

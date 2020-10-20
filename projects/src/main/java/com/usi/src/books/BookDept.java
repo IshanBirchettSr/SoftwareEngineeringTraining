@@ -53,7 +53,7 @@ public class BookDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.BOOK_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	bookRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(bookRecords);
 	keyMap = new HashMap<Integer, String>();

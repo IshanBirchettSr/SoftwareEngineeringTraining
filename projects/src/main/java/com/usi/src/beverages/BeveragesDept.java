@@ -60,7 +60,7 @@ public class BeveragesDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.BEVERAGES_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	beveragesRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(beveragesRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
@@ -136,8 +136,8 @@ public class BeveragesDept extends Department {
 
 	// this is the code for the CSS Style
 
-	String style_custom = "-fx-custom-dashed-border:" + "-fx-border-color: blue;" + "-fx-border-width: 5;"
-		+ "-fx-border-style: segments(10, 15, 15, 15)  line-cap round ;";
+	String style_custom = "-fx-border-color: black;" + "-fx-border-width: 5;"
+		+ "-fx-border-style: segments(20, 20, 15, 15)  line-cap round dashed;";
 	{
 
 	}

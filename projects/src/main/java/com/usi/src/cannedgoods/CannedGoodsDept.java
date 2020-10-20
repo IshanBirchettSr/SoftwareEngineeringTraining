@@ -52,7 +52,7 @@ public class CannedGoodsDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.CANNED_GOODS_TRUCKS);
+	unLoadTrucks.loadDbRecords(deptName);
 	cannedGoodsRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(cannedGoodsRecords);
 	keyMap = new HashMap<Integer, String>();

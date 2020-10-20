@@ -53,7 +53,7 @@ public class BeddingDept extends Department {
     public BeddingDept() {
 	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.BEDDING_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	beddingRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(beddingRecords);
 	keyMap = new HashMap<Integer, String>();
@@ -130,7 +130,6 @@ public class BeddingDept extends Department {
 	// this is the code for the CSS
 	String style_inner = "-fx-border-color: steelblue;" + "-fx-border-width: 10;";
 
-
 	Image beddingImage = new Image(StoreConstants.BEDDINGDEPT);
 	ImageView iv = new ImageView();
 	iv.setImage(beddingImage);
@@ -139,7 +138,6 @@ public class BeddingDept extends Department {
 	iv.setSmooth(true);
 	iv.setCache(true);
 	// Create stackpane to hold image view
-
 
 	StackPane fPane = new StackPane(iv);
 	fPane.setStyle(style_inner);
@@ -250,7 +248,6 @@ public class BeddingDept extends Department {
 		rowIndex += 2;
 		columnIndex = 0;
 	    }
-
 
 	}
 	// ap.getChildren().add(pGrid);
