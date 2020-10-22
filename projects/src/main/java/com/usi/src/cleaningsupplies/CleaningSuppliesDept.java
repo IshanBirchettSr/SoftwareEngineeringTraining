@@ -51,7 +51,7 @@ public class CleaningSuppliesDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.CLEANINGSUPPLIES_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	cleaningsuppliesRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(cleaningsuppliesRecords);
 	keyMap = new HashMap<Integer, String>();

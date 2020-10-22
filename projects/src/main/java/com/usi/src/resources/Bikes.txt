@@ -2,7 +2,7 @@
 /*Bikes.txt
 /*ProductName, Department, UnitOfMeasure, Barcode, Quanity, Size, Brand, Weight, Price, Color, Ingredients, NumUnitsInstock, Description
 /*Bikes
-Boys Major Mountain Bike, Bikes, NA, UUID, 15, NA, Major Mountain, NA, 149.99, BLUE, NA, 125, NA, boys mountain bike
-Girls Major Mountain Bike, Bikes, NA, UUID, 24, NA, Major Mountain, NA, 137.99, PINK, NA, 175, NA, girls mountain bike
-Womens Major Mountain Bike, Bikes, NA, UUID, 62, NA, Major Mountain, NA, 207.99, RED, NA, 122, NA, womens mountain bike
-Mens Major Mountain Bike, Bikes, NA, UUID, 76, NA, Major Mountain, NA, 329.99, BLACK, NA, 115, NA, mens mountain bike
+Boys Major Mountain Bike, Bikes, NA, UUID, 15, NA, Major Mountain, NA, 149.99, BLUE, NA, 125, boys mountain bike
+Girls Major Mountain Bike, Bikes, NA, UUID, 24, NA, Major Mountain, NA, 137.99, PINK, NA, 175, girls mountain bike
+Womens Major Mountain Bike, Bikes, NA, UUID, 62, NA, Major Mountain, NA, 207.99, RED, NA, 122, womens mountain bike
+Mens Major Mountain Bike, Bikes, NA, UUID, 76, NA, Major Mountain, NA, 329.99, BLACK, NA, 115, mens mountain bike
