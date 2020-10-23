@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import customerservice.MembershipSignUp;
+
 /**
  * @author ibirc
  *
@@ -32,6 +34,7 @@ import java.util.logging.Logger;
 public class DataCsvLoad extends DataLoad {
 
     private List<String> records = new ArrayList<>();
+    private List<String> MemRecords = new ArrayList<>();
 
     /**
      * 
@@ -95,6 +98,29 @@ public class DataCsvLoad extends DataLoad {
 		// System.out.println(line);
 		records.add(line);
 	    }
+	} catch (SQLException ex) {
+
+	    Logger lgr = Logger.getLogger(DataCsvLoad.class.getName());
+	    lgr.log(Level.SEVERE, ex.getMessage(), ex);
+	}
+
+    }
+
+    public void InsertMemberInfo(MembershipSignUp nMC) {
+	String url = StoreConstants.DB_URL;
+	String greatness = StoreConstants.THING1;
+	String excellence = StoreConstants.THING2;
+
+	String query = String.format(StoreConstants.QUERY1, nMC.getFirstName(), nMC.getmInitial(), nMC.getLastName(),
+		nMC.getEmailAddress(), nMC.getStreetAddress(), nMC.getCity(), nMC.getState(), nMC.getPostalCode(),
+		nMC.getPhoneNumber(), nMC.isAarpMember(), nMC.getDateOfMembership());
+
+	try (Connection con = DriverManager.getConnection(url, greatness, excellence);
+		PreparedStatement pst = con.prepareStatement(query)) {
+
+	    System.out.print(query);
+	    int modified = pst.executeUpdate(query);
+
 	} catch (SQLException ex) {
 
 	    Logger lgr = Logger.getLogger(DataCsvLoad.class.getName());

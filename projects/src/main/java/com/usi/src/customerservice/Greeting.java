@@ -683,26 +683,14 @@ public class Greeting extends Application {
 		newMemberCard.getState().toString(), newMemberCard.getPostalCode().toString(),
 		newMemberCard.getPhoneNumber().toString(), (newMemberCard.isAarpMember() == true ? "Yes" : "No"),
 		dateFormatted);
-	try {
 
-	    fw = new FileWriter(StoreConstants.MEMBERSHIPCARD_RECORDS, true);
-	    bw = new BufferedWriter(fw);
-	    bw.write(formattedRecord);
-	    bw.close();
-	    // System.out.println(formattedRecord);
-	} catch (IOException ex) {
-	    System.err.format("IOException: %s", ex);
-	} finally {
-	    try {
-		if (bw != null)
-		    bw.close();
+//	    fw = new FileWriter(StoreConstants.MEMBERSHIPCARD_RECORDS, true);
+//	    bw = new BufferedWriter(fw);
+//	    bw.write(formattedRecord);
+//	    bw.close();
 
-		if (fw != null)
-		    fw.close();
-	    } catch (IOException ex) {
-		System.err.format("IOException: %s", ex);
-	    }
-	}
+	DataCsvLoad DCL = new DataCsvLoad();
+	DCL.InsertMemberInfo(newMemberCard);
 
     }
 
