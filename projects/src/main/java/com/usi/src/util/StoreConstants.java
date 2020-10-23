@@ -69,8 +69,8 @@ public class StoreConstants {
     public static final String DB_URL = "jdbc:mysql://localhost:3306/superstore?allowPublicKeyRetrieval=true&useSSL=false";
     public static final String THING1 = "admin";
     public static final String THING2 = "SuperStore1!1";
-    public static final String QUERY1 = "INSERT INTO Membership(first_name, middle_name, last_name, email_address, street_address, city, state, postal_code, phone_number, aarp, date_of_membership)"
-	    + "VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)";
+    public static final String QUERY1 = "INSERT INTO MEMBERSHIP (first_name, middle_name, last_name, email_address, street_address, city, state, postal_code, phone_number, aarp, date_of_membership)"
+	    + " VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s','%s')";
     /*
      * Department Images
      * 

@@ -20,7 +20,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -111,9 +113,16 @@ public class DataCsvLoad extends DataLoad {
 	String greatness = StoreConstants.THING1;
 	String excellence = StoreConstants.THING2;
 
+	String aarp = nMC.isAarpMember() ? "Yes" : "No";
+
+	String pattern = "yyyy-MM-dd";
+	SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+	String date = simpleDateFormat.format(new Date());
+
 	String query = String.format(StoreConstants.QUERY1, nMC.getFirstName(), nMC.getmInitial(), nMC.getLastName(),
 		nMC.getEmailAddress(), nMC.getStreetAddress(), nMC.getCity(), nMC.getState(), nMC.getPostalCode(),
-		nMC.getPhoneNumber(), nMC.isAarpMember(), nMC.getDateOfMembership());
+		nMC.getPhoneNumber(), aarp, date);
 
 	try (Connection con = DriverManager.getConnection(url, greatness, excellence);
 		PreparedStatement pst = con.prepareStatement(query)) {
