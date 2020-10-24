@@ -1,13 +1,13 @@
-CREATE TABLE FAMILY_TREE (
+CREATE TABLE CORNELIUS_FAMILY_TREE (
 	FIRST_NAME VARCHAR(300) NOT NULL,
     MIDDLE_NAME CHAR(5),
     LAST_NAME VARCHAR(30)NOT NULL,
     SEX ENUM ('Male', 'Female'),
-    EMAIL_ADDRESS VARCHAR(50) PRIMARY KEY UNIQUE,
+    EMAIL_ADDRESS VARCHAR(50) ,
     STREET_ADDRESS VARCHAR(50) NOT NULL,
     CITY VARCHAR(20) NOT NULL,
     STATE VARCHAR(20) NOT NULL,
     POSTAL_CODE VARCHAR(10) NOT NULL,
-    PHONE_NUMBER VARCHAR(15) NULL,
-    RELATIONSHIP ENUM ('Mother', 'Father', 'Sister', 'Brother', 'Daughter', 'Son', 'Grandmother', 'Grandfather', 'Husband','Wife','Partner')
+    PHONE_NUMBER VARCHAR(15) PRIMARY KEY UNIQUE,
+    RELATIONSHIP ENUM ('Mother', 'Father', 'Sister', 'Brother', 'Daughter', 'Son', 'Grandmother', 'Grandfather')
     );
