@@ -57,7 +57,7 @@ public class PlantBaseDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.PLANTBASE_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	plantbaseRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(plantbaseRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,

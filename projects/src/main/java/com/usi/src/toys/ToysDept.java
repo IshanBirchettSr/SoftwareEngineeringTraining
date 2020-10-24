@@ -55,7 +55,7 @@ public class ToysDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.TOYS_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	toysRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(toysRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,

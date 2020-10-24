@@ -1,5 +1,5 @@
-LOAD DATA INFILE 'C:\\usi-git\\SoftwareEngineeringTraining\\projects\\src\\main\\java\\com\\usi\\src\\resources\\PrescriptionEyeware.txt'
-INTO TABLE PRESCRIPTIONEYEWARE
+LOAD DATA INFILE 'C:\\usi-git\\SoftwareEngineeringTraining\\projects\\src\\main\\java\\com\\usi\\src\\resources\\Plantbase.txt'
+INTO TABLE PLANTBASE
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'

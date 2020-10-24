@@ -51,7 +51,7 @@ public class StationaryDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.STATIONARY_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	stationaryRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(stationaryRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
