@@ -9,5 +9,5 @@ CREATE TABLE FAMILY_TREE (
     STATE VARCHAR(20) NOT NULL,
     POSTAL_CODE VARCHAR(10) NOT NULL,
     PHONE_NUMBER VARCHAR(15) PRIMARY KEY UNIQUE,
-    RELATIONSHIP ENUM ('Mother', 'Father', 'Sister', 'Brother', 'Daughter', 'Son', 'Grandmother', 'Grandfather')
+    RELATIONSHIP ENUM ('Mother', 'Father', 'Sister', 'Brother', 'Daughter', 'Son', 'Grandmother', 'Grandfather', 'Husband', 'Wife')
     );
