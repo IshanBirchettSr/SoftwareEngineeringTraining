@@ -56,7 +56,7 @@ public class PantryDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.PANTRY_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	pantryRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(pantryRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,

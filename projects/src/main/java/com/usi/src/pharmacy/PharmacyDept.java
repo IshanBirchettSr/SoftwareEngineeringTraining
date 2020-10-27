@@ -63,7 +63,7 @@ public class PharmacyDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.PHARMACY_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	pharmacyRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(pharmacyRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,

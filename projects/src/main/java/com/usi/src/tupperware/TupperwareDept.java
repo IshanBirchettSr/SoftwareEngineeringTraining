@@ -55,7 +55,7 @@ public class TupperwareDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.TUPPERWARE_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	tupperwareRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(tupperwareRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
