@@ -50,7 +50,7 @@ public class PrescriptionEyewareDept extends Department {
     public PrescriptionEyewareDept() {
 	super.setDeptName(deptName);
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.PRESCRIPTION_EYEWARE_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	prescriptioneyewareRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(prescriptioneyewareRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,

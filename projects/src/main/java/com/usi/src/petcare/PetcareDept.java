@@ -55,7 +55,7 @@ public class PetcareDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.PETCARE_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	petcareRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(petcareRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
