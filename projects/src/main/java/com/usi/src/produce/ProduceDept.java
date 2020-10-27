@@ -62,7 +62,7 @@ public class ProduceDept extends Department {
 	super.setDeptName(deptName);
 	// Record Load
 	DataCsvLoad unLoadTrucks = new DataCsvLoad();
-	unLoadTrucks.loadData(StoreConstants.PRODUCE_TRUCK);
+	unLoadTrucks.loadDbRecords(deptName);
 	produceRecords = unLoadTrucks.getRecords();
 	this.setLoadedRecords(produceRecords);
 	// System.out.printf("%s Department open with %d records\n", deptName,
