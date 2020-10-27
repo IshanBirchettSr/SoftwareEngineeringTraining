@@ -43,6 +43,7 @@ public class MembershipSignUp {
     private String postalCode;
     private String phoneNumber;
     private boolean aarpMember;
+    private Date dateOfMembership;
 
     /**
      * @return the firstName
@@ -183,8 +184,6 @@ public class MembershipSignUp {
     public void setDateOfMembership(Date date) {
 	this.dateOfMembership = date;
     }
-
-    private Date dateOfMembership;
 
     /**
      
