@@ -7,22 +7,25 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import customerservice.Customer;
+import customerservice.MembershipSignUp;
+
 public class XmlToObject {
     public static void main(String[] args) {
 
 	try {
 
-	    File file = new File("question.xml");
-	    JAXBContext jaxbContext = JAXBContext.newInstance(Question.class);
+	    File file = new File("MemList.xml");
+	    JAXBContext jaxbContext = JAXBContext.newInstance(MemList.class);
 
 	    Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-	    Question que = (Question) jaxbUnmarshaller.unmarshal(file);
+	    MemList mem = (MemList) jaxbUnmarshaller.unmarshal(file);
 
-	    System.out.println(que.getId() + " " + que.getQuestionname());
-	    System.out.println("Answers:");
-	    List<Answer> list = que.getAnswers();
-	    for (Answer ans : list)
-		System.out.println(ans.getId() + " " + ans.getAnswername() + " " + ans.getPostedby());
+	    // System.out.println(cust.getmCard() + " " + cust.getmInitial());
+	    // System.out.println("Answers:");
+	    List<MembershipSignUp> list = (List<MembershipSignUp>) mem.getMembership();
+	    for (MembershipSignUp mem1 : list)
+		System.out.println(mem1.getFirstName() + " " + mem1.getLastName() + " " + mem1.getmInitial());
 
 	} catch (JAXBException e) {
 	    e.printStackTrace();

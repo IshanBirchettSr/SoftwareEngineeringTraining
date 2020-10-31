@@ -13,8 +13,8 @@ public class ObjectToXml {
 	Marshaller marshallerObj = contextObj.createMarshaller();
 	marshallerObj.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-	Answer ans1 = new Answer(101, "java is a programming language", "Ishan");
-	Answer ans2 = new Answer(102, "java is a platform", "Birchett ");
+	Answer ans1 = new Answer(101, "java is a programming language", "Charlene");
+	Answer ans2 = new Answer(102, "java is a platform", "Cornelius ");
 
 	ArrayList<Answer> list = new ArrayList<Answer>();
 	list.add(ans1);
