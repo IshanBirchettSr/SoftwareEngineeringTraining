@@ -1,0 +1,1 @@
+SELECT distinct m.last_name, f.last_name, f.relationship FROM membership as m cross join family_tree as f on trim(m.last_name) = trim(f.last_name); 
